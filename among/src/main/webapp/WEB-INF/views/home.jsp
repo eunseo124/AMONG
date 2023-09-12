@@ -57,16 +57,7 @@
     width: 100%;
     height: auto;
    }
-   /*푸터*/
-   .container #footer {
-        background-color: #eeee;
-        padding: 10px;
-        text-align: center;
-        bottom: 0%;
-        width: 100%;
-        height: 150px;
-        font-size: small;
-    }
+
     </style>
     <title>AMONG</title>
 </head>
@@ -144,8 +135,7 @@
                 </div>
             </section>
             <section id = "banner">
-                <img src="img/f.PNG" class = "img">
-
+                <img src="/resources/images/banner.jpg" class = "img">
             </section>
         </aside>
         <!-- 본문내용 -->
@@ -153,7 +143,8 @@
             
         </article>
     </main>
-    <nav id = "footer">
+    <footer id = "footer">
+    <nav>
         <p>AMONG</p>
         <p>tel : 1234-5678 / Email : among@naver.com</p>
         <p>Business License No : 123-123-123[사업자정보확인]</p>
@@ -161,6 +152,7 @@
         <br>
         <p>CEO : AMONG </p>
   </nav>
+  </footer>
     </div>
 </div>
 </body>
