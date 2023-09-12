@@ -50,13 +50,7 @@
         aside .joinAndFindPassword a {
             color: black;
         }
-        /*광고*/
-   #banner .img {
-    display: grid;
-    margin-top: 30px;
-    width: 100%;
-    height: auto;
-   }
+
 
     </style>
     <title>AMONG</title>
@@ -135,7 +129,7 @@
                 </div>
             </section>
             <section id = "banner">
-                <img src="/resources/images/banner.jpg" class = "img">
+                <img src="resources/images/banner.jpg" class = "img">
             </section>
         </aside>
         <!-- 본문내용 -->
