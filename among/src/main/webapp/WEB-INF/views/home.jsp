@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="<c:url value="${PageContext.request.contextPath}/resources/css/base.css"/>" rel="stylesheet" type = "text/css">
+    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/base.css"/>" rel="stylesheet">
     <style>
         aside {
             width: 340px;
