@@ -3,16 +3,16 @@
 <section id="sub">
                 <ul>
                     <li>
-                        <a href="/join">회원가입</a>
+                        <a href="<c:url value="/memjoin" />">회원가입</a>
                     </li>
                     <li class="slash">|</li>
                     <li>
-                        <a href="/login">로그인</a>
+                        <a href="<c:url value="/login" />">로그인</a>
                     </li>
                 </ul>
             </section>
             <section id="main">
-                <a href="/" class="logo">
+                <a href="<c:url value="/home" />" class="logo">
                     <h1>AMONG</h1>
                 </a>
 

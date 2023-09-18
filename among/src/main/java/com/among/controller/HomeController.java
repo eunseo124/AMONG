@@ -35,6 +35,20 @@ public class HomeController {
 		
 		return "home";
 	}
+		@RequestMapping(value = "/home", method = RequestMethod.GET)
+		public String home() {
+			
+			return "home";
+	
+	}
+	
+		@RequestMapping(value = "/login", method = RequestMethod.GET)
+		public String login() {
+			
+			return "login";
+	
+	}
+		
 		@RequestMapping(value = "/memjoin", method = RequestMethod.GET)
 		public String memjoin() {
 			

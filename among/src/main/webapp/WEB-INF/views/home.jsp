@@ -59,11 +59,11 @@
 <body>
     <div class="container">
         <header>
-            <%@include file = "header.jsp" %>
+            <%@include file = "base/header.jsp" %>
     </header>
     <main>
         <aside>
-            <%@include file = "aside.jsp" %>
+            <%@include file = "base/aside.jsp" %>
         </aside>
         <!-- 본문내용 -->
             <article id="index ">
@@ -332,7 +332,7 @@
             </article> 
     </main>
     <footer id = "footer">
-    	<%@include file="footer.jsp" %>
+    	<%@include file="base/footer.jsp" %>
   </footer>
     </div>
 </body>

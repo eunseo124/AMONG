@@ -69,12 +69,12 @@
     <div class="container">
 <!-- 헤더  -->     
 <header>
-            <%@include file="header.jsp"%>
+            <%@include file="base/header.jsp"%>
     </header>
     <main>
 <!-- 사이드 -->
         <aside>
-            <%@include file="aside.jsp"%>
+            <%@include file="base/aside.jsp"%>
         </aside>
         <!-- 본문내용 -->
         <article id = "postList">
@@ -211,7 +211,7 @@
     </main>
 <!-- 푸터 -->
     <footer id = "footer">
-    	<%@include file="footer.jsp"%>
+    	<%@include file="base/footer.jsp"%>
   </footer>
     </div>
 </body>
