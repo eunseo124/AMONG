@@ -34,14 +34,16 @@ body {
 }
 
 main {
-    position: relative;
+   
+   
     width: 1250px;
     display: flex;
     align-items: flex-start;
     gap: 20px;
     margin: 0 auto;
     margin-bottom: 100px;
-    
+    height:2000px;
+     margin-top: 20px;
 }
 
 button {
@@ -269,15 +271,84 @@ ul {
     display: grid;
     margin-top: 30px;
     width: 100%;
-    height:100%;
-    
+    height:695px;
+    border-radius:20px;
     }
+     #banner2 .img {
+    display: grid;
+    margin-top: 30px;
+    width: 100%;
+    height:695px;
+    border-radius:20px;
+    }
+    
+    main #Mbanner {
+    display:flex;
+    gap:10px;
+    width:100%;
+    height:200px;
+  
+   
+    }
+    main #Mbanner div {
+    	min-width:400px;
+    	width:400px;
+    	border:1px solid white;
+    	background-color: #fff;
+    	
+    }
+    main #Mbanner img {
+    min-width:400px;
+    width:400px;
+    height:200px;
+    border-radius:20px;
+    }
+     
+     main #Mbanner2  {
+    display:flex;
+    gap:10px;
+    width:100%;
+    height:50px;
+   
+    }
+     main #Mbanner2 div {
+    	min-width:810px;
+    	margin-bottom:10px;
+    }
+    main #Mbanner2 img {
+    min-width:810px;
+    width:810px;
+    height:90px;
+    border-radius:20px;
+    margin-top:15px;
+    margin-bottom:20px;
+    }
+     main #Mbanner3  {
+    display:flex;
+    gap:10px;
+    width:100%;
+    height:50px;
+   
+    }
+     main #Mbanner3 div {
+    	min-width:810px;
+    	
+    }
+    main #Mbanner3 img {
+    min-width:810px;
+    width:810px;
+    height:90px;
+    border-radius:20px;
+    margin-top:15px;
+    }
+    
 /*푸터*/
 footer {
 	width: 100%;
-	position: absolute;
+	position: relative;
 	bottom: 0%;
 	background-color: #eeee;
+	height:150px;
 }	
 
 footer nav {
@@ -297,4 +368,305 @@ footer nav p:first-child {
 	
 	font-weight: bold;
 	
+}
+/*로그인 후*/
+aside .loginAfter {
+width:100%;
+height:220px;
+border: 1px solid #fff;
+border-radius: 12px;
+background-color: #fff;
+padding: 20px;
+}
+
+aside .loginAfter button {
+    width: 147px;
+    margin-left: 0px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+aside #Alogout {
+    width:100%;
+}
+
+aside #Aid {
+   font-weight: bold;
+   font-size: 15px;
+   display: flex;
+}
+
+aside #Aid p {
+    padding:10px;
+}
+
+aside #grade {
+    font-weight: normal;
+    color: #393e4693;
+}
+
+aside #Aboard p {
+    font-weight: normal;
+    font-size: 15px;
+    margin-left: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*본문 박스 4개*/
+article {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+#widget {
+    width: 100%;
+    display: grid;
+    gap: 20px;
+}
+  .flex{
+          display: flex; /* 플렉스 레이아웃을 위한 디스플레이 속성 적용 */
+          flex-wrap: wrap; /* 행을 다 채우면 다음행으로 개행 */
+          width: 100%;
+          height: 400px;
+          gap: 10px
+      }
+.flex>div {
+    /* 자식 요소들의 속성 설정 */
+    min-width: 400px;
+    height: 280px;
+    display: flex;
+    /* 텍스트 가운데 정렬용*/
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.flex .merge {
+    min-width: 810px;
+    width:810px;
+    height: 720px;
+    display: block;
+    margin-top:70px;
+}
+
+
+/*회원가입*/
+.flex .Mmerge {
+    min-width: 810px;
+    
+    height: 1000px;
+    
+    margin: 0px;
+
+}
+
+.mjoin {
+    margin: 0px;
+    margin-top: -10px;
+    padding: 30px;
+    width: 700px;
+    border: 0px solid black;
+    height: 900px;
+    border-radius: 12px;
+}
+
+.mjoin h1 {
+    font-size: 30px;
+    margin-bottom: 50px;
+    margin-left: 60px;
+}
+
+.mjoin legend {
+    font-weight: 650;
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.mjoin input {
+    margin-bottom: 10px;
+    border: 1px solid black;
+    width: 550px;
+    margin-left: 30px;
+}
+
+.mjoin label {
+    align-items: first baseline;
+    font-weight: bold;
+}
+
+.mjoin .idbtn {
+    width: 97px;
+    font-size: 10px;
+    background-color: #393E46;
+    color: #fff;
+    border: 0;
+    margin-left: 3px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 4px #34383f;
+    position: relative;
+}
+
+.mjoin .idbtn:active {
+    top: 3px;
+    box-shadow: 0 0 #34383f;
+    background-color: #282b31;
+}
+
+.mjoin .Mid {
+    width: 450px;
+}
+
+.mjoin .cid {
+    margin-top: 40px;
+    width: 300px;
+    margin-left: 152px;
+    border: 0;
+    background-color: #393E46;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0px 4px #34383f;
+}
+
+.mjoin .cid:active {
+    top: 4px;
+    box-shadow: 0 0 #34383f;
+    background-color: #282b31;
+}
+
+/*메인 페이지 테이블 */
+.flex .Itable .Iboard {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+.flex .Itable .Iboard p {
+    font-size:13px;
+    line-height: 19px;
+    color: #34383f;
+   padding-right: 14px;
+}
+.flex .Itable {
+    min-width: 400px;
+    min-height: 200px;
+    display:block;
+    padding: 20px;  
+}
+.flex .Itable h2 {
+    font-size: 20px;
+}
+.flex .Itable table {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.flex .Itable td {
+    padding: 5px;
+    
+}
+.flex .Itable #Ttext {
+    margin: 0 auto;
+    width: 200px;
+    
+}
+    
+.flex .Itable #Tday {
+    max-width: max-content;
+    
+    font-size: 0.9em;
+    color: gray;
+    margin-left: 10px;
+    word-break: keep-all;
+}
+/*인기게시판 테이블*/
+.flex .merge .Hboard {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.flex .merge .Hboard p {
+    font-size: 17px;
+    line-height: 19px;
+    color: #34383f;
+    padding-right: 40px;
+}
+
+.flex .merge .Htable {
+    min-width: 800px;
+    min-height: 200px;
+    width: 800px;
+    padding: 30px;
+}
+
+.flex .merge .Htable .Htext {
+    min-width: 800px;
+    display: flex;
+    font-size: 20px;
+}
+
+
+.flex .merge .Htable #Btext {
+    line-height: 65px;
+    margin-left: 10px;
+
+}
+
+.flex .merge .Htable #Btext2 {
+    line-height: 65px;
+    margin-left: 30px;
+    white-space : nowrap; 
+    width : 492px; 
+    overflow : hidden; 
+    text-overflow : ellipsis; 
+}
+
+.flex .merge .Htable #Hday {
+    max-width: max-content;
+    word-break: keep-all;
+    line-height: 65px;
+    display: inline;
+    
+    font-size: 15px;
+    color: gray;
+}
+
+/*사진*/
+.flex .merge .Htable #Himg {
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+    bottom: -3px;
+    position: relative;
+    border-radius: 3px;
+}
+
+/*뱃지*/
+
+/*자유게시판용*/
+.flex .Itable #Mark {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    bottom: -3px;
+    position: relative;
+    border-radius: 3px;
+}
+
+/*인기게시판용*/
+.flex .merge .Htable #Himg {
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+    bottom: -3px;
+    position: relative;
+    border-radius: 3px;
 }

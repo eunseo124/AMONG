@@ -1,0 +1,227 @@
+@charset "UTF-8";
+게시판 css
+/*게시판페이지*/
+article {
+   	flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+#postList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*게시판 이름*/
+#title {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.06);
+    display: block;
+    height: 50px;
+}
+#title h1 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+/*게시판*/
+#generalList .items {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.06);
+}
+#generalList .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+}
+/*공지글*/
+#generalList .notice .subject {
+    color: black;
+    background-color: #cacfd8;
+    padding: 0 6px;
+    margin-right: 4px;
+    border-radius: 4px;
+    height: 20px;
+}
+#generalList .notice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+}
+#generalList .notice .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#generalList .notice .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+#generalList .notice .title .text {
+    font-weight: bold;
+    line-height: 1.2em;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: red;
+}
+#generalList .notice .etc {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 0.8em;
+    color: var(--second-color);
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+}
+/*게시글*/
+#generalList .item .image {
+    position: relative;
+    width: 70px;
+    height: 60px;
+}
+#generalList .item .image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid gray;
+}
+#generalList .item .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#generalList .item .title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+#generalList .item .title .text {
+    font-weight: bold;
+    line-height: 1.2em;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#generalList .item .etc {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    font-size: 0.8em;
+    color: var(--second-color);
+}
+#nickName {
+    position: relative;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+#nickName img {
+	width: 14px;
+    height: 14px;
+    position: relative;
+    border-radius: 3px;
+}
+#generalList .line {
+    width: 100%;
+    height: 1px;
+    margin: 0 15px;
+    border-bottom: 2px solid #ede9e9;
+}
+/*정렬*/
+#sort {
+    background-color: gainsboro;
+    height: 40px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.06);
+    display: block;
+}
+#sort .subject {
+    padding: 8px;
+    color: black;
+}
+
+/*바닥*/
+/*글작성, 글수정*/
+#postList .write {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+#postList .write a {
+	font-size: 0.9em;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #434B57;
+    padding: 0 15px;
+    border-radius: 8px;
+}
+/*검색창*/
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.search input {
+    height: 40px;
+    padding: 16px;
+    border-radius: 8px;
+    border: unset;
+    width: 225px;
+}
+.search button {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background-color: #CACFD8;
+    border-radius: 8px;
+    border: unset;
+}
+/*차례*/
+#table {
+	display: flex;
+	justify-content: center;
+}
+
+#table a {
+	display: inline-block;
+    margin-left: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+}

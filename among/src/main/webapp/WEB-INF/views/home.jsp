@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
-            margin-top: 20px;
+            
         }
 
         .userContainer {
@@ -59,96 +59,282 @@
 <body>
     <div class="container">
         <header>
-            <section id="sub">
-                <ul>
-                    <li>
-                        <a href="/join">회원가입</a>
-                    </li>
-                    <li class="slash">|</li>
-                    <li>
-                        <a href="/login">로그인</a>
-                    </li>
-                </ul>
-            </section>
-            <section id="main">
-                <a href="/" class="logo">
-                    <h1>AMONG</h1>
-                </a>
-
-            </section>
-            <section id="nav">
-                <nav>
-                    <ul>
-                        <li>
-                            <div class="menu">
-                                <a href="/posts/자유게시판">커뮤니티</a>
-                            </div>
-                            <ul>
-                                <li>
-                                    <a href="/posts/자유게시판">자유게시판</a>
-                                </li>
-                                <li>
-                                    <a href="/posts/뉴스">인기게시판</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="menu">
-                                <a href="/posts/갤러리">게임</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="menu">
-                                <a href="/posts/유튜브">맛집</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="menu">
-                                <a href="/posts/북마크">여행</a>
-                            </div>
-                        </li>
-                        <div class="navBackground"></div>
-                    </ul>
-                </nav>
-    
-    </section>
+            <%@include file = "header.jsp" %>
     </header>
     <main>
         <aside>
-            <section id="fixedBanner" class="left"></section>
-            <section id="fixedBanner" class="right"></section>
-            <section class="userContainer">
-                <div class="inputsAndButtons">
-                    <input type="text" name="email" placeholder="아이디 또는 이메일">
-                    <input type="password" name="password" placeholder="비밀번호">
-                    <button class="button">로그인</button>
-                </div>
-                <div class="joinAndFindPassword">
-                    <a href="#">비밀번호 찾기</a>
-                    <a href="#">회원가입</a>
-                </div>
-            </section>
-            <section id = "banner">
-                <img src="resources/images/banner.jpg" class = "img">
-            </section>
+            <%@include file = "aside.jsp" %>
         </aside>
         <!-- 본문내용 -->
-        <article id = "index ">
-            
-        </article>
+            <article id="index ">
+                <section id = "Mbanner">
+        		<img src = "resources/images/Mbanner1.png">
+        		<img src = "resources/images/Mbanner2.png">
+        	</section>
+                <section id="widget">
+                    <div class="container">
+                        <div class="flex">
+                            <div class="Itable">
+                                <div class="Iboard">
+                                    <h2>자유게시판</h2>
+                                    <p>더보기</p>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                            <div class="Itable">
+                                <div class="Iboard">
+                                    <h2>게임</h2>
+                                    <p>더보기</p>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                            <div class="Itable">
+                                <div class="Iboard">
+                                    <h2>맛집</h2>
+                                    <p>더보기</p>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                            <div class="Itable">
+                                <div class="Iboard">
+                                    <h2>여행</h2>
+                                    <p>더보기</p>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
+                                        <td id="Ttext">오늘 날씨가 좋네요</td>
+                                        <td id="Tday">2023.09.14</td>
+                                    </tr>
+                                    
+                                </table>
+                            </div>
+                            <!-- 광고 -->
+                            <section id="Mbanner2">
+		              			<div>
+		            				<img src="resources/images/banner.jpg">
+		            			</div>
+              				</section>
+              				
+                            <div class="merge">
+                                <div class="Hboard">
+                                    <h2>인기게시판</h2>
+                                    <p>더보기</p>
+                                </div>
+                                <div class="Htable">
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">올해의 인기상은 내것!</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">올해의 인기상은 내것!</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">올해의 인기상은 내것!</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">올해의 인기상은 내것!</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">올해의 인기상은 내것!</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">올해의 인기상은 내것!</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">올해의 인기상은 내것!</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                    <div class="Htext">
+                                        <img src="resources/images/banner.jpg" id="Himg">
+                                        <div id = "Btext">김철수</div>
+                                        <div id = "Btext2">올해의 인기상은 내것!</div>
+                                        <div id = "Hday">2023.09.14</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 광고 -->
+                            <section id="Mbanner3">
+		              			<div >
+		            				<img src="resources/images/banner.jpg">
+		            			</div>
+              				</section>
+                        </div>
+                    </div>
+                </section>
+              
+            </article> 
     </main>
     <footer id = "footer">
-    <nav>
-        <p>AMONG</p>
-        <p>tel : 1234-5678 / Email : among@naver.com</p>
-        <p>Business License No : 123-123-123[사업자정보확인]</p>
-        <p>전주시 완산구 팔달로 184 2층</p>
-        <br>
-        <p>CEO : AMONG </p>
-  </nav>
+    	<%@include file="footer.jsp" %>
   </footer>
     </div>
-</div>
 </body>
 
 </html>
