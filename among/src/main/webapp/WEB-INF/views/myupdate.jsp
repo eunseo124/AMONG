@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/login.css"/>" rel="stylesheet">
+    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/base.css"/>" rel="stylesheet">
 <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
@@ -68,31 +68,17 @@
     <div class="container">
 <!-- 헤더  -->     
 <header>
-            	<a href="<c:url value="/home" />" class="logo">
-                    <h1>AMONG</h1>
-                </a>
+            <%@include file="base/header.jsp"%>
     </header>
     <main>
+<!-- 사이드 -->
+        <aside>
+            <%@include file="base/aside.jsp"%>
+        </aside>
         <!-- 본문내용 -->
-            <article>
-            	<section>
-            		<div class = "login1">
-            			<h1>로그인</h1>
-            				<label>아이디</label>
-            				<input type = "text" name = "id" value = "" placeholder = "아이디를 입력해주세요">
-            				<label>비밀번호</label>
-            				<input type = "password" name = "pwd" value = "" placeholder = "비밀번호를 입력해주세요">
-            				<br>
-            				<button>로그인</button>
-            				<div class = "login2">
-            				<p><a href="<c:url value="/id" />">아이디 찾기</a></p>
-            				<p>|</p>
-            				<p><a href="<c:url value="/pass" />">비밀번호 찾기</a></p>
-            				<p>|</p>
-            				<p><a href="<c:url value="/memjoin" />">회원가입</a></p>
-            				</div>
-            		</div>
-            	</section>
+            <article id="index ">
+                
+              
             </article> 
     </main>
 <!-- 푸터 -->

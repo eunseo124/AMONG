@@ -149,7 +149,7 @@
         					</div>
         				</a>
         				<div class="line"></div>
-        				<a href="#" class="item">
+        				<a href ="<c:url value="/boardlist"/>" class="item">
         					<div class="image">
         						<img src="resources/images/banner.jpg">
         					</div>	
@@ -189,7 +189,7 @@
         		</section>
         		
         		<section class="write">
-        			<a href="#">글작성</a>
+        			<a href="<c:url value="/boardwrite" />">글작성</a>
         		</section>
         	
         		<section class="search">

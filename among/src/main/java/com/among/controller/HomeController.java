@@ -87,4 +87,53 @@ public class HomeController {
 
 	}
 	
+		@RequestMapping(value = "/boardwrite", method = RequestMethod.GET)
+		public String boardwrite() {
+			
+			return "boardwrite";
+
+	}
+		@RequestMapping(value = "/id", method = RequestMethod.GET)
+		public String id() {
+			
+			return "id";
+
+	}
+		@RequestMapping(value = "/pass", method = RequestMethod.GET)
+		public String pass() {
+			
+			return "pass";
+
+	}
+		@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+		public String mypage() {
+			
+			return "mypage";
+
+	}
+		@RequestMapping(value = "/myupdate", method = RequestMethod.GET)
+		public String myupdate() {
+			
+			return "myupdate";
+
+	}
+		@RequestMapping(value = "/mypost", method = RequestMethod.GET)
+		public String mypost() {
+			
+			return "mypost";
+
+	}
+		@RequestMapping(value = "/mypost2", method = RequestMethod.GET)
+		public String mypost2() {
+			
+			return "mypost2";
+
+	}
+		@RequestMapping(value = "/boardlist", method = RequestMethod.GET)
+		public String boardlist() {
+			
+			return "boardlist";
+
+	}
+		
 }

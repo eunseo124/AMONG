@@ -79,7 +79,7 @@
         <!-- 본문내용 -->
         <article id = "postList">
         	<div id = "postList">
-        		<section id = "title"><h1>자유게시판</h1></section>
+        		<section id = "title"><h1>여행</h1></section>
         		<section id = "sort">
         			<a class="subject">정렬 |</a>
         			<a href="#" class="subject">최신순</a>

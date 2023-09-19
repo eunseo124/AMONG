@@ -77,7 +77,7 @@
                             <div class="Itable">
                                 <div class="Iboard">
                                     <h2>자유게시판</h2>
-                                    <p>더보기</p>
+                                    <p><a href = "<c:url value="/freeboard"/>">더보기</a></p>
                                 </div>
                                 <table>
                                     <tr>
@@ -121,7 +121,7 @@
                             <div class="Itable">
                                 <div class="Iboard">
                                     <h2>게임</h2>
-                                    <p>더보기</p>
+                                    <p><a href = "<c:url value="/gameboard"/>">더보기</a></p>
                                 </div>
                                 <table>
                                     <tr>
@@ -165,7 +165,7 @@
                             <div class="Itable">
                                 <div class="Iboard">
                                     <h2>맛집</h2>
-                                    <p>더보기</p>
+                                    <p><a href = "<c:url value="/foodboard"/>">더보기</a></p>
                                 </div>
                                 <table>
                                     <tr>
@@ -209,7 +209,7 @@
                             <div class="Itable">
                                 <div class="Iboard">
                                     <h2>여행</h2>
-                                    <p>더보기</p>
+                                    <p><a href = "<c:url value="/travleboard"/>">더보기</a></p>
                                 </div>
                                 <table>
                                     <tr>
@@ -260,7 +260,7 @@
                             <div class="merge">
                                 <div class="Hboard">
                                     <h2>인기게시판</h2>
-                                    <p>더보기</p>
+                                    <p><a href = "<c:url value="/hotboard"/>">더보기</a></p>
                                 </div>
                                 <div class="Htable">
                                     <div class="Htext">

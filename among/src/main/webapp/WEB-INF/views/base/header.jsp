@@ -9,10 +9,14 @@
                     <li>
                         <a href="<c:url value="/login" />">로그인</a>
                     </li>
+                    <li class="slash">|</li>
+                    <li>
+                        <a href="<c:url value="/mypage" />">마이페이지(임시)</a>
+                    </li>
                 </ul>
             </section>
             <section id="main">
-                <a href="<c:url value="/home" />" class="logo">
+                <a href="<c:url value="/home" />" class="logo" style="text-decoration: none;">
                     <h1>AMONG</h1>
                 </a>
 
@@ -26,10 +30,10 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="<c:url value="/freeboard" />">자유게시판</a>
+                                    <a href="<c:url value="/freeboard" />"style="text-decoration: none; color:black;">자유게시판</a>
                                 </li>
                                 <li>
-                                    <a href="<c:url value="/hotboard" />">인기게시판</a>
+                                    <a href="<c:url value="/hotboard" />"style="text-decoration: none; color:black;">인기게시판</a>
                                 </li>
                             </ul>
                         </li>

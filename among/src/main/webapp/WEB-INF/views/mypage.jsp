@@ -4,11 +4,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="kor">
 <head>
     <meta charset="UTF-8">
-    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/login.css"/>" rel="stylesheet">
+    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/base.css"/>" rel="stylesheet">
 <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
@@ -53,7 +52,7 @@
             color: black;
         }
 
-	.material-symbols-outlined {
+		.material-symbols-outlined {
             font-variation-settings:
                 'FILL' 0,
                 'wght' 400,
@@ -68,31 +67,28 @@
     <div class="container">
 <!-- 헤더  -->     
 <header>
-            	<a href="<c:url value="/home" />" class="logo">
+          <section id="main">
+                <a href="<c:url value="/home" />" class="logo" style="text-decoration: none;">
                     <h1>AMONG</h1>
                 </a>
+            </section>
+            <section>
+            	<div>
+            		<div style = "width:300px; border:1px solid black; border-radius: 50%; background-color:black; height:300px;"></div>
+            		<p></p>
+            	</div>
+            </section>
     </header>
     <main>
         <!-- 본문내용 -->
-            <article>
-            	<section>
-            		<div class = "login1">
-            			<h1>로그인</h1>
-            				<label>아이디</label>
-            				<input type = "text" name = "id" value = "" placeholder = "아이디를 입력해주세요">
-            				<label>비밀번호</label>
-            				<input type = "password" name = "pwd" value = "" placeholder = "비밀번호를 입력해주세요">
-            				<br>
-            				<button>로그인</button>
-            				<div class = "login2">
-            				<p><a href="<c:url value="/id" />">아이디 찾기</a></p>
-            				<p>|</p>
-            				<p><a href="<c:url value="/pass" />">비밀번호 찾기</a></p>
-            				<p>|</p>
-            				<p><a href="<c:url value="/memjoin" />">회원가입</a></p>
-            				</div>
-            		</div>
-            	</section>
+            <article id="index ">
+                
+              <section>
+            	<div>
+            		<div style = "width:300px; border:1px solid black; border-radius: 50%; background-color:black; height:300px;"></div>
+            		<p></p>
+            	</div>
+            </section>
             </article> 
     </main>
 <!-- 푸터 -->

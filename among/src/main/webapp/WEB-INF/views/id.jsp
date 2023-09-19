@@ -76,21 +76,20 @@
         <!-- 본문내용 -->
             <article>
             	<section>
-            		<div class = "login1">
-            			<h1>로그인</h1>
-            				<label>아이디</label>
-            				<input type = "text" name = "id" value = "" placeholder = "아이디를 입력해주세요">
-            				<label>비밀번호</label>
-            				<input type = "password" name = "pwd" value = "" placeholder = "비밀번호를 입력해주세요">
+            		<div class = "login4">
+            			<h1>아이디 찾기</h1>
+            				<label>이름</label>
+            				<input type = "text" name = "name" value = "" placeholder = "이름을 입력해주세요">
+            				<legend>이메일</legend>
+            				<label>
+            				<input type="text" value="" name="email1" style="width: 202px;"> @ <input
+                                            type="text" name="email2" value="" style="width: 202px; margin-left: 1px;">
+                            <input type="button" value="인증번호 받기" class="idbtn">
+                            <input type = "text" value = "" name="idnumber" placeholder = "인증번호를 입력해주세요"> 
+                            </label>
             				<br>
-            				<button>로그인</button>
-            				<div class = "login2">
-            				<p><a href="<c:url value="/id" />">아이디 찾기</a></p>
-            				<p>|</p>
-            				<p><a href="<c:url value="/pass" />">비밀번호 찾기</a></p>
-            				<p>|</p>
-            				<p><a href="<c:url value="/memjoin" />">회원가입</a></p>
-            				</div>
+            				<button>완료</button>
+            				
             		</div>
             	</section>
             </article> 
