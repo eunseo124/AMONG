@@ -69,17 +69,17 @@
     <div class="container">
 <!-- 헤더  -->     
 <header>
-            <%@include file="base/header.jsp"%>
+            <%@include file="../base/header.jsp"%>
     </header>
     <main>
 <!-- 사이드 -->
         <aside>
-            <%@include file="base/aside.jsp"%>
+            <%@include file="../base/aside.jsp"%>
         </aside>
         <!-- 본문내용 -->
         <article id = "postList">
         	<div id = "postList">
-        		<section id = "title"><h1>인기게시판</h1></section>
+        		<section id = "title"><h1>게임</h1></section>
         		<section id = "sort">
         			<a class="subject">정렬 |</a>
         			<a href="#" class="subject">최신순</a>
@@ -211,7 +211,7 @@
     </main>
 <!-- 푸터 -->
     <footer id = "footer">
-    	<%@include file="base/footer.jsp"%>
+    	<%@include file="../base/footer.jsp"%>
   </footer>
     </div>
 </body>

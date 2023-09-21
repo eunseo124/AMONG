@@ -1,6 +1,5 @@
-@charset "UTF-8";
 /* reset */
-html, body, div, span, applet, object, iframe,
+ body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -101,9 +100,16 @@ button {
 
 html.active,
 body.active {
-    /*height: 100%;*/
+    height: 100%;
     /*overflow-y: hidden;*/
 }
+
+
+warp {
+	width: 1200px;
+	  height : 2000px;
+}
+
 
 body {
     width: 100%;
@@ -113,12 +119,14 @@ body {
     line-height: normal;
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #EBEDF3;
+    height:2000px;
 }
 
 main {
     position: relative;
     width: 1250px;
     display: flex;
+     height:100%;
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
@@ -1032,8 +1040,7 @@ main .search input {
 }
 
 #comments .item {
-    display: flex;
-    flex-direction: column;
+   
     gap: 10px;
     padding: 10px 0;
     border-bottom: 1px solid #eee;
@@ -1077,8 +1084,8 @@ main .search input {
 
 
 @charset "UTF-8";
-ê²Œì‹œíŒ css
-/*ê²Œì‹œíŒí˜ì´ì§€*/
+°Ô½ÃÆÇ css
+/*°Ô½ÃÆÇÆäÀÌÁö*/
 article {
    	flex: 1;
     width: 100%;
@@ -1098,7 +1105,7 @@ article {
 
 
 
-/*ê²Œì‹œíŒ ì´ë¦„*/
+/*°Ô½ÃÆÇ ÀÌ¸§*/
 #title {
     background-color: #fff;
     padding: 10px 20px;
@@ -1112,7 +1119,7 @@ article {
     margin-top: 3px;
 }
 
-/*ê²Œì‹œíŒ*/
+/*°Ô½ÃÆÇ*/
 #generalList .items {
     display: flex;
     flex-direction: column;
@@ -1122,12 +1129,12 @@ article {
 }
 #generalList .item {
     display: flex;
-    justify-content: space-between;
-    align-items: left;
+    
+    align-items: center;
     gap: 20px;
     padding: 15px;
 }
-/*ê³µì§€ê¸€*/
+/*°øÁö±Û*/
 #generalList .notice .subject {
     color: black;
     background-color: #cacfd8;
@@ -1177,7 +1184,7 @@ article {
     flex-direction: row;
     align-content: center;
 }
-/*ê²Œì‹œê¸€*/
+/*°Ô½Ã±Û*/
 #generalList .item .image {
     position: relative;
     width: 70px;
@@ -1241,7 +1248,7 @@ article {
     margin: 0 15px;
     border-bottom: 2px solid #ede9e9;
 }
-/*ì •ë ¬*/
+/*Á¤·Ä*/
 #sort {
     background-color: gainsboro;
     height: 40px;
@@ -1254,8 +1261,8 @@ article {
     color: black;
 }
 
-/*ë°”ë‹¥*/
-/*ê¸€ì‘ì„±, ê¸€ìˆ˜ì •*/
+/*¹Ù´Ú*/
+/*±ÛÀÛ¼º, ±Û¼öÁ¤*/
 #postList .write {
     display: flex;
     justify-content: flex-end;
@@ -1263,17 +1270,18 @@ article {
     gap: 5px;
 }
 #postList .write a {
-	font-size: 0.9em;
+	font-size: 0.9em; 
     height: 40px;
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items: center;
     color: #fff;
     background-color: #434B57;
     padding: 0 15px;
     border-radius: 8px;
 }
-/*ê²€ìƒ‰ì°½*/
+}
+/*°Ë»öÃ¢*/
 .search {
     display: flex;
     justify-content: center;
@@ -1295,7 +1303,7 @@ article {
     border-radius: 8px;
     border: unset;
 }
-/*ì°¨ë¡€*/
+/*Â÷·Ê*/
 #table {
 	display: flex;
 	justify-content: center;

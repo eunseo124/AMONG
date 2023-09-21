@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <section id="sub">
                 <ul>
                     <li>
@@ -13,11 +14,15 @@
                     <li>
                         <a href="<c:url value="/mypage" />">마이페이지(임시)</a>
                     </li>
+                    <li class="slash">|</li>
+                    <li>
+                        <a href="<c:url value="/admin_member" />">관리자페이지(임시)</a>
+                    </li>
                 </ul>
             </section>
             <section id="main">
                 <a href="<c:url value="/home" />" class="logo" style="text-decoration: none;">
-                    <h1>AMONG</h1>
+                    <h1>AM<img src="resources/images/profile.png" id="timg" style="width: 80px;height: 70px; position: relative;top: 6px;">NG</h1>
                 </a>
 
             </section>

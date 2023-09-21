@@ -4,10 +4,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/base.css"/>" rel="stylesheet">
+    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/login.css"/>" rel="stylesheet">
 <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
@@ -52,7 +53,7 @@
             color: black;
         }
 
-		.material-symbols-outlined {
+	.material-symbols-outlined {
             font-variation-settings:
                 'FILL' 0,
                 'wght' 400,
@@ -67,33 +68,37 @@
     <div class="container">
 <!-- 헤더  -->     
 <header>
-          <section id="main">
-                <a href="<c:url value="/home" />" class="logo" style="text-decoration: none;">
-                    <h1>AMONG</h1>
+            	<a href="<c:url value="/home" />" class="logo">
+                    <h1>AM<img src="resources/images/profile.png" id="timg" style="width: 80px;height: 70px; position: relative;top: 6px;">NG</h1>
                 </a>
-            </section>
-            <section>
-            	<div>
-            		<div style = "width:300px; border:1px solid black; border-radius: 50%; background-color:black; height:300px;"></div>
-            		<p></p>
-            	</div>
-            </section>
     </header>
     <main>
         <!-- 본문내용 -->
-            <article id="index ">
-                
-              <section>
-            	<div>
-            		<div style = "width:300px; border:1px solid black; border-radius: 50%; background-color:black; height:300px;"></div>
-            		<p></p>
-            	</div>
-            </section>
+            <article>
+            	<section>
+            		<div class = "login5">
+            			<h1>비밀번호 찾기</h1>
+            				<label>아이디</label>
+            				<input type = "text" name = "id" value = "" placeholder = "아이디를 입력해주세요">
+            				<label>이름</label>
+            				<input type = "text" name = "name" value = "" placeholder = "이름을 입력해주세요">
+            				<legend>이메일</legend>
+            				<label>
+            				<input type="text" value="" name="email1" style="width: 202px;"> @ <input
+                                            type="text" name="email2" value="" style="width: 202px; margin-left: 1px;">
+                            <input type="button" value="인증번호 받기" class="idbtn">
+                            <input type = "text" value = "" name="idnumber" placeholder = "인증번호를 입력해주세요"> 
+                            </label>
+            				<br>
+            				<button>완료</button>
+            				
+            		</div>
+            	</section>
             </article> 
     </main>
 <!-- 푸터 -->
     <footer id = "footer">
-    	<%@include file="base/footer.jsp"%>
+    	<%@include file="../base/footer.jsp"%>
   </footer>
     </div>
 </body>

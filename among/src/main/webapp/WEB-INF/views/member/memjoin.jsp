@@ -68,7 +68,7 @@
     <div class="container">
         <header>
             <a href="<c:url value="/home" />" class="logo">
-                    <h1>AMONG</h1>
+                    <h1>AM<img src="resources/images/profile.png" id="timg" style="width: 80px;height: 70px; position: relative;top: 6px;">NG</h1>
                 </a>
     </header>
     <main class= "memjoin">
@@ -120,7 +120,7 @@
             </article>
     </main>
     <footer id = "footer">
-    	<%@include file="base/footer.jsp" %>
+    	<%@include file="../base/footer.jsp" %>
   </footer>
     </div>
 </body>

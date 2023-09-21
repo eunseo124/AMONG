@@ -648,7 +648,15 @@ article {
     position: relative;
     border-radius: 3px;
 }
-
+/*인기게시판용*/
+.flex .merge .Htable #Himg {
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+    bottom: -3px;
+    position: relative;
+    border-radius: 3px;
+}
 /*뱃지*/
 
 /*자유게시판용*/
@@ -661,12 +669,3 @@ article {
     border-radius: 3px;
 }
 
-/*인기게시판용*/
-.flex .merge .Htable #Himg {
-    width: 60px;
-    height: 60px;
-    margin-right: 5px;
-    bottom: -3px;
-    position: relative;
-    border-radius: 3px;
-}

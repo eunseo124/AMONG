@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <section id="fixedBanner" class="left"></section>
             <section id="fixedBanner" class="right"></section>
             <section class="userContainer">
