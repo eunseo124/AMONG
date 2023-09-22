@@ -173,7 +173,6 @@
                 <a href="#">1</a>
                 <a href="#">2</a>
                 <a href="#">3</a>
-                <a href="#">4</a>
              </div>
                 
                 <div x-show="reply" style="display: none;">
