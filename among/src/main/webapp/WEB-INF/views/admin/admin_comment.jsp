@@ -175,24 +175,23 @@
 						<li><a href="<c:url value="/admin_comment" />">댓글</a></li>
 					</ul>
 				</li>
-			</ul> 			
-        </aside>       
+			</ul>			
+        </aside>
         <!-- 본문내용 -->
         <article id = "postList">
         	<section id = "postList">
-        		<div id = "title"><h1>게시판관리</h1></div>
+        		<div id = "title"><h1>댓글관리</h1></div>
         		 <div id ="info">
         		   <section>
         		    <div>
-        		     <h1>맛집게시판</h1>
+        		     <h1>댓글 리스트</h1>
         		     <table>
         		      <thead>
         		       <tr>
         		        <th>No.</th>   
         		        <th>ID</th>
-        		        <th>Subject</th>
+        		        <th>Content</th>
         		        <th>Date</th>
-        		        <th>Hits</th>
         		        <th>Delete</th>  		          		                		        
         		       </tr>
         		      </thead>
@@ -200,81 +199,71 @@
         		       <tr>
         		        <td>01</td>
         		        <td>monkey</td>
-        		        <td><a href="#">어제 미우새 봤음?</a></td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>12</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>02</td>
         		        <td>monkey2</td>
-        		        <td>어제 미우새 안봤음?</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>12</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>03</td>
         		        <td>monkey1</td>
-        		        <td>어제 미우새 안봤다니까?</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>12</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>04</td>
         		        <td>monkey2</td>
-        		        <td>무한도전 보고싶다</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>13</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>05</td>
         		        <td>monkey3</td>
-        		        <td>그님티?</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>13</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>06</td>
         		        <td>monkey3</td>
-        		        <td>그님티?</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>13</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>07</td>
         		        <td>monkey3</td>
-        		        <td>그님티?</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>13</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>08</td>
         		        <td>monkey3</td>
-        		        <td>그님티?</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>13</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>09</td>
         		        <td>monkey3</td>
-        		        <td>그님티?</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>13</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
         		       <tr>
         		        <td>10</td>
         		        <td>monkey3</td>
-        		        <td>그님티?</td>
+        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
         		        <td>2023-09-19</td>
-        		        <td>13</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>        		               		               		               		               		               		               		               		               		       
         		      </tbody>  

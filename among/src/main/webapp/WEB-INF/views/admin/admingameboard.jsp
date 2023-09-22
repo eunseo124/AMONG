@@ -164,6 +164,18 @@
 					</ul>
 				</li>			
 			</ul>
+			<ul>
+				<li id="adminComment">
+					<a href ="#adminComment">
+					<span>댓글관리</span>
+					<i class="fa fa-angle-right"></i>
+					</a>
+					
+					<ul>
+						<li><a href="<c:url value="/admin_comment" />">댓글</a></li>
+					</ul>
+				</li>
+			</ul> 			
         </aside>
         <!-- 본문내용 -->
         <article id = "postList">
