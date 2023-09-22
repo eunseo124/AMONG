@@ -5,10 +5,10 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
-
+zzz
 <head>
     <meta charset="UTF-8">
-    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/base.css"/>" rel="stylesheet">
+    <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/base.css"/>" rel="stylesheet">s
     <style>
         aside {
             width: 340px;
