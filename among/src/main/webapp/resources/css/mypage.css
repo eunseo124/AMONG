@@ -411,6 +411,14 @@ article {
     overflow : hidden; 
     text-overflow : ellipsis; 
 }
+.flex .merge .Htable #Btext3 {
+    line-height: 65px;
+    margin-left: 30px;
+    white-space : nowrap; 
+    width : 650px;
+    overflow : hidden; 
+    text-overflow : ellipsis; 
+}
 
 .flex .merge .Htable #Hday {
     max-width: max-content;

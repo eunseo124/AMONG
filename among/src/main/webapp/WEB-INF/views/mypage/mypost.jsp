@@ -7,8 +7,9 @@
 <html lang="kor">
 <head>
     <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/mypage.css"/>" rel="stylesheet">
-<link rel="stylesheet"
+	<link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         aside {
@@ -61,6 +62,13 @@
         }
     </style>
     <title>AMONG</title>
+    <script>
+    function onclick(event) {
+
+    	event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+
+    	}
+    </script>
 </head>
 
 <body>
@@ -96,7 +104,7 @@
             				<div class = "pmypage2" style="width:1000px;">
                                     <div class="merge">
 	                                <div class = "pheader2" role="tablist">
-					            		<div role="presentation"><h4><a href="<c:url value="/mypost"/>" id="loinid" class="menu_id on" role="tab" aria-selected="true">자유 게시판</a></h4></div>
+					            		<div role="presentation"><h4><a href="<c:url value="/mypost"/>"  onclick="onclick(event)"  id="loinid" class="menu_id on" role="tab" aria-selected="true">자유 게시판</a></h4></div>
 					            		<div role="presentation"><h4><a href="<c:url value="/mypost2"/>" class="menu_ones" role="tab" aria-selected="false">인기 게시판</a></h4></div>
 					            		<div role="presentation"><h4><a href="<c:url value="/mypost3"/>" class="menu_id2" role="tab" aria-selected="false"> 게임 </a></h4></div>
 					            		<div role="presentation"><h4><a href="<c:url value="/mypost4"/>" class="menu_id3" role="tab" aria-selected="false"> 맛집 </a></h4></div>

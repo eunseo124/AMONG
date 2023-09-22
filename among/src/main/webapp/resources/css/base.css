@@ -134,7 +134,12 @@ ul {
         color: #00ADB5;
         background-color: #ffffff;
     }
-
+	#timg {
+	width: 80px; 
+	height: 70px; 
+	position: relative;
+	top:6px;
+	}
 }
 
 

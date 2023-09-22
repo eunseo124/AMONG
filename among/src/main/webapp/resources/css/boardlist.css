@@ -1,7 +1,7 @@
 /* reset */
  body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
+ h2, h3, h4, h5, h6, p, blockquote, pre,
+ abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -118,8 +118,8 @@ body {
     gap: 20px;
     line-height: normal;
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: #EBEDF3;
-    height:2000px;
+    background-color: #eee;
+    height:100%;
 }
 
 main {
@@ -1020,7 +1020,7 @@ main .search input {
     color: rgba(255, 255, 255, 0.7);
 }
 
-#comments .new button {
+#comments .new 	input{
     width: max-content;
     color: #fff;
     background-color: #cacfd8;

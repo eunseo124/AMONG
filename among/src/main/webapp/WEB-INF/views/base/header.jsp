@@ -22,7 +22,7 @@
             </section>
             <section id="main">
                 <a href="<c:url value="/home" />" class="logo" style="text-decoration: none;">
-                    <h1>AM<img src="resources/images/profile.png" id="timg" style="width: 80px;height: 70px; position: relative;top: 6px;">NG</h1>
+                    <h1>AM<img src="resources/images/profile.png" id="timg">NG</h1>
                 </a>
 
             </section>

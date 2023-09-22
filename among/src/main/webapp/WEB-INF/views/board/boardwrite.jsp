@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <<!-- include libraries(jQuery, bootstrap) -->
+    <!-- include libraries(jQuery, bootstrap) -->
     <link  href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.js"></script>
@@ -97,6 +97,12 @@
 		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceSotong-Rg.woff2') format('woff2');
 		    font-weight: normal;
 		    font-style: normal;
+		}
+		#timg {
+		width: 80px; 
+		height: 70px; 
+		position: relative;
+		top:-6px;
 		}
     </style>
     <title>AMONG</title>

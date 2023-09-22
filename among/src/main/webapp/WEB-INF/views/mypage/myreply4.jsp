@@ -105,31 +105,31 @@
                                 	<div class="Htable" aria-controls="loinid">
 	                                    <div class="Htext">
 	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
+	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
 	                                        <div id = "Hday">2023.09.14</div>
 	                                        <div><input type="submit" value="삭제"></div>
 	                                    </div>
 	                                    <div class="Htext">
 	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
+	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
+	                                        <div id = "Hday">2023.09.14</div>
+	                                        <div><input type="submit" value="삭제"></div>
+	                                    </div>
+										<div class="Htext">
+	                                        <div id = "Btext">김철수</div>
+	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
 	                                        <div id = "Hday">2023.09.14</div>
 	                                        <div><input type="submit" value="삭제"></div>
 	                                    </div>
 	                                    <div class="Htext">
 	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
+	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
 	                                        <div id = "Hday">2023.09.14</div>
 	                                        <div><input type="submit" value="삭제"></div>
 	                                    </div>
 	                                    <div class="Htext">
 	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
-	                                    <div class="Htext">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
+	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
 	                                        <div id = "Hday">2023.09.14</div>
 	                                        <div><input type="submit" value="삭제"></div>
 	                                    </div>

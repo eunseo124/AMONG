@@ -126,8 +126,16 @@
                                     <div class = "pro1">
                                     <p>이메일</p>
                                     	<div class = "pro2">
-                                        <input type="text" value="" name="email1" style="width: 212px;"> @ <input
-                                            type="text" name="email2" value="" style="width: 212px; margin-left: 1px;">
+                                        <input type="text" value="" name="email1" style="width: 142px;"> @ 
+                                            <input id = "email2" type="text" value="" name="email2" style="width: 142px;">
+                                            <select id = "email3" name = "email2" style="width: 140px;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
+											  <option value="naver.com">naver.com</option>
+											  <option value="google.com">google.com</option>
+											  <option value="hanmail.net">hanmail.net</option>
+											  <option value="nate.com">nate.com</option>
+											  <option value="kakao.com">kakao.com</option>
+											  <option value="">직접입력</option>
+										 	</select>
                                             <input type="button" value="이메일 인증" class="pro3">
                                     	</div>
                                     </div>
@@ -151,7 +159,7 @@
                                     	</div>
                                     </div>
                                     <div class="pro2">
-                                    <input type="submit" value="회원가입" class="pro3" style = "margin-left:348px;margin-top:24px;">
+                                    <input type="submit" value="수정완료" class="pro3" style = "margin-left:348px;margin-top:24px;">
                                     </div>
                                   </div>
             		</div>
@@ -164,5 +172,12 @@
   </footer>
     </div>
 </body>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
 
+  	
+		$( "#email3" ).change(function(){
+		    $("#email2").val( $("#email3").val() );
+		});
+</script>
 </html>

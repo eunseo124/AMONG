@@ -94,12 +94,22 @@
                                     <legend>닉네임</legend>
                                     <label>
                                         <input type="text" value="" name="id" placeholder="닉네임을 입력하시오" class="Mid">
+                                        
                                         <input type="button" value="닉네임 중복검사" class="idbtn"><a href="<c:url value="/checknik" />"></a></input>
                                     </label>
                                     <legend>이메일</legend>
                                     <label style="display: flex;align-items: center;">
-                                        <input type="text" value="" name="email1" style="width: 280px;"> @ <input
-                                            type="text" name="email2" value="" style="width: 280px; margin-left: 1px;">
+                                        <input type="text" value="" name="email1" style="width: 100%;"> @ 
+                                            <input id = "email2" type="text" value="" name="email2" style="width: 100%;">
+                                            <select id = "email3" name = "email2" style="width: 100%;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
+											  <option value="naver.com">naver.com</option>
+											  <option value="google.com">google.com</option>
+											  <option value="hanmail.net">hanmail.net</option>
+											  <option value="nate.com">nate.com</option>
+											  <option value="kakao.com">kakao.com</option>
+											  <option value="">직접입력</option>
+										 	</select>
+                            			<input type="button" value="인증번호 받기" class="idbtn">	
                                     </label>
                                     <legend>이름</legend>
                                     <label>
@@ -124,5 +134,13 @@
   </footer>
     </div>
 </body>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+  	
+		$( "#email3" ).change(function(){
+		    $("#email2").val( $("#email3").val() );
+		});
+</script>
 
 </html>

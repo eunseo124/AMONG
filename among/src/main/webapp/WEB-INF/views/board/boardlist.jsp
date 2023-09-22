@@ -85,7 +85,7 @@
 
 <article id="post">
 <section class="backToList"> <br><br>
-   <a href="#">  &lt; 목록으로 </a>
+   <a href="javascript:window.history.back();"> 목록으로 </a>
 </section>
 
 <section class="article">
