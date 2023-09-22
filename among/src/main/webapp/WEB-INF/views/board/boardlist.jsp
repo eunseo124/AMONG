@@ -85,7 +85,7 @@
 
 <article id="post">
 <section class="backToList"> <br><br>
-   <a href="javascript:window.history.back();"> 목록으로 </a>
+   <a href="#">  &lt; 목록으로 </a>
 </section>
 
 <section class="article">
@@ -129,13 +129,15 @@
     </div>
 </div>
 
-
+<form>
 <div id="comments">
     <h2>댓글 </h2>
     <div class="new">
         <textarea name="content" form="comment">내용입니다</textarea>
-        <button form="comment">작성</button>
+        <input type="submit" name="save" id="save"    value="작성">
     </div>
+  </form>  
+    
     <div class="items">
     <div class="item" x-data="{reply: false, edit: false}">
     <div class="content" x-show="!edit">안녕하세요.</div>
