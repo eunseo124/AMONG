@@ -12,7 +12,7 @@ public class Member {
 	private String memJoinDate;	//가입날짜
 	private String delYn;	//정보 삭제 여부
 	private int memGrade;	//회원 등급 (일반/관리자)
-	private String nName; 	//닉네임
+	private String nName; 	//닉네임d
 	
 	/* 기본 생성자 */
 	public Member() {
