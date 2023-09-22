@@ -315,7 +315,7 @@
                                         <img src="resources/images/banner.jpg" id="Himg">
                                         <div id = "Btext">김철수</div>
                                         <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
+                                        <div id = "Hday">2023.09.1422</div>
                                     </div>
                                 </div>
                             </div>
