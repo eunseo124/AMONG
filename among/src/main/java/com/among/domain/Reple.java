@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
+import java.util.Date;
 
 /**
  * Servlet implementation class reple
@@ -15,7 +16,7 @@ public class Reple extends HttpServlet {
        
 	 private int repleKey; // 댓글 코드
 	    private String repleContent; // 내용
-	    private String repleRegDate;      // 작성 날짜
+	    private Date repleRegDate;      // 작성 날짜
 		private int memKey;     // 회원 
 	 
 		/* 기본 생성자  */
@@ -25,7 +26,7 @@ public class Reple extends HttpServlet {
 			}
 
 		  /*일반 생성자 */
-		public Reple(int repleKey, String repleContent, String repleRegDate, int memKey) {
+		public Reple(int repleKey, String repleContent, Date repleRegDate, int memKey) {
 			super();
 			this.repleKey = repleKey;
 			this.repleContent = repleContent;
@@ -54,12 +55,12 @@ public class Reple extends HttpServlet {
 		}
 
 
-		public String getRepleRegDate() {
+		public Date getRepleRegDate() {
 			return repleRegDate;
 		}
 
 
-		public void setRepleRegDate(String repleRegDate) {
+		public void setRepleRegDate(Date repleRegDate) {
 			this.repleRegDate = repleRegDate;
 		}
 
@@ -79,7 +80,11 @@ public class Reple extends HttpServlet {
 		}
 		  
 		  
-		  
+		@Override
+		public String toString() {
+			return "Reply [ repleKey=" + repleKey + ", repleRegDate=" + repleRegDate
+					+ ", repleContent=" + repleContent + ", memKey=" + memKey + "]";
+		}		 
 	    
 	    
 }	    
