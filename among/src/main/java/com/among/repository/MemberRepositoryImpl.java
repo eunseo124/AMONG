@@ -1,13 +1,24 @@
 package com.among.repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 import com.among.domain.Member;
+import javax.sql.DataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository
 public class MemberRepositoryImpl implements MemberRepository {
 
+	private JdbcTemplate template;
+	
+	@Autowired
+	public void setJdbcTemplate(DataSource dataSource) {
+		this.template = new JdbcTemplate(dataSource);
+	}
+	
 	private List<Member> listOfMember = new ArrayList<Member>();
 	
 	public MemberRepositoryImpl() {
@@ -22,8 +33,12 @@ public class MemberRepositoryImpl implements MemberRepository {
 	@Override
 	public List<Member> getAllMemberList() {
 		// TODO Auto-generated method stub
+		String SQL = "SELECT * FROM member";
+		List<Member> listOfMember = template.query(SQL, new MemberRowMapper());
 		return listOfMember;
 	}
+	
+	
 	
 
 }
