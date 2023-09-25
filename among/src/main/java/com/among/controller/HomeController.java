@@ -9,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.among.domain.Member;
 import com.among.Service.MemberService;
 
@@ -113,12 +116,14 @@ public class HomeController {
 			return "member/pass";
 
 	}
-		@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-		public String mypage() {
-			
+		/*@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+		public String getupmemForm(@ModelAttribute("upmem")Member member,
+				@RequestParam(memKey) int memKey, Model model) {
+			Member memKey = MemberService.getupmem(memKey);
+			model.addAttribute("member", upmem);
 			return "mypage/mypage";
 
-	}
+	}*/
 		@RequestMapping(value = "/myupdate", method = RequestMethod.GET)
 		public String myupdate() {
 			

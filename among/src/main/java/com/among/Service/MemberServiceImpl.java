@@ -17,5 +17,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return MemberRepository.getAllMemberList();
 	}
-
+	
+	public List<Member> getmflist(String keyField) {
+		return MemberRepository.getmflist(keyField);
+	}
+	
+	public void setupmem(Member member) {
+		MemberRepository.setupmem(member);
+	}
 }

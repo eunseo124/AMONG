@@ -19,7 +19,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 		this.template = new JdbcTemplate(dataSource);
 	}
 	
-	private List<Member> listOfMember = new ArrayList<Member>();
+	private List<Member> listOfMember = new ArrayList<Member>(); //Member 조회 쿼리문
 	
 	public MemberRepositoryImpl() {
 		
@@ -31,6 +31,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 	
 	
 	@Override
+	//member db 조회문
 	public List<Member> getAllMemberList() {
 		// TODO Auto-generated method stub
 		String SQL = "SELECT * FROM member";
@@ -38,7 +39,33 @@ public class MemberRepositoryImpl implements MemberRepository {
 		return listOfMember;
 	}
 	
+	//member 검색문 db
+	public List<Member> getmflist(String keyField) {
+		
+		List<Member> mflist = new ArrayList<Member>();
+		String SQL = "SELECT * FROM member where " + keyField + "like ?"; 
+		mflist = template.query(SQL, new MemberRowMapper());
+		return mflist;
+		
+	}
 	
+	//member db 수정문
+	public void setupmem(Member member) {
+		String SQL = "UPDATE member SET memId = ?, memPw = ?, memEmail1 = ?, memEmail2 = ?,"
+					+"memName = ?, memResident1 = ?, memResident2 = ?, delYn = ?, "
+					+ "memGrade = ?, nNmae = ? where memKey = ?";
+		template.update(SQL, 
+				member.getMemId(),
+				member.getMemPw(),
+				member.getMemEmail1(),
+				member.getMemEmail2(),
+				member.getMemName(),
+				member.getMemResident1(),
+				member.getMemResident2(),
+				member.getDelYn(),
+				member.getMemGrade(),
+				member.getnName());
+	}
 	
 
 }
