@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <section id="fixedBanner" class="left"></section>
+            <%
+            	Integer memKey = (Integer)session.getAttribute("memKey"); //로그인성공하면 memKey 가져오기
+            	//int memKey = 0;
+            	if(memKey != null) {
+            %>
             <section id="fixedBanner" class="right"></section>
             <section class="userContainer">
                 <div class="inputsAndButtons">
@@ -21,8 +26,7 @@
             <section id = "banner2">
                 <img src="resources/images/banner.jpg" class = "img">
             </section>
-                <!-- 나중에 넣을 예정 -->
-                <!-- <aside>
+              <%} else { %>  
                 <section id="fixedBanner" class="left"></section>
                 <section id="fixedBanner" class="right"></section>
                 <section class="userContainer">
@@ -63,4 +67,4 @@
             <section id = "banner2">
                 <img src="resources/images/banner.jpg" class = "img">
             </section>
-            </aside> -->
+          <%} %>

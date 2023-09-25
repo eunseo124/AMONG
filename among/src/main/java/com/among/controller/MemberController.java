@@ -25,7 +25,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
-	
+	/*
 	@GetMapping("/mypage")//member list
 	public String requestlistOfMember(@RequestParam("memKey") int memKey, Model model) {
 		
@@ -49,5 +49,5 @@ public class MemberController {
 		return "redirect:/mypage";
 	}
 	
-	
+	*/
 }
