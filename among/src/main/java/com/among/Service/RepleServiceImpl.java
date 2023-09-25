@@ -15,9 +15,9 @@ public class RepleServiceImpl implements RepleService{
 
 	@Autowired
 	private RepleServiceImpl replyMapper;
+	private RepleRepository RepleRepository;
 	
-	/* ´ñ±Ûµî·Ï */
-	@Override
+	/* ´ñ±Ûµî·Ï	@Override
 	public int enrollReply(Reply dto) {
 		
 		int result = replyMapper.enrollReply(dto);
@@ -25,5 +25,12 @@ public class RepleServiceImpl implements RepleService{
 		setRating(dto.getBookId());		
 		
 		return result;
+	} */
+
+
+	@Override
+	public int enrollReply(Reple Reply) {
+		// TODO Auto-generated method stub
+		return 0;
 	}	
 }
