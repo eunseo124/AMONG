@@ -95,39 +95,48 @@
             		<div class = "pmypage1">
             			<h1>내 프로필</h1>
             				<div class = "pmypage2">
+            						<c:forEach items="${memberlist}" var="list">
                                     <div class = "pro1">
                                     <p>아이디</p>
                                     <div class = "pro2">
-                                    <input type="text" value="" name="id" placeholder="아이디를 입력하시오" style="width: 441px;">
+                                    <input type="text" value="${list.memId}" name="id" placeholder="아이디를 입력하시오" style="width: 441px;">
                                     <input type="button" value="아이디 중복검사" class="pro3">
                                     <a href="<c:url value="/checkid" />"></a>
                                     </input>
                                     </div>
                                     </div>
+                                    </c:forEach>
+                                    <c:forEach items="${memberlist}" var="list">
                                     <div class = "pro1">
                                     <p>비밀번호</p>
                                     <div class = "pro2">
-                                        <input type="password" value="" name="password" placeholder="비밀번호 입력하시오">
+                                        <input type="password" value="${list.memPw}" name="password" placeholder="비밀번호 입력하시오">
                                     </div>
                                     </div>
+                                    </c:forEach>
+                                    <c:forEach items="${memberlist}" var="list">
                                     <div class = "pro1">
                                     <p>비밀번호 확인</p>
                                     <div class = "pro2">
-                                        <input type="password" value="" name="password" placeholder="비밀번호 입력하시오">
+                                        <input type="password" value="${list.memPw}" name="password" placeholder="비밀번호 입력하시오">
                                     </div>
                                     </div>
+                                    </c:forEach>
+                                    <c:forEach items="${memberlist}" var="list">
                                     <div class = "pro1">
                                     <p>닉네임</p>
                                     <div class = "pro2">
-                                        <input type="text" value="" name="id" placeholder="닉네임을 입력하시오" style="width: 441px;">
+                                        <input type="text" value="${list.nName}" name="id" placeholder="닉네임을 입력하시오" style="width: 441px;">
                                         <input type="button" value="닉네임 중복검사" class="pro3"><a href="<c:url value="/checknik" />"></a></input>
                                     </div>
                                     </div>
+                                    </c:forEach>
+                                    <c:forEach items="${memberlist}" var="list">
                                     <div class = "pro1">
                                     <p>이메일</p>
                                     	<div class = "pro2">
-                                        <input type="text" value="" name="email1" style="width: 142px;"> @ 
-                                            <input id = "email2" type="text" value="" name="email2" style="width: 142px;">
+                                        <input type="text" value="${list.memEmail1}" name="email1" style="width: 142px;"> @ 
+                                            <input id = "email2" type="text" value="${list.memEmail2}" name="email2" style="width: 142px;">
                                             <select id = "email3" name = "email2" style="width: 140px;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
 											  <option value="naver.com">naver.com</option>
 											  <option value="google.com">google.com</option>
@@ -139,25 +148,32 @@
                                             <input type="button" value="이메일 인증" class="pro3">
                                     	</div>
                                     </div>
+                                    </c:forEach>
+                                    <c:forEach items="${memberlist}" var="list">
                                     <div class = "pro1">
                                    		<p style="margin-top:44px;"></p>
                                     	<div class = "pro2">
                                     		<input type="text" value="" name="emailcheck" placeholder="인증번호를 입력하시오">
                                     	</div>
                                     </div>
+                                    </c:forEach>
+                                    <c:forEach items="${memberlist}" var="list">
                                     <div class = "pro1">
                                     <p>이름</p>
                                     	<div class = "pro2">
-                                        <input type="text" value="" name="Name" placeholder="이름을 입력하시오">
+                                        <input type="text" value="${list.memName}" name="Name" placeholder="이름을 입력하시오">
                                      	</div>
                                      </div>
+                                     </c:forEach>
+                                     <c:forEach items="${memberlist}" var="list">
                                     <div class = "pro1">
                                     <p>주민번호</p>
                                     	<div class = "pro2">
-                                        <input type="text" value="" name="id" style="width: 280px;">-<input
-                                            type="password" value="" style="width: 280px;margin-left: 1px;">
+                                        <input type="text" value="${list.memResident1}" name="id" style="width: 280px;">-<input
+                                            type="password" value="${list.memResident2}" style="width: 280px;margin-left: 1px;">
                                     	</div>
                                     </div>
+                                    </c:forEach>
                                     <div class="pro2">
                                     <input type="submit" value="수정완료" class="pro3" style = "margin-left:348px;margin-top:24px;">
                                     </div>

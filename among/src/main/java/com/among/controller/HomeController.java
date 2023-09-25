@@ -116,18 +116,11 @@ public class HomeController {
 			return "member/pass";
 
 	}
-		/*@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-		public String getupmemForm(@ModelAttribute("upmem")Member member,
-				@RequestParam(memKey) int memKey, Model model) {
-			Member memKey = MemberService.getupmem(memKey);
-			model.addAttribute("member", upmem);
-			return "mypage/mypage";
-
-	}*/
-		@RequestMapping(value = "/myupdate", method = RequestMethod.GET)
-		public String myupdate() {
+		
+		@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+		public String mypage() {
 			
-			return "myupdate";
+			return "mypage/mypage";
 
 	}
 		@RequestMapping(value = "/mypost", method = RequestMethod.GET)
