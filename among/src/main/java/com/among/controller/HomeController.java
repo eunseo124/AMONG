@@ -47,8 +47,10 @@ public class HomeController {
 	}
 	
 		@RequestMapping(value = "/home", method = RequestMethod.GET)
-		public String home() {
-			
+		public String home(Model model) {
+			int memKey = 1;
+			List<Member> list = memberService.getmemlist(memKey);
+			model.addAttribute("list",list);
 			return "home";
 	
 	}
@@ -116,13 +118,7 @@ public class HomeController {
 			return "member/pass";
 
 	}
-		
-		@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-		public String mypage() {
-			
-			return "mypage/mypage";
-
-	}
+	
 		@RequestMapping(value = "/mypost", method = RequestMethod.GET)
 		public String mypost() {
 			

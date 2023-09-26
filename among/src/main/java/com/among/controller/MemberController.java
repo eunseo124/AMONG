@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,34 +21,41 @@ import com.among.domain.Member;
 import com.among.Service.MemberService;
 
 @Controller
-@RequestMapping("/mypage")
 public class MemberController {
+	/*
+	private final MemberService memberService = null;
 	
+	//회원가입 페이지 출력
+	@GetMapping("/member/memjoin")
+	public String memjoinForm() {
+		return "memjoin";
+	}
+	
+	@PostMapping("/member/memjoin")
+	public String memjoin(@ModelAttribute Member member) {
+		return "memjoin";
+	}
+	
+	
+	@GetMapping("/mypage")
+	public String mypage(Model model){
+		
+		List<Member> list = memberService.getAllMemberList();
+		model.addAttribute("mypage",list);
+		return "mypage/mypage";
+
+	}
+	*/
 	@Autowired
 	private MemberService memberService;
-	/*
-	@GetMapping("/mypage")//member list
-	public String requestlistOfMember(@RequestParam("memKey") int memKey, Model model) {
-		
-		List<Member> list = memberService.getAllMemberList();
-		model.addAttribute("memberlist",list);
+	
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String requestmypage(Model model) {
+		int memKey = 1;
+		List<Member> list = memberService.getmemlist(memKey);
+		model.addAttribute("list",list);
 		return "mypage/mypage";
 		
 	}
 	
-	@GetMapping("/mypage") //member list update method 불러오기
-	public String getupmemForm(@ModelAttribute("upmem")Member member,
-			@RequestParam("memKey") int memKey, Model model) {
-		List<Member> list = memberService.getAllMemberList();
-		model.addAttribute("upmem", list);
-		return "mypage/mypage";
-	}
-	
-	@PostMapping("/mypage")//member list update method 불러오기
-	public String submitupmemForm(@ModelAttribute("upmem")Member member) {
-		memberService.setupmem(member);
-		return "redirect:/mypage";
-	}
-	
-	*/
 }

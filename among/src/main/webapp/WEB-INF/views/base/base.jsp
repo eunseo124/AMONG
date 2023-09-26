@@ -73,7 +73,7 @@
     <main>
 <!-- 사이드 -->
         <aside>
-            <%@include file="aside.jsp"%>
+            <!--<%@include file="aside.jsp"%>  -->
         </aside>
         <!-- 본문내용 -->
             <article id="index ">

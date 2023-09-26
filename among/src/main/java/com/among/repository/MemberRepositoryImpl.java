@@ -39,6 +39,15 @@ public class MemberRepositoryImpl implements MemberRepository {
 		return listOfMember;
 	}
 	
+	//member db memKey로 조회 method
+	public List<Member> getmemlist(int memKey) {
+		
+		String SQL  = "SELECT * FROM member where memKey";
+		List<Member> memlist = template.query(SQL, new MemberRowMapper());
+		
+		return memlist;
+	}
+	
 	//member 검색문 db
 	public List<Member> getmflist(String keyField) {
 		

@@ -1,5 +1,5 @@
 /* reset */
- body, div, span, applet, object, iframe,
+ body,  span, applet, object, iframe,
  h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -8,11 +8,11 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
+article,  canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video,
-main, article, aside {
+main, article, {
     margin: 0;
     padding: 0;
     border: 0;
@@ -22,7 +22,7 @@ main, article, aside {
     box-sizing: border-box;
 }
 
-article, aside, details, figcaption, figure,
+article,  details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -51,7 +51,7 @@ table {
     border-spacing: 0;
 }
 
-select, input, textarea, button {
+select, input, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,10 +61,6 @@ select, input, textarea, button {
     outline: none;
 }
 
-input[type=file],
-button {
-    cursor: pointer;
-}
 
 a {
     color: #000;
@@ -84,7 +80,7 @@ a {
     --box-shadow-second: 5px 5px 8px rgb(50 60 70 / 10%), -3px -3px 6px #fff;
 }
 
-select, input, textarea, button {
+select, input, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,17 +126,10 @@ main {
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
-    margin: 0 auto;
-    margin-bottom: 100px;
+ 
 }
 
-aside {
-    width: 340px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    box-sizing: border-box;
-}
+
 
 article {
     flex: 1;
@@ -722,10 +711,6 @@ main .search input {
     position: relative;
 }
 
-#post .article > .info .etc .right .popupButton {
-    padding: 0 8px;
-    cursor: pointer;
-}
 
 #post .article > .info .etc .right .popup {
     position: absolute;
@@ -748,23 +733,7 @@ main .search input {
     display: flex;
 }
 
-#post .article > .info .etc .right .popup a,button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    color: #525662;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    border: none;
-}
 
-#post .article > .info .etc .right .popup a:hover,button:hover {
-    background-color: #F7F8F9;
-}
 
 #post .article > .info .etc .right .popup svg {
     width: 14px;
@@ -772,42 +741,10 @@ main .search input {
     color: #9DA5B6;
 }
 
-#post .article .buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-#post .article .buttons div {
-    display: flex;
-    gap: 10px;
-}
 
-#post .article .buttons button {
-    display: flex;
-    gap: 8px;
-    font-size: 1em;
-    color: #697183;
-    background-color: #F5F6F9;
-    border-radius: 6px;
-    padding: 8px 20px;
-    border: unset;
-    box-sizing: border-box;
-}
 
-[data-theme='dark'] #post .article .buttons button {
-    color: rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, 0.1);
-}
 
-#post .article .buttons button:hover {
-    background-color: #EEF0F4;
-}
-
-[data-theme='dark'] #post .article .buttons button:hover {
-    color: rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, 0.2);
-}
 
 #post .content {
     line-height: 1.7rem;
@@ -877,18 +814,7 @@ main .search input {
     border: unset;
 }
 
-.userPopup li a,button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-}
 
-.userPopup li a:hover,button:hover {
-    background-color: #F7F8F9;
-    border-radius: 8px;
-}
 
 /* content */
 
@@ -931,35 +857,9 @@ main .search input {
     display: none;
 }
 
-#partners .button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: max-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    color: #fff;
-    text-align: center;
-    background-color: #0093FF;
-    padding: 10px 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    z-index: 20;
-}
 
-#partners .button .main {
-    font-size: 1.2em;
-    font-weight: bold;
-}
 
-#partners .button .etc {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9em;
-}
+
 
 #partners .info {
     position: absolute;
@@ -1029,10 +929,6 @@ main .search input {
     border: unset;
 }
 
-[data-theme='dark'] #comments .new button {
-    color: rgba(255, 255, 255, 0.7);
-    background-color: rgba(255, 255, 255, 0.1);
-}
 
 #comments .items {
     display: flex;
@@ -1317,5 +1213,39 @@ article {
     margin-top: 20px;
 }
 
+input[type=file],
+button {
+    cursor: pointer;
+}
+
+#post .article .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#post .article .buttons div {
+    display: flex;
+    gap: 10px;
+}
 
 
+element.style {
+}
+#post .article .buttons button {
+    /* display: flex; */
+    /* gap: 8px; */
+    /* font-size: 1em; */
+    /* color: #697183; */
+    /* background-color: #F5F6F9; */
+    /* border-radius: 6px; */
+    /* padding: 8px 20px; */
+    /* border: unset; */
+    /* box-sizing: border-box; */
+}
+.userPopup li a, button {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+}
