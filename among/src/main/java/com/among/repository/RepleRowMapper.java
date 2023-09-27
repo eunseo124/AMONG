@@ -18,6 +18,7 @@ public class RepleRowMapper implements RowMapper<Reple> {
 		Reple.setRepleContent(rs.getString(2));
 		Reple.setRepleRegDate(rs.getDate(3));
 		Reple.setMemKey(rs.getInt(4));
+		Reple.setBoardKey(rs.getInt(5));
 		return Reple;
 	}
 

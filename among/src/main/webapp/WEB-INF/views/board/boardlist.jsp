@@ -117,6 +117,8 @@
 </div>
 
 
+<br>
+
 <div class="buttons">
     <div class="left">
         <a href="/posts/자유게시판?search=&amp;page=">

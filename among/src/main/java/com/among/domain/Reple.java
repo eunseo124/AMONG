@@ -17,28 +17,37 @@ public class Reple extends HttpServlet {
 	 private int repleKey; // 댓글 코드
 	    private String repleContent; // 내용
 	    private Date repleRegDate;      // 작성 날짜
-		private int memKey;     // 회원 
+		private int memKey;
+		private int boardKey;// 게시판
 	 
 		/* 기본 생성자  */
-		  public Reple() {
-				super();
-				// TODO Auto-generated constructor stub
-			}
+		public Reple() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
 
 		  /*일반 생성자 */
-		public Reple(int repleKey, String repleContent, Date repleRegDate, int memKey) {
-			super();
-			this.repleKey = repleKey;
-			this.repleContent = repleContent;
-			this.repleRegDate = repleRegDate;
-			this.memKey = memKey;
-		}
+		  public Reple(int repleKey, String repleContent, Date repleRegDate, int memKey, int boardKey) {
+				super();
+				this.repleKey = repleKey;
+				this.repleContent = repleContent;
+				this.repleRegDate = repleRegDate;
+				this.memKey = memKey;
+				this.boardKey = boardKey;
+			}
+
+		  
+		  
+		  
+		  
+		
+
+
 
 
 		public int getRepleKey() {
 			return repleKey;
 		}
-
 
 		public void setRepleKey(int repleKey) {
 			this.repleKey = repleKey;
@@ -79,7 +88,18 @@ public class Reple extends HttpServlet {
 			return serialVersionUID;
 		}
 		  
+		
+		
+		
 		  
+		public int getBoardKey() {
+			return boardKey;
+		}
+
+		public void setBoardKey(int boardKey) {
+			this.boardKey = boardKey;
+		}
+
 		@Override
 		public String toString() {
 			return "Reply [ repleKey=" + repleKey + ", repleRegDate=" + repleRegDate

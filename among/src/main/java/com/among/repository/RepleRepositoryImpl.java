@@ -29,7 +29,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 		//¿¹½Ã -> Member member1 = new Member("id1234", "pwd1234" , "ÀÌ¸§È«±æµ¿", "1")
 	}
 	
-	
+	//´ñ±Û Á¶È¸
 	@Override
 	public List<Reple> getAllRepleList() {
 		// TODO Auto-generated method stub
@@ -38,7 +38,20 @@ public class RepleRepositoryImpl implements RepleRepository {
 		return listOfReple;
 	}
 	
-	
+
+    
+    //´ñ±Û µî·Ï
+    public void setNewReple(Reple reple) {  
+    	
+    	 String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) " + "VALUES (?, ?, ?, ?,?)";
+
+         template.update(SQL, reple.getRepleKey(), reple.getRepleContent(), reple.getRepleRegDate(), reple.getMemKey(),reple.getBoardKey()
+     );
+         
+         return; 
+    } 
 	
 
 }
+    
+
