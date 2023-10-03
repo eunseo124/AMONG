@@ -8,8 +8,13 @@ import com.among.domain.Reple;
 public interface RepleRepository {
 	
 	List<Reple> getAllRepleList();
-	//´ñ±Û µî·Ï Ãß°¡
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	void setNewReple(Reple reple);
+	
+	
+	Integer saveReple(Reple reple);
+	
+	List<Reple> getReplList(Integer boardKey);
 	
 
 

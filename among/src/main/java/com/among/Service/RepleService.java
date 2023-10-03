@@ -3,15 +3,17 @@ package com.among.Service;
 import java.util.List;
 import com.among.domain.Reple;
 
-
 public interface RepleService {
+
+	List<Reple> getAllRepleList();
+
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	void setNewReple(Reple reple);
 	
-	List<Reple> getAllRepleList();	
-	
-	//´ñ±Û µî·Ï ¸Þ¼­µå Ãß°¡
-		void setNewReple(Reple reple);
-	
-		
-		
-		
+	// save repl
+	Integer saveReple(Reple reple);
+
+	// get repl list
+	List<Reple> getRepleList(Integer boardKey);
+
 }

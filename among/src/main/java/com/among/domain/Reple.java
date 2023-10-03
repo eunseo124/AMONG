@@ -13,98 +13,77 @@ import java.util.Date;
  */
 public class Reple extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	 private int repleKey; // ´ñ±Û ÄÚµå
-	    private String repleContent; // ³»¿ë
-	    private Date repleRegDate;      // ÀÛ¼º ³¯Â¥
-		private int memKey;
-		private int boardKey;// °Ô½ÃÆÇ
-	 
-		/* ±âº» »ý¼ºÀÚ  */
-		public Reple() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
 
-		  /*ÀÏ¹Ý »ý¼ºÀÚ */
-		  public Reple(int repleKey, String repleContent, Date repleRegDate, int memKey, int boardKey) {
-				super();
-				this.repleKey = repleKey;
-				this.repleContent = repleContent;
-				this.repleRegDate = repleRegDate;
-				this.memKey = memKey;
-				this.boardKey = boardKey;
-			}
+	private int repleKey; // ï¿½ï¿½ï¿½ ï¿½Úµï¿½
+	private String repleContent; // ï¿½ï¿½ï¿½ï¿½
+	private Date repleRegDate; // ï¿½Û¼ï¿½ ï¿½ï¿½Â¥
+	private int memKey;
+	private int boardKey;// ï¿½Ô½ï¿½ï¿½ï¿½
 
-		  
-		  
-		  
-		  
-		
+	/* ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	public Reple() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
+	/* ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	public Reple(int repleKey, String repleContent, Date repleRegDate, int memKey, int boardKey) {
+		super();
+		this.repleKey = repleKey;
+		this.repleContent = repleContent;
+		this.repleRegDate = repleRegDate;
+		this.memKey = memKey;
+		this.boardKey = boardKey;
+	}
 
+	public int getRepleKey() {
+		return repleKey;
+	}
 
+	public void setRepleKey(int repleKey) {
+		this.repleKey = repleKey;
+	}
 
-		public int getRepleKey() {
-			return repleKey;
-		}
+	public String getRepleContent() {
+		return repleContent;
+	}
 
-		public void setRepleKey(int repleKey) {
-			this.repleKey = repleKey;
-		}
+	public void setRepleContent(String repleContent) {
+		this.repleContent = repleContent;
+	}
 
+	public Date getRepleRegDate() {
+		return repleRegDate;
+	}
 
-		public String getRepleContent() {
-			return repleContent;
-		}
+	public void setRepleRegDate(Date repleRegDate) {
+		this.repleRegDate = repleRegDate;
+	}
 
+	public int getMemKey() {
+		return memKey;
+	}
 
-		public void setRepleContent(String repleContent) {
-			this.repleContent = repleContent;
-		}
+	public void setMemKey(int memKey) {
+		this.memKey = memKey;
+	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
-		public Date getRepleRegDate() {
-			return repleRegDate;
-		}
+	public int getBoardKey() {
+		return boardKey;
+	}
 
+	public void setBoardKey(int boardKey) {
+		this.boardKey = boardKey;
+	}
 
-		public void setRepleRegDate(Date repleRegDate) {
-			this.repleRegDate = repleRegDate;
-		}
+	@Override
+	public String toString() {
+		return "Reply [ repleKey=" + repleKey + ", repleRegDate=" + repleRegDate + ", repleContent=" + repleContent
+				+ ", memKey=" + memKey + "]";
+	}
 
-
-		public int getMemKey() {
-			return memKey;
-		}
-
-
-		public void setMemKey(int memKey) {
-			this.memKey = memKey;
-		}
-
-
-		public static long getSerialversionuid() {
-			return serialVersionUID;
-		}
-		  
-		
-		
-		
-		  
-		public int getBoardKey() {
-			return boardKey;
-		}
-
-		public void setBoardKey(int boardKey) {
-			this.boardKey = boardKey;
-		}
-
-		@Override
-		public String toString() {
-			return "Reply [ repleKey=" + repleKey + ", repleRegDate=" + repleRegDate
-					+ ", repleContent=" + repleContent + ", memKey=" + memKey + "]";
-		}		 
-	    
-	    
-}	    
+}

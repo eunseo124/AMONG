@@ -13,23 +13,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class RepleRepositoryImpl implements RepleRepository {
 
 	private JdbcTemplate template;
-	
+
 	@Autowired
 	public void setJdbcTemplate(DataSource dataSource) {
 		this.template = new JdbcTemplate(dataSource);
 	}
-	
+
 	private List<Reple> listOfReple = new ArrayList<Reple>();
-	
+
 	public RepleRepositoryImpl() {
-		
-		//¸â¹ö Å×ÀÌºí µ¥ÀÌÅÍ ÀúÀå¼Ò
-		//ex) memKey°¡ 1ÀÎ  admin(¾ÆÀÌµð) / admin1234(ºñ¹Ð¹øÈ£) / °ü¸®ÀÚ(ÀÌ¸§) / µî±Þ:2(°ü¸®dÀÚ) µîµî
-		//±âº»»ý¼ºÀÚ memKey/memId/memPw/memName/memGrade¼³Á¤½Ã 
-		//¿¹½Ã -> Member member1 = new Member("id1234", "pwd1234" , "ÀÌ¸§È«±æµ¿", "1")
+
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ex) memKeyï¿½ï¿½ 1ï¿½ï¿½ admin(ï¿½ï¿½ï¿½Ìµï¿½) / admin1234(ï¿½ï¿½Ð¹ï¿½È£) / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ì¸ï¿½) /
+		// ï¿½ï¿½ï¿½:2(ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½) ï¿½ï¿½ï¿½
+		// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ memKey/memId/memPw/memName/memGradeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ -> Member member1 = new Member("id1234", "pwd1234" , "ï¿½Ì¸ï¿½È«ï¿½æµ¿", "1")
 	}
-	
-	//´ñ±Û Á¶È¸
+
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	@Override
 	public List<Reple> getAllRepleList() {
 		// TODO Auto-generated method stub
@@ -37,21 +38,38 @@ public class RepleRepositoryImpl implements RepleRepository {
 		List<Reple> listOfReple = template.query(SQL, new RepleRowMapper());
 		return listOfReple;
 	}
-	
 
-    
-    //´ñ±Û µî·Ï
-    public void setNewReple(Reple reple) {  
-    	
-    	 String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) " + "VALUES (?, ?, ?, ?,?)";
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	public void setNewReple(Reple reple) {
 
-         template.update(SQL, reple.getRepleKey(), reple.getRepleContent(), reple.getRepleRegDate(), reple.getMemKey(),reple.getBoardKey()
-     );
-         
-         return; 
-    } 
+		String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) "
+				+ "VALUES (?, ?, ?, ?,?)";
+
+		template.update(SQL, reple.getRepleKey(), reple.getRepleContent(), reple.getRepleRegDate(), reple.getMemKey(),
+				reple.getBoardKey());
+
+		return;
+	}
 	
+	public Integer saveReple(Reple reple) {
+		
+		String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) "
+				+ "VALUES (?, ?, ?, ?,?)";
+
+		template.update(SQL, reple.getRepleKey(), reple.getRepleContent(), reple.getRepleRegDate(), reple.getMemKey(),
+				reple.getBoardKey());
+		
+		return 1;
+	}
+
+	@Override
+	public List<Reple> getReplList(Integer boardKey) {
+		String SQL = "SELECT * FROM reple where boardKey = " + boardKey;
+		
+		List<Reple> repleList = new ArrayList<>();
+		
+		
+		return template.query(SQL, new RepleRowMapper());
+	}
 
 }
-    
-

@@ -20,52 +20,70 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
-
 import com.among.Service.RepleService;
 import com.among.domain.Reple;
-/*
+
 @Controller
-//RequestMapping ÀÇ ´Ü¼øÈ­
-@RequestMapping("/boardlist")
 public class RepleController {
-	
-	//Autowired ¸¦ Á¤ÀÇÇÏ¿© BookService Å¬·¡½ºÀÇ getAllBookList() ¸Ş¼­µå¸¦ È£ÃâÇÕ´Ï´Ù.
+
+//	//Autowired ë¥¼ ì •ì˜í•˜ì—¬ BookService í´ë˜ìŠ¤ì˜ getAllBookList() ë©”ì„œë“œë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
 	@Autowired
-  private RepleService repleService;  
-
-	HTTP ¿äÃ» ¹æ½ÄÀÌ GETÀÎ °æ¿ì, @GetMapping À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
-	@GetMapping
-	public String requestRepleList(Model model) { 
-	    List<Reple> list = repleService.getAllRepleList();
-	    model.addAttribute("repleList", list);  
-	    return "board/boardlist"; 
+	private RepleService repleService;
+//
+//	// HTTP ìš”ì²­ ë°©ì‹ì´ GETì¸ ê²½ìš°, @GetMapping ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+//	@GetMapping
+//	public String requestRepleList(Model model) { 
+//	    List<Reple> list = repleService.getAllRepleList();
+//	    model.addAttribute("repleList", list);  
+//	    return "board/boardlist"; 
+//	}
+	
+	/**
+	 * 
+	 * @param boardKey
+	 */
+	public void getRepleList(Integer boardKey) {
+		
+		// List<Reple> repleList = repleService.getBoardRepleList(boardKey);
+		
 	}
-	
-	  //µµ¼­µî·Ï ÆäÀÌÁö addBook url¸ÊÇÎ
-    @GetMapping("/boardlist")  
-    //@ModelAttribute ¸¦ ÀÌ¿ëÇÏ¿© addBook.jsp ÀÇ ½ºÇÁ¸µ Æû ÅÂ±×¿Í ¿¬µ¿µÈ´Ù.
-    public String requestAddRepleForm(@ModelAttribute("NewReple") Reple reple) {  
-        return "board/boardlist";
-    } 
-    
-  //µµ¼­µî·Ï ÆäÀÌÁö addBook url ¸ÊÇÎ(post ¹æ½Ä)
-    //** submitAddNEwBook() ¸Ş¼­µå ¼öÁ¤  **
-    @PostMapping("/boardlist") 
-    public String submitAddNewReple( @ModelAttribute("NewReple")  Reple reple,BindingResult result) {
-    	
-   	if(result.hasErrors()) { 
-           return "boardlist";
-        } 
 
-    }
-	
-  
-    
-} 
-*/
+	/**
+	 * ëŒ“ê¸€ ë“±ë¡
+	 * @param reple
+	 */
+	@RequestMapping(value = "/repl/save", method = RequestMethod.POST)
+	public String saveRepl(Reple reple) {
+		
+		int result = repleService.saveReple(reple);
+		
+		return "board/repleSave";
+	}
+
+	/*
+	 * 
+	 * 
+	 * //ë„ì„œë“±ë¡ í˜ì´ì§€ addBook urlë§µí•‘
+	 * 
+	 * @GetMapping("/boardlist") //@ModelAttribute ë¥¼ ì´ìš©í•˜ì—¬ addBook.jsp ì˜ ìŠ¤í”„ë§ í¼ íƒœê·¸ì™€
+	 * ì—°ë™ëœë‹¤. public String requestAddRepleForm(@ModelAttribute("NewReple") Reple
+	 * reple) { return "board/boardlist"; }
+	 * 
+	 * //ë„ì„œë“±ë¡ í˜ì´ì§€ addBook url ë§µí•‘(post ë°©ì‹) //** submitAddNEwBook() ë©”ì„œë“œ ìˆ˜ì • **
+	 * 
+	 * @PostMapping("/boardlist") public String
+	 * submitAddNewReple( @ModelAttribute("NewReple") Reple reple,BindingResult
+	 * result) {
+	 * 
+	 * if(result.hasErrors()) { return "boardlist"; }
+	 * 
+	 * }
+	 * 
+	 */
+
+}
