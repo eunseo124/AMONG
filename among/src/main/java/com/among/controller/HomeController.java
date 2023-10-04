@@ -219,9 +219,10 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/admin_member", method = RequestMethod.GET)
-	public String admin_member() {
-
-		return "admin/admin_member";
+    public String requestadmin_member(Model model) {
+       List<Member> Alist = memberService.getAllMemberList();
+       model.addAttribute("Alist", Alist);
+       return "admin/admin_member";
 
 	}
 
