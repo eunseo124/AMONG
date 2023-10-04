@@ -325,7 +325,7 @@ main .search input {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.6em;
+    font-size: 0.8em;
     color: #fff;
     border-radius: 4px;
 }
@@ -337,8 +337,8 @@ main .search input {
 }
 
 #gradeBadge.color {
-    width: 14px;
-    height: 14px;
+    width: 30px;
+    height: 20px;
 }
 
 #gradeBadge.admin {
@@ -920,7 +920,7 @@ main .search input {
     color: rgba(255, 255, 255, 0.7);
 }
 
-#comments .new 	input{
+#comments .new 	button{
     width: max-content;
     color: #fff;
     background-color: #cacfd8;
@@ -1248,4 +1248,19 @@ element.style {
     justify-content: center;
     align-items: center;
     padding: 10px 10px;
+}
+
+
+#date {
+	--tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+	}
+	
+	
+#infos {
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    vertical-align: middle;
 }

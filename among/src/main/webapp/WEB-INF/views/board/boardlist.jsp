@@ -113,7 +113,7 @@ aside .joinAndFindPassword a {
 							<figure class="image">
 								<img
 									src="https://dzvpypcfjkr44.cloudfront.net/5df8dc651983470793cde08bf668302f.webp">
-							</figure>
+							</figure>  <br>
 							<p>안녕하세요 애플 트랙 패드 필요해서 구입 해서 사용 해봤는데</p>
 							<p>애플 마우스랑 같이 해보니 신세계 였습니다 너무 좋습니다</p>
 							<p>애플 악세사리도 조금 구입 하고 스탠드 커브 구입도 하고</p>
@@ -139,45 +139,39 @@ aside .joinAndFindPassword a {
 							<h2>댓글</h2>
 							<div class="new">
 								<textarea name="repleContent" id="repleContent"
-									style="resize: none">내용입니다</textarea>
+									style="resize: none"></textarea>
 								<button type="button" name="save" id="save"
-									onclick="saveReple()">save</button>
+									onclick="saveReple()">작성</button>
 							</div>
 						</div>
 
-						<!-- reple  -->
-						<c:forEach items="${repleList}" var="Reple">
-							<div>
-								<div>${Reple.repleContent}</div>
-							</div>
-						</c:forEach>
+					
 
 
-
+               <c:forEach items="${repleList}" var="reple">
+						
+						
 						<div class="items">
 
 
 
-							<div class="item" x-data="{reply: false, edit: false}">
-								<br>
-								<div class="content" x-show="!edit">반가워요.</div>
-								<br>
-								<div class="info">
+							
+							<br>
+							<div id ="infos">
 									<div id="nickName">
 										<div id="gradeBadge" class="color admin"
-											style="background-color: black">1</div>
-										<div>일반</div>
+											style="background-color: black">일반</div>
+										<div>${reple.memKey}</div>
 									</div>
-									<div>2023.09.14</div>
-									<a href="javascript:0;" x-on:click="reply = true"></a> <a
-										href="/toggleCommentLike?id=2"> </a>
-								</div>
-							</div>
-
+									<div class="content">${reple.repleContent}</div>
+									<div id="date">   ${reple.repleRegDate}</div>
+							</div>		
+								
+							
 
 						</div>
 
-
+</c:forEach> 
 						<br>
 						<div id="table">
 							<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>
