@@ -1,32 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%//System.out.println("header memKey = " + memKey); %>
 
-<c:forEach items="${list}" var="Member">
-<c:set var = "memKey" value = "${Member.memKey}"/>
-<c:set var = "memGrade" value = "${Member.memGrade}"/>
-	<c:choose>
-		<c:when test = "${memKey ne '0' && memGrade eq '2'}">
-			<section id="sub">
+<input type = "hidden" value = "<c:out value = '${sessionc.memKey}'/>" id = "memKey">
+<input type = "hidden" value = "<c:out value = '${sessionc.memGrade}'/>" id = "memGrade">
+   <c:choose>
+      <c:when test = "${sessionc.memKey ne '0' && sessionc.memGrade eq '2'}">
+         <section id="sub">
                 <ul>
-                	<li>
+                   <li>
                         <a href="<c:url value="/home" />">홈페이지</a>
                     </li>
-                	<li class="slash">|</li>
-                    <li>
-                        <a href="<c:url value="/mypage" />">마이페이지</a>
-                    </li>
-                </ul>
-            </section>
-		</c:when>
-		<c:when test = "${memKey ne '0'}">
-			<section id="sub">
-                <ul>
-                	<li>
-                        <a href="<c:url value="/home" />">홈페이지</a>
-                    </li>
-                	<li class="slash">|</li>
+                   <li class="slash">|</li>
                     <li>
                         <a href="<c:url value="/mypage" />">마이페이지</a>
                     </li>
@@ -36,9 +21,23 @@
                     </li>
                 </ul>
             </section>
-		</c:when>
-		<c:otherwise>
-		<section id="sub">
+      </c:when>
+      <c:when test = "${sessionc ne null}">
+         <section id="sub">
+                <ul>
+                   <li>
+                        <a href="<c:url value="/home" />">홈페이지</a>
+                    </li>
+                   <li class="slash">|</li>
+                    <li>
+                        <a href="<c:url value="/mypage" />">마이페이지</a>
+                    </li>
+                   
+                </ul>
+            </section>
+      </c:when>
+      <c:otherwise>
+      <section id="sub">
                 <ul>
                     <li>
                         <a href="<c:url value="/memjoin" />">회원가입</a>
@@ -49,9 +48,9 @@
                     </li>
                 </ul>
             </section>
-		</c:otherwise>
-	</c:choose>
-	</c:forEach>
+      </c:otherwise>
+   </c:choose>
+
             <section id="main">
                 <a href="<c:url value="/home" />" class="logo" style="text-decoration: none;">
                     <h1>AM<img src="resources/images/profile.png" id="timg">NG</h1>
