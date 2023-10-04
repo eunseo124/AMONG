@@ -272,7 +272,7 @@ aside .joinAndFindPassword a {
 													<div id="nickName">
 														<div>관리자</div>
 													</div>
-													<div>조회수 1,000</div>
+													<div>조회수 1,0z00</div>
 													<div>댓글 10</div>
 													<div>추천 10</div>
 													<div>2023.09.14</div>
