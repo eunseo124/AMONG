@@ -3,16 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE html>
-<html lang="en">
 
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/admin.css"/>" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
     	@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-
 
 /* 사이드바  css*/
 
@@ -191,92 +191,26 @@
         		        <th>No.</th>
         		        <th>Name</th>		       
         		        <th>ID</th>
-        		        <th>E-mail</th>
         		        <th>Grade</th>
         		        <th>Detail</th>  		                		        
         		       </tr>
         		      </thead>
         		      <tbody>
-        		       <tr>
-        		        <td>01</td>
-        		        <td>최대한</td>
-        		        <td>monkey</td>
-        		        <td>dehan80942@naver.com</td>
-        		        <td>관리자</td>
+           			  <c:forEach items="${Alist}" var="Member">
+           			   <tr>
+		                <td>${Member.memKey}</td> 
+		                <td>${Member.memName}</td>        		        
+		                <td>${Member.memId}</td>
+		              <c:set var = "memGrade" value = "${Member.memGrade}"/>
+		                <td>
+		               <c:choose>
+		              	<c:when test = "${memGrade eq '1'}"><%out.print("일반회원"); %></c:when>
+						<c:when test = "${memGrade eq '2'}"><%out.print("관리자"); %></c:when>
+                       </c:choose>
+		                </td>
         		        <td><button><a href="<c:url value="/admin_member_info" />">View</a></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>02</td>
-        		        <td>김대한</td>
-        		        <td>monkey2</td>
-        		        <td>dehan80943@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>03</td>
-        		        <td>이대한</td>
-        		        <td>monkey3</td>
-        		        <td>dehan80944@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>04</td>
-        		        <td>박대한</td>
-        		        <td>monkey3</td>
-        		        <td>dehan80944@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>05</td>
-        		        <td>곽대한</td>
-        		        <td>monkey3</td>
-        		        <td>dehan80944@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>06</td>
-        		        <td>장대한</td>
-        		        <td>monkey3</td>
-        		        <td>dehan80944@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>07</td>
-        		        <td>고대한</td>
-        		        <td>monkey3</td>
-        		        <td>dehan80944@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>08</td>
-        		        <td>임대한</td>
-        		        <td>monkey3</td>
-        		        <td>dehan80944@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>09</td>
-        		        <td>정대한</td>
-        		        <td>monkey3</td>
-        		        <td>dehan80944@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>10</td>
-        		        <td>송대한</td>
-        		        <td>monkey3</td>
-        		        <td>dehan80944@naver.com</td>
-        		        <td>회원</td>
-        		        <td><button>View</button></td>
-        		       </tr>        		               		               		               		               		               		               		               		               		       
+        		       </tr> 
+          		       </c:forEach>      		               		               		               		               		               		       
         		      </tbody>  
         		     </table>
         		<section class="search">

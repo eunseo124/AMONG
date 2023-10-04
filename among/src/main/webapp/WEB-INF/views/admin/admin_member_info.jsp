@@ -261,7 +261,7 @@
 			            <form>
 			                <dl>
 			                    <dt>아이디</dt>
-			                    <dd><input type="text" placeholder="아이디 입력"></dd>
+			                    <dd><input type="text" placeholder="아이디 입력" readonly="readonly"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>비밀번호</dt>
@@ -288,11 +288,11 @@
 			                </dl>                
 			                <dl>
 			                    <dt>이름</dt>
-			                    <dd><input type="text" placeholder="이름 입력"></dd>
+			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>주민번호</dt>
-			                    <dd><input type="text" placeholder="이름 입력"></dd>
+			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly"></dd>
 			                </dl>
 			                <dl>
 			                	<dt>삭제여부</dt>
