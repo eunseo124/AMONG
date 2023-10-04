@@ -113,7 +113,7 @@ aside .joinAndFindPassword a {
 							<figure class="image">
 								<img
 									src="https://dzvpypcfjkr44.cloudfront.net/5df8dc651983470793cde08bf668302f.webp">
-							</figure>  <br>
+							</figure>  
 							<p>안녕하세요 애플 트랙 패드 필요해서 구입 해서 사용 해봤는데</p>
 							<p>애플 마우스랑 같이 해보니 신세계 였습니다 너무 좋습니다</p>
 							<p>애플 악세사리도 조금 구입 하고 스탠드 커브 구입도 하고</p>
