@@ -78,7 +78,7 @@
                             <div class="Itable">
                                 <div class="Iboard">
                                     <h2>자유게시판</h2>
-                                    <p><a href = "<c:url value="/freeboard"/>">더보기</a></p>
+                                    <p><a href = "<c:url value="/freeboard"/>">더보기d</a></p>
                                 </div>
                                 <table>
                                     <tr>
