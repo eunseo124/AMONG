@@ -8,28 +8,34 @@ import com.among.repository.MemberRepository;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-	
-	@Autowired
-	private MemberRepository MemberRepository;
-	
-	@Override
-	//member list method불러오기
-	public List<Member> getAllMemberList() {
-		// TODO Auto-generated method stub
-		List<Member> listOfMember = MemberRepository.getAllMemberList();
-		return listOfMember;
-	}
-	//member 조회문 method불러오기
-	public List<Member> getmflist(String keyField) {
-		return MemberRepository.getmflist(keyField);
-	}
-	//member update method불러오기
-	public void setupmem(Member member) {
-		MemberRepository.setupmem(member);
-	}
-	//member 조회 method불러오기
-	public List<Member> getmemlist(int memKey){
-		List<Member> memlist = MemberRepository.getmemlist(memKey);
-		return memlist;
-	}
+   
+   @Autowired
+   private MemberRepository memberRepository;
+   
+   
+   @Override
+   //member list method불러오기
+   public List<Member> getAllMemberList() {
+      // TODO Auto-generated method stub
+      List<Member> listOfMember = memberRepository.getAllMemberList();
+      return listOfMember;
+   }
+   //member 조회문 method불러오기
+   public List<Member> getmflist(String keyField) {
+      return memberRepository.getmflist(keyField);
+   }
+   //member update method불러오기
+   public void setupmem(Member member) {
+      memberRepository.setupmem(member);
+   }
+   //member 조회 method불러오기
+   public List<Member> getmemlist(int memKey){
+      List<Member> memlist = memberRepository.getmemlist(memKey);
+      return memlist;
+   }
+   
+   //member db login 메소드 
+   public List<Member> getlogin(String memId, String memPw) {
+      return memberRepository.getlogin(memId, memPw);
+   }
 }

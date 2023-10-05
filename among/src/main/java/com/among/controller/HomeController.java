@@ -30,235 +30,227 @@ import com.among.Service.RepleService;
 @Controller
 public class HomeController {
 
-	@Autowired
-	private MemberService memberService;
-	
-	@Autowired
-	private RepleService repleService;
+   @Autowired
+   private MemberService memberService;
+   
+   @Autowired
+   private RepleService repleService;
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+   private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+   /**
+    * Simply selects the home view to render by returning its name.
+    */
+   @RequestMapping(value = "/", method = RequestMethod.GET)
+   public String home(Locale locale, Model model) {
+      logger.info("Welcome home! The client locale is {}.", locale);
 
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+      Date date = new Date();
+      DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
-		String formattedDate = dateFormat.format(date);
+      String formattedDate = dateFormat.format(date);
 
-		model.addAttribute("serverTime", formattedDate);
+      model.addAttribute("serverTime", formattedDate);
 
-		return "home";
-	}
+      return "home";
+   }
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String home(Model model) {
-		int memKey = 1;
-		List<Member> list = memberService.getmemlist(memKey);
-		model.addAttribute("list", list);
-		return "home";
+   @RequestMapping(value = "/home", method = RequestMethod.GET)
+   public String home(Model model) {
+      int memKey = 1;
+      List<Member> list = memberService.getmemlist(memKey);
+      model.addAttribute("list", list);
+      return "home";
 
-	}
+   }
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
+   @RequestMapping(value = "/login", method = RequestMethod.GET)
+   public String login() {
 
-		return "member/login";
+      return "member/login";
 
-	}
+   }
 
-	@RequestMapping(value = "/memjoin", method = RequestMethod.GET)
-	public String memjoin() {
+   @RequestMapping(value = "/memjoin", method = RequestMethod.GET)
+   public String memjoin() {
 
-		return "member/memjoin";
+      return "member/memjoin";
 
-	}
+   }
 
-	@RequestMapping(value = "/freeboard", method = RequestMethod.GET)
-	public String freeboard() {
+   @RequestMapping(value = "/hotboard", method = RequestMethod.GET)
+   public String hotboard() {
 
-		return "board/freeboard";
+      return "board/hotboard";
 
-	}
+   }
 
-	@RequestMapping(value = "/hotboard", method = RequestMethod.GET)
-	public String hotboard() {
+   @RequestMapping(value = "/gameboard", method = RequestMethod.GET)
+   public String gameboard() {
 
-		return "board/hotboard";
+      return "board/gameboard";
 
-	}
+   }
 
-	@RequestMapping(value = "/gameboard", method = RequestMethod.GET)
-	public String gameboard() {
+   @RequestMapping(value = "/foodboard", method = RequestMethod.GET)
+   public String foodboard() {
 
-		return "board/gameboard";
+      return "board/foodboard";
 
-	}
+   }
 
-	@RequestMapping(value = "/foodboard", method = RequestMethod.GET)
-	public String foodboard() {
+   @RequestMapping(value = "/travleboard", method = RequestMethod.GET)
+   public String travleboard() {
 
-		return "board/foodboard";
+      return "board/travleboard";
 
-	}
+   }
 
-	@RequestMapping(value = "/travleboard", method = RequestMethod.GET)
-	public String travleboard() {
+   @RequestMapping(value = "/boardwrite", method = RequestMethod.GET)
+   public String boardwrite() {
 
-		return "board/travleboard";
+      return "board/boardwrite";
 
-	}
+   }
 
-	@RequestMapping(value = "/boardwrite", method = RequestMethod.GET)
-	public String boardwrite() {
+   @RequestMapping(value = "/id", method = RequestMethod.GET)
+   public String id() {
 
-		return "board/boardwrite";
+      return "member/id";
 
-	}
+   }
 
-	@RequestMapping(value = "/id", method = RequestMethod.GET)
-	public String id() {
+   @RequestMapping(value = "/pass", method = RequestMethod.GET)
+   public String pass() {
 
-		return "member/id";
+      return "member/pass";
 
-	}
+   }
 
-	@RequestMapping(value = "/pass", method = RequestMethod.GET)
-	public String pass() {
+   @RequestMapping(value = "/mypost", method = RequestMethod.GET)
+   public String mypost() {
 
-		return "member/pass";
+      return "mypage/mypost";
 
-	}
+   }
 
-	@RequestMapping(value = "/mypost", method = RequestMethod.GET)
-	public String mypost() {
+   @RequestMapping(value = "/mypost2", method = RequestMethod.GET)
+   public String mypost2() {
 
-		return "mypage/mypost";
+      return "mypage/mypost2";
 
-	}
+   }
 
-	@RequestMapping(value = "/mypost2", method = RequestMethod.GET)
-	public String mypost2() {
+   @RequestMapping(value = "/mypost3", method = RequestMethod.GET)
+   public String mypost3() {
 
-		return "mypage/mypost2";
+      return "mypage/mypost3";
 
-	}
+   }
 
-	@RequestMapping(value = "/mypost3", method = RequestMethod.GET)
-	public String mypost3() {
+   @RequestMapping(value = "/mypost4", method = RequestMethod.GET)
+   public String mypost4() {
 
-		return "mypage/mypost3";
+      return "mypage/mypost4";
 
-	}
+   }
 
-	@RequestMapping(value = "/mypost4", method = RequestMethod.GET)
-	public String mypost4() {
+   @RequestMapping(value = "/mypost5", method = RequestMethod.GET)
+   public String mypost5() {
 
-		return "mypage/mypost4";
+      return "mypage/mypost5";
 
-	}
+   }
 
-	@RequestMapping(value = "/mypost5", method = RequestMethod.GET)
-	public String mypost5() {
+   @RequestMapping(value = "/myreply", method = RequestMethod.GET)
+   public String myreply() {
 
-		return "mypage/mypost5";
+      return "mypage/myreply";
 
-	}
+   }
 
-	@RequestMapping(value = "/myreply", method = RequestMethod.GET)
-	public String myreply() {
+   @RequestMapping(value = "/myreply2", method = RequestMethod.GET)
+   public String myreply2() {
 
-		return "mypage/myreply";
+      return "mypage/myreply2";
 
-	}
+   }
 
-	@RequestMapping(value = "/myreply2", method = RequestMethod.GET)
-	public String myreply2() {
+   @RequestMapping(value = "/myreply3", method = RequestMethod.GET)
+   public String myreply3() {
 
-		return "mypage/myreply2";
+      return "mypage/myreply3";
 
-	}
+   }
 
-	@RequestMapping(value = "/myreply3", method = RequestMethod.GET)
-	public String myreply3() {
+   @RequestMapping(value = "/myreply4", method = RequestMethod.GET)
+   public String myreply4() {
 
-		return "mypage/myreply3";
+      return "mypage/myreply4";
 
-	}
+   }
 
-	@RequestMapping(value = "/myreply4", method = RequestMethod.GET)
-	public String myreply4() {
+   @RequestMapping(value = "/myreply5", method = RequestMethod.GET)
+   public String myreply5() {
 
-		return "mypage/myreply4";
+      return "mypage/myreply5";
 
-	}
+   }
 
-	@RequestMapping(value = "/myreply5", method = RequestMethod.GET)
-	public String myreply5() {
+   @RequestMapping(value = "/boardlist", method = RequestMethod.GET)
+   public String boardlist(HttpServletResponse res, HttpServletRequest req) {
+      
+      // getBoardKey
+      Integer boardKey = 1;
+      
+      List<Reple> repleList = repleService.getRepleList(boardKey);
+      
+      req.setAttribute("repleList", repleList);
+      
+      return "board/boardlist";
 
-		return "mypage/myreply5";
+   }
 
-	}
+   @RequestMapping(value = "/admin_member", method = RequestMethod.GET)
+   public String admin_member() {
 
-	@RequestMapping(value = "/boardlist", method = RequestMethod.GET)
-	public String boardlist(HttpServletResponse res, HttpServletRequest req) {
-		
-		// getBoardKey
-		Integer boardKey = 1;
-		
-		List<Reple> repleList = repleService.getRepleList(boardKey);
-		
-		req.setAttribute("repleList", repleList);
-		
-		return "board/boardlist";
+      return "admin/admin_member";
 
-	}
+   }
 
-	@RequestMapping(value = "/admin_member", method = RequestMethod.GET)
-    public String requestadmin_member(Model model) {
-       List<Member> Alist = memberService.getAllMemberList();
-       model.addAttribute("Alist", Alist);
-       return "admin/admin_member";
+   @RequestMapping(value = "/admin_member_info", method = RequestMethod.GET)
+   public String admin_member_info() {
 
-	}
+      return "admin/admin_member_info";
 
-	@RequestMapping(value = "/admin_member_info", method = RequestMethod.GET)
-	public String admin_member_info() {
+   }
 
-		return "admin/admin_member_info";
+   @RequestMapping(value = "/adminfreeboard", method = RequestMethod.GET)
+   public String adminfreeboard() {
 
-	}
+      return "admin/adminfreeboard";
 
-	@RequestMapping(value = "/adminfreeboard", method = RequestMethod.GET)
-	public String adminfreeboard() {
+   }
 
-		return "admin/adminfreeboard";
+   @RequestMapping(value = "/admingameboard", method = RequestMethod.GET)
+   public String admingameboard() {
 
-	}
+      return "admin/admingameboard";
 
-	@RequestMapping(value = "/admingameboard", method = RequestMethod.GET)
-	public String admingameboard() {
+   }
 
-		return "admin/admingameboard";
+   @RequestMapping(value = "/adminfoodboard", method = RequestMethod.GET)
+   public String adminfoodboard() {
 
-	}
+      return "admin/adminfoodboard";
 
-	@RequestMapping(value = "/adminfoodboard", method = RequestMethod.GET)
-	public String adminfoodboard() {
+   }
 
-		return "admin/adminfoodboard";
+   @RequestMapping(value = "/admintravleboard", method = RequestMethod.GET)
+   public String admintravleboard() {
 
-	}
+      return "admin/admintravleboard";
 
-	@RequestMapping(value = "/admintravleboard", method = RequestMethod.GET)
-	public String admintravleboard() {
-
-		return "admin/admintravleboard";
-
-	}
+   }
 
 }
