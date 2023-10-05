@@ -131,60 +131,39 @@
         					</div>
         				</a>
         				<div class="line"></div>
+        				<c:forEach items="${boardList}" var="board">
         				<a href="#" class="item">
         					<div class="image">
         						<img src="resources/images/banner.jpg">
         					</div>	
         					<div class="info">
         						<div class="title">
-        							<span class="text">테스트용 작성글 입니다.</span>
+        							<span class="text">${board.boardTitle}</span>
         						</div>
         						<div class="etc">
-        							<div id="nickName"><div>관리자</div></div>
-        							<div>조회수 1,000</div>
-        							<div>댓글 10</div>
-        							<div>추천 10</div>
-        							<div>2023.09.14</div>
+        							<div id="nickName">
+        								<img src="resources/images/banner.jpg">
+        								<div>${board.nName}</div>
+        							</div>
+        							<div>조회수 ${board.boardView}</div>
+        							<div>댓글 ${board.repleCount}</div>
+        							<div>추천 ${board.boardRecommend}</div>
+        							<!-- if문  -->
+        							<c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
+        							<c:set var = "boardRegDate" value = "${board.boardRegDate}"/>
+        							<c:choose>
+        							<c:when test = "${boardModifyDate != boardRegDate}">
+        								<div>${boardModifyDate}(수정됨)</div>
+        							</c:when>
+        							<c:otherwise>
+        								<div>${boardRegDate}</div>
+        							</c:otherwise>
+        							</c:choose>
         						</div>
         					</div>
         				</a>
         				<div class="line"></div>
-        				<a href ="<c:url value="/boardlist"/>" class="item">
-        					<div class="image">
-        						<img src="resources/images/banner.jpg">
-        					</div>	
-        					<div class="info">
-        						<div class="title">
-        							<span class="text">테스트용 작성글 입니다.</span>
-        						</div>
-        						<div class="etc">
-        							<div id="nickName"><div>관리자</div></div>
-        							<div>조회수 1,000</div>
-        							<div>댓글 10</div>
-        							<div>추천 10</div>
-        							<div>2023.09.14</div>
-        						</div>
-        					</div>
-        				</a>
-        				<div class="line"></div>
-        				<a href="#" class="item">
-        					<div class="image">
-        						<img src="resources/images/banner.jpg">
-        					</div>	
-        					<div class="info">
-        						<div class="title">
-        							<span class="text">테스트용 작성글 입니다.</span>
-        						</div>
-        						<div class="etc">
-        							<div id="nickName"><div>관리자</div></div>
-        							<div>조회수 1,000</div>
-        							<div>댓글 10</div>
-        							<div>추천 10</div>
-        							<div>2023.09.14</div>
-        						</div>
-        					</div>
-        				</a>
-        				<div class="line"></div>
+        				</c:forEach>
         			</div>
         		</section>
         		
