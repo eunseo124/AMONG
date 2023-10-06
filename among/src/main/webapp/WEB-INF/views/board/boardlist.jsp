@@ -161,7 +161,7 @@ aside .joinAndFindPassword a {
 									<div id="nickName">
 										<div id="gradeBadge" class="color admin"
 											style="background-color: black">일반</div>
-										<div>${reple.memKey}</div>
+										<div>${reple.nName}</div>
 									</div>
 									<div class="content">${reple.repleContent}</div>
 									<div id="date">   ${reple.repleRegDate}</div>
@@ -354,6 +354,7 @@ aside .joinAndFindPassword a {
 			repleRegDate : new Date(),
 			memKey : 1, // 수정해야됨
 			boardKey : 1 // 수정해야됨
+		
 		}, function(responseData) {
 			// 성공적으로 응답을 받았을 때 처리할 코드
 			console.log("success");

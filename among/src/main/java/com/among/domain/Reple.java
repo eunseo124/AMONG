@@ -12,29 +12,22 @@ import java.util.Date;
  * Servlet implementation class reple
  */
 public class Reple extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	
 
-	private int repleKey; // ��� �ڵ�
-	private String repleContent; // ����
-	private Date repleRegDate; // �ۼ� ��¥
+	private int repleKey; // 占쏙옙占� 占쌘듸옙
+	private String repleContent; // 占쏙옙占쏙옙
+	private Date repleRegDate; // 占쌜쇽옙 占쏙옙짜
 	private int memKey;
-	private int boardKey;// �Խ���
+	private int boardKey;// 占쌉쏙옙占쏙옙
 
-	/* �⺻ ������ */
+	
 	public Reple() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/* �Ϲ� ������ */
-	public Reple(int repleKey, String repleContent, Date repleRegDate, int memKey, int boardKey) {
-		super();
-		this.repleKey = repleKey;
-		this.repleContent = repleContent;
-		this.repleRegDate = repleRegDate;
-		this.memKey = memKey;
-		this.boardKey = boardKey;
-	}
+	/* 占싹뱄옙 占쏙옙占쏙옙占쏙옙 */
+	
 
 	public int getRepleKey() {
 		return repleKey;
@@ -68,9 +61,7 @@ public class Reple extends HttpServlet {
 		this.memKey = memKey;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
 
 	public int getBoardKey() {
 		return boardKey;
@@ -82,8 +73,40 @@ public class Reple extends HttpServlet {
 
 	@Override
 	public String toString() {
-		return "Reply [ repleKey=" + repleKey + ", repleRegDate=" + repleRegDate + ", repleContent=" + repleContent
+		return "Reply [ repleKey=" + repleKey + ", repleRegDate=" + repleRegDate + ", repleContent=" + repleContent +nName
 				+ ", memKey=" + memKey + "]";
+	}
+	
+	
+	private int memGrade;	//회원 등급 (일반/관리자)
+	private String nName; 	//닉네임eredfad
+
+	public int getMemGrade() {
+		return memGrade;
+	}
+
+	public void setMemGrade(int memGrade) {
+		this.memGrade = memGrade;
+	}
+
+	public String getnName() {
+		return nName;
+	}
+
+	public void setnName(String nName) {
+		this.nName = nName;
+	}
+
+	public Reple(int repleKey, String repleContent, Date repleRegDate, int memKey, int boardKey, int memGrade,
+			String nName) {
+		super();
+		this.repleKey = repleKey;
+		this.repleContent = repleContent;
+		this.repleRegDate = repleRegDate;
+		this.memKey = memKey;
+		this.boardKey = boardKey;
+		this.memGrade = memGrade;
+		this.nName = nName;
 	}
 
 }

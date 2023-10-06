@@ -23,28 +23,29 @@ public class RepleRepositoryImpl implements RepleRepository {
 
 	public RepleRepositoryImpl() {
 
-		// ��� ���̺� ������ �����
-		// ex) memKey�� 1�� admin(���̵�) / admin1234(��й�ȣ) / ������(�̸�) /
-		// ���:2(����d��) ���
-		// �⺻������ memKey/memId/memPw/memName/memGrade������
-		// ���� -> Member member1 = new Member("id1234", "pwd1234" , "�̸�ȫ�浿", "1")
+		// 占쏙옙占� 占쏙옙占싱븝옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占�
+		// ex) memKey占쏙옙 1占쏙옙 admin(占쏙옙占싱듸옙) / admin1234(占쏙옙橘占싫�) / 占쏙옙占쏙옙占쏙옙(占싱몌옙) /
+		// 占쏙옙占�:2(占쏙옙占쏙옙d占쏙옙) 占쏙옙占�
+		// 占썩본占쏙옙占쏙옙占쏙옙 memKey/memId/memPw/memName/memGrade占쏙옙占쏙옙占쏙옙
+		// 占쏙옙占쏙옙 -> Member member1 = new Member("id1234", "pwd1234" , "占싱몌옙홍占썸동", "1")
 	}
 
-	// ��� ��ȸ
+	// 占쏙옙占� 占쏙옙회
 	@Override
 	public List<Reple> getAllRepleList() {
 		// TODO Auto-generated method stub
-		String SQL = "SELECT * FROM reple";
+		String SQL = "select * from reple a inner join member b on a.memkey = b.memkey";
+	
 		List<Reple> listOfReple = template.query(SQL, new RepleRowMapper());
 		return listOfReple;
 	}
 
-	// ��� ���
+	// 占쏙옙占� 占쏙옙占�
 	public void setNewReple(Reple reple) {
 
 		String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) "
-				+ "VALUES (?, ?, ?, ?,?)";
-
+				+ "VALUES (?, ?, ?, ?,?,?)";
+	
 		template.update(SQL, reple.getRepleKey(), reple.getRepleContent(), reple.getRepleRegDate(), reple.getMemKey(),
 				reple.getBoardKey());
 
@@ -53,10 +54,9 @@ public class RepleRepositoryImpl implements RepleRepository {
 	
 	public Integer saveReple(Reple reple) {
 		
-		String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) "
-				+ "VALUES (?, ?, ?, ?,?)";
-
-		template.update(SQL, reple.getRepleKey(), reple.getRepleContent(), reple.getRepleRegDate(), reple.getMemKey(),
+		String SQL = "INSERT INTO reple (repleContent, memKey, boardKey) VALUES (?,?,?)";
+		
+		template.update(SQL,reple.getRepleContent(), reple.getMemKey(),
 				reple.getBoardKey());
 		
 		return 1;
@@ -64,7 +64,8 @@ public class RepleRepositoryImpl implements RepleRepository {
 
 	@Override
 	public List<Reple> getReplList(Integer boardKey) {
-		String SQL = "SELECT * FROM reple where boardKey = " + boardKey;
+		String SQL = "SELECT * FROM reple a inner join member b on a.memkey = b.memkey where boardKey = " + boardKey;
+		
 		
 		List<Reple> repleList = new ArrayList<>();
 		
