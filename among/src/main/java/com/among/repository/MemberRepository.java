@@ -19,4 +19,5 @@ public interface MemberRepository {
    
    Member getlogin(String memId, String memPw); //member db login 메소드 //getlogin
 
+   void getjoin(Member mem); //member 회원가입 메소드
 }

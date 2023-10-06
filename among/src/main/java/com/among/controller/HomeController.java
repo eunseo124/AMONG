@@ -57,9 +57,7 @@ public class HomeController {
 
    @RequestMapping(value = "/home", method = RequestMethod.GET)
    public String home(Model model) {
-      int memKey = 1;
-      List<Member> list = memberService.getmemlist(memKey);
-      model.addAttribute("list", list);
+      
       return "home";
 
    }
@@ -71,12 +69,6 @@ public class HomeController {
 
    }
 
-   @RequestMapping(value = "/memjoin", method = RequestMethod.GET)
-   public String memjoin() {
-
-      return "member/memjoin";
-
-   }
 
    @RequestMapping(value = "/hotboard", method = RequestMethod.GET)
    public String hotboard() {
@@ -124,6 +116,12 @@ public class HomeController {
    public String pass() {
 
       return "member/pass";
+
+   }
+   @RequestMapping(value = "/myupdate", method = RequestMethod.GET)
+   public String myudate() {
+
+      return "mypage/myupdate";
 
    }
 
@@ -211,13 +209,8 @@ public class HomeController {
 
    }
 
-	@GetMapping("/admin_member")
-    public String list(Model model) {
-        List<Member> Alist = memberService.getAllMemberList();
-        model.addAttribute("Alist", Alist);
-        return "admin/admin_member";
-    }
 	
+
    @RequestMapping(value = "/admin_member_info", method = RequestMethod.GET)
    public String admin_member_info() {
 

@@ -78,7 +78,6 @@
             	<section>
             		<div class = "login1">
             		<form name = "loginfrm" method = "post" action = "login/login_proc">
-            		<%System.out.println("loginpage sumit success"); %>
             			<h1>로그인</h1>
             				<label>아이디</label>
             				<input type = "text" id = "memId" name = "memId" value = "" placeholder = "아이디를 입력해주세요">

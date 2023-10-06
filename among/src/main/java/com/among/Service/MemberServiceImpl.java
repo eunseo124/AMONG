@@ -20,14 +20,17 @@ public class MemberServiceImpl implements MemberService {
       List<Member> listOfMember = memberRepository.getAllMemberList();
       return listOfMember;
    }
+   
    //member 조회문 method불러오기
    public List<Member> getmflist(String keyField) {
       return memberRepository.getmflist(keyField);
    }
+   
    //member update method불러오기
    public void setupmem(Member member) {
       memberRepository.setupmem(member);
    }
+   
    //member 조회 method불러오기
    public List<Member> getmemlist(int memKey){
       List<Member> memlist = memberRepository.getmemlist(memKey);
@@ -40,5 +43,12 @@ public class MemberServiceImpl implements MemberService {
 	 Member member = memberRepository.getlogin(memId, memPw);
 	   
       return member;
+   }
+   
+   //member 회원가입 메소드
+   public void getjoin(Member mem) {
+	  
+	   memberRepository.getjoin(mem);
+	   
    }
 }

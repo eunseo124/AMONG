@@ -18,7 +18,6 @@
                     <input type="text" name="memId"  id = "memId" placeholder="아이디">
                     <input type="password" name="memPw" id = "memPw" placeholder="비밀번호">
                     <button class="button" type = "submit">로그인</button>
-                    <%System.out.println("aside sumit완료"); %>
                 </div>
                 </form>
                 <div class="joinAndFindPassword">
@@ -48,9 +47,12 @@
                             <p>게시글 : 1개 <br>
                                 <br> 댓글 : 1개
                             </p>
+                            <form name = "logout" method = "post" action = "logout/logout_proc">
                             <button id="Alogout">로그아웃<span class="material-symbols-outlined">
+                            
                                 logout
                                 </span></button>
+                            </form>
                         </div>
                         <div>
 
@@ -59,8 +61,8 @@
                             <p></p>
 
                         </div>
-                        <button class="button">마이페이지</button>
-                        <button id="button2">정보수정</button>
+                        <a href = "<c:url value="/mypage" />"><button class="button">마이페이지</button></a>
+                       <a href = "<c:url value="/myupdate" />"><button id="button2">정보수정</button></a>
 
                     </div>
                 </c:when>

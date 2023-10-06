@@ -78,8 +78,8 @@
             			<img src="resources/images/profile.png" class = "pimg">
             		</div>
             		<div class = "mypage3">
-	            		<h1>test님</h1>
-		            	<p>test123@naver.com</p>
+	            		<h1>${sessionc.nName}님</h1>
+		            	<p>${sessionc.memEmail1}@${sessionc.memEmail2}</p>
 	            	</div>
             </section>
     </header>
@@ -88,7 +88,7 @@
             <article id="widget">
             	<section class = "flex">
             		<div class = "pheader">
-            		<div><h4><a href="<c:url value="/mypage" />">프로필 수정</a></h4></div>
+            		<div><h4><a href="<c:url value="/mypage" />">내 프로필</a></h4></div>
             		<div><h4><a href="<c:url value="/mypost" />">게시글 관리</a></h4></div>
             		<div><h4><a href="<c:url value="/myreply" />">댓글 관리</a></h4></div>
             		</div>

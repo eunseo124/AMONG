@@ -38,27 +38,31 @@ public class MemberController {
    private  MemberService memberService;
    private MemberRowMapper mrowmap;
    
-   /*//회원가입 페이지 출력
-   @GetMapping("/memjoin")
-   public String memjoinForm() {
-      return "member/memjoin";.
+  
+   //회원가입 페이지 출력
+   @RequestMapping(value = "/memjoin", method = RequestMethod.GET)
+   public String memjoin() {
+      
+	   return "member/memjoin";
    }
    
-   @PostMapping("/memjoin")
-   public String memjoin(@ModelAttribute MemberRowMapper member ) {
-      memberService.memjoin(member);
-      return "member/memjoin";
-   }*/
+   @RequestMapping(value = "/memjoin/memjoin_proc", method = RequestMethod.POST)
+   public String memjoinProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
+	         ModelMap modelMap, @ModelAttribute("mem") Member mem, Model model){
+     
+	   memberService.getjoin(mem);
+      
+	   return "redirect:/home";
+   }
    
-   
+   //마이페이지 메인페이지 이동
    @RequestMapping(value = "/mypage", method = RequestMethod.GET)
-   public String requestmypage(Model model, int memKey) {
-      List<Member> mlist = memberService.getmemlist(memKey);
-      model.addAttribute("mlist",mlist);
+   public String requestmypage(Model model) {
+      
       return "mypage/mypage";
       
    }
-   
+   //로그인
    @RequestMapping(value = "/login/login_proc",method = RequestMethod.POST) 
    public String logingProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
          ModelMap modelMap, @ModelAttribute("mem") Member member, Model model){
@@ -82,23 +86,65 @@ public class MemberController {
          sessionc.setDelYn(mem.getDelYn());
          sessionc.setMemGrade(mem.getMemGrade());
          sessionc.setnName(mem.getnName());
-         
-       	System.out.println("MemberController memKey = " + sessionc.getMemKey());
-       	System.out.println("MemberController memId = " + sessionc.getMemId());
-       	System.out.println("MemberController memPw = " + sessionc.getMemPw());
-       	System.out.println("MemberController memEmail1 = " + sessionc.getMemEmail1());
-       	System.out.println("MemberController memEmail2 = " + sessionc.getMemEmail2());
-       	System.out.println("MemberController memName = " + sessionc.getMemName());
-       	System.out.println("MemberController memResident1 = " + sessionc.getMemResident1());
-       	System.out.println("MemberController memResident2 = " + sessionc.getMemResident2());
-       	System.out.println("MemberController memJoinDate = " + sessionc.getMemJoinDate());
-       	System.out.println("MemberController delYn = " + sessionc.getDelYn());
-       	System.out.println("MemberController memGrade = " + sessionc.getMemGrade());
-       	System.out.println("MemberController nName = " + sessionc.getnName());
-       	 
          session.setAttribute("sessionc", sessionc);
+         session.setAttribute("nName", mem.getnName());
+         session.setAttribute("memKey", mem.getMemKey());
+         session.setAttribute("memGrade", mem.getMemGrade());
 	   	 
       return "redirect:/home";
    }
+   //로그아웃 
+   @RequestMapping(value = "/logout/logout_proc", method = RequestMethod.POST)
+   public String logoutProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
+	
+	   session.invalidate();
+	   
+	   return "redirect:/home";
+	   
+   }
+   
+   /* 성공 메시지 
+   //회원가입
+   @RequestMapping(value = "/memjoin/memjoin_proc", method = RequestMethod.POST)
+   public String msg(HttpServletRequest req) throws Exception{
+	   
+	   Member mem = (Member) req.getSession().getAttribute("mem");
+	   System.out.println("alert msg = " + mem);
+	   if(mem == null) {
+		   req.setAttribute("msg","로그인이 필요합니다.");
+		   req.setAttribute("url", "/member/login");
+		   return "alert";
+	   }
+	   req.setAttribute("msg", "가입 신청이 완료되었습니다.");
+	   req.setAttribute("url", "/home");
+	   return "alert";
+   }
+   
+   //로그인창
+   @RequestMapping(value = "/login/login_proc", method = RequestMethod.POST)
+   public String lmsg(HttpServletRequest req,HttpSession session) throws Exception{
+	   
+	   Member lmem = (Member) req.getSession().getAttribute("lmem");
+	   int memKey = (Integer) session.getAttribute("memKey");
+	   String nName = (String) session.getAttribute("nName");
+	   int memGrade = (Integer) session.getAttribute("memGrade");
+	   if(lmem == null) {
+		   req.setAttribute("msg","아이디 비밀번호를 다시 확인해주세요.");
+		   req.setAttribute("url", "/member/login");
+		   return "alert";
+	   }
+	   else if(memKey != 0 && memGrade == 1) {
+		   req.setAttribute("msg", nName+"님 환영합니다.");
+		   req.setAttribute("url", "/home");
+		   return "alert";
+	   }
+	   else if(memKey != 0 && memGrade == 2) {
+		   req.setAttribute("msg", "관리자님 환영합니다.");
+		   req.setAttribute("url", "/home");
+	   }
+	   return "alert";
+	   
+   }*/
+   /* 성공 메시지 끝 */
    
 }

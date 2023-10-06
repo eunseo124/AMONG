@@ -81,16 +81,28 @@ public class MemberRepositoryImpl implements MemberRepository {
      
 	
       String SQL = "select * from member where memId = '" + memId + "' and memPw = '" + memPw+"'";
-      System.out.println("MemberReposiotryImpl = "+ memId+", "+memPw);
       
       Member member = template.queryForObject(SQL, new MemberRowMapper());
-      System.out.println("MemberReposiotryImpl submit! = "+template.queryForObject(SQL, new MemberRowMapper()));
-      System.out.println("MemberRepositoryImpl login = "+ member);
-      
+     
       return member;
       
    }
    
+   //member 회원가입 메소드
+   public void getjoin(Member mem) {
+	   
+	   String SQL = "INSERT INTO member (memId,memPw,memEmail1,memEmail2,memName,memResident1,memResident2,nName)"
+	   		+ " VALUES(?,?,?,?,?,?,?,?)";
+	   template.update(SQL, 
+	            mem.getMemId(),
+	            mem.getMemPw(),
+	            mem.getMemEmail1(),
+	            mem.getMemEmail2(),
+	            mem.getMemName(),
+	            mem.getMemResident1(),
+	            mem.getMemResident2(),
+	            mem.getnName());
+   }
    
    
    
