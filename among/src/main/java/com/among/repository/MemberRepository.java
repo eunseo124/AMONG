@@ -17,6 +17,6 @@ public interface MemberRepository {
    
    List<Member> getmemlist(Integer memKey);//member db memKey로 조회문 method //memlist
    
-   List<Member> getlogin(String memId, String memPw); //member db login 메소드 //getlogin
+   Member getlogin(String memId, String memPw); //member db login 메소드 //getlogin
 
 }

@@ -77,14 +77,14 @@ public class MemberRepositoryImpl implements MemberRepository {
    }
    
    //member db login ¸Þ¼Òµå
-   public List<Member> getlogin(String memId, String memPw) {
+   public Member getlogin(String memId, String memPw) {
      
 	
       String SQL = "select * from member where memId = '" + memId + "' and memPw = '" + memPw+"'";
       System.out.println("MemberReposiotryImpl = "+ memId+", "+memPw);
       
-      List<Member> member = template.query(SQL, new MemberRowMapper());
-      System.out.println("MemberReposiotryImpl submit! = "+template.query(SQL, new MemberRowMapper()));
+      Member member = template.queryForObject(SQL, new MemberRowMapper());
+      System.out.println("MemberReposiotryImpl submit! = "+template.queryForObject(SQL, new MemberRowMapper()));
       System.out.println("MemberRepositoryImpl login = "+ member);
       
       return member;

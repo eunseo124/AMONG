@@ -61,20 +61,17 @@ public class MemberController {
    
    @RequestMapping(value = "/login/login_proc",method = RequestMethod.POST) 
    public String logingProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
-         ModelMap modelMap, @ModelAttribute("mem") Member mem, Model model){
-	   	 session = req.getSession();
-	     
-	   	 Member member = new Member();
+         ModelMap modelMap, @ModelAttribute("mem") Member member, Model model){
 	   	 
+	   
+	   	 Member mem = memberService.getlogin(member.getMemId(), member.getMemPw());
 	   	 
-	   	 List<Member> member2 = memberService.getlogin(mem.getMemId(), mem.getMemPw());
+	   	 /*model.addAttribute("memberList", mem);*/
 	   	 
-	   	 model.addAttribute("memberList", member2);
+	   	 Member sessionc  = new Member();
 	   	 
-
-         
-	   	 /*
-	   	 sessionc.setMemKey(member2.get(1));
+	   	 sessionc.setMemKey(mem.getMemKey());
+	   	 sessionc.setMemId(mem.getMemId());
          sessionc.setMemPw(mem.getMemPw());
          sessionc.setMemEmail1(mem.getMemEmail1());
          sessionc.setMemEmail2(mem.getMemEmail2());
@@ -94,11 +91,14 @@ public class MemberController {
        	System.out.println("MemberController memName = " + sessionc.getMemName());
        	System.out.println("MemberController memResident1 = " + sessionc.getMemResident1());
        	System.out.println("MemberController memResident2 = " + sessionc.getMemResident2());
-       	
+       	System.out.println("MemberController memJoinDate = " + sessionc.getMemJoinDate());
+       	System.out.println("MemberController delYn = " + sessionc.getDelYn());
+       	System.out.println("MemberController memGrade = " + sessionc.getMemGrade());
+       	System.out.println("MemberController nName = " + sessionc.getnName());
        	 
-         session.setAttribute("sessionc", sessionc);*/
+         session.setAttribute("sessionc", sessionc);
 	   	 
-      return "redirect:/";
+      return "redirect:/home";
    }
    
 }

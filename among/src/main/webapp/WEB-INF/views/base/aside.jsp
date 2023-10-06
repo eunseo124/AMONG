@@ -12,7 +12,7 @@
 	  <input type = "hidden" value = "<c:out value = '${sessionc.nName}'/>" id = "nName">
 	  
             <c:choose>
-         <c:when test = "${memberList.MemKey eq null}">
+         <c:when test = "${sessionc.memKey eq null}">
          <form name = "loginfrm" method = "post" action = "login/login_proc">
                 <div class="inputsAndButtons">
                     <input type="text" name="memId"  id = "memId" placeholder="아이디">
@@ -26,11 +26,11 @@
                     <a href="<c:url value="/memjoin" />">회원가입</a>
                 </div>
             </c:when>
-              <c:when test = "${memberList.MemKey ne null}">
+              <c:when test = "${sessionc.memKey ne null}">
                     <div class="loginAfter">
                         
                         <div id="Aid">
-                            <p>${memberList.MemName}님 </p>
+                            <p>${sessionc.memName}님 </p>
                             <p id="grade">|</p>
                             <p id="grade">
                             <c:set var = "memGrade" value = "${sessionc.memGrade}"/>

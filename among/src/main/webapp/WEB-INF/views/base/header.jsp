@@ -22,7 +22,7 @@
                 </ul>
             </section>
       </c:when>
-      <c:when test = "${sessionc ne null}">
+      <c:when test = "${sessionc.memKey ne null}">
          <section id="sub">
                 <ul>
                    <li>
