@@ -135,6 +135,7 @@
 				                        <input type = "reset" class="cancel" value="취소">
                    			 	</section>
                             </form>
+
         <script>
 			$(document).ready(function () {
 		        	var fontList = ['Pretendard-Regular','HakgyoansimWoojuR', 'GangwonState','SBAggroB','iceSotong-Rg'];
@@ -159,16 +160,13 @@
 		            	fontNames: fontList,
 		            	fontNamesIgnoreCheck: fontList,
 		            });
-		            $('#summernote').summernote('fontName', 'Pretendard-Regular');
+		            $('#summernote').summernote('fontName', 'Pretendard-Regular')
 		      });
-</script>
+		</script>
                         </div>
                     </section>
-
                     
                 </div>
-
-
               
             </article> 
     </main>

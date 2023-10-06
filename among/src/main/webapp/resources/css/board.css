@@ -54,6 +54,7 @@ article {
     margin-right: 4px;
     border-radius: 4px;
     height: 20px;
+    margin-left: 14px;
 }
 #generalList .notice {
     display: flex;
@@ -73,6 +74,7 @@ article {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    margin-left: 10px;
 }
 #generalList .notice .title .text {
     font-weight: bold;

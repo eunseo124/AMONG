@@ -11,6 +11,8 @@ public class Board implements Serializable {
 	private int boardView;
 	private int repleCount;
 	private int boardRecommend;
+	private int memGrade;
+	private int boardCategory;
 	private Date boardRegDate;
 	private Date boardModifyDate;
 	
@@ -20,6 +22,21 @@ public class Board implements Serializable {
 	}
 
 	
+	
+	public int getBoardCategory() {
+		return boardCategory;
+	}
+	public void setBoardCategory(int boardCategory) {
+		this.boardCategory = boardCategory;
+	}
+
+	public int getMemGrade() {
+		return memGrade;
+	}
+	public void setMemGrade(int memGrade) {
+		this.memGrade = memGrade;
+	}
+	
 	public int getBoardView() {
 		return boardView;
 	}
@@ -27,11 +44,9 @@ public class Board implements Serializable {
 		this.boardView = boardView;
 	}
 
-
 	public String getBoardTitle() {
 		return boardTitle;
 	}
-
 	public void setBoardTitle(String boardTitle) {
 		this.boardTitle = boardTitle;
 	}
@@ -39,7 +54,6 @@ public class Board implements Serializable {
 	public String getnName() {
 		return nName;
 	}
-
 	public void setnName(String nName) {
 		this.nName = nName;
 	}
@@ -47,7 +61,6 @@ public class Board implements Serializable {
 	public int getRepleCount() {
 		return repleCount;
 	}
-
 	public void setRepleCount(int repleCount) {
 		this.repleCount = repleCount;
 	}
@@ -55,17 +68,13 @@ public class Board implements Serializable {
 	public int getBoardRecommend() {
 		return boardRecommend;
 	}
-
 	public void setBoardRecommend(int boardRecommend) {
 		this.boardRecommend = boardRecommend;
 	}
 
-
 	public Date getBoardRegDate() {
 		return boardRegDate;
 	}
-
-
 	public void setBoardRegDate(Date boardRegDate) {
 		this.boardRegDate = boardRegDate;
 	}
@@ -74,8 +83,6 @@ public class Board implements Serializable {
 	public Date getBoardModifyDate() {
 		return boardModifyDate;
 	}
-
-
 	public void setBoardModifyDate(Date boardModifyDate) {
 		this.boardModifyDate = boardModifyDate;
 	}

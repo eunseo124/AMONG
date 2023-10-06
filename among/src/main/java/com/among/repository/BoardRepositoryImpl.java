@@ -29,15 +29,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     public List<Board> getAllBoardList() { 
     	
     	//게시판 조회 쿼리 작성
-    	String SQL = "SELECT boardTitle, "
-    						+ "member.nName, "
-    						+ "boardView, "
-    						+ "(SELECT COUNT(*) FROM reple WHERE board.boardKey) AS repleCount, "
-    						+ "boardRecommend, "
-    						+ "boardRegDate, "
-    						+ "boardModifyDate "
-    						+ "FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate\r\n"
-    			+ ""; 
+    	String SQL = "SELECT boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         

@@ -20,6 +20,8 @@ public class BoardRowMapper implements RowMapper<Board> {
         board.setBoardRecommend(rs.getInt(5));
         board.setBoardRegDate(rs.getDate(6));
         board.setBoardModifyDate(rs.getDate(7));
+        board.setMemGrade(rs.getInt(8));
+        board.setBoardCategory(rs.getInt(9));
         
         return board;
 	}
