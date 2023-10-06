@@ -77,13 +77,16 @@
             <article>
             	<section>
             		<div class = "login1">
+            		<form name = "loginfrm" method = "post" action = "login/login_proc">
+            		<%System.out.println("loginpage sumit success"); %>
             			<h1>로그인</h1>
             				<label>아이디</label>
-            				<input type = "text" name = "id" value = "" placeholder = "아이디를 입력해주세요">
+            				<input type = "text" id = "memId" name = "memId" value = "" placeholder = "아이디를 입력해주세요">
+            				<%System.out.println("memId dfd"); %>
             				<label>비밀번호</label>
-            				<input type = "password" name = "pwd" value = "" placeholder = "비밀번호를 입력해주세요">
+            				<input type = "password" id = "memPw" name = "memPw" value = "" placeholder = "비밀번호를 입력해주세요">
             				<br>
-            				<button>로그인</button>
+            				<button type = "submit" >로그인</button>
             				<div class = "login2">
             				<p><a href="<c:url value="/id" />">아이디 찾기</a></p>
             				<p>|</p>
@@ -91,6 +94,7 @@
             				<p>|</p>
             				<p><a href="<c:url value="/memjoin" />">회원가입</a></p>
             				</div>
+            				</form>
             		</div>
             	</section>
             </article> 

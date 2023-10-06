@@ -36,6 +36,9 @@ public class MemberServiceImpl implements MemberService {
    
    //member db login ¸Þ¼Òµå 
    public List<Member> getlogin(String memId, String memPw) {
-      return memberRepository.getlogin(memId, memPw);
+      
+	  List<Member> member = memberRepository.getlogin(memId, memPw);
+	   
+      return member;
    }
 }

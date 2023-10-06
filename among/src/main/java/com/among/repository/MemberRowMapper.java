@@ -23,6 +23,7 @@ public class MemberRowMapper implements RowMapper<Member> {
 		member.setDelYn(rs.getString(10));
 		member.setMemGrade(rs.getInt(11));
 		member.setnName(rs.getString(12));
+		
 		return member;
 	}
 

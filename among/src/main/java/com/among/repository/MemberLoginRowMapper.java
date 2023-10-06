@@ -16,8 +16,8 @@ public class MemberLoginRowMapper implements RowMapper<Member> {
       memlogin.setMemKey(rs.getInt(1));
       memlogin.setMemId(rs.getString(2));
       memlogin.setMemPw(rs.getString(3));
-      memlogin.setMemGrade(rs.getInt(4));
-      memlogin.setnName(rs.getString(5));
+      memlogin.setMemGrade(rs.getInt(11));
+      memlogin.setnName(rs.getString(12));
       return memlogin;
    }
 

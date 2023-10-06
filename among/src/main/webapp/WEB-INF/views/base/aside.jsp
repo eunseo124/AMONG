@@ -7,14 +7,18 @@
             <section id="fixedBanner" class="right"></section>
             <section class="userContainer">
         <!--     -->
-      
+      <input type = "hidden" value = "<c:out value = '${sessionc.memKey}'/>" id = "memKey">
+	  <input type = "hidden" value = "<c:out value = '${sessionc.memGrade}'/>" id = "memGrade">
+	  <input type = "hidden" value = "<c:out value = '${sessionc.nName}'/>" id = "nName">
+	  
             <c:choose>
-         <c:when test = "${sessionc eq null}">
-         <form action = "/Login" method = "post">
+         <c:when test = "${memberList.MemKey eq null}">
+         <form name = "loginfrm" method = "post" action = "login/login_proc">
                 <div class="inputsAndButtons">
                     <input type="text" name="memId"  id = "memId" placeholder="아이디">
                     <input type="password" name="memPw" id = "memPw" placeholder="비밀번호">
-                    <button class="button">로그인</button>
+                    <button class="button" type = "submit">로그인</button>
+                    <%System.out.println("aside sumit완료"); %>
                 </div>
                 </form>
                 <div class="joinAndFindPassword">
@@ -22,19 +26,19 @@
                     <a href="<c:url value="/memjoin" />">회원가입</a>
                 </div>
             </c:when>
-              <c:when test = "${sessionc ne null}">
+              <c:when test = "${memberList.MemKey ne null}">
                     <div class="loginAfter">
                         
                         <div id="Aid">
-                            <p>${sessionc.nName}님 </p>
+                            <p>${memberList.MemName}님 </p>
                             <p id="grade">|</p>
                             <p id="grade">
                             <c:set var = "memGrade" value = "${sessionc.memGrade}"/>
                             <c:choose>
-                               <c:when test = "${memGrade eq '1'}">
+                               <c:when test = "${sessionc.memGrade eq '1'}">
                                   <%out.print("일반회원"); %>
                                </c:when>
-                               <c:when test = "${memGrade eq '2'}">
+                               <c:when test = "${sessionc.memGrade eq '2'}">
                                   <%out.print("관리자"); %>
                                </c:when>
                             </c:choose>
@@ -70,5 +74,5 @@
                <section id = "banner2">
                    <img src="resources/images/banner.jpg" class = "img">
                </section>
-            
+
 

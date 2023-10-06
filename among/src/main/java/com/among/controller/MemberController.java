@@ -60,26 +60,44 @@ public class MemberController {
    }
    
    @RequestMapping(value = "/login/login_proc",method = RequestMethod.POST) 
-   public String loingProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
-         ModelMap modelMap, @ModelAttribute("memlogin") Member memlogin) throws Exception {
-      
-         if(memlogin.getMemId() == null) throw new Exception("아이디를 입력해주세요");
-         if(memlogin.getMemPw() == null) throw new Exception("비밀번호를 입력해주세요");
-      
-         Member getlogin = (Member) memberService.getlogin(memlogin.getMemId(), memlogin.getMemPw());
-         SessionConfig sessionc = new SessionConfig();
-         sessionc.setMemId(memlogin.getMemId());
-         sessionc.setMemPw(memlogin.getMemPw());
-         sessionc.setMemKey(memlogin.getMemKey());
-         sessionc.setMemGrade(memlogin.getMemGrade());
-         sessionc.setnName(memlogin.getnName());
-         if(!getlogin.getMemId().equals(memlogin.getMemId()) || !getlogin.getMemPw().equals(memlogin.getMemPw())) {
-            throw new Exception("아이디 및 비밀벊로를 확인해주세요.");
-         }else {
-            session.setAttribute("sessionc", sessionc);
-            session.setAttribute("nName", sessionc.getnName());
-         }
+   public String logingProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
+         ModelMap modelMap, @ModelAttribute("mem") Member mem, Model model){
+	   	 session = req.getSession();
+	     
+	   	 Member member = new Member();
+	   	 
+	   	 
+	   	 List<Member> member2 = memberService.getlogin(mem.getMemId(), mem.getMemPw());
+	   	 
+	   	 model.addAttribute("memberList", member2);
+	   	 
+
          
+	   	 /*
+	   	 sessionc.setMemKey(member2.get(1));
+         sessionc.setMemPw(mem.getMemPw());
+         sessionc.setMemEmail1(mem.getMemEmail1());
+         sessionc.setMemEmail2(mem.getMemEmail2());
+         sessionc.setMemName(mem.getMemName());
+         sessionc.setMemResident1(mem.getMemResident1());
+         sessionc.setMemResident2(mem.getMemResident2());
+         sessionc.setMemJoinDate(mem.getMemJoinDate());
+         sessionc.setDelYn(mem.getDelYn());
+         sessionc.setMemGrade(mem.getMemGrade());
+         sessionc.setnName(mem.getnName());
+         
+       	System.out.println("MemberController memKey = " + sessionc.getMemKey());
+       	System.out.println("MemberController memId = " + sessionc.getMemId());
+       	System.out.println("MemberController memPw = " + sessionc.getMemPw());
+       	System.out.println("MemberController memEmail1 = " + sessionc.getMemEmail1());
+       	System.out.println("MemberController memEmail2 = " + sessionc.getMemEmail2());
+       	System.out.println("MemberController memName = " + sessionc.getMemName());
+       	System.out.println("MemberController memResident1 = " + sessionc.getMemResident1());
+       	System.out.println("MemberController memResident2 = " + sessionc.getMemResident2());
+       	
+       	 
+         session.setAttribute("sessionc", sessionc);*/
+	   	 
       return "redirect:/";
    }
    

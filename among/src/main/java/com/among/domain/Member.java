@@ -1,6 +1,7 @@
 package com.among.domain;
 
-public class Member {
+
+public class Member{
 	private int memKey; //고유키
 	private String memId;	//아이디
 	private String memPw; 	//비밀번호
