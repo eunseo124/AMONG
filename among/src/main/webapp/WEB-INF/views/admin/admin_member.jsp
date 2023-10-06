@@ -196,6 +196,7 @@
         		       </tr>
         		      </thead>
         		      <tbody>
+        		      <form method="post" action="admin/admin_form">
            			  <c:forEach items="${Alist}" var="Member">
            			   <tr>
 		                <td>${Member.memKey}</td> 
@@ -210,7 +211,8 @@
 		                </td>
         		        <td><button><a href="<c:url value="/admin_member_info" />">View</a></button></td>
         		       </tr> 
-          		       </c:forEach>      		               		               		               		               		               		       
+          		       </c:forEach>
+          		       </form>      		               		               		               		               		               		       
         		      </tbody>  
         		     </table>
         		<section class="search">

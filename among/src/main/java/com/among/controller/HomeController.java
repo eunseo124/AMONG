@@ -11,13 +11,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.among.domain.Member;
 import com.among.domain.Reple;
@@ -41,10 +40,9 @@ public class HomeController {
 
    /**
     * Simply selects the home view to render by returning its name.
- * @param request 
     */
    @RequestMapping(value = "/", method = RequestMethod.GET)
-   public String home(Locale locale, Model model, HttpServletRequest req,HttpSession session) {
+   public String home(Locale locale, Model model) {
       logger.info("Welcome home! The client locale is {}.", locale);
 
       Date date = new Date();
@@ -53,15 +51,15 @@ public class HomeController {
       String formattedDate = dateFormat.format(date);
 
       model.addAttribute("serverTime", formattedDate);
-      session = req.getSession();
-	  session.getAttribute("sessionc");
 
       return "home";
    }
 
    @RequestMapping(value = "/home", method = RequestMethod.GET)
-   public String home(Model model, HttpServletRequest req,HttpSession session,Member memlogin) {
-	   
+   public String home(Model model) {
+      int memKey = 1;
+      List<Member> list = memberService.getmemlist(memKey);
+      model.addAttribute("list", list);
       return "home";
 
    }
@@ -213,13 +211,13 @@ public class HomeController {
 
    }
 
-   @RequestMapping(value = "/admin_member", method = RequestMethod.GET)
-   public String admin_member() {
-
-      return "admin/admin_member";
-
-   }
-
+	@GetMapping("/admin_member")
+    public String list(Model model) {
+        List<Member> Alist = memberService.getAllMemberList();
+        model.addAttribute("Alist", Alist);
+        return "admin/admin_member";
+    }
+	
    @RequestMapping(value = "/admin_member_info", method = RequestMethod.GET)
    public String admin_member_info() {
 
