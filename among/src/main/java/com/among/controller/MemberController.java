@@ -41,7 +41,7 @@ public class MemberController {
    /*//회원가입 페이지 출력
    @GetMapping("/memjoin")
    public String memjoinForm() {
-      return "member/memjoin";
+      return "member/memjoin";.
    }
    
    @PostMapping("/memjoin")
