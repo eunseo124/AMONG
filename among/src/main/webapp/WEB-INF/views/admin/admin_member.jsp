@@ -210,7 +210,7 @@
 		                </td>
         		        <td><button><a href="<c:url value="/admin_member_info" />">View</a></button></td>
         		       </tr> 
-          		       </c:forEach>      		               		               		               		               		               		       
+          		       </c:forEach>   		               		               		               		               		               		       
         		      </tbody>  
         		     </table>
         		<section class="search">
