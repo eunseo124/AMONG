@@ -64,10 +64,13 @@ public class RepleRepositoryImpl implements RepleRepository {
 
 	@Override
 	public List<Reple> getReplList(Integer boardKey) {
-		String SQL = "SELECT * FROM reple a inner join member b on a.memkey = b.memkey where boardKey = " + boardKey;
+//		"SELECT * FROM reple a inner join member b on a.memkey = b.memkey where boardKey = " + boardKey;
+		String SQL = "SELECT * " +
+						"FROM reple a " + 
+						"INNER JOIN member b " +
+						"ON a.memKey = b.memKey " +
+						"WHERE a.boardKey = " + boardKey;
 		
-		
-		List<Reple> repleList = new ArrayList<>();
 		
 		
 		return template.query(SQL, new RepleRowMapper());

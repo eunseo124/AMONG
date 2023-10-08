@@ -138,7 +138,7 @@ aside .joinAndFindPassword a {
 						<div id="comments">
 							<h2>댓글</h2>
 							<div class="new">
-								<textarea name="repleContent" id="repleContent"
+								<textarea name="repleContent" id="repleContent" placeholder="댓글을 입력하세요."
 									style="resize: none"></textarea>
 								<button type="button" name="save" id="save"
 									onclick="saveReple()">작성</button>
@@ -171,7 +171,9 @@ aside .joinAndFindPassword a {
 
 						</div>
 
-</c:forEach> 
+			</c:forEach> 
+
+
 						<br>
 						<div id="table">
 							<a href="#">1</a> <a href="#">2</a> <a href="#">3</a>
@@ -352,7 +354,7 @@ aside .joinAndFindPassword a {
 		$.post("http://localhost:8080/get/repl/save", {
 			repleContent : repl,
 			repleRegDate : new Date(),
-			memKey : 1, // 수정해야됨
+			memKey : 2, // 수정해야됨
 			boardKey : 1 // 수정해야됨
 		
 		}, function(responseData) {
@@ -364,5 +366,7 @@ aside .joinAndFindPassword a {
 			console.error('AJAX 요청 에러:', error);
 		});
 	}
+	
+
 </script>
 </html>

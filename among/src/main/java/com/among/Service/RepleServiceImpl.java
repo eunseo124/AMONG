@@ -43,6 +43,6 @@ public class RepleServiceImpl implements RepleService{
 	public List<Reple> getRepleList(Integer boardKey) {
 		// TODO Auto-generated method stub
 		return repleRepository.getReplList(boardKey);
-	}  
+	}   
 	 
 }
