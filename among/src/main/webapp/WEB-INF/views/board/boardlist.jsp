@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,30 +82,32 @@ aside .joinAndFindPassword a {
 
 
 
-
+ 
 				<article id="post">
-
+      <input type="hidden" id="category" value="${board.boardCategory}">
+      
 					<section class="backToList">
-						<br> <br> <a href="#"> &lt; 목록으로 </a>
+						<br> <br> <a href="home"> &lt; 홈으로 </a>
 					</section>
-
+         
 					<section class="article">
 						<div class="info">
 							<div class="title">
 								<span>일반</span>
-								<h1>애플 키보드 트랙패드 기타 구입</h1>
+								
+								<h1>${board.boardTitle}</h1>
 							</div>
 							<div class="etc">
 								<div class="left">
 									<div id="nickName">
 										<div id="gradeBadge" class="color admin"
 											style="background-color: red">M</div>
-										<div>관리자</div>
+										<div>${board.nName}</div>
 									</div>
-									<div>2023.03.09</div>
-									<div>추천 1</div>
-									<div>조회수 1423</div>
-									<div>댓글 10</div>
+									<div>${boardRegDate}</div>
+									<div>추천 ${board.boardRecommend}</div>
+									<div>조회수 ${board.boardView}</div>
+									<div>댓글 ${board.repleCount}</div>
 								</div>
 
 							</div>
@@ -114,10 +117,8 @@ aside .joinAndFindPassword a {
 								<img
 									src="https://dzvpypcfjkr44.cloudfront.net/5df8dc651983470793cde08bf668302f.webp">
 							</figure>  
-							<p>안녕하세요 애플 트랙 패드 필요해서 구입 해서 사용 해봤는데</p>
-							<p>애플 마우스랑 같이 해보니 신세계 였습니다 너무 좋습니다</p>
-							<p>애플 악세사리도 조금 구입 하고 스탠드 커브 구입도 하고</p>
-							<p>너무 좋습니다</p>
+							<p>${board.boardContent}</p>
+							
 						</div>
 
 
@@ -125,8 +126,8 @@ aside .joinAndFindPassword a {
 
 						<div class="buttons">
 							<div class="left">
-								<a href="/posts/자유게시판?search=&amp;page=">
-									<button>목록으로</button>
+								<a href="home">
+									<button >홈으로</button>
 								</a>
 							</div>
 							<div class="right">
@@ -161,7 +162,7 @@ aside .joinAndFindPassword a {
 									<div id="nickName">
 										<div id="gradeBadge" class="color admin"
 											style="background-color: black">일반</div>
-										<div>${reple.nName}</div>
+										<div>${sessionc.nName}</div>
 									</div>
 									<div class="content">${reple.repleContent}</div>
 									<div id="date">   ${reple.repleRegDate}</div>
@@ -344,6 +345,9 @@ aside .joinAndFindPassword a {
 </body>
 
 <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+
 <script>
 
 	function saveReple() {
@@ -356,7 +360,7 @@ aside .joinAndFindPassword a {
 			repleRegDate : new Date(),
 			memKey : 2, // 수정해야됨
 			boardKey : 1 // 수정해야됨
-		
+		    
 		}, function(responseData) {
 			// 성공적으로 응답을 받았을 때 처리할 코드
 			console.log("success");
