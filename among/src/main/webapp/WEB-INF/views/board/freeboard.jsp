@@ -97,7 +97,7 @@
         			<c:set var = "memGrade" value="${board.memGrade}"/>
         			<c:choose>
         			<c:when test="${memGrade == 2}">
-        			<a href="boardlist" class="notice">
+        			<a href="boardlist?boardKey=${board.boardKey}&category=${2}" class="notice">
         					<span class="subject">공지</span>
         					<div class="info">
         						<div class="title">
@@ -131,20 +131,31 @@
         				<c:set var = "memGrade" value="${board.memGrade}"/>
         				<c:choose>
         				<c:when test="${memGrade == 1}">
-        				<a href="boardlist" class="item" id="item">
-        					<div class="image">
-        						<img src="resources/images/profile.png">
-        					</div>	
+        				<a href="boardlist?boardKey=${board.boardKey}&category=${2}" class="item" id="item">
+        				
+        					<c:set var="boardImg" value="${board.boardImg}"/>
+        					<c:choose>
+        					<c:when test="${boardImg != null}">
+        						<div class="image">
+        							<img src="${boardImg}">
+        						</div>	
+        					</c:when>
+        					<c:otherwise>
+        						<div class="image">
+        							<img src="resources/images/profile.png">
+        						</div>	
+        					</c:otherwise>
+        					</c:choose>
         					<div class="info">
         						<div class="title">
         							<span class="text">${board.boardTitle}</span>
-        							<input type="hidden" id="boardKey" value="${board.boardKey}">
         						</div>
         						<div class="etc">
         							<div id="nickName">
         								<img src="resources/images/banner.jpg">
         								<div>${board.nName}</div>
         							</div>
+        							<input type="hidden" name="boardKey" value="${board.boardKey}">
         							<div>조회수 ${board.boardView}</div>
         							<div>댓글 ${board.repleCount}</div>
         							<div>추천 ${board.boardRecommend}</div>
@@ -191,8 +202,9 @@
         		
         		<script>
         			var category = $("#category").val();
-        			var id = $("#boardKey").val();
+
         			console.log(category);
+
         			$(document).ready(function() {
         				
         				$("#boardWrite").on("click", function() {
@@ -200,35 +212,7 @@
         				});
         			});
         			
-        			//조회수 증가 스크립트
-        			$("#item").on("click", function() {
-        				location.href = "./upView?id="+id;
-        			});
         		</script>
-        		
-        		<script>
-   
-   
-      $("#boardKey").click(function(){
-    
-    
-
-      let boardKey = $("#boardKey").val();
-      
-      $.ajax({
-    		url : "<c:url value='/repl/repleList'/>",
-    		type : 'post',
-    		data : {"boardKey":boardKey},
-    		dataType: "json",
-    		
-    		error : function() {
-    			alert("error");
-    		}
-    	});
-      
-</script>
-        		
-        		
         	</div>
         </article>
     </main>
