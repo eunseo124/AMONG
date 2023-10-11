@@ -10,14 +10,7 @@ public class AdminRepositoryImpl implements AdminRepository {
 	
 	private JdbcTemplate template;
 
-	@Override
-	   //member db Á¶È¸¹®
-	public List<Member> getAllMemberList() {
-       // TODO Auto-generated method stub
-     String SQL = "SELECT * FROM member";
-     List<Member> listOfMember = template.query(SQL, new MemberRowMapper());
-        return listOfMember;
-    }
+
 
 	@Override
 	public List<Member> getmflist(String keyField) {

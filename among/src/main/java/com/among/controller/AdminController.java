@@ -37,32 +37,6 @@ public class AdminController {
 	@Autowired
 	private MemberService memberService;
 	
-	
-	/*
-	@GetMapping("/admin_member")//member listㅇ
-	public String requestlistOfMember(@RequestParam("memKey") int memKey, Model model) {
-		
-		List<Member> list = adminService.getAllMemberList();
-		model.addAttribute("memberlist",list);
-		return "admin/admin_member";	
-	
-	}
-	
-	
-	@RequestMapping(value = "/admin_member", method = RequestMethod.GET)
-	public String requestmypage(Model model) {
-		
-		List<Member> list = memberService.getAllme;
-		model.addAttribute("list",list);
-		return "mypage/mypage";
-		
-	}
-	
-	@GetMapping("/admin_member")
-    public String list(Model model) {
-        
-        return "admin/admin_member";
-    }*/
 	@GetMapping("/admin_member")
 	public String requestadmin_member(Model model) {
         List<Member> Alist = memberService.getAllMemberList();
@@ -82,14 +56,12 @@ public class AdminController {
     @GetMapping("/admin_member_info") 
     public String requestMemberById(@RequestParam("id") String memId, Model model) {  
     	
-    	System.out.println("admincontroller memid 넘어옴= "+memId);
         Member memberById = memberService.getMemberById(memId);
-        System.out.println("접근완료= "+ memberById.getMemId());
         model.addAttribute("member", memberById );
         
         return "admin/admin_member_info";
     }
 	
-	
+  	
 }
 	

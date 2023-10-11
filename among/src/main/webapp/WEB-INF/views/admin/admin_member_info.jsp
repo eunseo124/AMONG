@@ -269,17 +269,18 @@
 			                </dl>
 			                <dl>
 			                    <dt>비밀번호 확인</dt>
-			                    <dd><input type="password" placeholder="비밀번호 재입력"></dd>
+			                    <dd><input type="password" placeholder="비밀번호 재입력" value="${member.memPw}"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>닉네임</dt>
-			                    <dd><input type="text" placeholder="이름 입력"></dd>
+			                    <dd><input type="text" placeholder="이름 입력" value="${member.nName}"></dd>
 			                </dl>                  
 			                <dl>
 			                    <dt>이메일</dt>
 			                    <dd>
-			                        <input type="email" placeholder="이메일 입력"> @
+			                        <input type="email" placeholder="이메일 입력" value="${member.memEmail1}"> @
 			                        <select>
+			                        	<option>${member.memEmail2}</option>
 			                            <option>gmail.com</option>
 			                            <option>naver.com</option>
 			                            <option>kakao.com</option>
@@ -288,12 +289,16 @@
 			                </dl>                
 			                <dl>
 			                    <dt>이름</dt>
-			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly"></dd>
+			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly" value="${member.memName}"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>주민번호</dt>
-			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly"></dd>
+			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly" value="${member.memResident1}-${member.memResident2}"></dd>
 			                </dl>
+			                <dl>
+			                    <dt>가입일시</dt>
+			                    <dd><input type="text" placeholder="이름 입력" value="${member.memJoinDate}"></dd>
+			                </dl>			                
 			                <dl>
 			                	<dt>삭제여부</dt>
 			                	<dd>
