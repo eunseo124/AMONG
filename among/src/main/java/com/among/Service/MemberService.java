@@ -44,6 +44,8 @@ public interface MemberService {
    void getjoin(Member mem); //member 회원가입 메소드
    
    Member getcheckId(String memId); //member id 중복체크
+   
+   Member getchecknName(String nName); //member nName 중복체크
 	
    Member getMemberById(String memId);//getBookById() 메서드 추가
 }

@@ -113,6 +113,16 @@ public class MemberController {
       System.out.println("membercontroller = "+result.getMemId());
       return result.getMemId();
    }
+   //nName 중복체크
+   @RequestMapping(value = "/member/checknName", method = RequestMethod.POST)
+   @ResponseBody
+   public String checknName(@RequestParam("nName")String nName) {
+      
+      Member result = null;
+      result = memberService.getchecknName(nName);
+      System.out.println("membercontroller = "+result.getnName());
+      return result.getnName();
+   }
    
    
 }

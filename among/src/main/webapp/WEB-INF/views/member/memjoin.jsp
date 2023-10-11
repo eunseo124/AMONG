@@ -97,8 +97,8 @@
                                     <legend>닉네임</legend>
                                     <label>
                                         <input type="text" value="" name="nName" id="nName" placeholder="닉네임을 입력하시오" class="Mid">
-                                        
-                                        <input type="button" value="닉네임 중복검사" class="idbtn"><a href="<c:url value="/checknik" />"></a></input>
+                                        <input type="button" value="닉네임 중복검사" class="idbtn" id ="checknName" >
+                                        <div><span id="result_checknName" style="font-size:12px;"></span></div>
                                     </label>
                                     <legend>이메일</legend>
                                     <label style="display: flex;align-items: center;">
@@ -163,6 +163,7 @@
 		    $("#checkId").click(function(){
 		    
 		        let memId = $("#memId").val();
+		        //id 빈값입력 방지
 		        if(memId != ''){
 		        $.ajax({
 		            type:'post', //post 형식으로 controller 에 보내기위함!!
@@ -187,6 +188,40 @@
 		        
 		    }else if(memId == ''){
 			alert("아이디를 입력해주세요!");
+		}; 
+		});
+		});
+		
+		//nName 중복체크
+		$(function(){
+		    $("#checknName").click(function(){
+		    
+		        let nName = $("#nName").val();
+		        //nName 빈값입력 방지
+		        if(nName != ''){
+		        $.ajax({
+		            type:'post', //post 형식으로 controller 에 보내기위함!!
+		            url:"<c:url value='/member/checknName'/>" , // 컨트롤러로 가는 mapping 입력
+		            data: {"nName":nName}, // 원하는 값을 중복확인하기위해서  JSON 형태로 DATA 전송
+		            success: function(data){ 
+		                if(data == 0){ // 만약 성공할시
+		                	console.log(data);
+		                    result = "사용 가능한 닉네임입니다.";
+		                    $("#result_checknName").html(result).css("color", "green");
+		                    $("#memPw").trigger("focus");
+		                 
+		             }else if(data == 1){ // 만약 실패할시
+		                 result="이미 사용중인 닉네임입니다.";
+		                	 $("#result_checknName").html(result).css("color","red");
+		                     $("#memId").val("").trigger("focus");
+		             }
+		                 console.log(result);
+		         },
+		            error : function(error){alert("false");}
+		        });
+		        
+		    }else if(nName == ''){
+			alert("닉네임을 입력해주세요!");
 		}; 
 		});
 		});

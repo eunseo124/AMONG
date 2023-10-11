@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 import com.among.domain.*;
+import com.among.repository.*;
+
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,6 +111,14 @@ public class MemberRepositoryImpl implements MemberRepository {
       Member result = null;
       String SQL = "select count(*) from member where memId = '"+memId+"'";
       result = template.queryForObject(SQL,new MemberIdRowMapper());
+         return result;
+      }
+   
+   //member nName 중복체크
+   public Member getchecknName(String nName) {
+      Member result = null;
+      String SQL = "select count(*) from member where nName = '"+nName+"'";
+      result = template.queryForObject(SQL,new MembernNameRowMapper());
          return result;
       }
    
