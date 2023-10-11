@@ -25,10 +25,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.among.domain.Member;
 import com.among.repository.MemberRowMapper;
-import com.among.session.SessionConfig;
 import com.among.Service.MemberService;
 
 @Controller
@@ -43,16 +43,16 @@ public class MemberController {
    @RequestMapping(value = "/memjoin", method = RequestMethod.GET)
    public String memjoin() {
       
-	   return "member/memjoin";
+      return "member/memjoin";
    }
    
    @RequestMapping(value = "/memjoin/memjoin_proc", method = RequestMethod.POST)
    public String memjoinProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
-	         ModelMap modelMap, @ModelAttribute("mem") Member mem, Model model){
+            ModelMap modelMap, @ModelAttribute("mem") Member mem, Model model){
      
-	   memberService.getjoin(mem);
+      memberService.getjoin(mem);
       
-	   return "redirect:/home";
+      return "redirect:/home";
    }
    
    //마이페이지 메인페이지 이동
@@ -66,16 +66,16 @@ public class MemberController {
    @RequestMapping(value = "/login/login_proc",method = RequestMethod.POST) 
    public String logingProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
          ModelMap modelMap, @ModelAttribute("mem") Member member, Model model){
-	   	 
-	   
-	   	 Member mem = memberService.getlogin(member.getMemId(), member.getMemPw());
-	   	 
-	   	 /*model.addAttribute("memberList", mem);*/
-	   	 
-	   	 Member sessionc  = new Member();
-	   	 
-	   	 sessionc.setMemKey(mem.getMemKey());
-	   	 sessionc.setMemId(mem.getMemId());
+          
+      
+          Member mem = memberService.getlogin(member.getMemId(), member.getMemPw());
+          
+          /*model.addAttribute("memberList", mem);*/
+          
+          Member sessionc  = new Member();
+          
+          sessionc.setMemKey(mem.getMemKey());
+          sessionc.setMemId(mem.getMemId());
          sessionc.setMemPw(mem.getMemPw());
          sessionc.setMemEmail1(mem.getMemEmail1());
          sessionc.setMemEmail2(mem.getMemEmail2());
@@ -90,61 +90,29 @@ public class MemberController {
          session.setAttribute("nName", mem.getnName());
          session.setAttribute("memKey", mem.getMemKey());
          session.setAttribute("memGrade", mem.getMemGrade());
-	   	 
+          
       return "redirect:/home";
    }
    //로그아웃 
    @RequestMapping(value = "/logout/logout_proc", method = RequestMethod.POST)
    public String logoutProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
-	
-	   session.invalidate();
-	   
-	   return "redirect:/home";
-	   
+   
+      session.invalidate();
+      
+      return "redirect:/home";
+      
    }
    
-   /* 성공 메시지 
-   //회원가입
-   @RequestMapping(value = "/memjoin/memjoin_proc", method = RequestMethod.POST)
-   public String msg(HttpServletRequest req) throws Exception{
-	   
-	   Member mem = (Member) req.getSession().getAttribute("mem");
-	   System.out.println("alert msg = " + mem);
-	   if(mem == null) {
-		   req.setAttribute("msg","로그인이 필요합니다.");
-		   req.setAttribute("url", "/member/login");
-		   return "alert";
-	   }
-	   req.setAttribute("msg", "가입 신청이 완료되었습니다.");
-	   req.setAttribute("url", "/home");
-	   return "alert";
+   //id 중복체크
+   @RequestMapping(value = "/member/checkId", method = RequestMethod.POST)
+   @ResponseBody
+   public String checkid(@RequestParam("memId")String memId) {
+      
+      Member result = null;
+      result = memberService.getcheckId(memId);
+      System.out.println("membercontroller = "+result.getMemId());
+      return result.getMemId();
    }
    
-   //로그인창
-   @RequestMapping(value = "/login/login_proc", method = RequestMethod.POST)
-   public String lmsg(HttpServletRequest req,HttpSession session) throws Exception{
-	   
-	   Member lmem = (Member) req.getSession().getAttribute("lmem");
-	   int memKey = (Integer) session.getAttribute("memKey");
-	   String nName = (String) session.getAttribute("nName");
-	   int memGrade = (Integer) session.getAttribute("memGrade");
-	   if(lmem == null) {
-		   req.setAttribute("msg","아이디 비밀번호를 다시 확인해주세요.");
-		   req.setAttribute("url", "/member/login");
-		   return "alert";
-	   }
-	   else if(memKey != 0 && memGrade == 1) {
-		   req.setAttribute("msg", nName+"님 환영합니다.");
-		   req.setAttribute("url", "/home");
-		   return "alert";
-	   }
-	   else if(memKey != 0 && memGrade == 2) {
-		   req.setAttribute("msg", "관리자님 환영합니다.");
-		   req.setAttribute("url", "/home");
-	   }
-	   return "alert";
-	   
-   }*/
-   /* 성공 메시지 끝 */
    
 }

@@ -40,18 +40,28 @@ public class MemberServiceImpl implements MemberService {
    //member db login 메소드 
    public Member getlogin(String memId, String memPw) {
       
-	 Member member = memberRepository.getlogin(memId, memPw);
-	   
+    Member member = memberRepository.getlogin(memId, memPw);
+      
       return member;
    }
    
    //member 회원가입 메소드
    public void getjoin(Member mem) {
-	  
-	   memberRepository.getjoin(mem);
-	   
+     
+      memberRepository.getjoin(mem);
+      
    }
-   
+ //member id 중복체크
+    public Member getcheckId(String memId) {
+       Member result = null;
+       try {
+         result = memberRepository.getcheckId(memId);
+      } catch (Exception e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+       return result;
+    } 
 	 //BookRepository 클래스 getBookById() 메서드 호출
 	 public Member getMemberById(String memId) {
 		 	Member memberById = memberRepository.getMemberById(memId);

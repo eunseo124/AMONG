@@ -79,7 +79,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    //member db login 메소드
    public Member getlogin(String memId, String memPw) {
      
-	
+   
       String SQL = "select * from member where memId = '" + memId + "' and memPw = '" + memPw+"'";
       
       Member member = template.queryForObject(SQL, new MemberRowMapper());
@@ -90,19 +90,28 @@ public class MemberRepositoryImpl implements MemberRepository {
    
    //member 회원가입 메소드
    public void getjoin(Member mem) {
-	   
-	   String SQL = "INSERT INTO member (memId,memPw,memEmail1,memEmail2,memName,memResident1,memResident2,nName)"
-	   		+ " VALUES(?,?,?,?,?,?,?,?)";
-	   template.update(SQL, 
-	            mem.getMemId(),
-	            mem.getMemPw(),
-	            mem.getMemEmail1(),
-	            mem.getMemEmail2(),
-	            mem.getMemName(),
-	            mem.getMemResident1(),
-	            mem.getMemResident2(),
-	            mem.getnName());
+      
+      String SQL = "INSERT INTO member (memId,memPw,memEmail1,memEmail2,memName,memResident1,memResident2,nName)"
+            + " VALUES(?,?,?,?,?,?,?,?)";
+      template.update(SQL, 
+               mem.getMemId(),
+               mem.getMemPw(),
+               mem.getMemEmail1(),
+               mem.getMemEmail2(),
+               mem.getMemName(),
+               mem.getMemResident1(),
+               mem.getMemResident2(),
+               mem.getnName());
    }
+   
+   //member id 중복체크
+   public Member getcheckId(String memId) throws Exception {
+      Member result = null;
+      String SQL = "select count(*) from member where memId = '"+memId+"'";
+      result = template.queryForObject(SQL,new MemberIdRowMapper());
+         return result;
+      }
+   
    
    public Member getMemberById(String memId) {
 
