@@ -96,7 +96,7 @@
         			<c:set var = "memGrade" value="${board.memGrade}"/>
         			<c:choose>
         			<c:when test="${memGrade == 2}">
-        			<a href="#" class="notice">
+        			<a href="boardlist" class="notice">
         					<input type="hidden" id="category" value="${board.boardCategory}">
         					<span class="subject">공지</span>
         					<div class="info">
@@ -131,7 +131,7 @@
         				<c:set var = "memGrade" value="${board.memGrade}"/>
         				<c:choose>
         				<c:when test="${memGrade == 1}">
-        				<a href="#" class="item">
+        				<a href="boardlist" class="item">
         					<div class="image">
         						<img src="resources/images/profile.png">
         					</div>	
