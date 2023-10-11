@@ -13,15 +13,16 @@ public class BoardRowMapper implements RowMapper<Board> {
 
 		Board board = new Board();
 		
-		board.setBoardTitle(rs.getString(1));
-		board.setnName(rs.getString(2));
-		board.setBoardView(rs.getInt(3));
-		board.setRepleCount(rs.getInt(4));
-        board.setBoardRecommend(rs.getInt(5));
-        board.setBoardRegDate(rs.getDate(6));
-        board.setBoardModifyDate(rs.getDate(7));
-        board.setMemGrade(rs.getInt(8));
-        board.setBoardCategory(rs.getInt(9));
+		board.setBoardKey(rs.getInt(1));
+		board.setBoardTitle(rs.getString(2));
+		board.setnName(rs.getString(3));
+		board.setBoardView(rs.getInt(4));
+		board.setRepleCount(rs.getInt(5));
+        board.setBoardRecommend(rs.getInt(6));
+        board.setBoardRegDate(rs.getDate(7));
+        board.setBoardModifyDate(rs.getDate(8));
+        board.setMemGrade(rs.getInt(9));
+        board.setBoardCategory(rs.getInt(10));
         
         return board;
 	}

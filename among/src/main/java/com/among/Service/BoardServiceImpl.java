@@ -24,5 +24,11 @@ public class BoardServiceImpl implements BoardService {
 		  
 		   boardRepository.getboardWrite(board);
 		   
-	   }
+	 }
+	 
+	 public void setbodView(int boardKey) {
+		  
+		   boardRepository.setbodView(boardKey);
+		   
+	 }
 }

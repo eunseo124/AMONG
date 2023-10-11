@@ -81,6 +81,7 @@
         <article id = "postList">
         	<div id = "postList">
         		<section id = "title"><h1>자유게시판</h1></section>
+        		<input type="hidden" id="category" value="2">
         		<section id = "sort">
         			<a class="subject">정렬 |</a>
         			<a href="#" class="subject">최신순</a>
@@ -97,7 +98,6 @@
         			<c:choose>
         			<c:when test="${memGrade == 2}">
         			<a href="boardlist" class="notice">
-        					<input type="hidden" id="category" value="${board.boardCategory}">
         					<span class="subject">공지</span>
         					<div class="info">
         						<div class="title">
@@ -131,13 +131,14 @@
         				<c:set var = "memGrade" value="${board.memGrade}"/>
         				<c:choose>
         				<c:when test="${memGrade == 1}">
-        				<a href="boardlist" class="item">
+        				<a href="boardlist" class="item" id="item">
         					<div class="image">
         						<img src="resources/images/profile.png">
         					</div>	
         					<div class="info">
         						<div class="title">
         							<span class="text">${board.boardTitle}</span>
+        							<input type="hidden" id="boardKey" value="${board.boardKey}">
         						</div>
         						<div class="etc">
         							<div id="nickName">
@@ -190,12 +191,18 @@
         		
         		<script>
         			var category = $("#category").val();
+        			var id = $("#boardKey").val();
         			console.log(category);
         			$(document).ready(function() {
         				
         				$("#boardWrite").on("click", function() {
         					location.href = "boardwrite?category="+category;
         				});
+        			});
+        			
+        			//조회수 증가 스크립트
+        			$("#item").on("click", function() {
+        				location.href = "./upView?id="+id;
         			});
         		</script>
         	</div>

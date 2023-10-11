@@ -30,7 +30,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     public List<Board> getAllBoardList() { 
     	
     	//게시판 조회 쿼리 작성
-    	String SQL = "SELECT boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
+    	String SQL = "SELECT boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         
@@ -47,5 +47,13 @@ public class BoardRepositoryImpl implements BoardRepository {
  	            board.getBoardContent(),
  	            board.getBoardCategory(),
  	            board.getBoardTitle());
+    }
+    
+    //조회수 증가 메소드
+    public void setbodView(int boardKey) {
+    	
+    	String SQL = "UPDATE board SET boardView = boardView + 1 WHERE boardKey = ?";
+    	
+    	this.template.update(SQL, boardKey);
     }
 }

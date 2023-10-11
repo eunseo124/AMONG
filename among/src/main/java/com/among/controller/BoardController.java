@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.among.Service.BoardService;
@@ -23,10 +24,10 @@ import com.among.domain.Board;
 
 public class BoardController {
 
-	//Autowired 를 정의하여 BookService 클래스의 getAllBookList() 메서드를 호출합니다.
 	@Autowired
 	private BoardService boardService;  
 
+	//게시판 조회
 	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
 	@GetMapping("/freeboard")
 	public String requestBoardList(Model model) { 
@@ -46,5 +47,14 @@ public class BoardController {
 	      
 		    	return "redirect:/home";
 	}
+	
+	//게시판 조회수 증가
+	@RequestMapping(value = "/upView") 
+    public String setbodView(Model model, @RequestParam("id") int boardKey) {
+        
+    	boardService.setbodView(boardKey);
+        
+    	return "redirect:/home";
+    }
 		
 }
