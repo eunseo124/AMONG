@@ -38,7 +38,6 @@ public class AdminController {
 	@Autowired
 	private MemberService memberService;
 	
-	public AdminService adminService;
 	
 	/*
 	@GetMapping("/admin_member")//member list¤·
