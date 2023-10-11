@@ -34,15 +34,13 @@ import com.among.domain.Member;
 @Controller
 public class AdminController {
 	
-
-	
-	
 	
 	@Autowired
 	private MemberService memberService;
 	
-	/*@Autowired
-	private AdminService adminService;
+	public AdminService adminService;
+	
+	/*
 	@GetMapping("/admin_member")//member list
 	public String requestlistOfMember(@RequestParam("memKey") int memKey, Model model) {
 		
@@ -73,5 +71,27 @@ public class AdminController {
         model.addAttribute("Alist", Alist);
         return "admin/admin_member";
     }
+	
+	@RequestMapping(value = "/admin_comment", method = RequestMethod.GET)
+	public String admin_comment() {
+
+	    return "admin/admin_comment";
+
+    }	
+	
+    //@RequestParam 은 변수명=값 형태로 데이터를 전송합니다.
+    //http://localhost8080....../book?name="홍길동"
+    @GetMapping("/admin_member_info") 
+    public String requestMemberById(@RequestParam("id") String memId, Model model) {  
+    	
+    	System.out.println("admincontroller memid 넘어옴= "+memId);
+        Member memberById = memberService.getMemberById(memId);
+        System.out.println("접근완료= "+ memberById.getMemId());
+        model.addAttribute("member", memberById );
+        
+        return "admin/admin_member_info";
+    }
+	
+	
 }
 	

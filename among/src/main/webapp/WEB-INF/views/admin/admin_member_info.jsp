@@ -260,7 +260,7 @@
 			            <h1>회원정보</h1>
 			            <form>
 			                <dl>
-			                    <dt>아이디</dt>
+			                    <dt>아이디${member.memId}</dt>
 			                    <dd><input type="text" placeholder="아이디 입력" readonly="readonly"></dd>
 			                </dl>
 			                <dl>

@@ -5,12 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.among.domain.Member;
+import com.among.repository.AdminRepository;
 import com.among.repository.MemberRepository;
 
 public class AdminServiceImpl implements AdminService{
 	
 	@Autowired
 	private MemberRepository AdminRepository;
+	
+	private AdminRepository adminRepository;
 	
 	@Override
 	//member list method불러오기
@@ -28,4 +31,6 @@ public class AdminServiceImpl implements AdminService{
 		AdminRepository.setupmem(member);
 	}
 
+
+	 	 
 }

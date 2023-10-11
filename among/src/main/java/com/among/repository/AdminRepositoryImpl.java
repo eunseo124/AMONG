@@ -31,4 +31,19 @@ public class AdminRepositoryImpl implements AdminRepository {
 		
 	}
 
+    public Member getMemberById(String memId) {
+
+        System.out.println("접근여부 확인");
+        String SQL = "SELECT * FROM member where memId= '"+memId+"'";
+        
+        System.out.println("repository memId =" +memId);
+        
+        Member memberInfo = template.queryForObject(SQL, new MemberRowMapper());  
+        
+        System.out.println("데이터베이스 접근 성공");
+
+        return memberInfo;
+
+    }
+    
 }

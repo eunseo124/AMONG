@@ -208,10 +208,10 @@
 						<c:when test = "${memGrade eq '2'}"><%out.print("관리자"); %></c:when>
                        </c:choose>
 		                </td>
-        		        <td><button><a href="<c:url value="/admin_member_info" />">View</a></button></td>
+        		        <td><button><a href="<c:url value="/admin_member_info?id=${Member.memId}" />">View</a></button></td>
         		       </tr> 
           		       </c:forEach>   		               		               		               		               		               		       
-        		      </tbody>  
+        		      </tbody>
         		     </table>
         		<section class="search">
         			<input type="text" placeholder="검색어" name="search">

@@ -51,4 +51,10 @@ public class MemberServiceImpl implements MemberService {
 	   memberRepository.getjoin(mem);
 	   
    }
+   
+	 //BookRepository 클래스 getBookById() 메서드 호출
+	 public Member getMemberById(String memId) {
+		 	Member memberById = memberRepository.getMemberById(memId);
+	        return memberById;
+	 }
 }
