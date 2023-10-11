@@ -260,12 +260,12 @@
 			            <h1>회원정보</h1>
 			            <form>
 			                <dl>
-			                    <dt>아이디${member.memId}</dt>
-			                    <dd><input type="text" placeholder="아이디 입력" readonly="readonly"></dd>
+			                    <dt>아이디${Member.memId}</dt>
+			                    <dd><input type="text" placeholder="아이디 입력" readonly="readonly" value="${member.memId}"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>비밀번호</dt>
-			                    <dd><input type="password"" placeholder="비밀번호 입력"></dd>
+			                    <dd><input type="password"" placeholder="비밀번호 입력" value="${member.memPw}"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>비밀번호 확인</dt>
