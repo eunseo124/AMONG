@@ -84,11 +84,12 @@ aside .joinAndFindPassword a {
 
  
 				<article id="post">
-      <input type="hidden" id="category" value="${board.boardCategory}">
+    
       
 					<section class="backToList">
 						<br> <br> <a href="home"> &lt; 홈으로 </a>
 					</section>
+         
          
 					<section class="article">
 						<div class="info">
@@ -150,7 +151,7 @@ aside .joinAndFindPassword a {
 
 					
 
-
+	<!-- 댓 글 리스트 -->	
                <c:forEach items="${repleList}" var="reple">
 						
 						
@@ -161,7 +162,7 @@ aside .joinAndFindPassword a {
 							
 							<br>
 							
-						<!-- 댓 글 리스트 -->	
+							
 							<div id ="infos">
 									<div id="nickName">
 										<div id="gradeBadge" class="color admin"
@@ -318,39 +319,42 @@ aside .joinAndFindPassword a {
 <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
 
 
-<script>
-        			var category = $("#category").val();
-        			console.log(category);
-        			$(document).ready(function() {
-        				
-        				$("#boardWrite").on("click", function() {
-        					location.href = "boardwrite?category="+category;
-        				});
-        			});
-        		</script>
+<
 <script>
 
-	function saveReple() {
-
-		// repl
-		const repl = document.getElementById("repleContent").value;
-
-		$.post("http://localhost:8080/get/repl/save", {
-			repleContent : repl,
-			repleRegDate : new Date(),
-			memKey : 1, // 수정해야됨
-			boardKey : 1 // 수정해야됨
-		    
-		}, function(responseData) {
-			// 성공적으로 응답을 받았을 때 처리할 코드
-			console.log("success");
-			// console.log(responseData);
-		}).fail(function(xhr, status, error) {
-			// 에러 발생 시 처리할 코드
-			console.error('AJAX 요청 에러:', error);
-		});
-	}
+var category = $("#category").val();
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is java.lang.IllegalStateE
+console.log(category);
+$(document).ready(function() {
 	
+	$("#boardWrite").on("click", function() {
+		location.href = "boardwrite?category="+category;
+	});
+});
 
+
+
+function saveReple() {
+
+	// repl
+	const repl = document.getElementById("repleContent").value;
+
+	$.post("http://localhost:8080/get/repl/save", {
+		repleContent : repl,
+		repleRegDate : new Date(),
+		memKey : 1, // 수정해야됨
+		boardKey : 1 // 수정해야됨
+	    
+	}, function(responseData) {
+		// 성공적으로 응답을 받았을 때 처리할 코드
+		console.log("success");
+		// console.log(responseData);
+	}).fail(function(xhr, status, error) {
+		// 에러 발생 시 처리할 코드
+		console.error('AJAX 요청 에러:', error);
+	});
+}
+	
+	
 </script>
 </html>

@@ -38,11 +38,17 @@ public class RepleServiceImpl implements RepleService{
 		return repleRepository.saveReple(reple);
 	}
 
-
+/*
 	@Override
 	public List<Reple> getRepleList(Integer boardKey) {
 		// TODO Auto-generated method stub
 		return repleRepository.getReplList(boardKey);
 	}   
 	 
+*/	
+	public Reple getReplList(int boardKey) {
+		// TODO Auto-generated method stub
+		return repleRepository.getReplList(boardKey);
+	}  
+	
 }

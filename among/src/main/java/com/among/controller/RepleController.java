@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,7 +65,34 @@ public class RepleController {
 		
 		return "board/repleSave";
 	}
+	
+	
+	
+/*	 @RequestMapping(value = "/boardlist", method = RequestMethod.GET)
+	   public String boardlist(HttpServletResponse res, HttpServletRequest req) {
+	      
+	      // getBoardKey
+	      Integer boardKey = 1;
+	      
+	      List<Reple> repleList = repleService.getRepleList(boardKey);
+	      
+	      req.setAttribute("repleList", repleList);
+	      
+	      return "board/boardlist";
 
+	   }
+*/
+	 
+	 
+	 @RequestMapping(value = "/repl/repleList", method = RequestMethod.POST)
+		public String saveRepl(@RequestParam("boardKey")int boardKey,Model model) {
+			
+			Reple replist = null;
+			replist = repleService.getReplList(boardKey);
+			model.addAttribute("replist", replist); 
+			 return "board/boardlist";
+		}
+	 
 	/*
 	 * 
 	 * 

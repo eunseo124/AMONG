@@ -61,7 +61,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 		
 		return 1;
 	}
-
+/*
 	@Override
 	public List<Reple> getReplList(Integer boardKey) {
 //		"SELECT * FROM reple a inner join member b on a.memkey = b.memkey where boardKey = " + boardKey;
@@ -75,5 +75,17 @@ public class RepleRepositoryImpl implements RepleRepository {
 		
 		return template.query(SQL, new RepleRowMapper());
 	}
+*/
+	
 
+	@Override
+	public Reple getReplList(int boardKey){
+
+		Reple rep = null;
+		String SQL = "SELECT * FROM reple r INNER JOIN member m ON r.memKey=m.memKey WHERE r.boardKey = " +boardKey ;
+		rep = template.queryForObject(SQL, new RepleRowMapper());
+		return rep;
+	}
+
+	
 }

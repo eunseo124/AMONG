@@ -205,6 +205,30 @@
         				location.href = "./upView?id="+id;
         			});
         		</script>
+        		
+        		<script>
+   
+   
+      $("#boardKey").click(function(){
+    
+    
+
+      let boardKey = $("#boardKey").val();
+      
+      $.ajax({
+    		url : "<c:url value='/repl/repleList'/>",
+    		type : 'post',
+    		data : {"boardKey":boardKey},
+    		dataType: "json",
+    		
+    		error : function() {
+    			alert("error");
+    		}
+    	});
+      
+</script>
+        		
+        		
         	</div>
         </article>
     </main>

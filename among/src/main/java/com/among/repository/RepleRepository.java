@@ -14,8 +14,9 @@ public interface RepleRepository {
 	
 	Integer saveReple(Reple reple);
 	
-	List<Reple> getReplList(Integer boardKey);
+/*	List<Reple> getReplList(Integer boardKey); */
 	
+	Reple getReplList(int boardKey);
 
 
 }

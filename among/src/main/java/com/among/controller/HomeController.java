@@ -199,12 +199,12 @@ public class HomeController {
    public String boardlist(HttpServletResponse res, HttpServletRequest req) {
       
       // getBoardKey
-      Integer boardKey = 1;
+  /*    Integer boardKey = 1;
       
       List<Reple> repleList = repleService.getRepleList(boardKey);
       
       req.setAttribute("repleList", repleList);
-      
+*/      
       return "board/boardlist";
 
    }

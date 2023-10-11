@@ -13,7 +13,10 @@ public interface RepleService {
 	// save repl
 	Integer saveReple(Reple reple);
 
-	// get repl list
+/*	// get repl list
 	List<Reple> getRepleList(Integer boardKey);
+*/	
+	
+	Reple getReplList(int boardKey);
 
 }
