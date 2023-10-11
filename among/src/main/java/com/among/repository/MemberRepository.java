@@ -26,4 +26,7 @@ public interface MemberRepository {
    Member getchecknName(String nName); //member nName 중복체크
 	
    Member getMemberById(String memId);//getBookById() 메서드 추가
+   
+
+   void setUpdateInfo(Member member); //관리자 회원정보수정 메서드 추가
 }

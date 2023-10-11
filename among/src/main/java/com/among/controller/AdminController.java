@@ -26,8 +26,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import com.among.Service.BoardService;
 import com.among.Service.MemberService;
+import com.among.domain.Board;
 import com.among.domain.Member;
 
 @Controller
@@ -36,6 +37,9 @@ public class AdminController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	private BoardService boardService;
+	
 	
 	@GetMapping("/admin_member")
 	public String requestadmin_member(Model model) {
@@ -51,8 +55,10 @@ public class AdminController {
 
     }	
 	
+	
     //@RequestParam 은 변수명=값 형태로 데이터를 전송합니다.
     //http://localhost8080....../book?name="홍길동"
+	/*
     @GetMapping("/admin_member_info") 
     public String requestMemberById(@RequestParam("id") String memId, Model model) {  
     	
@@ -61,7 +67,37 @@ public class AdminController {
         
         return "admin/admin_member_info";
     }
-	
-  	
+    */
+
+    //** getUpdateBookForm() 메서드는 요청 url이 /update 이고 Get방식 일때 처리하는 메서드 입니다.
+    @GetMapping("/admin_member_info")  
+    public String getUpdateInfoForm(@ModelAttribute("updateInfo") Member member, @RequestParam("id") String memId, Model model) {
+        
+    	//bookService 클래스의 getBookById() 메서드를 호출하여 수정하려는 도서 정보를 model에 담아 updateForm.jsp 로 전달 합니다.
+    	Member memberById = memberService.getMemberById(memId);
+    	model.addAttribute("member", memberById);
+    	      
+        return "admin/admin_member_info";
+
+    }  
+    
+    //** submitUpdateBookForm() 메서드는 요청 url이 /update 이고 Post방식 일때 처리하는 메서드 입니다.
+    @PostMapping("/update") 
+    public String submitUpdateInfoForm(@ModelAttribute("updateInfo") Member member) {
+    	
+    	memberService.setUpdateInfo(member);
+        
+        return "redirect:/admin_member";
+    }
+    
+	//게시판 조회
+	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
+	@GetMapping("/adminfreeboard")
+	public String requestadminfreeBoardList(Model model) { 
+		List<Board> aFreelist = boardService.getAllBoardList();
+		model.addAttribute("aFreelist", aFreelist);  
+		return "admin/freeboard"; 
+	}
+	    	
 }
 	

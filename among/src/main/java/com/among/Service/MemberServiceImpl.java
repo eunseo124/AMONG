@@ -76,4 +76,9 @@ public class MemberServiceImpl implements MemberService {
 		 	Member memberById = memberRepository.getMemberById(memId);
 	        return memberById;
 	 }
+	 
+	 //** 도서 정보 수정메서드 오버라이드 **
+	 public void setUpdateInfo(Member member) {  
+	        memberRepository.setUpdateInfo(member);
+	 } 
 }

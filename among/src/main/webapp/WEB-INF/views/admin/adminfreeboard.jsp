@@ -189,7 +189,6 @@
         		      <thead>
         		       <tr>
         		        <th>No.</th>   
-        		        <th>ID</th>
         		        <th>Subject</th>
         		        <th>Date</th>
         		        <th>Hits</th>
@@ -197,86 +196,15 @@
         		       </tr>
         		      </thead>
         		      <tbody>
+           			  <c:forEach items="${aFreelist}" var="Board">           		      
         		       <tr>
-        		        <td>01</td>
-        		        <td>monkey</td>
+        		        <td>${Board.memKey}</td>
         		        <td>어제 미우새 봤음?</td>
         		        <td>2023-09-19</td>
         		        <td>12</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
-        		       <tr>
-        		        <td>02</td>
-        		        <td>monkey2</td>
-        		        <td>어제 미우새 안봤음?</td>
-        		        <td>2023-09-19</td>
-        		        <td>12</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>03</td>
-        		        <td>monkey1</td>
-        		        <td>어제 미우새 안봤다니까?</td>
-        		        <td>2023-09-19</td>
-        		        <td>12</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>04</td>
-        		        <td>monkey2</td>
-        		        <td>무한도전 보고싶다</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>05</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>06</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>07</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>08</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>09</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>10</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>        		               		               		               		               		               		               		               		               		       
+      		           </c:forEach>   		               		               		               		               		               		               		               		       
         		      </tbody>  
         		     </table>
         		<section class="search">

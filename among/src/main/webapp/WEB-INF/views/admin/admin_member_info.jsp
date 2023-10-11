@@ -257,10 +257,10 @@
         		<div id = "title"><h1>계정관리</h1></div>
         		 <div id ="info">
 			        <div class="wrap">
-			            <h1>회원정보</h1>
-			            <form>
+			            <h1>회원정보</h1>		             
+			            <form action="./update" method="post">
 			                <dl>
-			                    <dt>아이디${Member.memId}</dt>
+			                    <dt>아이디</dt>
 			                    <dd><input type="text" placeholder="아이디 입력" readonly="readonly" value="${member.memId}"></dd>
 			                </dl>
 			                <dl>
@@ -297,7 +297,7 @@
 			                </dl>
 			                <dl>
 			                    <dt>가입일시</dt>
-			                    <dd><input type="text" placeholder="이름 입력" value="${member.memJoinDate}"></dd>
+			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly" value="${member.memJoinDate}"></dd>
 			                </dl>			                
 			                <dl>
 			                	<dt>삭제여부</dt>
