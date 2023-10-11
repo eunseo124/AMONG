@@ -23,14 +23,14 @@ public class RepleRepositoryImpl implements RepleRepository {
 
 	public RepleRepositoryImpl() {
 
-		// 占쏙옙占� 占쏙옙占싱븝옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占�
-		// ex) memKey占쏙옙 1占쏙옙 admin(占쏙옙占싱듸옙) / admin1234(占쏙옙橘占싫�) / 占쏙옙占쏙옙占쏙옙(占싱몌옙) /
-		// 占쏙옙占�:2(占쏙옙占쏙옙d占쏙옙) 占쏙옙占�
-		// 占썩본占쏙옙占쏙옙占쏙옙 memKey/memId/memPw/memName/memGrade占쏙옙占쏙옙占쏙옙
-		// 占쏙옙占쏙옙 -> Member member1 = new Member("id1234", "pwd1234" , "占싱몌옙홍占썸동", "1")
+		// �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�떛釉앹삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝占�
+		// ex) memKey�뜝�룞�삕 1�뜝�룞�삕 admin(�뜝�룞�삕�뜝�떛�벝�삕) / admin1234(�뜝�룞�삕艅섇뜝�떕占�) / �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕(�뜝�떛紐뚯삕) /
+		// �뜝�룞�삕�뜝占�:2(�뜝�룞�삕�뜝�룞�삕d�뜝�룞�삕) �뜝�룞�삕�뜝占�
+		// �뜝�뜦蹂멨뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 memKey/memId/memPw/memName/memGrade�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
+		// �뜝�룞�삕�뜝�룞�삕 -> Member member1 = new Member("id1234", "pwd1234" , "�뜝�떛紐뚯삕�솉�뜝�뜽�룞", "1")
 	}
 
-	// 占쏙옙占� 占쏙옙회
+	// �뜝�룞�삕�뜝占� �뜝�룞�삕�쉶
 	@Override
 	public List<Reple> getAllRepleList() {
 		// TODO Auto-generated method stub
@@ -40,7 +40,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 		return listOfReple;
 	}
 
-	// 占쏙옙占� 占쏙옙占�
+	// �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝占�
 	public void setNewReple(Reple reple) {
 
 		String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) "

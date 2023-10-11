@@ -31,11 +31,11 @@ import com.among.domain.Reple;
 @Controller
 public class RepleController {
 
-//	//Autowired 를 정의하여 BookService 클래스의 getAllBookList() 메서드를 호출합니다.
+//	//Autowired 瑜� �젙�쓽�븯�뿬 BookService �겢�옒�뒪�쓽 getAllBookList() 硫붿꽌�뱶瑜� �샇異쒗빀�땲�떎.
 	@Autowired
 	private RepleService repleService;
 //
-//	// HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.
+//	// HTTP �슂泥� 諛⑹떇�씠 GET�씤 寃쎌슦, @GetMapping �쓣 �궗�슜�븷 �닔 �엳�뒿�땲�떎.
 //	@GetMapping
 //	public String requestRepleList(Model model) { 
 //	    List<Reple> list = repleService.getAllRepleList();
@@ -54,7 +54,7 @@ public class RepleController {
 	}
 
 	/**
-	 * 댓글 등록
+	 * �뙎湲� �벑濡�
 	 * @param reple
 	 */
 	@RequestMapping(value = "/repl/save", method = RequestMethod.POST)
@@ -68,13 +68,13 @@ public class RepleController {
 	/*
 	 * 
 	 * 
-	 * //도서등록 페이지 addBook url맵핑
+	 * //�룄�꽌�벑濡� �럹�씠吏� addBook url留듯븨
 	 * 
-	 * @GetMapping("/boardlist") //@ModelAttribute 를 이용하여 addBook.jsp 의 스프링 폼 태그와
-	 * 연동된다. public String requestAddRepleForm(@ModelAttribute("NewReple") Reple
+	 * @GetMapping("/boardlist") //@ModelAttribute 瑜� �씠�슜�븯�뿬 addBook.jsp �쓽 �뒪�봽留� �뤌 �깭洹몄�
+	 * �뿰�룞�맂�떎. public String requestAddRepleForm(@ModelAttribute("NewReple") Reple
 	 * reple) { return "board/boardlist"; }
 	 * 
-	 * //도서등록 페이지 addBook url 맵핑(post 방식) //** submitAddNEwBook() 메서드 수정 **
+	 * //�룄�꽌�벑濡� �럹�씠吏� addBook url 留듯븨(post 諛⑹떇) //** submitAddNEwBook() 硫붿꽌�뱶 �닔�젙 **
 	 * 
 	 * @PostMapping("/boardlist") public String
 	 * submitAddNewReple( @ModelAttribute("NewReple") Reple reple,BindingResult

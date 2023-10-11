@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,12 +95,12 @@ aside .joinAndFindPassword a {
 							<div class="title">
 								<span>일반</span>
 								
-								<h1>${board.boardTitle}</h1>
+								<h1>${Board.boardTitle}</h1>
 							</div>
 							<div class="etc">
 								<div class="left">
 									<div id="nickName">
-										<div id="gradeBadge" class="color admin"
+										<div id="gradeBadge1" class="color admin"
 											style="background-color: red">M</div>
 										<div>${board.nName}</div>
 									</div>
@@ -136,6 +136,8 @@ aside .joinAndFindPassword a {
 							</div>
 						</div>
 
+
+                     <!-- 댓 글 작 성 -->
 						<div id="comments">
 							<h2>댓글</h2>
 							<div class="new">
@@ -158,11 +160,22 @@ aside .joinAndFindPassword a {
 
 							
 							<br>
+							
+						<!-- 댓 글 리스트 -->	
 							<div id ="infos">
 									<div id="nickName">
 										<div id="gradeBadge" class="color admin"
-											style="background-color: black">일반</div>
-										<div>${sessionc.nName}</div>
+											style="background-color: black">
+										<c:choose>
+                               				<c:when  test = "${sessionc.memGrade eq '1'}">
+                                  			<%out.print("일반"); %>
+                               				</c:when>
+                               				<c:when test = "${sessionc.memGrade eq '2'}">
+                                  			<%out.print("관리자"); %>
+                               				</c:when>
+                          				</c:choose>
+                          				</div>
+											<div>${sessionc.nName}</div>
 									</div>
 									<div class="content">${reple.repleContent}</div>
 									<div id="date">   ${reple.repleRegDate}</div>
@@ -188,142 +201,100 @@ aside .joinAndFindPassword a {
 						<br> <br> <br> <br> <br> <br>
 
 
-						<article id="postList">
-							<div id="postList">
-								<section id="title">
-									<h1>자유게시판</h1>
-								</section>
-								<section id="sort">
-									<a class="subject">정렬 |</a> <a href="#" class="subject">최신순</a>
-									<a href="#" class="subject">추천순</a> <a href="#" class="subject">조회순</a>
-									<a href="#" class="subject">댓글순</a>
-								</section>
-								<section id="generalList">
-									<div class="items">
-										<a href="#" class="notice"> <span class="subject">공지</span>
-											<div class="info">
-												<div class="title">
-													<span class="text">공지 테스트 중입니다.</span>
-													<div class="etc">
-														<div id="nickName">
-															<img src="resources/images/banner.jpg">
-															<div>관리자</div>
-														</div>
-														<div>2023.09.14</div>
-													</div>
-												</div>
-											</div>
-										</a>
-										<div class="line"></div>
-										<a href="#" class="notice"> <span class="subject">공지</span>
-											<div class="info">
-												<div class="title">
-													<span class="text">안내말씀드립니다....</span>
-													<div class="etc">
-														<div id="nickName">
-															<div>관리자</div>
-														</div>
-														<div>2023.09.14</div>
-													</div>
-												</div>
-											</div>
-										</a>
-										<div class="line"></div>
-										<a href="#" class="notice"> <span class="subject">공지</span>
-											<div class="info">
-												<div class="title">
-													<span class="text">서버점검예정 12:00 ~ 23:00</span>
-													<div class="etc">
-														<div id="nickName">
-															<div>관리자</div>
-														</div>
-														<div>2023.09.14</div>
-													</div>
-												</div>
-											</div>
-										</a>
-										<div class="line"></div>
-										<a href="#" class="item">
-											<div class="image">
-												<img src="resources/images/banner.jpg">
-											</div>
-											<div class="info">
-												<div class="title">
-													<span class="text">테스트용 작성글 입니다.</span>
-												</div>
-												<div class="etc">
-													<div id="nickName">
-														<div>관리자</div>
-													</div>
-													<div>조회수 1,000</div>
-													<div>댓글 10</div>
-													<div>추천 10</div>
-													<div>2023.09.14</div>
-												</div>
-											</div>
-										</a>
-										<div class="line"></div>
-										<a href="#" class="item">
-											<div class="image">
-												<img src="resources/images/banner.jpg">
-											</div>
-											<div class="info">
-												<div class="title">
-													<span class="text">테스트용 작성글 입니다.</span>
-												</div>
-												<div class="etc">
-													<div id="nickName">
-														<div>관리자</div>
-													</div>
-													<div>조회수 1,0z00</div>
-													<div>댓글 10</div>
-													<div>추천 10</div>
-													<div>2023.09.14</div>
-												</div>
-											</div>
-										</a>
-										<div class="line"></div>
-										<a href="#" class="item">
-											<div class="image">
-												<img src="resources/images/banner.jpg">
-											</div>
-											<div class="info">
-												<div class="title">
-													<span class="text">테스트용 작성글 입니다.</span>
-												</div>
-												<div class="etc">
-													<div id="nickName">
-														<div>관리자</div>
-													</div>
-													<div>조회수 1,000</div>
-													<div>댓글 10</div>
-													<div>추천 10</div>
-													<div>2023.09.14</div>
-												</div>
-											</div>
-										</a>
-										<div class="line"></div>
-									</div>
-								</section>
-
-								<section class="write">
-									<a href="#">글작성</a>
-								</section>
-
-								<section class="search">
-									<input type="text" placeholder="검색어" name="search">
-									<button>
-										<span class="material-symbols-outlined">search</span>
-									</button>
-								</section>
-
-								<div id="table">
-									<a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a
-										href="#">4</a>
-								</div>
-
-							</div>
-						</article>
+						<article id = "postList">
+        	<div id = "postList">
+        		<section id = "title"><h1>자유게시판</h1></section>
+        		<section id = "sort">
+        			<a class="subject">정렬 |</a>
+        			<a href="#" class="subject">최신순</a>
+        			<a href="#" class="subject">추천순</a>
+        			<a href="#" class="subject">조회순</a>
+        			<a href="#" class="subject">댓글순</a>
+        		</section>
+        		<section id = "generalList">
+        			<div class = "items">
+        			
+        			<!-- 공지&관리자용 게시판 -->
+        			<c:forEach items="${boardList}" var="board">
+        			<c:set var = "memGrade" value="${board.memGrade}"/>
+        			<c:choose>
+        			<c:when test="${memGrade == 2}">
+        			<a href="boardlist" class="notice">
+        					<input type="hidden" id="category" value="${board.boardCategory}">
+        					<span class="subject">공지</span>
+        					<div class="info">
+        						<div class="title">
+        							<span class="text">${board.boardTitle}</span>
+        							<div class="etc">
+        							<div id="nickName">
+        								<img src="resources/images/banner.jpg">
+        								<div>${board.nName}</div>
+        							</div>
+        							<c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
+        							<c:set var = "boardRegDate" value = "${board.boardRegDate}"/>
+        							<c:choose>
+        							<c:when test = "${boardModifyDate != boardRegDate}">
+        								<div>${boardModifyDate}(수정됨)</div>
+        							</c:when>
+        							<c:otherwise>
+        								<div>${boardRegDate}</div>
+        							</c:otherwise>
+        							</c:choose>
+        						</div>
+        						</div>
+        					</div>
+        				</a>
+        				<div class="line"></div>
+        				</c:when>
+        				</c:choose>
+        				</c:forEach>
+        				
+        				<!-- 유저용 게시판 -->
+        				<c:forEach items="${boardList}" var="board">
+        				<c:set var = "memGrade" value="${board.memGrade}"/>
+        				<c:choose>
+        				<c:when test="${memGrade == 1}">
+        				<a href="#" class="item">
+        					<div class="image">
+        						<img src="resources/images/profile.png">
+        					</div>	
+        					<div class="info">
+        						<div class="title">
+        							<span class="text">${board.boardTitle}</span>
+        						</div>
+        						<div class="etc">
+        							<div id="nickName">
+        								<img src="resources/images/banner.jpg">
+        								<div>${board.nName}</div>
+        							</div>
+        							<div>조회수 ${board.boardView}</div>
+        							<div>댓글 ${board.repleCount}</div>
+        							<div>추천 ${board.boardRecommend}</div>
+        							<!-- if문  -->
+        							<c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
+        							<c:set var = "boardRegDate" value = "${board.boardRegDate}"/>
+        							<c:choose>
+        							<c:when test = "${boardModifyDate != boardRegDate}">
+        								<div>${boardModifyDate}(수정됨)</div>
+        							</c:when>
+        							<c:otherwise>
+        								<div>${boardRegDate}</div>
+        							</c:otherwise>
+        							</c:choose>
+        						</div>
+        					</div>
+        				</a>
+        				<div class="line"></div>
+        				</c:when>
+        				</c:choose>
+        				</c:forEach>
+        			</div>
+        		</section>
+        		
+        		<!-- 글작성 기능 -->
+        		<section class="write">
+        			<a id="boardWrite">글작성</a>
+        		</section>
 				</article>
 
 
@@ -347,7 +318,16 @@ aside .joinAndFindPassword a {
 <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
 
 
-
+<script>
+        			var category = $("#category").val();
+        			console.log(category);
+        			$(document).ready(function() {
+        				
+        				$("#boardWrite").on("click", function() {
+        					location.href = "boardwrite?category="+category;
+        				});
+        			});
+        		</script>
 <script>
 
 	function saveReple() {
@@ -358,7 +338,7 @@ aside .joinAndFindPassword a {
 		$.post("http://localhost:8080/get/repl/save", {
 			repleContent : repl,
 			repleRegDate : new Date(),
-			memKey : 2, // 수정해야됨
+			memKey : 1, // 수정해야됨
 			boardKey : 1 // 수정해야됨
 		    
 		}, function(responseData) {
