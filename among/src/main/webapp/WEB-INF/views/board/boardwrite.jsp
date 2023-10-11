@@ -61,7 +61,7 @@
             color: black;
         }
 
-	.material-symbols-outlined {
+		.material-symbols-outlined {
             font-variation-settings:
                 'FILL' 0,
                 'wght' 400,
@@ -109,6 +109,7 @@
 </head>
 
 <body>
+	<input type = "hidden" value = "<c:out value = '${sessionc.memKey}'/>" id = "memKey">
     <div class="container" style= "width: 100%; margin: 0; padding: 0;">
 <!-- 헤더  -->     
 <header style="text-decoration:none;">
@@ -121,21 +122,20 @@
                     <section id ="title">
                         <h1>자유게시판</h1>
                     </section>
-
+					
+					<form id="frm" method="post" action ="board/board_proc">
                     <section id = "boardWrite">
                         <div class = "writeTitle">
                             <input id="subject" name="subject" type="text" maxlength="40" placeholder="제목(40자이내)">
                         </div>
 
                         <div id= "note">
-                            <form method="post" style="margin-top: 80px;">
                                 <textarea id="summernote" name="editordata"></textarea>
+                                <input type="hidden" name="boardCategory" id="boardCategory" value="${param.category}">
                                 <section class="writeButton">
-				                        <input type = "submit" class="confirm" value="등록">
-				                        <input type = "reset" class="cancel" value="취소">
+				                        <input type="button" onclick="test()" id="confirm" value="등록">
+				                        <input type ="reset" class="cancel" value="취소">
                    			 	</section>
-                            </form>
-
         <script>
 			$(document).ready(function () {
 		        	var fontList = ['Pretendard-Regular','HakgyoansimWoojuR', 'GangwonState','SBAggroB','iceSotong-Rg'];
@@ -162,9 +162,32 @@
 		            });
 		            $('#summernote').summernote('fontName', 'Pretendard-Regular')
 		      });
+			
+			function test() {
+				var memKey=$('#memKey').val();
+				var boardContent=$('#summernote').val();				
+				var boardCategory=$('#boardCategory').val();
+				var boardTitle=$('#subject').val();
+				
+				console.log(memKey);
+				console.log(boardContent);
+				console.log(boardCategory);
+				console.log(boardTitle);
+				
+				$.ajax ({
+					url: "<c:url value='/board/boardwr'/>",
+					type: "post",
+					dataType: "json",
+					data: {"memKey":memKey, "boardContent":boardContent, "boardCategory":boardCategory, "boardTitle":boardTitle},
+					success: location.href="boardlist"
+				});
+			}
+			
 		</script>
-                        </div>
-                    </section>
+                     </div>
+                   </section>
+                   </form>
+                    
                     
                 </div>
               

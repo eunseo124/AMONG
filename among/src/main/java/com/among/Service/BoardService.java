@@ -7,4 +7,6 @@ import com.among.domain.Board;
 public interface BoardService {
 	
 	List<Board> getAllBoardList();
+	
+	void getboardWrite(Board board);
 }

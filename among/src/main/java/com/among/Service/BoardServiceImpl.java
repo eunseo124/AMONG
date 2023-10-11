@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.among.domain.Board;
+import com.among.domain.Member;
 import com.among.repository.BoardRepository;
 
 @Service
@@ -18,4 +19,10 @@ public class BoardServiceImpl implements BoardService {
 	        // TODO Auto-generated method stub
 		 return boardRepository.getAllBoardList();
 	 } 
+	 
+	 public void getboardWrite(Board board) {
+		  
+		   boardRepository.getboardWrite(board);
+		   
+	   }
 }

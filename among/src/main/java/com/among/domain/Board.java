@@ -8,6 +8,7 @@ public class Board implements Serializable {
 
 	private String boardTitle;
 	private String nName;
+	private String boardContent;
 	private int boardView;
 	private int repleCount;
 	private int boardRecommend;
@@ -15,7 +16,17 @@ public class Board implements Serializable {
 	private int boardCategory;
 	private Date boardRegDate;
 	private Date boardModifyDate;
+	private int memKey;
 	
+	
+	public String getBoardContent() {
+		return boardContent;
+	}
+
+	public void setBoardContent(String boardContent) {
+		this.boardContent = boardContent;
+	}
+
 	public Board() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -23,6 +34,18 @@ public class Board implements Serializable {
 
 	
 	
+	public int getMemKey() {
+		return memKey;
+	}
+
+
+
+	public void setMemKey(int memKey) {
+		this.memKey = memKey;
+	}
+
+
+
 	public int getBoardCategory() {
 		return boardCategory;
 	}

@@ -8,4 +8,6 @@ import com.among.domain.Board;
 public interface BoardRepository {
 
 	List<Board> getAllBoardList();
+	
+	void getboardWrite(Board board);
 }
