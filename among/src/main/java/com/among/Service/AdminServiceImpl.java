@@ -15,13 +15,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	private AdminRepository adminRepository;
 	
-	@Override
-	//member list method불러오기
-	public List<Member> getAllMemberList() {
-		// TODO Auto-generated method stub
-		List<Member> listOfMember = AdminRepository.getAllMemberList();
-		return listOfMember;
-	}
+
 	//member 조회문 method불러오기
 	public List<Member> getmflist(String keyField) {
 		return AdminRepository.getmflist(keyField);
