@@ -41,7 +41,7 @@ public class AdminController {
 	public AdminService adminService;
 	
 	/*
-	@GetMapping("/admin_member")//member list
+	@GetMapping("/admin_member")//member list¤·
 	public String requestlistOfMember(@RequestParam("memKey") int memKey, Model model) {
 		
 		List<Member> list = adminService.getAllMemberList();
