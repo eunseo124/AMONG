@@ -65,8 +65,8 @@ public class MemberRepositoryImpl implements MemberRepository {
    //member db 수정문
    public void setupmem(Member member) {
       String SQL = "UPDATE member SET memId = ?, memPw = ?, memEmail1 = ?, memEmail2 = ?,"
-               +"memName = ?, memResident1 = ?, memResident2 = ?, delYn = ?, "
-               + "memGrade = ?, nNmae = ? where memKey = ?";
+               +"memName = ?, memResident1 = ?, memResident2 = ?, "
+               + "memGrade = ?, nName = ? where memKey = ?";
       template.update(SQL, 
             member.getMemId(),
             member.getMemPw(),
@@ -75,9 +75,9 @@ public class MemberRepositoryImpl implements MemberRepository {
             member.getMemName(),
             member.getMemResident1(),
             member.getMemResident2(),
-            member.getDelYn(),
             member.getMemGrade(),
-            member.getnName());
+            member.getnName(),
+            member.getMemKey());
    }
    
    //member db login 메소드
@@ -183,20 +183,20 @@ public class MemberRepositoryImpl implements MemberRepository {
    public void setUpdateInfo(Member member) {  
    	
        	String SQL = "UPDATE member SET memPw = ?, memEmail1 = ?, memEmail2 = ?,"
-                +"memName = ?, memResident1 = ?, memResident2 = ?, delYn = ?, "
+                +"memName = ?, memResident1 = ?, memResident2 = ?,"
                 + "memGrade = ?, nName = ? where memId = ?";
            
         template.update(SQL, 
-                member.getMemId(),
+
                 member.getMemPw(),
                 member.getMemEmail1(),
                 member.getMemEmail2(),
                 member.getMemName(),
                 member.getMemResident1(),
                 member.getMemResident2(),
-                member.getDelYn(),
                 member.getMemGrade(),
-                member.getnName());
+                member.getnName(),
+        		member.getMemId());
        
    }
    

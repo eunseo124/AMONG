@@ -84,9 +84,9 @@ public class AdminController {
     //** submitUpdateBookForm() 메서드는 요청 url이 /update 이고 Post방식 일때 처리하는 메서드 입니다.
     @PostMapping("/update") 
     public String submitUpdateInfoForm(@ModelAttribute("updateInfo") Member member) {
-    	
+		System.out.println("접근완료1");
     	memberService.setUpdateInfo(member);
-        
+		System.out.println("접근완료2"+member.getnName());
         return "redirect:/admin_member";
     }
     
@@ -94,10 +94,12 @@ public class AdminController {
 	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
 	@GetMapping("/adminfreeboard")
 	public String requestadminfreeBoardList(Model model) { 
+		
+
 		List<Board> aFreelist = boardService.getAllBoardList();
 		model.addAttribute("aFreelist", aFreelist);  
-		return "admin/freeboard"; 
+		return "admin/adminfreeboard"; 
 	}
-	    	
+			    	
 }
 	

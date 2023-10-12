@@ -261,11 +261,11 @@
 			            <form action="./update" method="post">
 			                <dl>
 			                    <dt>아이디</dt>
-			                    <dd><input type="text" placeholder="아이디 입력" readonly="readonly" value="${member.memId}"></dd>
+			                    <dd><input type="text" id="memId" name="memId" placeholder="아이디 입력" readonly="readonly" value="${member.memId}"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>비밀번호</dt>
-			                    <dd><input type="password"" placeholder="비밀번호 입력" value="${member.memPw}"></dd>
+			                    <dd><input type="password" id="memPw" name="memPw" placeholder="비밀번호 입력" value="${member.memPw}"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>비밀번호 확인</dt>
@@ -273,41 +273,43 @@
 			                </dl>
 			                <dl>
 			                    <dt>닉네임</dt>
-			                    <dd><input type="text" placeholder="이름 입력" value="${member.nName}"></dd>
+			                    <dd><input type="text" id="nName" name="nName" placeholder="이름 입력" value="${member.nName}"></dd>
 			                </dl>                  
 			                <dl>
 			                    <dt>이메일</dt>
 			                    <dd>
-			                        <input type="email" placeholder="이메일 입력" value="${member.memEmail1}"> @
-			                        <select>
-			                        	<option>${member.memEmail2}</option>
-			                            <option>gmail.com</option>
-			                            <option>naver.com</option>
-			                            <option>kakao.com</option>
+			                        <input type="text" id="email1" name="memEmail1" placeholder="이메일 입력" value="${member.memEmail1}"> @
+                                    <input type="text" id="email2" name="memEmail2"  value="${member.memEmail2}">			                        
+                                    <select id="email3" name="email2" style="width: 140px;margin-left: 1px; height: 50px;margin-top: 7px;" >
+									  <option value="naver.com">naver.com</option>
+			  		   				  <option value="google.com">google.com</option>
+									  <option value="hanmail.net">hanmail.net</option>
+									  <option value="nate.com">nate.com</option>
+									  <option value="kakao.com">kakao.com</option>
+									  <option value="">직접입력</option>									  
 			                        </select>
 			                    </dd>
 			                </dl>                
 			                <dl>
 			                    <dt>이름</dt>
-			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly" value="${member.memName}"></dd>
+			                    <dd><input type="text" id="memName" name="memName" placeholder="이름 입력" readonly="readonly" value="${member.memName}"></dd>
 			                </dl>
 			                <dl>
 			                    <dt>주민번호</dt>
-			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly" value="${member.memResident1}-${member.memResident2}"></dd>
+			                    <dd><input type="text" id="memResident1" name="memResident1" placeholder="이름 입력" readonly="readonly" value="${member.memResident1}">-
+			             	        <input type="text" id="memResident2" name="memResident2" placeholder="이름 입력" readonly="readonly" value="${member.memResident2}">
+			                    </dd>
 			                </dl>
 			                <dl>
 			                    <dt>가입일시</dt>
-			                    <dd><input type="text" placeholder="이름 입력" readonly="readonly" value="${member.memJoinDate}"></dd>
-			                </dl>			                
-			                <dl>
-			                	<dt>삭제여부</dt>
-			                	<dd>
-							  	<input type="radio" name="del" value="Y"> Yes</input>&nbsp;&nbsp;&nbsp;
-							  	<input type="radio" name="del" value="N"> No</input>
-							  	</dd>			                
-			                </dl>
+			                    <dd><input type="text" id="memJoinDate" name="memJoinDate" placeholder="이름 입력" readonly="readonly" value="${member.memJoinDate}"></dd>
+			                </dl>		
+			                                
+
+			                
 			                <br>
 			                <div id="box">
+			                <input type="hidden" id="memGrade" name="memGrade" value="${member.memGrade}">
 			                <input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
 			                <input type="button" value="뒤로" onclick="history.go(-1)">
 			                </div>
@@ -323,4 +325,10 @@
   </footer>
     </div>
 </body>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+		$( "#email3" ).change(function(){
+		    $("#email2").val( $("#email3").val() );
+		});
+</script>
 </html>
