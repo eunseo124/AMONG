@@ -210,13 +210,6 @@ public class HomeController {
    }
 
 
-   @RequestMapping(value = "/adminfreeboard", method = RequestMethod.GET)
-   public String adminfreeboard() {
-
-      return "admin/adminfreeboard";
-
-   }
-
    @RequestMapping(value = "/admingameboard", method = RequestMethod.GET)
    public String admingameboard() {
 
