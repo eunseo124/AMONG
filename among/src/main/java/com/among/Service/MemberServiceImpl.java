@@ -32,8 +32,8 @@ public class MemberServiceImpl implements MemberService {
    }
    
    //member 조회 method불러오기
-   public List<Member> getmemlist(int memKey){
-      List<Member> memlist = memberRepository.getmemlist(memKey);
+   public Member getmemlist(int memKey){
+      Member memlist = memberRepository.getmemlist(memKey);
       return memlist;
    }
    

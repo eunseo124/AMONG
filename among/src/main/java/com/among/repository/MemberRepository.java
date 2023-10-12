@@ -15,7 +15,7 @@ public interface MemberRepository {
   
    void setupmem(Member member); //member db 수정문  //upmem
    
-   List<Member> getmemlist(Integer memKey);//member db memKey로 조회문 method //memlist
+   Member getmemlist(int memKey);//member db memKey로 조회문 method //memlist
    
    Member getlogin(String memId, String memPw); //member db login 메소드 //getlogin
 

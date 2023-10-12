@@ -88,9 +88,9 @@
             <article id="widget">
             	<section class = "flex">
             		<div class = "pheader">
-            		<div><h4><a href="<c:url value="/mypage" />">내 프로필</a></h4></div>
-            		<div><h4><a href="<c:url value="/mypost" />">게시글 관리</a></h4></div>
-            		<div><h4><a href="<c:url value="/mypost2" />">댓글 관리</a></h4></div>
+            		<div><h4><a href="mypage?memKey=${sessionc.memKey}">내 프로필</a></h4></div>
+            		<div><h4><a href="mypost?memKey=${sessionc.memKey}">게시글 관리</a></h4></div>
+            		<div><h4><a href="myreply?memKey=${sessionc.memKey}">댓글 관리</a></h4></div>
             		</div>
             		<div class = "pmypage1" style="height:600px;">
             				<div class = "pmypage2" style="width:1000px;">

@@ -58,6 +58,7 @@ public class HomeController {
    @RequestMapping(value = "/home", method = RequestMethod.GET)
    public String home(Model model) {
       
+	   
       return "home";
 
    }
@@ -118,12 +119,7 @@ public class HomeController {
       return "member/pass";
 
    }
-   @RequestMapping(value = "/myupdate", method = RequestMethod.GET)
-   public String myudate() {
 
-      return "mypage/myupdate";
-
-   }
 
    @RequestMapping(value = "/mypost", method = RequestMethod.GET)
    public String mypost() {

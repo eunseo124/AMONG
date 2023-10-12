@@ -13,7 +13,7 @@
                     </li>
                    <li class="slash">|</li>
                     <li>
-                        <a href="<c:url value="/mypage" />">마이페이지</a>
+                        <a href="mypage?memKey=${sessionc.memKey}">마이페이지</a>
                     </li>
                     <li class="slash">|</li>
                     <li>
@@ -30,7 +30,7 @@
                     </li>
                    <li class="slash">|</li>
                     <li>
-                        <a href="<c:url value="/mypage" />">마이페이지</a>
+                        <a href="mypage?memKey=${sessionc.memKey}">마이페이지</a>
                     </li>
                    
                 </ul>

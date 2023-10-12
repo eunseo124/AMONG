@@ -60,9 +60,13 @@ public class MemberController {
 	   return "member/memjoin";
    }
    
-   //마이페이지 메인페이지 이동
+   //로그인 시 memKey로 회원정보 출력 method
    @RequestMapping(value = "/mypage", method = RequestMethod.GET)
-   public String requestmypage(Model model) {
+   public String requestmypage(@RequestParam("memKey") int memKey, Model model) {
+      
+	  Member memlist = new Member();
+      memlist = memberService.getmemlist(memKey);
+      model.addAttribute("memlist", memlist);
       
       return "mypage/mypage";
       
@@ -75,7 +79,7 @@ public class MemberController {
       
           Member mem = memberService.getlogin(member.getMemId(), member.getMemPw());
           
-          /*model.addAttribute("memberList", mem);*/
+          model.addAttribute("memberList", mem);
           
           Member sessionc  = new Member();
           
@@ -98,6 +102,8 @@ public class MemberController {
           
       return "redirect:/home";
    }
+   
+   
    //로그아웃 
    @RequestMapping(value = "/logout/logout_proc", method = RequestMethod.POST)
    public String logoutProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
@@ -126,7 +132,6 @@ public class MemberController {
       
       Member result = null;
       result = memberService.getchecknName(nName);
-      System.out.println("membercontroller = "+result.getnName());
       return result.getnName();
    }
    
@@ -140,14 +145,22 @@ public class MemberController {
    }
    
    //member update method
-   @RequestMapping(value = "/mypage/memupdate_proc", method = RequestMethod.POST)
-   public String updateProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
-            ModelMap modelMap, @ModelAttribute("mem") Member mem, Model model){
+   @PostMapping("/mypage/memupdate_proc")
+   public String updateProc(@ModelAttribute("mem") Member mem){
 	  
 	  System.out.println("membercontroller 접근완료");
       memberService.setupmem(mem);
-      System.out.println("membercontroller = "+mem);
-      return "redirect:/mypage";
+      return "redirect:/mypage?memKey="+mem.getMemKey();
+   }
+   //정보 업데이트 페이지 member정보 출력
+   @RequestMapping(value = "/myupdate", method = RequestMethod.GET)
+   public String myudate(@RequestParam("memKey")int memKey,Model model) {
+	   
+	   Member memu = new Member();
+	   memu = memberService.getmemlist(memKey);
+	   model.addAttribute("memu", memu);
+      return "mypage/myupdate";
+
    }
    
    

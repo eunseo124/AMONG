@@ -80,8 +80,8 @@
             		</div>
             		
             		<div class = "mypage3">
-	            		<h1>${sessionc.nName}님</h1>
-		            	<p>${sessionc.memEmail1}@${sessionc.memEmail2}</p>
+	            		<h1>${memlist.nName}님</h1>
+		            	<p>${memlist.memEmail1}@${memlist.memEmail2}</p>
 	            	</div>
             </section>
     </header>
@@ -90,7 +90,7 @@
             <article id="widget">
             	<section class = "flex">
             		<div class = "pheader">
-            		<div><h4><a href="<c:url value="/mypage" />">내 프로필</a></h4></div>
+            		<div><h4><a href="mypage?memKey=${sessionc.memKey}">내 프로필</a></h4></div>
             		<div><h4><a href="<c:url value="/mypost" />">게시글 관리</a></h4></div>
             		<div><h4><a href="<c:url value="/mypost2" />">댓글 관리</a></h4></div>
             		</div>
@@ -102,29 +102,29 @@
                                     <div class = "pro1">
                                     <p>아이디</p>
                                     <div class = "pro2">
-                                    <p>${sessionc.memId}</p>
+                                    <p>${memlist.memId}</p>
                                     </div>
                                     </div>
                                     <div class = "pro1">
                                     <p>닉네임</p>
                                     <div class = "pro2">
-                                        <p>${sessionc.nName}</p>
+                                        <p>${memlist.nName}</p>
                                     </div>
                                     </div>
                                     <div class = "pro1">
                                     <p>이메일</p>
                                     	<div class = "pro2">
-                                        <p>${sessionc.memEmail1}@${sessionc.memEmail2}</p>
+                                        <p>${memlist.memEmail1}@${memlist.memEmail2}</p>
                                     	</div>
                                     </div>
                                     <div class = "pro1">
                                     <p>이름</p>
                                     	<div class = "pro2">
-                                         	<p>${sessionc.memName}</p>
+                                         	<p>${memlist.memName}</p>
                                      	</div>
                                      </div>
                                     <div class="pro2">
-                                    <a href="<c:url value="/myupdate" />" style = "color:white;"><button type="submit" class="pro3" style = "margin-left:348px;margin-top:24px;">정보 수정</button></a>
+                                    <a href="myupdate?memKey=${memlist.memKey}" style = "color:white;"><button type="submit" class="pro3" style = "margin-left:348px;margin-top:24px;">정보 수정</button></a>
                                     </div>
                                   </div>
             		</div>

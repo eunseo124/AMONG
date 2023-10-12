@@ -61,8 +61,8 @@
                             <p></p>
 
                         </div>
-                        <a href = "<c:url value="/mypage" />"><button class="button">마이페이지</button></a>
-                       <a href = "<c:url value="/myupdate" />"><button id="button2">정보수정</button></a>
+                        <a href="mypage?memKey=${sessionc.memKey}"><button class="button">마이페이지</button></a>
+                       <a href="myupdate?memKey=${sessionc.memKey}"><button id="button2">정보수정</button></a>
 
                     </div>
                 </c:when>

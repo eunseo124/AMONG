@@ -44,11 +44,10 @@ public class MemberRepositoryImpl implements MemberRepository {
    }
    
    //member db 로그인시 memKey로 조회 method
-   public List<Member> getmemlist(Integer memKey) {
+   public Member getmemlist(int memKey) {
       
       String SQL  = "SELECT * FROM member where memKey = "+ memKey;
-      List<Member> memlist = template.query(SQL, new MemberRowMapper());
-      
+      Member memlist = template.queryForObject(SQL, new MemberRowMapper());
       return memlist;
    }
    
@@ -94,7 +93,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    
    //member 회원가입 메소드
    public void getjoin(Member mem) {
-      System.out.println("dfd");
+      
       String SQL = "INSERT INTO member (memId,memPw,memEmail1,memEmail2,memName,memResident1,memResident2,nName)"
             + " VALUES(?,?,?,?,?,?,?,?)";
       template.update(SQL, 
@@ -106,6 +105,7 @@ public class MemberRepositoryImpl implements MemberRepository {
                mem.getMemResident1(),
                mem.getMemResident2(),
                mem.getnName());
+      System.out.println("dfd");
    }
    
    
