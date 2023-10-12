@@ -144,10 +144,10 @@ public class MemberController {
    public String updateProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
             ModelMap modelMap, @ModelAttribute("mem") Member mem, Model model){
 	  
-	  System.out.println("membercontroller = 접근완료");
+	  System.out.println("membercontroller 접근완료");
       memberService.setupmem(mem);
       System.out.println("membercontroller = "+mem);
-      return "redirect:/mypage/mypage";
+      return "redirect:/mypage";
    }
    
    
