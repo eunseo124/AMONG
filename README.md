@@ -19,8 +19,6 @@ GitHub URL : https://github.com/eunseo124/AMONG.git
 
 시연 영상 URL :
 
-프로젝트의 팀장과 로그인,회원가입,아이디,비밀번호 찾기, 마이페이지 기능 부분을 맡았습니다.
-
 프론트는 JavaScript,HTML,JSP,CSS 활용하였으며, 
 
 백엔드는 Java를 활용하였습니다.
