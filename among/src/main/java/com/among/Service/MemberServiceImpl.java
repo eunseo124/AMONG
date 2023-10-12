@@ -94,4 +94,10 @@ public class MemberServiceImpl implements MemberService {
 		Member mem = memberRepository.getfindPw(memId,memName,memEmail1,memEmail2);
 		return mem;
 	} 
+	
+	//** 회원정보 삭제메서드 오버라이드 **
+	  public void setDeleteMember(String memId) { 
+	        memberRepository.setDeleteMember(memId);
+	 }	 
+	 		
 }

@@ -126,22 +126,46 @@ public class MemberRepositoryImpl implements MemberRepository {
 
    }
    
-   //member db id 찾기 method
+ //member db id 찾기 method
    public Member getfindId(String memName, String memEmail1,String memEmail2) {
       
       Member mem = null;
-      String SQL = "select count(*) from member where memName = '" + memName + "' and memEamil1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
-      mem = template.queryForObject(SQL, new MemberRowMapper());
+      String SQL = "select count(*) from member where memName = '" + memName + "' and memEmail1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
+      mem = template.queryForObject(SQL, new RowMapper<Member>() {
+          @Override
+          public Member mapRow(ResultSet rs, int rowNum) {
+             Member member = new Member();
+             try {
+             member.setMemId(rs.getString(1));
+          } catch (SQLException e) {
+             // TODO Auto-generated catch block
+             e.printStackTrace();
+          }
+             return member;
+          }
+       });
       return mem;
    }
    //member db Pw 찾기 method
    public Member getfindPw(String memId,String memName, String memEmail1,String memEmail2) {
-	      
-	      Member mem = null;
-	      String SQL = "select count(*) from member where memId = '"+memId+"' and memName = '" + memName + "' and memEamil1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
-	      mem = template.queryForObject(SQL, new MemberRowMapper());
-	      return mem;
-	   }
+         
+         Member mem = null;
+         String SQL = "select count(*) from member where memId = '"+memId+"' and memName = '" + memName + "' and memEamil1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
+         mem = template.queryForObject(SQL, new RowMapper<Member>() {
+             @Override
+             public Member mapRow(ResultSet rs, int rowNum) {
+                Member member = new Member();
+                try {
+                member.setMemPw(rs.getString(1));
+             } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+             }
+                return member;
+             }
+          });
+         return mem;
+      }
    
    //member id 중복체크
    public Member getcheckId(String memId) throws Exception {
@@ -207,5 +231,14 @@ public class MemberRepositoryImpl implements MemberRepository {
         		member.getMemId());
        
    }
+   
+   //** 회원정보 삭제 메서드 오버라이드 **
+   //setDeleteMember() 메서드는 memId에 대한 해당 회원를 데이터베이스 에서 삭제합니다.
+   public void setDeleteMember(String memId) {  
+   	
+       String SQL = "DELETE from member where memId = ? ";
+       
+       this.template.update(SQL, memId);
+   }  	   
    
 }

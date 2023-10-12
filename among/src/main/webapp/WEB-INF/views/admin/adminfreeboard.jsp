@@ -196,11 +196,11 @@
         		       </tr>
         		      </thead>
         		      <tbody>
-           			  <c:forEach items="${aFreelist}" var="Board">           		      
+           			  <c:forEach items="${Blist}" var="Board">           		      
         		       <tr>
-        		        <td>${Board.memKey}</td>
-        		        <td>어제 미우새 봤음?</td>
-        		        <td>2023-09-19</td>
+        		        <td>${Board.boardKey}</td>
+        		        <td>${Board.boardTitle}</td>
+        		        <td>${Board.boardRegDate}</td>
         		        <td>12</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>

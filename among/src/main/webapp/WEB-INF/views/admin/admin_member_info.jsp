@@ -278,9 +278,9 @@
 			                <dl>
 			                    <dt>이메일</dt>
 			                    <dd>
-			                        <input type="text" id="email1" name="memEmail1" placeholder="이메일 입력" value="${member.memEmail1}"> @
-                                    <input type="text" id="email2" name="memEmail2"  value="${member.memEmail2}">			                        
-                                    <select id="email3" name="email2" style="width: 140px;margin-left: 1px; height: 50px;margin-top: 7px;" >
+			                        <input type="text" id="email1" name="memEmail1" placeholder="이메일 입력" value="${member.memEmail1}" style="width: 120px;"> @
+                                    <input type="text" id="email2" name="memEmail2"  value="${member.memEmail2}" style="width: 120px;">			                        
+                                    <select id="email3" name="email2" style="width: 120px;">
 									  <option value="naver.com">naver.com</option>
 			  		   				  <option value="google.com">google.com</option>
 									  <option value="hanmail.net">hanmail.net</option>
@@ -304,9 +304,6 @@
 			                    <dt>가입일시</dt>
 			                    <dd><input type="text" id="memJoinDate" name="memJoinDate" placeholder="이름 입력" readonly="readonly" value="${member.memJoinDate}"></dd>
 			                </dl>		
-			                                
-
-			                
 			                <br>
 			                <div id="box">
 			                <input type="hidden" id="memGrade" name="memGrade" value="${member.memGrade}">

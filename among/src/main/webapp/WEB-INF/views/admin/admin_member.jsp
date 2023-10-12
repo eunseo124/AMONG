@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/admin.css"/>" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<script src="${pageContext.request.contextPath}/resources/js/admin.js"></script>
     <style>
     	@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
@@ -192,7 +193,8 @@
         		        <th>Name</th>		       
         		        <th>ID</th>
         		        <th>Grade</th>
-        		        <th>Detail</th>  		                		        
+        		        <th>Detail</th>
+        		        <th>Delete</th>         		          		                		        
         		       </tr>
         		      </thead>
         		      <tbody>
@@ -209,6 +211,7 @@
                        </c:choose>
 		                </td>
         		        <td><button><a href="<c:url value="/admin_member_info?id=${Member.memId}" />">View</a></button></td>
+        		        <td><button><a href="<c:url value="javascript:deleteConfirm('${Member.memId}')"/>" class="material-symbols-outlined">Delete</a></button></td>
         		       </tr> 
           		       </c:forEach>   		               		               		               		               		               		       
         		      </tbody>

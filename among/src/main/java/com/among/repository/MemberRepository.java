@@ -31,5 +31,8 @@ public interface MemberRepository {
 
    void setUpdateInfo(Member member); //관리자 회원정보수정 메서드 추가
 
-Member getfindPw(String memId, String memName, String memEmail1, String memEmail2);
+	Member getfindPw(String memId, String memName, String memEmail1, String memEmail2);
+	
+	//** 회원정보 삭제 메서드 추가 **
+	void setDeleteMember(String memId);		
 }
