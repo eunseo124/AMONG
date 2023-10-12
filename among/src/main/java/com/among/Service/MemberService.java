@@ -52,4 +52,6 @@ public interface MemberService {
    Member getfindId(String memId, String memEmail1, String memEmail2); //member db id 찾기 method
    
    void setUpdateInfo(Member member); //관리자 회원정보수정 메서드 추가
+
+   Member getfindPw(String memId, String memName, String memEmail1, String memEmail2);
 }

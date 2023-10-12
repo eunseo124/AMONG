@@ -134,6 +134,14 @@ public class MemberRepositoryImpl implements MemberRepository {
       mem = template.queryForObject(SQL, new MemberRowMapper());
       return mem;
    }
+   //member db Pw 찾기 method
+   public Member getfindPw(String memId,String memName, String memEmail1,String memEmail2) {
+	      
+	      Member mem = null;
+	      String SQL = "select count(*) from member where memId = '"+memId+"' and memName = '" + memName + "' and memEamil1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
+	      mem = template.queryForObject(SQL, new MemberRowMapper());
+	      return mem;
+	   }
    
    //member id 중복체크
    public Member getcheckId(String memId) throws Exception {

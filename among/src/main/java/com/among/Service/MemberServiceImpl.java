@@ -86,5 +86,12 @@ public class MemberServiceImpl implements MemberService {
 	 //** 도서 정보 수정메서드 오버라이드 **
 	 public void setUpdateInfo(Member member) {  
 	        memberRepository.setUpdateInfo(member);
-	 } 
+	 }
+
+	@Override
+	public Member getfindPw(String memId, String memName, String memEmail1, String memEmail2) {
+		// TODO Auto-generated method stub
+		Member mem = memberRepository.getfindPw(memId,memName,memEmail1,memEmail2);
+		return mem;
+	} 
 }

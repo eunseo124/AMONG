@@ -80,12 +80,12 @@
             			<h1>아이디 찾기</h1>
             				<label>이름</label>
             				<form method = "post" action = "/member/idfind" id = "idfind">
-            				<input type = "text" name = "name" value = "" placeholder = "이름을 입력해주세요">
+            				<input type = "text" name = "memName" id = "memName" value = "" placeholder = "이름을 입력해주세요">
             				<legend>이메일</legend>
             				<label>
-            				<input type="text" value="" name="email1" style="width: 134px;"> @ 
-                                            <input id = "email2" type="text" value="" name="email2" style="width: 134px;">
-                                            <select id = "email3" name = "email2" style="width: 133px;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
+            				<input type="text" value="" name="memEmail1" id = "memEmail1" style="width: 134px;"> @ 
+                                            <input name="memEmail2" id = "memEmail2" type="text" value=""  style="width: 134px;">
+                                            <select id = "email3" name = "email3" style="width: 133px;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
 											  <option value="naver.com">naver.com</option>
 											  <option value="google.com">google.com</option>
 											  <option value="hanmail.net">hanmail.net</option>
@@ -97,7 +97,7 @@
                             <input type = "text" value = "" name="idnumber" placeholder = "인증번호를 입력해주세요"> 
                             </label>
             				<br>
-            				<button type = "submit">완료</button>
+            				<button type = "submit" id = "su">완료</button>
             				</form>
             		</div>
             	</section>
@@ -114,7 +114,40 @@
 
   	
 		$( "#email3" ).change(function(){
-		    $("#email2").val( $("#email3").val() );
+		    $("#memEmail2").val( $("#email3").val() );
+		});
+		
+		//id 중복체크
+		$(function(){
+		    $("#su").click(function(){
+		    
+		        let memName = $("#memName").val();
+		        let memEmail1 = $("#memEmail1").val();
+		        let memEmail2 = $("#memEmail2").val();
+		        //id 빈값입력 방지
+		        if(memName != '' && memEmail != '' && memEmail2 != ''){
+		        $.ajax({
+		            type:'post', //post 형식으로 controller 에 보내기위함!!
+		            url:"<c:url value='/member/idfind'/>" , // 컨트롤러로 가는 mapping 입력
+		            data: {"memName":memName, "memEmail1":memEmail1, "memEmail2":memEmail2}, // 원하는 값을 중복확인하기위해서  JSON 형태로 DATA 전송
+		            success: function(data){ 
+		                if(data == 0){ // 만약 성공할시
+		                	alert("아이디는 " + memId + "입니다.")
+		                 
+		             }else if(data == 1){ // 만약 실패할시
+		            	 alert("아이디가 존재하지 않습니다!")
+		             }
+		                 console.log(result);
+		         },
+		            error : function(error){alert("false");}
+		        });
+		        
+		    }else if(memName == ''){
+			alert("이름을 입력해주세요!");
+		}else if(memEmail1 == '' && memEmail2 == ''){
+			alert("이메일을 입력해주세요!");
+		}; 
+		});
 		});
 </script>
 </html>

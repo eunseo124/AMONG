@@ -143,6 +143,14 @@ public class MemberController {
    	mem = memberService.getfindId(memName,memEmail1,memEmail2);
    	return "redirect:/member/id";
    }
+   //id Ã£±â
+   @RequestMapping(value = "/member/pwfind", method = RequestMethod.POST)
+   public String getfindPw(@ModelAttribute("fPw")String memId,String memName, String memEmail1, String memEmail2) {
+   	
+   	Member mem = null;
+   	mem = memberService.getfindPw(memId,memName,memEmail1,memEmail2);
+   	return "redirect:/member/pass";
+   }
    
    //member update method
    @PostMapping("/mypage/memupdate_proc")
