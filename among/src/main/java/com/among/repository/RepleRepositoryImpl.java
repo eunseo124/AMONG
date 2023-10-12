@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
+
+import com.among.domain.Board;
 import com.among.domain.Reple;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Repository
 public class RepleRepositoryImpl implements RepleRepository {
@@ -23,14 +26,14 @@ public class RepleRepositoryImpl implements RepleRepository {
 
 	public RepleRepositoryImpl() {
 
-		// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼓�뇡�빘�굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
-		// ex) memKey占쎈쐻占쎈짗占쎌굲 1占쎈쐻占쎈짗占쎌굲 admin(占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼓占쎈쿈占쎌굲) / admin1234(占쎈쐻占쎈짗占쎌굲�뎲�꼪�쐻占쎈뼍�뜝占�) / 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲(占쎈쐻占쎈뼓筌뤿슣�굲) /
-		// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�:2(占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲d占쎈쐻占쎈짗占쎌굲) 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
-		// 占쎈쐻占쎈쑆癰귣ŀ�쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 memKey/memId/memPw/memName/memGrade占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
-		// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 -> Member member1 = new Member("id1234", "pwd1234" , "占쎈쐻占쎈뼓筌뤿슣�굲占쎌냹占쎈쐻占쎈쑞占쎈짗", "1")
+		// 占쏙옙占� 占쏙옙占싱븝옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占�
+		// ex) memKey占쏙옙 1占쏙옙 admin(占쏙옙占싱듸옙) / admin1234(占쏙옙橘占싫�) / 占쏙옙占쏙옙占쏙옙(占싱몌옙) /
+		// 占쏙옙占�:2(占쏙옙占쏙옙d占쏙옙) 占쏙옙占�
+		// 占썩본占쏙옙占쏙옙占쏙옙 memKey/memId/memPw/memName/memGrade占쏙옙占쏙옙占쏙옙
+		// 占쏙옙占쏙옙 -> Member member1 = new Member("id1234", "pwd1234" , "占싱몌옙홍占썸동", "1")
 	}
 
-	// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎌돳
+	// 占쏙옙占� 占쏙옙회
 	@Override
 	public List<Reple> getAllRepleList() {
 		// TODO Auto-generated method stub
@@ -40,7 +43,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 		return listOfReple;
 	}
 
-	// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
+	// 占쏙옙占� 占쏙옙占�
 	public void setNewReple(Reple reple) {
 
 		String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) "
@@ -61,10 +64,10 @@ public class RepleRepositoryImpl implements RepleRepository {
 		
 		return 1;
 	}
-/*
+
 	@Override
-	public List<Reple> getReplList(Integer boardKey) {
-//		"SELECT * FROM reple a inner join member b on a.memkey = b.memkey where boardKey = " + boardKey;
+	public List<Reple> getRepleList(Integer boardKey) {
+//	String SQL0	"SELECT * FROM reple a inner join member b on a.memkey = b.memkey where boardKey = " + boardKey;
 		String SQL = "SELECT * " +
 						"FROM reple a " + 
 						"INNER JOIN member b " +
@@ -75,17 +78,23 @@ public class RepleRepositoryImpl implements RepleRepository {
 		
 		return template.query(SQL, new RepleRowMapper());
 	}
-*/
+
 	
+	 @Override
+	    public List<Board> getAllBoardList() { 
+	    	
+	    	//�Խ��� ��ȸ ���� �ۼ�
+		   String SQL = "SELECT boardKey, boardTitle, member.nName, boardView,"
+	    			+ " (SELECT COUNT(*) FROM reple WHERE board.boardKey) AS repleCount, "
+	    			+ "boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
 
-	@Override
-	public Reple getReplList(int boardKey){
-		System.out.println("repleRepository 접근완료");
-		Reple rep = null;
-		String SQL = "SELECT * FROM reple r INNER JOIN member m ON r.memKey=m.memKey WHERE r.boardKey = " +boardKey ;
-		rep = template.queryForObject(SQL, new RepleRowMapper());
-		return rep;
-	}
 
+	    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+	        
+	    	return listOfBoards;
+	    }
+
+	
+	
 	
 }

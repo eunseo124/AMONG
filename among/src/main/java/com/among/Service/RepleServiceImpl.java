@@ -7,11 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
+import com.among.domain.Board;
 import com.among.domain.Reple;
-
+import com.among.repository.BoardRepository;
 import com.among.repository.RepleRepository;
-
 
 
 @Service
@@ -19,6 +18,9 @@ public class RepleServiceImpl implements RepleService{
 
 	@Autowired //@Autowired �� �����Ͽ� �޼��尡 ���ǵ� BookRepository Ŭ������ getAllBookList() �޼��带 ȣ���մϴ�.
 	 private RepleRepository repleRepository;
+
+	 	private BoardRepository boardRepository;
+	 
 	 
 	 public List<Reple> getAllRepleList() { 
 	        // TODO Auto-generated method stub
@@ -38,17 +40,17 @@ public class RepleServiceImpl implements RepleService{
 		return repleRepository.saveReple(reple);
 	}
 
-/*
+
 	@Override
 	public List<Reple> getRepleList(Integer boardKey) {
 		// TODO Auto-generated method stub
-		return repleRepository.getReplList(boardKey);
+		return repleRepository.getRepleList(boardKey);
 	}   
 	 
-*/	
-	public Reple getReplList(int boardKey) {
-		// TODO Auto-generated method stub
-		return repleRepository.getReplList(boardKey);
-	}  
 	
+		public List<Board> getAllBoardList() { 
+        // TODO Auto-generated method stub
+	 return boardRepository.getAllBoardList();
+ } 	
+
 }

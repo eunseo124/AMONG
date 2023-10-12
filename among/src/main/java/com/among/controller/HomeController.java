@@ -191,19 +191,7 @@ public class HomeController {
 
    }
 
-   @RequestMapping(value = "/boardlist", method = RequestMethod.GET)
-   public String boardlist(HttpServletResponse res, HttpServletRequest req) {
-      
-      // getBoardKey
-  /*    Integer boardKey = 1;
-      
-      List<Reple> repleList = repleService.getRepleList(boardKey);
-      
-      req.setAttribute("repleList", repleList);
-*/      
-      return "board/boardlist";
-
-   }
+  
 
 
    @RequestMapping(value = "/admingameboard", method = RequestMethod.GET)

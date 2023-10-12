@@ -26,17 +26,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.among.Service.AdminService;
 import com.among.Service.RepleService;
+import com.among.Service.BoardService;
+import com.among.domain.Board;
 import com.among.domain.Reple;
+
 
 @Controller
 public class RepleController {
 
-//	//Autowired �몴占� 占쎌젟占쎌벥占쎈릭占쎈연 BookService 占쎄깻占쎌삋占쎈뮞占쎌벥 getAllBookList() 筌롫뗄苑뚳옙諭띄몴占� 占쎌깈�빊�뮉鍮�占쎈빍占쎈뼄.
+//	//Autowired 를 정의하여 BookService 클래스의 getAllBookList() 메서드를 호출합니다.
 	@Autowired
 	private RepleService repleService;
+
+		@Autowired
+	private BoardService boardService;
 //
-//	// HTTP 占쎌뒄筌ｏ옙 獄쎻뫗�뻼占쎌뵠 GET占쎌뵥 野껋럩�뒭, @GetMapping 占쎌뱽 占쎄텢占쎌뒠占쎈막 占쎈땾 占쎌뿳占쎈뮸占쎈빍占쎈뼄.
+//	// HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.
 //	@GetMapping
 //	public String requestRepleList(Model model) { 
 //	    List<Reple> list = repleService.getAllRepleList();
@@ -55,7 +62,7 @@ public class RepleController {
 	}
 
 	/**
-	 * 占쎈솊疫뀐옙 占쎈쾻嚥∽옙
+	 * 댓글 등록
 	 * @param reple
 	 */
 	@RequestMapping(value = "/repl/save", method = RequestMethod.POST)
@@ -65,53 +72,41 @@ public class RepleController {
 		
 		return "board/repleSave";
 	}
+
 	
 	
-	
-/*	 @RequestMapping(value = "/boardlist", method = RequestMethod.GET)
-	   public String boardlist(HttpServletResponse res, HttpServletRequest req) {
+	@RequestMapping(value = "/boardlist", method = RequestMethod.GET)
+	   public String boardlist(HttpServletResponse res, HttpServletRequest req, Model model) {
 	      
 	      // getBoardKey
 	      Integer boardKey = 1;
 	      
 	      List<Reple> repleList = repleService.getRepleList(boardKey);
-	      
+	  	  List<Board> list = boardService.getAllBoardList();
+		
+	      model.addAttribute("boardList", list);  
 	      req.setAttribute("repleList", repleList);
 	      
 	      return "board/boardlist";
 
 	   }
-*/
-	 
-	 
-	 @RequestMapping(value = "/repl/repleList", method = RequestMethod.POST)
-		public String saveRepl(@RequestParam("boardKey")int boardKey,Model model) {
+	
+	
+		/* 게시판 리스트 조회 */
+	/*	@GetMapping("/boardlist")
+		public String requestBoardList(Model model) {
 			
-			Reple replist = null;
-			replist = repleService.getReplList(boardKey);
-			model.addAttribute("replist", replist); 
-			 return "board/boardlist";
+			
+			
+			
+			List<Board> list = boardService.getAllBoardList();
+			
+			
+			
+			model.addAttribute("boardList", list);  
+			return "board/boardlist"; 
 		}
-	 
-	/*
-	 * 
-	 * 
-	 * //占쎈즲占쎄퐣占쎈쾻嚥∽옙 占쎈읂占쎌뵠筌욑옙 addBook url筌띾벏釉�
-	 * 
-	 * @GetMapping("/boardlist") //@ModelAttribute �몴占� 占쎌뵠占쎌뒠占쎈릭占쎈연 addBook.jsp 占쎌벥 占쎈뮞占쎈늄筌랃옙 占쎈쨲 占쎄묶域밸챷占�
-	 * 占쎈염占쎈짗占쎈쭆占쎈뼄. public String requestAddRepleForm(@ModelAttribute("NewReple") Reple
-	 * reple) { return "board/boardlist"; }
-	 * 
-	 * //占쎈즲占쎄퐣占쎈쾻嚥∽옙 占쎈읂占쎌뵠筌욑옙 addBook url 筌띾벏釉�(post 獄쎻뫗�뻼) //** submitAddNEwBook() 筌롫뗄苑뚳옙諭� 占쎈땾占쎌젟 **
-	 * 
-	 * @PostMapping("/boardlist") public String
-	 * submitAddNewReple( @ModelAttribute("NewReple") Reple reple,BindingResult
-	 * result) {
-	 * 
-	 * if(result.hasErrors()) { return "boardlist"; }
-	 * 
-	 * }
-	 * 
-	 */
+*/
+	
 
 }
