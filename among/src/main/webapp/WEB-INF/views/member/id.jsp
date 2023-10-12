@@ -79,6 +79,7 @@
             		<div class = "login4">
             			<h1>아이디 찾기</h1>
             				<label>이름</label>
+            				<form method = "post" action = "/member/idfind" id = "idfind">
             				<input type = "text" name = "name" value = "" placeholder = "이름을 입력해주세요">
             				<legend>이메일</legend>
             				<label>
@@ -96,8 +97,8 @@
                             <input type = "text" value = "" name="idnumber" placeholder = "인증번호를 입력해주세요"> 
                             </label>
             				<br>
-            				<button>완료</button>
-            				
+            				<button type = "submit">완료</button>
+            				</form>
             		</div>
             	</section>
             </article> 

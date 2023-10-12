@@ -97,7 +97,7 @@
             		<div class = "pmypage1">
             			<h1>프로필 수정</h1>
             				<div class = "pmypage2">
-            						
+            						<form method = "post" action="/mypage/memupdate_proc" name = "memupdate_proc">
                                     <div class = "pro1">
                                     <p>아이디</p>
                                     <div class = "pro2">
@@ -164,6 +164,7 @@
                                     <div class="pro2">
                                     <input type="submit" value="수정완료" class="pro3" style = "margin-left:348px;margin-top:24px;">
                                     </div>
+                                    </form>
                                   </div>
             		</div>
             	</section>

@@ -2,13 +2,15 @@ package com.among.repository;
 
 import java.util.List;
 import java.util.Map;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 import com.among.domain.*;
 import com.among.repository.*;
-
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository
@@ -92,7 +94,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    
    //member 회원가입 메소드
    public void getjoin(Member mem) {
-      
+      System.out.println("dfd");
       String SQL = "INSERT INTO member (memId,memPw,memEmail1,memEmail2,memName,memResident1,memResident2,nName)"
             + " VALUES(?,?,?,?,?,?,?,?)";
       template.update(SQL, 
@@ -106,21 +108,7 @@ public class MemberRepositoryImpl implements MemberRepository {
                mem.getnName());
    }
    
-   //member id 중복체크
-   public Member getcheckId(String memId) throws Exception {
-      Member result = null;
-      String SQL = "select count(*) from member where memId = '"+memId+"'";
-      result = template.queryForObject(SQL,new MemberIdRowMapper());
-         return result;
-      }
    
-   //member nName 중복체크
-   public Member getchecknName(String nName) {
-      Member result = null;
-      String SQL = "select count(*) from member where nName = '"+nName+"'";
-      result = template.queryForObject(SQL,new MembernNameRowMapper());
-         return result;
-      }
    
    
    public Member getMemberById(String memId) {
@@ -137,6 +125,59 @@ public class MemberRepositoryImpl implements MemberRepository {
        return memberInfo;
 
    }
+   
+   //member db id 찾기 method
+   public Member getfindId(String memName, String memEmail1,String memEmail2) {
+      
+      Member mem = null;
+      String SQL = "select count(*) from member where memName = '" + memName + "' and memEamil1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
+      mem = template.queryForObject(SQL, new MemberRowMapper());
+      return mem;
+   }
+   
+   //member id 중복체크
+   public Member getcheckId(String memId) throws Exception {
+      Member result = null;
+      String SQL = "select count(*) from member where memId = '"+memId+"'";
+      result = template.queryForObject(SQL,new RowMapper<Member>() {
+         @Override
+         public Member mapRow(ResultSet rs, int rowNum) {
+            Member mem = new Member();
+            try {
+            mem.setMemId(rs.getString(1));
+         } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+         }
+            return mem;
+         }
+      });
+      System.out.println("memberRepository  = " +result.getMemId());
+         return result;
+      }
+   
+   //member nName 중복체크
+   public Member getchecknName(String nName) {
+      Member result = null;
+      String SQL = "select count(*) from member where nName = '"+nName+"'";
+      result = template.queryForObject(SQL, new RowMapper<Member>() {
+         @Override
+         public Member mapRow(ResultSet rs, int rowNum) {
+            Member mem = new Member();
+            try {
+            mem.setnName(rs.getString(1));
+         } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+         }
+            return mem;
+         }
+      });
+      System.out.println("memberRepository  = " +result.getnName());
+         return result;
+   }
+   
+
    
    //** 도서정보 수정 메서드 오버라이드 **
    public void setUpdateInfo(Member member) {  

@@ -78,20 +78,20 @@
                 <section>   
                                 <div class="login3">
                                     <h1>회원가입</h1>
-                                    <form name = "loginfrm" method = "post" action = "memjoin/memjoin_proc" onsubmit = "return valid()">
+                                    <form name = "loginfrm" method = "post" action = "memjoin/memjoin_proc" onsubmit = "return as()" >
                                     <legend>아이디</legend>
                                     <label>
-                                        <input type="text" value="" name="memId" id="memId" placeholder="아이디를 입력하시오" class="Mid">
+                                        <input type="text" value="" name="memId" id="memId" placeholder="영어,숫자로 조합해서 아이디를 생성하시오" class="Mid" oninput="handleOnInput(this)" >
                                         <input type="button" value="아이디 중복검사" id ="checkId"  class="idbtn"></input>
                                         <div><span id="result_checkId" style="font-size:12px;"></span></div>
                                     </label>
                                     <legend>비밀번호</legend>
                                     <label>
-                                        <input type="password"  name="memPw" id="memPw" value="" name="password" placeholder="비밀번호 입력하시오">
+                                        <input type="password"  name="memPw" id="memPw" value="" name="password" placeholder="영어,숫자,특수문자(~,!,.,/)를 조합해서 쓰시오" oninput="handleOnInput(this)" >
                                     </label>
                                     <legend>비밀번호 확인</legend>
                                     <label>
-                                        <input type="password" onkeyup ="pwdch()" value="" id="memPw2" name="password" placeholder="비밀번호 입력하시오">
+                                        <input type="password" onkeyup ="pwdch()" value="" id="memPw2" name="password" placeholder="비밀번호 입력하시오" >
                                         <div><span id="msg" style="font-size:12px;"></span></div>
                                     </label>
                                     <legend>닉네임</legend>
@@ -102,8 +102,8 @@
                                     </label>
                                     <legend>이메일</legend>
                                     <label style="display: flex;align-items: center;">
-                                        <input type="text" value="" name="memEmail1" id="memEmail1" style="width: 100%;"> @ 
-                                            <input type="text" value="" name="memEmail2" id="memEmail2" style="width: 100%;">
+                                        <input type="text" value="" name="memEmail1" id="memEmail1" style="width: 100%;" oninput="handleOnInput(this)"> @ 
+                                            <input type="text" value="" name="memEmail2" id="memEmail2" style="width: 100%;" oninput="handleOnInput(this)">
                                             <select id = "email3" name = "email2" style="width: 100%;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
 											  <option value="naver.com">naver.com</option>
 											  <option value="google.com">google.com</option>
@@ -120,11 +120,11 @@
                                     </label>
                                     <legend>주민번호</legend>
                                     <label style="display: flex;align-items: center;">
-                                        <input type="text" value="" name="memResident1" id="memResident1"  style="width: 280px;">-
-                                        <input type="password" value="" name="memResident2" id="memResident2" style="width: 280px;margin-left: 1px;">
+                                        <input type="text" value="" name="memResident1" id="memResident1"  style="width: 280px;" maxlength='6'>-
+                                        <input type="password" value="" name="memResident2" id="memResident2" style="width: 280px;margin-left: 1px;" maxlength='7'>
                                     </label>
                                     <div class="cidbtn">
-                                    <input type="submit" value="회원가입" class="cid" id = "joinCheck">
+                                    <input type="submit" value="회원가입" class="cid" id = "joinCheck" onclick="sub()">
                                     </div>
                                 </form>
                                 </div>
@@ -140,6 +140,12 @@
 </body>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
+		//영어,숫자,특수문자(~!./)
+		function handleOnInput(e)  {
+	  		e.value = e.value.replace(/[^A-Za-z0-9~!./]/ig, '')
+		}
+		
+		
 		
   		function pwdch(){
   		var memPw = document.getElementById("memPw");
@@ -208,12 +214,12 @@
 		                	console.log(data);
 		                    result = "사용 가능한 닉네임입니다.";
 		                    $("#result_checknName").html(result).css("color", "green");
-		                    $("#memPw").trigger("focus");
+		                    $("#memEmail1").trigger("focus");
 		                 
 		             }else if(data == 1){ // 만약 실패할시
 		                 result="이미 사용중인 닉네임입니다.";
 		                	 $("#result_checknName").html(result).css("color","red");
-		                     $("#memId").val("").trigger("focus");
+		                     $("#nName").val("").trigger("focus");
 		             }
 		                 console.log(result);
 		         },
@@ -225,6 +231,12 @@
 		}; 
 		});
 		});
+		function as() {
+			window.location.href="<c:url value='/member/memjoin_false'/>" 
+			alert("공백없이 입력해주세요");
+		}
+		
+		
 </script>
 
 </html>

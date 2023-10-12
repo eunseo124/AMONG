@@ -54,6 +54,11 @@ public class MemberController {
       
       return "redirect:/home";
    }
+   //회원가입 실패시
+   @GetMapping("/member/memjoin_false")
+   public String memjoin_false() {
+	   return "member/memjoin";
+   }
    
    //마이페이지 메인페이지 이동
    @RequestMapping(value = "/mypage", method = RequestMethod.GET)
@@ -74,8 +79,8 @@ public class MemberController {
           
           Member sessionc  = new Member();
           
-          sessionc.setMemKey(mem.getMemKey());
-          sessionc.setMemId(mem.getMemId());
+         sessionc.setMemKey(mem.getMemKey());
+         sessionc.setMemId(mem.getMemId());
          sessionc.setMemPw(mem.getMemPw());
          sessionc.setMemEmail1(mem.getMemEmail1());
          sessionc.setMemEmail2(mem.getMemEmail2());
@@ -113,6 +118,7 @@ public class MemberController {
       System.out.println("membercontroller = "+result.getMemId());
       return result.getMemId();
    }
+   
    //nName 중복체크
    @RequestMapping(value = "/member/checknName", method = RequestMethod.POST)
    @ResponseBody
@@ -122,6 +128,26 @@ public class MemberController {
       result = memberService.getchecknName(nName);
       System.out.println("membercontroller = "+result.getnName());
       return result.getnName();
+   }
+   
+   //id 찾기
+   @RequestMapping(value = "/member/idfind", method = RequestMethod.POST)
+   public String getfindId(@ModelAttribute("fId")String memName, String memEmail1, String memEmail2) {
+   	
+   	Member mem = null;
+   	mem = memberService.getfindId(memName,memEmail1,memEmail2);
+   	return "redirect:/member/id";
+   }
+   
+   //member update method
+   @RequestMapping(value = "/mypage/memupdate_proc", method = RequestMethod.POST)
+   public String updateProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
+            ModelMap modelMap, @ModelAttribute("mem") Member mem, Model model){
+	  
+	  System.out.println("membercontroller = 접근완료");
+      memberService.setupmem(mem);
+      System.out.println("membercontroller = "+mem);
+      return "redirect:/mypage/mypage";
    }
    
    

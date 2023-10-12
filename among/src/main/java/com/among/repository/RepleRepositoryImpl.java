@@ -23,14 +23,14 @@ public class RepleRepositoryImpl implements RepleRepository {
 
 	public RepleRepositoryImpl() {
 
-		// �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�떛釉앹삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝占�
-		// ex) memKey�뜝�룞�삕 1�뜝�룞�삕 admin(�뜝�룞�삕�뜝�떛�벝�삕) / admin1234(�뜝�룞�삕艅섇뜝�떕占�) / �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕(�뜝�떛紐뚯삕) /
-		// �뜝�룞�삕�뜝占�:2(�뜝�룞�삕�뜝�룞�삕d�뜝�룞�삕) �뜝�룞�삕�뜝占�
-		// �뜝�뜦蹂멨뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 memKey/memId/memPw/memName/memGrade�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
-		// �뜝�룞�삕�뜝�룞�삕 -> Member member1 = new Member("id1234", "pwd1234" , "�뜝�떛紐뚯삕�솉�뜝�뜽�룞", "1")
+		// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼓�뇡�빘�굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
+		// ex) memKey占쎈쐻占쎈짗占쎌굲 1占쎈쐻占쎈짗占쎌굲 admin(占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼓占쎈쿈占쎌굲) / admin1234(占쎈쐻占쎈짗占쎌굲�뎲�꼪�쐻占쎈뼍�뜝占�) / 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲(占쎈쐻占쎈뼓筌뤿슣�굲) /
+		// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�:2(占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲d占쎈쐻占쎈짗占쎌굲) 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
+		// 占쎈쐻占쎈쑆癰귣ŀ�쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 memKey/memId/memPw/memName/memGrade占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+		// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 -> Member member1 = new Member("id1234", "pwd1234" , "占쎈쐻占쎈뼓筌뤿슣�굲占쎌냹占쎈쐻占쎈쑞占쎈짗", "1")
 	}
 
-	// �뜝�룞�삕�뜝占� �뜝�룞�삕�쉶
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎌돳
 	@Override
 	public List<Reple> getAllRepleList() {
 		// TODO Auto-generated method stub
@@ -40,7 +40,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 		return listOfReple;
 	}
 
-	// �뜝�룞�삕�뜝占� �뜝�룞�삕�뜝占�
+	// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
 	public void setNewReple(Reple reple) {
 
 		String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) "
@@ -80,7 +80,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 
 	@Override
 	public Reple getReplList(int boardKey){
-
+		System.out.println("repleRepository 접근완료");
 		Reple rep = null;
 		String SQL = "SELECT * FROM reple r INNER JOIN member m ON r.memKey=m.memKey WHERE r.boardKey = " +boardKey ;
 		rep = template.queryForObject(SQL, new RepleRowMapper());

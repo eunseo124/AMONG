@@ -65,11 +65,17 @@ public class MemberServiceImpl implements MemberService {
     
     //member nName 중복체크
     public Member getchecknName(String nName) {
-    	Member result = null;
-    	result = memberRepository.getchecknName(nName);
-    	return result;
+       Member result = null;
+       result = memberRepository.getchecknName(nName);
+       return result;
     }
     
+    
+    //member db id 찾기 method
+    public Member getfindId(String memName, String memEmail1, String memEmail2) {
+       Member mem = memberRepository.getfindId(memName,memEmail1,memEmail2);
+       return mem;
+    }
     
 	 //BookRepository 클래스 getBookById() 메서드 호출
 	 public Member getMemberById(String memId) {

@@ -94,6 +94,7 @@
             		<div><h4><a href="<c:url value="/mypost" />">게시글 관리</a></h4></div>
             		<div><h4><a href="<c:url value="/mypost2" />">댓글 관리</a></h4></div>
             		</div>
+            		
             		<div class = "pmypageinfo">
             			<h1>내 프로필</h1>
             				<div class = "pmypage2">

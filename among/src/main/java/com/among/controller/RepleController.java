@@ -32,11 +32,11 @@ import com.among.domain.Reple;
 @Controller
 public class RepleController {
 
-//	//Autowired 瑜� �젙�쓽�븯�뿬 BookService �겢�옒�뒪�쓽 getAllBookList() 硫붿꽌�뱶瑜� �샇異쒗빀�땲�떎.
+//	//Autowired �몴占� 占쎌젟占쎌벥占쎈릭占쎈연 BookService 占쎄깻占쎌삋占쎈뮞占쎌벥 getAllBookList() 筌롫뗄苑뚳옙諭띄몴占� 占쎌깈�빊�뮉鍮�占쎈빍占쎈뼄.
 	@Autowired
 	private RepleService repleService;
 //
-//	// HTTP �슂泥� 諛⑹떇�씠 GET�씤 寃쎌슦, @GetMapping �쓣 �궗�슜�븷 �닔 �엳�뒿�땲�떎.
+//	// HTTP 占쎌뒄筌ｏ옙 獄쎻뫗�뻼占쎌뵠 GET占쎌뵥 野껋럩�뒭, @GetMapping 占쎌뱽 占쎄텢占쎌뒠占쎈막 占쎈땾 占쎌뿳占쎈뮸占쎈빍占쎈뼄.
 //	@GetMapping
 //	public String requestRepleList(Model model) { 
 //	    List<Reple> list = repleService.getAllRepleList();
@@ -55,7 +55,7 @@ public class RepleController {
 	}
 
 	/**
-	 * �뙎湲� �벑濡�
+	 * 占쎈솊疫뀐옙 占쎈쾻嚥∽옙
 	 * @param reple
 	 */
 	@RequestMapping(value = "/repl/save", method = RequestMethod.POST)
@@ -96,13 +96,13 @@ public class RepleController {
 	/*
 	 * 
 	 * 
-	 * //�룄�꽌�벑濡� �럹�씠吏� addBook url留듯븨
+	 * //占쎈즲占쎄퐣占쎈쾻嚥∽옙 占쎈읂占쎌뵠筌욑옙 addBook url筌띾벏釉�
 	 * 
-	 * @GetMapping("/boardlist") //@ModelAttribute 瑜� �씠�슜�븯�뿬 addBook.jsp �쓽 �뒪�봽留� �뤌 �깭洹몄�
-	 * �뿰�룞�맂�떎. public String requestAddRepleForm(@ModelAttribute("NewReple") Reple
+	 * @GetMapping("/boardlist") //@ModelAttribute �몴占� 占쎌뵠占쎌뒠占쎈릭占쎈연 addBook.jsp 占쎌벥 占쎈뮞占쎈늄筌랃옙 占쎈쨲 占쎄묶域밸챷占�
+	 * 占쎈염占쎈짗占쎈쭆占쎈뼄. public String requestAddRepleForm(@ModelAttribute("NewReple") Reple
 	 * reple) { return "board/boardlist"; }
 	 * 
-	 * //�룄�꽌�벑濡� �럹�씠吏� addBook url 留듯븨(post 諛⑹떇) //** submitAddNEwBook() 硫붿꽌�뱶 �닔�젙 **
+	 * //占쎈즲占쎄퐣占쎈쾻嚥∽옙 占쎈읂占쎌뵠筌욑옙 addBook url 筌띾벏釉�(post 獄쎻뫗�뻼) //** submitAddNEwBook() 筌롫뗄苑뚳옙諭� 占쎈땾占쎌젟 **
 	 * 
 	 * @PostMapping("/boardlist") public String
 	 * submitAddNewReple( @ModelAttribute("NewReple") Reple reple,BindingResult
