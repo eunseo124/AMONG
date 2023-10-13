@@ -123,7 +123,7 @@
                         <h1>자유게시판</h1>
                     </section>
 					
-					<form id="frm" method="post" action ="board/board_proc">
+					<form id="frm" method="post" enctype="multipart/form-data">
                     <section id = "boardWrite">
                         <div class = "writeTitle">
                             <input id="subject" name="subject" type="text" maxlength="40" placeholder="제목(40자이내)">
@@ -132,8 +132,9 @@
                         <div id= "note">
                                 <textarea id="summernote" name="editordata"></textarea>
                                 <input type="hidden" name="boardCategory" id="boardCategory" value="${param.category}">
+                                <input type="file" name="boardImg" id="boardImg">
                                 <section class="writeButton">
-				                        <input type="button" onclick="test()" id="confirm" value="등록">
+				                        <input type="button" onclick="test()" class="confirm" value="등록">
 				                        <input type ="reset" class="cancel" value="취소">
                    			 	</section>
         <script>
@@ -156,31 +157,48 @@
 		                     ['Insert', ['picture']],
 		                     ['Insert', ['link']],
 		                     ['Misc', ['fullscreen']]
-		        		  ],
+		        		  ],  
 		            	fontNames: fontList,
 		            	fontNamesIgnoreCheck: fontList,
 		            });
 		            $('#summernote').summernote('fontName', 'Pretendard-Regular')
 		      });
 			
+			
 			function test() {
 				var memKey=$('#memKey').val();
 				var boardContent=$('#summernote').val();				
 				var boardCategory=$('#boardCategory').val();
 				var boardTitle=$('#subject').val();
+				var boardImg=$("#boardImg").val().split('/').pop().split('\\').pop();
+				var formData = new FormData();
+				var inputFile = $("input[name='boardImg']");
+				var files = inputFile[0].files;
+				var formData = new FormData();
+				formData.append("memKey",$('#memKey').val());
+				formData.append("boardContent",$('#summernote').val());
+				formData.append("boardCategory",$('#boardCategory').val());
+				formData.append("boardTitle",$('#subject').val());
+				formData.append("boardImg",$('#boardImg').val().split('/').pop().split('\\').pop());
+				for(var i=0; i<files.length; i++) {
+					formData.append("uploadFile",files[i]);
+				}
+	
+				console.log(boardImg);
+
 				
-				console.log(memKey);
-				console.log(boardContent);
-				console.log(boardCategory);
-				console.log(boardTitle);
-				
+				if(confirm("작성하시겠습니까?")) {
 				$.ajax ({
 					url: "<c:url value='/board/boardwr'/>",
 					type: "post",
+					enctype: 'multipart/form-data',
+					processData: false,
+				    contentType: false,
 					dataType: "json",
-					data: {"memKey":memKey, "boardContent":boardContent, "boardCategory":boardCategory, "boardTitle":boardTitle},
+					data: formData, 
 					success: location.href="boardlist"
 				});
+				}	
 			}
 			
 		</script>

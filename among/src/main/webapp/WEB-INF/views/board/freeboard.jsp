@@ -83,11 +83,7 @@
         		<section id = "title"><h1>자유게시판</h1></section>
         		<input type="hidden" id="category" value="2">
         		<section id = "sort">
-        			<a class="subject">정렬 |</a>
-        			<a href="#" class="subject">최신순</a>
-        			<a href="#" class="subject">추천순</a>
-        			<a href="#" class="subject">조회순</a>
-        			<a href="#" class="subject">댓글순</a>
+        			<a href="home" class="subject"><span class="material-symbols-outlined">house</span></a>
         		</section>
         		<section id = "generalList">
         			<div class = "items">
@@ -132,20 +128,9 @@
         				<c:choose>
         				<c:when test="${memGrade == 1}">
         				<a href="boardlist?boardKey=${board.boardKey}&category=${2}" class="item" id="item">
-        				
-        					<c:set var="boardImg" value="${board.boardImg}"/>
-        					<c:choose>
-        					<c:when test="${boardImg != null}">
         						<div class="image">
-        							<img src="${boardImg}">
+        							<img src="resources/images/${board.boardImg}">
         						</div>	
-        					</c:when>
-        					<c:otherwise>
-        						<div class="image">
-        							<img src="resources/images/profile.png">
-        						</div>	
-        					</c:otherwise>
-        					</c:choose>
         					<div class="info">
         						<div class="title">
         							<span class="text">${board.boardTitle}</span>
@@ -185,13 +170,6 @@
         			<a id="boardWrite">글작성</a>
         		</section>
         	
-        		<!-- 검색어 기능 -->
-        		<section class="search">
-        			<input type="text" placeholder="검색어" name="search">
-        			<button>
-        				<span class="material-symbols-outlined">search</span>
-        			</button>
-        		</section>
         		
         		<div id="table">
         			<a href="#">1</a>

@@ -742,6 +742,11 @@ article {
   border-radius:5px;
 }
 
+/*이미지 업로드*/
+#fileUpload {
+	margin-left: -15px;
+}
+
 /*버튼*/
 #postWrite .writeButton {
   display: flex;

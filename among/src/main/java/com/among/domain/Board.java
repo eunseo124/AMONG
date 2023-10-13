@@ -1,27 +1,42 @@
 package com.among.domain;
 
-import java.io.Serializable;
 import java.sql.Date;
-import java.time.LocalDate;
 
-public class Board implements Serializable {
+public class Board {
 
 	private String boardTitle;
 	private String nName;
 	private String boardContent;
+	private String boardImg;
 	private int boardView;
 	private int repleCount;
 	private int boardRecommend;
 	private int memGrade;
 	private int boardCategory;
+	private int repleKey;
 	private Date boardRegDate;
 	private Date boardModifyDate;
 	private int memKey;
 	private int boardKey;
 	
+
 	
-	
-	
+	public int getRepleKey() {
+		return repleKey;
+	}
+
+	public void setRepleKey(int repleKey) {
+		this.repleKey = repleKey;
+	}
+
+	public String getBoardImg() {
+		return boardImg;
+	}
+
+	public void setBoardImg(String boardImg) {
+		this.boardImg = boardImg;
+	}
+
 	public int getBoardKey() {
 		return boardKey;
 	}
