@@ -160,7 +160,7 @@
 						<li><a href="<c:url value="/adminfreeboard" />">자유게시판</a></li>
 						<li><a href="<c:url value="/admingameboard" />">게임게시판</a></li>
 						<li><a href="<c:url value="/adminfoodboard" />">맛집게시판</a></li>
-						<li><a href="<c:url value="/admintravleboard" />">여행게시판</a></li>					
+						<li><a href="<c:url value="/admintravelboard" />">여행게시판</a></li>					
 					</ul>
 				</li>			
 			</ul>
@@ -196,15 +196,18 @@
         		       </tr>
         		      </thead>
         		      <tbody>
-           			  <c:forEach items="${Blist}" var="Board">           		      
+           			  <c:forEach items="${Blist}" var="board">
+	        			<c:set var = "boardCategory" value="${board.boardCategory}"/>
+	        			<c:if test = "${boardCategory eq 1}">
         		       <tr>
-        		        <td>${Board.boardKey}</td>
-        		        <td>${Board.boardTitle}</td>
-        		        <td>${Board.boardRegDate}</td>
-        		        <td>12</td>
+        		        <td>${board.boardKey}</td>
+        		        <td>${board.boardTitle}</td>
+        		        <td>${board.boardRegDate}</td>
+        		        <td>${board.boardView}</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
-      		           </c:forEach>   		               		               		               		               		               		               		               		       
+						</c:if>
+      		           </c:forEach>
         		      </tbody>  
         		     </table>
         		<section class="search">

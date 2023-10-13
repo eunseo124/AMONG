@@ -4,6 +4,6 @@
  
  
 function deleteConfirm(id){  
-    if (confirm("삭제 합니다!!") == true) location.href ="./delete?id="+id;
+    if (confirm("회원정보를 삭제합니다.") == true) location.href ="./delete?id="+id;
     else  return;
 } 

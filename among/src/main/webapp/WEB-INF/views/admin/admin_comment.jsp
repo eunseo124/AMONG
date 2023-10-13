@@ -160,7 +160,7 @@
 						<li><a href="<c:url value="/adminfreeboard" />">자유게시판</a></li>
 						<li><a href="<c:url value="/admingameboard" />">게임게시판</a></li>
 						<li><a href="<c:url value="/adminfoodboard" />">맛집게시판</a></li>
-						<li><a href="<c:url value="/admintravleboard" />">여행게시판</a></li>					
+						<li><a href="<c:url value="/admintravelboard" />">여행게시판</a></li>					
 					</ul>
 				</li>			
 			</ul>
@@ -196,76 +196,15 @@
         		       </tr>
         		      </thead>
         		      <tbody>
+           			  <c:forEach items="${repleList}" var="reple">           		      
         		       <tr>
-        		        <td>01</td>
-        		        <td>monkey</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
+        		        <td>${reple.repleKey}</td>
+        		        <td>${reple.memKey}</td>
+        		        <td>${reple.repleContent}</td>
+        		        <td>${reple.repleRegDate}</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
-        		       <tr>
-        		        <td>02</td>
-        		        <td>monkey2</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>03</td>
-        		        <td>monkey1</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>04</td>
-        		        <td>monkey2</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>05</td>
-        		        <td>monkey3</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>06</td>
-        		        <td>monkey3</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>07</td>
-        		        <td>monkey3</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>08</td>
-        		        <td>monkey3</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>09</td>
-        		        <td>monkey3</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>10</td>
-        		        <td>monkey3</td>
-        		        <td>어제 피카츄랑 아구몬이랑 맞짱 뜨는 거 봤음? 아구몬이 판정 3대1로 피카츄 이김</td>
-        		        <td>2023-09-19</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>        		               		               		               		               		               		               		               		               		       
+      		           </c:forEach>	 
         		      </tbody>  
         		     </table>
         		<section class="search">

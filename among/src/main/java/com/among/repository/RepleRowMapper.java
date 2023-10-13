@@ -19,12 +19,15 @@ public class RepleRowMapper implements RowMapper<Reple> {
 		
 		
 		Reple Reple = new Reple();
-		Reple.setRepleKey(rs.getInt(1));
-		Reple.setRepleContent(rs.getString(2));
-		Reple.setRepleRegDate(rs.getDate(3));
-		Reple.setMemKey(rs.getInt(4));
-		Reple.setBoardKey(rs.getInt(5));
-		Reple.setnName(rs.getString(6));
+		Reple.setRepleKey(rs.getInt("repleKey"));
+		Reple.setRepleContent(rs.getString("repleContent"));
+		Reple.setRepleRegDate(rs.getDate("repleRegDate"));
+		Reple.setMemKey(rs.getInt("replememKey"));
+		Reple.setBoardKey(rs.getInt("boarKey"));
+		Reple.setnName(rs.getString("nName"));
+		Reple.setMemId(rs.getString("memId"));
+		Reple.setBoardCategory(rs.getInt("boardCategory"));
+		
 		
 //		System.out.println(Reple.toString());
 		return Reple;

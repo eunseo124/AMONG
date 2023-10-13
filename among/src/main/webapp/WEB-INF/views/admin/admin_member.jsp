@@ -161,7 +161,7 @@
 						<li><a href="<c:url value="/adminfreeboard" />">자유게시판</a></li>
 						<li><a href="<c:url value="/admingameboard" />">게임게시판</a></li>
 						<li><a href="<c:url value="/adminfoodboard" />">맛집게시판</a></li>
-						<li><a href="<c:url value="/admintravleboard" />">여행게시판</a></li>					
+						<li><a href="<c:url value="/admintravelboard" />">여행게시판</a></li>					
 					</ul>
 				</li>			
 			</ul>

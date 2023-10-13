@@ -160,7 +160,7 @@
 						<li><a href="<c:url value="/adminfreeboard" />">자유게시판</a></li>
 						<li><a href="<c:url value="/admingameboard" />">게임게시판</a></li>
 						<li><a href="<c:url value="/adminfoodboard" />">맛집게시판</a></li>
-						<li><a href="<c:url value="/admintravleboard" />">여행게시판</a></li>					
+						<li><a href="<c:url value="/admintravelboard" />">여행게시판</a></li>					
 					</ul>
 				</li>			
 			</ul>
@@ -189,7 +189,6 @@
         		      <thead>
         		       <tr>
         		        <th>No.</th>   
-        		        <th>ID</th>
         		        <th>Subject</th>
         		        <th>Date</th>
         		        <th>Hits</th>
@@ -197,86 +196,18 @@
         		       </tr>
         		      </thead>
         		      <tbody>
+           			  <c:forEach items="${Blist}" var="board">           		      
+	        			<c:set var = "boardCategory" value="${board.boardCategory}"/>
+	        			<c:if test = "${boardCategory eq 2}">
         		       <tr>
-        		        <td>01</td>
-        		        <td>monkey</td>
-        		        <td>어제 미우새 봤음?</td>
-        		        <td>2023-09-19</td>
-        		        <td>12</td>
+        		        <td>${board.boardKey}</td>
+        		        <td>${board.boardTitle}</td>
+        		        <td>${board.boardRegDate}</td>
+        		        <td>${board.boardView}</td>
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
-        		       <tr>
-        		        <td>02</td>
-        		        <td>monkey2</td>
-        		        <td>어제 미우새 안봤음?</td>
-        		        <td>2023-09-19</td>
-        		        <td>12</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>03</td>
-        		        <td>monkey1</td>
-        		        <td>어제 미우새 안봤다니까?</td>
-        		        <td>2023-09-19</td>
-        		        <td>12</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>04</td>
-        		        <td>monkey2</td>
-        		        <td>무한도전 보고싶다</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>05</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>06</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>07</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>08</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>09</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>
-        		       <tr>
-        		        <td>10</td>
-        		        <td>monkey3</td>
-        		        <td>그님티?</td>
-        		        <td>2023-09-19</td>
-        		        <td>13</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
-        		       </tr>        		               		               		               		               		               		               		               		               		       
+						</c:if>
+      		           </c:forEach>       		               		               		               		               		               		               		               		               		       
         		      </tbody>  
         		     </table>
         		<section class="search">

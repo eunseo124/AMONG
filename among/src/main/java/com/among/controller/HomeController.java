@@ -120,13 +120,13 @@ public class HomeController {
 
    }
 
-/*
+
    @RequestMapping(value = "/mypost", method = RequestMethod.GET)
    public String mypost() {
 
       return "mypage/mypost";
 
-   }*/
+   }
 
    @RequestMapping(value = "/mypost2", method = RequestMethod.GET)
    public String mypost2() {
@@ -191,28 +191,5 @@ public class HomeController {
 
    }
 
-  
-
-
-   @RequestMapping(value = "/admingameboard", method = RequestMethod.GET)
-   public String admingameboard() {
-
-      return "admin/admingameboard";
-
-   }
-
-   @RequestMapping(value = "/adminfoodboard", method = RequestMethod.GET)
-   public String adminfoodboard() {
-
-      return "admin/adminfoodboard";
-
-   }
-
-   @RequestMapping(value = "/admintravleboard", method = RequestMethod.GET)
-   public String admintravleboard() {
-
-      return "admin/admintravleboard";
-
-   }
 
 }
