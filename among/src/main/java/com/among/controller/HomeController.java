@@ -120,13 +120,13 @@ public class HomeController {
 
    }
 
-
+/*
    @RequestMapping(value = "/mypost", method = RequestMethod.GET)
    public String mypost() {
 
       return "mypage/mypost";
 
-   }
+   }*/
 
    @RequestMapping(value = "/mypost2", method = RequestMethod.GET)
    public String mypost2() {
