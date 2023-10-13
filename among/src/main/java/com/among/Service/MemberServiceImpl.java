@@ -73,8 +73,8 @@ public class MemberServiceImpl implements MemberService {
     
     //member db id 찾기 method
     public Member getfindId(String memName, String memEmail1, String memEmail2) {
-       Member mem = memberRepository.getfindId(memName,memEmail1,memEmail2);
-       return mem;
+       Member memi = memberRepository.getfindId(memName,memEmail1,memEmail2);
+       return memi;
     }
     
 	 //BookRepository 클래스 getBookById() 메서드 호출

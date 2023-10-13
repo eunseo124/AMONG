@@ -137,21 +137,60 @@ public class MemberController {
    
    //id 찾기
    @RequestMapping(value = "/member/idfind", method = RequestMethod.POST)
-   public String getfindId(@ModelAttribute("fId")String memName, String memEmail1, String memEmail2) {
+   public String getfindId(HttpSession session,HttpServletRequest req,HttpServletResponse resp,String memName, String memEmail1, String memEmail2,Model model) {
    	
-   	Member mem = null;
-   	mem = memberService.getfindId(memName,memEmail1,memEmail2);
-   	return "redirect:/member/id";
+   	Member memf = null;
+   	memf = memberService.getfindId(memName,memEmail1,memEmail2);
+   	Member member = new Member();
+   	member.setMemId(memf.getMemId());
+   	member.setMemName(memf.getMemName());
+   	session = req.getSession();
+   	session.setAttribute("member", member);
+   	
+   	return "redirect:/idok";
    }
-   //id 찾기
+   //id 찾기 결과 페이지
+   @GetMapping("/idok")
+   public String getidok() {
+	   return "member/idok";
+   }
+   //Pw 찾기
    @RequestMapping(value = "/member/pwfind", method = RequestMethod.POST)
-   public String getfindPw(@ModelAttribute("fPw")String memId,String memName, String memEmail1, String memEmail2) {
+   public String getfindPw(HttpSession session,HttpServletRequest req,HttpServletResponse resp,String memId,String memName, String memEmail1, String memEmail2, Model model) {
    	
-   	Member mem = null;
-   	mem = memberService.getfindPw(memId,memName,memEmail1,memEmail2);
-   	return "redirect:/member/pass";
+   	Member memp = null;
+   	memp = memberService.getfindPw(memId,memName,memEmail1,memEmail2);
+   	Member memberp = new Member();
+   	
+   	memberp.setMemId(memp.getMemId());
+   	memberp.setMemName(memp.getMemName());
+   	memberp.setMemEmail1(memp.getMemEmail1());
+   	memberp.setMemEmail2(memp.getMemEmail2());
+   	memberp.setMemName(memp.getMemName());
+   	memberp.setMemResident1(memp.getMemResident1());
+   	memberp.setMemResident2(memp.getMemResident2());
+   	memberp.setMemGrade(memp.getMemGrade());
+   	memberp.setnName(memp.getnName());
+   	memberp.setMemKey(memp.getMemKey());
+   	session = req.getSession();
+   	session.setAttribute("memberp", memberp);
+
+   	return "redirect:/pwok";
    }
-   
+   //pw 찾기 결과 페이지
+   @GetMapping("/pwok")
+   public String getpwok() {
+	   System.out.println("접근완료");
+	   return "member/pwok";
+   }
+   //pw 찾기 결과 후 비번 업데이트
+   @PostMapping("/member/memupdate_proc")
+   public String PwupdateProc(@ModelAttribute("mem") Member mem){
+	  
+	  System.out.println("membercontroller 접근완료");
+      memberService.setupmem(mem);
+      return "redirect:/login";
+   }
    //member update method
    @PostMapping("/mypage/memupdate_proc")
    public String updateProc(@ModelAttribute("mem") Member mem){

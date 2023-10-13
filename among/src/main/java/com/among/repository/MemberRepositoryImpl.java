@@ -128,43 +128,20 @@ public class MemberRepositoryImpl implements MemberRepository {
    
  //member db id 찾기 method
    public Member getfindId(String memName, String memEmail1,String memEmail2) {
-      
-      Member mem = null;
-      String SQL = "select count(*) from member where memName = '" + memName + "' and memEmail1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
-      mem = template.queryForObject(SQL, new RowMapper<Member>() {
-          @Override
-          public Member mapRow(ResultSet rs, int rowNum) {
-             Member member = new Member();
-             try {
-             member.setMemId(rs.getString(1));
-          } catch (SQLException e) {
-             // TODO Auto-generated catch block
-             e.printStackTrace();
-          }
-             return member;
-          }
-       });
-      return mem;
+      System.out.println("memrepository getfindId 접근완료 = "+memName +memEmail1+memEmail2);
+      Member memi = null;
+      String SQL = "select * from member where memName = '" + memName + "' and memEmail1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
+      memi = template.queryForObject(SQL, new MemberRowMapper());
+      System.out.println("memberRepository memId = "+memi.getMemId());   
+      return memi;
    }
    //member db Pw 찾기 method
    public Member getfindPw(String memId,String memName, String memEmail1,String memEmail2) {
          
-         Member mem = null;
-         String SQL = "select count(*) from member where memId = '"+memId+"' and memName = '" + memName + "' and memEamil1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
-         mem = template.queryForObject(SQL, new RowMapper<Member>() {
-             @Override
-             public Member mapRow(ResultSet rs, int rowNum) {
-                Member member = new Member();
-                try {
-                member.setMemPw(rs.getString(1));
-             } catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-             }
-                return member;
-             }
-          });
-         return mem;
+         Member memp = null;
+         String SQL = "select * from member where memId = '"+memId+"' and memName = '" + memName + "' and memEmail1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
+         memp = template.queryForObject(SQL, new MemberRowMapper());
+         return memp;
       }
    
    //member id 중복체크

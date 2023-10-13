@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -76,29 +76,14 @@
         <!-- 본문내용 -->
             <article>
             	<section>
-            		<div class = "login4">
-            			<h1>아이디 찾기</h1>
-            			<form method = "post" action = "member/idfind">
-            				<label>이름</label>
-            				<input type = "text" name = "memName" id = "memName" placeholder = "이름을 입력해주세요">
-            				<legend>이메일</legend>
-            				<label>
-            				<input type="text" value="" name="memEmail1" id = "memEmail1" style="width: 134px;"> @ 
-                                            <input name="memEmail2" id = "memEmail2" type="text" value=""  style="width: 134px;">
-                                            <select id = "email3" name = "email3" style="width: 133px;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
-											  <option value="">직접입력</option>
-											  <option value="naver.com">naver.com</option>
-											  <option value="google.com">google.com</option>
-											  <option value="hanmail.net">hanmail.net</option>
-											  <option value="nate.com">nate.com</option>
-											  <option value="kakao.com">kakao.com</option>
-										 	</select>
-                            <input type="button" value="인증번호 받기" class="idbtn">
-                            <input type = "text" value = "" name="idnumber" placeholder = "인증번호를 입력해주세요"> 
-                            </label>
-            				<br>
-            				<button type = "submit" id = "su">완료</button>
-            				</form>
+            		<div class = "login4" style="height:300px; width:350px;">
+            			<h1>아이디</h1>
+            			<div style="height:150px;margin-top: 10px; 
+            			padding: 20px; align-items: center;display: flex;justify-content: center;">
+            				
+            				<p>${member.memName}님의 아이디는 ${member.memId} 입니다.</p>
+            			</div>
+            				<a href = "<c:url value="/login"/>"><button type = "submit" id = "su">로그인 페이지로 이동</button></a>
             		</div>
             	</section>
             </article> 
@@ -109,30 +94,4 @@
   </footer>
     </div>
 </body>
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-
-  	
-		$( "#email3" ).change(function(){
-		    $("#memEmail2").val( $("#email3").val() );
-		});
-		
-		//id 빈값체크
-		$(function(){
-		    $("#su").click(function(){
-		    	let su = $("#su").val();
-		        let memName = $("#memName").val();
-		        let memEmail1 = $("#memEmail1").val();
-		        let memEmail2 = $("#memEmail2").val();
-		        //id 빈값입력 방지
-		        if(memName != '' && memEmail1 != '' && memEmail2 != ''){
-		        su.submit();
-		    }else if(memName == ''){
-			alert("이름을 입력해주세요!");
-		}else if(memEmail1 == '' && memEmail2 == ''){
-			alert("이메일을 입력해주세요!");
-		}; 
-		});
-		});
-</script>
 </html>
