@@ -14,11 +14,11 @@ import java.util.Date;
 public class Reple extends HttpServlet {
 	
 
-	private int repleKey; // 占쏙옙占� 占쌘듸옙
-	private String repleContent; // 占쏙옙占쏙옙
-	private Date repleRegDate; // 占쌜쇽옙 占쏙옙짜
+	private int repleKey; // �뜝�룞�삕�뜝占� �뜝�뙓�벝�삕
+	private String repleContent; // �뜝�룞�삕�뜝�룞�삕
+	private Date repleRegDate; // �뜝�뙗�눦�삕 �뜝�룞�삕吏�
 	private int memKey;
-	private int boardKey;// 占쌉쏙옙占쏙옙
+	private int boardKey;// �뜝�뙃�룞�삕�뜝�룞�삕
 
 	
 	public Reple() {
@@ -26,7 +26,7 @@ public class Reple extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	/* 占싹뱄옙 占쏙옙占쏙옙占쏙옙 */
+	/* �뜝�떦諭꾩삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 */
 	
 
 	public int getRepleKey() {
@@ -71,15 +71,11 @@ public class Reple extends HttpServlet {
 		this.boardKey = boardKey;
 	}
 
-	@Override
-	public String toString() {
-		return "Reply [ repleKey=" + repleKey + ", repleRegDate=" + repleRegDate + ", repleContent=" + repleContent +nName
-				+ ", memKey=" + memKey + "]";
-	}
 	
 	
-	private int memGrade;	//회원 등급 (일반/관리자)
-	private String nName; 	//닉네임eredfad
+	
+	private int memGrade;	//�쉶�썝 �벑湲� (�씪諛�/愿�由ъ옄)
+	private String nName; 	//�땳�꽕�엫eredfad
 
 	public int getMemGrade() {
 		return memGrade;
@@ -97,16 +93,31 @@ public class Reple extends HttpServlet {
 		this.nName = nName;
 	}
 
-	public Reple(int repleKey, String repleContent, Date repleRegDate, int memKey, int boardKey, int memGrade,
-			String nName) {
-		super();
-		this.repleKey = repleKey;
-		this.repleContent = repleContent;
-		this.repleRegDate = repleRegDate;
-		this.memKey = memKey;
-		this.boardKey = boardKey;
-		this.memGrade = memGrade;
-		this.nName = nName;
+	
+	
+	
+	
+	private String memId;
+	
+	private int boardCategory;
+
+
+	public String getMemId() {
+		return memId;
 	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+	public int getBoardCategory() {
+		return boardCategory;
+	}
+
+	public void setBoardCategory(int boardCategory) {
+		this.boardCategory = boardCategory;
+	}
+	
+
 
 }
