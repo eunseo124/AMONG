@@ -31,11 +31,33 @@ public class BoardController {
 
 	//게시판 조회
 	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
+	//자유게시판
 	@GetMapping("/freeboard")
 	public String requestBoardList(Model model) { 
 		List<Board> list = boardService.getAllBoardList();
 		model.addAttribute("boardList", list);  
 		return "board/freeboard"; 
+	}
+	//게임게시판
+	@GetMapping("/gameboard")
+	public String gameBoardList(Model model) { 
+		List<Board> list = boardService.getAllBoardList();
+		model.addAttribute("boardList", list);  
+		return "board/gameboard"; 
+	}
+	//여행게시판
+	@GetMapping("/travleboard")
+	public String travleBoardList(Model model) { 
+		List<Board> list = boardService.getAllBoardList();
+		model.addAttribute("boardList", list);  
+		return "board/travleboard"; 
+	}
+	//맛집게시판
+	@GetMapping("/foodboard")
+	public String foodBoardList(Model model) { 
+		List<Board> list = boardService.getAllBoardList();
+		model.addAttribute("boardList", list);  
+		return "board/foodboard"; 
 	}
 	
 	//게시판 글쓰기
@@ -44,6 +66,7 @@ public class BoardController {
 	public String boardWrite(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
 			ModelMap modelMap, @ModelAttribute("board") Board board, Model model, MultipartFile[] uploadFile){
 					
+			if (uploadFile != null) {
 				for(MultipartFile multipartFile : uploadFile) {	
 					File savefile = new File("C:\\Users\\Administrator\\git\\AMONG\\among\\src\\main\\webapp\\resources\\images", multipartFile.getOriginalFilename());
 					try {
@@ -52,6 +75,7 @@ public class BoardController {
 						e.printStackTrace();
 					}
 				}
+			}
 				System.out.println("접근완료");
 		    	boardService.getboardWrite(board);
 	      

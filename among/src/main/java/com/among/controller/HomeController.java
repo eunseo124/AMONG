@@ -70,35 +70,6 @@ public class HomeController {
 
    }
 
-
-   @RequestMapping(value = "/hotboard", method = RequestMethod.GET)
-   public String hotboard() {
-
-      return "board/hotboard";
-
-   }
-
-   @RequestMapping(value = "/gameboard", method = RequestMethod.GET)
-   public String gameboard() {
-
-      return "board/gameboard";
-
-   }
-
-   @RequestMapping(value = "/foodboard", method = RequestMethod.GET)
-   public String foodboard() {
-
-      return "board/foodboard";
-
-   }
-
-   @RequestMapping(value = "/travleboard", method = RequestMethod.GET)
-   public String travleboard() {
-
-      return "board/travleboard";
-
-   }
-
    @RequestMapping(value = "/boardwrite", method = RequestMethod.GET)
    public String boardwrite() {
 

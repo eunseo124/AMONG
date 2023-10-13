@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +69,7 @@
 <body>
     <div class="container">
 <!-- 헤더  -->     
-<header>
+	<header>
             <%@include file="../base/header.jsp"%>
     </header>
     <main>
@@ -79,125 +80,111 @@
         <!-- 본문내용 -->
         <article id = "postList">
         	<div id = "postList">
-        		<section id = "title"><h1>여행</h1></section>
+        		<section id = "title"><h1>여행게시판</h1></section>
+        		<input type="hidden" id="category" value="4">
         		<section id = "sort">
-        			<a class="subject">정렬 |</a>
-        			<a href="#" class="subject">최신순</a>
-        			<a href="#" class="subject">추천순</a>
-        			<a href="#" class="subject">조회순</a>
-        			<a href="#" class="subject">댓글순</a>
+        			<a style="display: flex; align-items: center;" href="home" class="subject"><span class="material-symbols-outlined">house</span><strong>메인페이지로</strong></a>
         		</section>
         		<section id = "generalList">
         			<div class = "items">
-        			<a href="#" class="notice">
+        			
+        			<!-- 공지&관리자용 게시판 -->
+        			<c:forEach items="${boardList}" var="board">
+        			<c:set var = "memGrade" value="${board.memGrade}"/>
+        			<c:choose>
+        			<c:when test="${memGrade == 2 && board.boardCategory==4}">
+        			<a href="boardlist?boardKey=${board.boardKey}&category=${4}" class="notice">
         					<span class="subject">공지</span>
         					<div class="info">
         						<div class="title">
-        							<span class="text">공지 테스트 중입니다.</span>
+        							<span class="text">${board.boardTitle}</span>
         							<div class="etc">
         							<div id="nickName">
         								<img src="resources/images/banner.jpg">
-        								<div>관리자</div>
+        								<div>${board.nName}</div>
         							</div>
-        							<div>2023.09.14</div>
+        							<c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
+        							<c:set var = "boardRegDate" value = "${board.boardRegDate}"/>
+        							<c:choose>
+        							<c:when test = "${boardModifyDate != boardRegDate}">
+        								<div>${boardModifyDate}(수정됨)</div>
+        							</c:when>
+        							<c:otherwise>
+        								<div>${boardRegDate}</div>
+        							</c:otherwise>
+        							</c:choose>
         						</div>
         						</div>
         					</div>
         				</a>
         				<div class="line"></div>
-        			<a href="#" class="notice">
-        					<span class="subject">공지</span>
+        				</c:when>
+        				</c:choose>
+        				</c:forEach>
+        				
+        				<!-- 유저용 게시판 -->
+        				<c:forEach items="${boardList}" var="board">
+        				<c:set var = "memGrade" value="${board.memGrade}"/>
+        				<c:choose>
+        				<c:when test="${memGrade == 1 && board.boardCategory==4}">
+        				<a href="boardlist?boardKey=${board.boardKey}&category=${4}" class="item" id="item">
+        					<c:choose>
+        					<c:when test="${!board.boardImg.isEmpty()}">
+        						<div class="image">
+        							<img src="resources/images/${board.boardImg}">
+        						</div>
+        					</c:when>
+        					<c:otherwise>
+        						<div class="image">
+        							<img src="resources/images/profile.png">
+        						</div>
+        					</c:otherwise>
+        					</c:choose>	
         					<div class="info">
         						<div class="title">
-        							<span class="text">안내말씀드립니다....</span>
-        							<div class="etc">
-        							<div id="nickName"><div>관리자</div></div>
-        							<div>2023.09.14</div>
-        						</div>
-        						</div>
-        					</div>
-        				</a>
-        				<div class="line"></div>
-        				<a href="#" class="notice">
-        					<span class="subject">공지</span>
-        					<div class="info">
-        						<div class="title">
-        							<span class="text">서버점검예정 12:00 ~ 23:00</span>
-        							<div class="etc">
-        							<div id="nickName"><div>관리자</div></div>
-        							<div>2023.09.14</div>
-        						</div>
-        						</div>
-        					</div>
-        				</a>
-        				<div class="line"></div>
-        				<a href="#" class="item">
-        					<div class="image">
-        						<img src="resources/images/banner.jpg">
-        					</div>	
-        					<div class="info">
-        						<div class="title">
-        							<span class="text">테스트용 작성글 입니다.</span>
+        							<span class="text">${board.boardTitle}</span>
         						</div>
         						<div class="etc">
-        							<div id="nickName"><div>관리자</div></div>
-        							<div>조회수 1,000</div>
-        							<div>댓글 10</div>
-        							<div>추천 10</div>
-        							<div>2023.09.14</div>
+        							<div id="nickName">
+        								<img src="resources/images/banner.jpg">
+        								<div>${board.nName}</div>
+        							</div>
+        							<input type="hidden" name="boardKey" value="${board.boardKey}">
+        							<div>조회수 ${board.boardView}</div>
+        							<div>댓글 ${board.repleCount}</div>
+        							<div>추천 ${board.boardRecommend}</div>
+        							<!-- if문  -->
+        							<c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
+        							<c:set var = "boardRegDate" value = "${board.boardRegDate}"/>
+        							<c:choose>
+        							<c:when test = "${boardModifyDate != boardRegDate}">
+        								<div>${boardModifyDate}(수정됨)</div>
+        							</c:when>
+        							<c:otherwise>
+        								<div>${boardRegDate}</div>
+        							</c:otherwise>
+        							</c:choose>
         						</div>
         					</div>
         				</a>
         				<div class="line"></div>
-        				<a href="#" class="item">
-        					<div class="image">
-        						<img src="resources/images/banner.jpg">
-        					</div>	
-        					<div class="info">
-        						<div class="title">
-        							<span class="text">테스트용 작성글 입니다.</span>
-        						</div>
-        						<div class="etc">
-        							<div id="nickName"><div>관리자</div></div>
-        							<div>조회수 1,000</div>
-        							<div>댓글 10</div>
-        							<div>추천 10</div>
-        							<div>2023.09.14</div>
-        						</div>
-        					</div>
-        				</a>
-        				<div class="line"></div>
-        				<a href="#" class="item">
-        					<div class="image">
-        						<img src="resources/images/banner.jpg">
-        					</div>	
-        					<div class="info">
-        						<div class="title">
-        							<span class="text">테스트용 작성글 입니다.</span>
-        						</div>
-        						<div class="etc">
-        							<div id="nickName"><div>관리자</div></div>
-        							<div>조회수 1,000</div>
-        							<div>댓글 10</div>
-        							<div>추천 10</div>
-        							<div>2023.09.14</div>
-        						</div>
-        					</div>
-        				</a>
-        				<div class="line"></div>
+        				</c:when>
+        				</c:choose>
+        				</c:forEach>
         			</div>
         		</section>
         		
-        		<section class="write">
-        			<a href="#">글작성</a>
-        		</section>
+        		<!-- 글작성 기능 -->
+        		<c:choose>
+        		<c:when test = "${memKey!=null}">
+        			<section class="write">
+        				<a id="boardWrite">글작성</a>
+        			</section>
+        		</c:when>
+        		<c:otherwise>
+        		</c:otherwise>
+        		</c:choose>
         	
-        		<section class="search">
-        			<input type="text" placeholder="검색어" name="search">
-        			<button>
-        				<span class="material-symbols-outlined">search</span>
-        			</button>
-        		</section>
         		
         		<div id="table">
         			<a href="#">1</a>
@@ -206,6 +193,18 @@
         			<a href="#">4</a>
         		</div>
         		
+        		<script>
+        			var category = $("#category").val();
+
+        			console.log(category);
+
+        			$(document).ready(function() {
+        				
+        				$("#boardWrite").on("click", function() {
+        					location.href = "boardwrite?category="+category;
+        				});
+        			});  			
+        		</script>
         	</div>
         </article>
     </main>

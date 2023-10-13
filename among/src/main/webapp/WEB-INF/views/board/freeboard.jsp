@@ -69,7 +69,7 @@
 <body>
     <div class="container">
 <!-- 헤더  -->     
-<header>
+	<header>
             <%@include file="../base/header.jsp"%>
     </header>
     <main>
@@ -81,9 +81,9 @@
         <article id = "postList">
         	<div id = "postList">
         		<section id = "title"><h1>자유게시판</h1></section>
-        		<input type="hidden" id="category" value="2">
+        		<input type="hidden" id="category" value="1">
         		<section id = "sort">
-        			<a href="home" class="subject"><span class="material-symbols-outlined">house</span></a>
+        			<a style="display: flex; align-items: center;" href="home" class="subject"><span class="material-symbols-outlined">house</span><strong>메인페이지로</strong></a>
         		</section>
         		<section id = "generalList">
         			<div class = "items">
@@ -92,8 +92,8 @@
         			<c:forEach items="${boardList}" var="board">
         			<c:set var = "memGrade" value="${board.memGrade}"/>
         			<c:choose>
-        			<c:when test="${memGrade == 2}">
-        			<a href="boardlist?boardKey=${board.boardKey}&category=${2}" class="notice">
+        			<c:when test="${memGrade == 2 && board.boardCategory==1}">
+        			<a href="boardlist?boardKey=${board.boardKey}&category=${1}" class="notice">
         					<span class="subject">공지</span>
         					<div class="info">
         						<div class="title">
@@ -126,11 +126,20 @@
         				<c:forEach items="${boardList}" var="board">
         				<c:set var = "memGrade" value="${board.memGrade}"/>
         				<c:choose>
-        				<c:when test="${memGrade == 1}">
-        				<a href="boardlist?boardKey=${board.boardKey}&category=${2}" class="item" id="item">
+        				<c:when test="${memGrade == 1 && board.boardCategory==1}">
+        				<a href="boardlist?boardKey=${board.boardKey}&category=${1}" class="item" id="item">
+        					<c:choose>
+        					<c:when test="${!board.boardImg.isEmpty()}">
         						<div class="image">
         							<img src="resources/images/${board.boardImg}">
-        						</div>	
+        						</div>
+        					</c:when>
+        					<c:otherwise>
+        						<div class="image">
+        							<img src="resources/images/profile.png">
+        						</div>
+        					</c:otherwise>
+        					</c:choose>	
         					<div class="info">
         						<div class="title">
         							<span class="text">${board.boardTitle}</span>
@@ -166,9 +175,15 @@
         		</section>
         		
         		<!-- 글작성 기능 -->
-        		<section class="write">
-        			<a id="boardWrite">글작성</a>
-        		</section>
+        		<c:choose>
+        		<c:when test = "${memKey!=null}">
+        			<section class="write">
+        				<a id="boardWrite">글작성</a>
+        			</section>
+        		</c:when>
+        		<c:otherwise>
+        		</c:otherwise>
+        		</c:choose>
         	
         		
         		<div id="table">
@@ -188,8 +203,7 @@
         				$("#boardWrite").on("click", function() {
         					location.href = "boardwrite?category="+category;
         				});
-        			});
-        			
+        			});  			
         		</script>
         	</div>
         </article>

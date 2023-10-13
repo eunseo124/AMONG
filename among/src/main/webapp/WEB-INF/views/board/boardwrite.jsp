@@ -119,9 +119,28 @@
         <!-- 본문내용 -->
 <article id="postWrite">
                 <div id="postWrite">
-                    <section id ="title">
-                        <h1>자유게시판</h1>
-                    </section>
+                	<c:choose>
+                		<c:when test= "${param.category eq '1'}">
+                    		<section id ="title">
+                        		<h1>자유게시판</h1>
+                    		</section>
+                    	</c:when>
+                    	<c:when test= "${param.category eq '2'}">
+                    		<section id ="title">
+                        		<h1>게임게시판</h1>
+                    		</section>
+                    	</c:when>
+                    	<c:when test= "${param.category eq '3'}">
+                    		<section id ="title">
+                        		<h1>맛집게시판</h1>
+                    		</section>
+                    	</c:when>
+                    	<c:when test= "${param.category eq '4'}">
+                    		<section id ="title">
+                        		<h1>여행게시판</h1>
+                    		</section>
+                    	</c:when>
+                    </c:choose>
 					
 					<form id="frm" method="post" enctype="multipart/form-data">
                     <section id = "boardWrite">
@@ -132,7 +151,7 @@
                         <div id= "note">
                                 <textarea id="summernote" name="editordata"></textarea>
                                 <input type="hidden" name="boardCategory" id="boardCategory" value="${param.category}">
-                                <input type="file" name="boardImg" id="boardImg">
+                                <input style="margin-left: -15px;" type="file" name="boardImg" id="boardImg">
                                 <section class="writeButton">
 				                        <input type="button" onclick="test()" class="confirm" value="등록">
 				                        <input type ="reset" class="cancel" value="취소">
@@ -154,8 +173,6 @@
 		                     ['color', ['color']],
 		                     ['para', ['paragraph']],
 		                     ['height', ['height']],
-		                     ['Insert', ['picture']],
-		                     ['Insert', ['link']],
 		                     ['Misc', ['fullscreen']]
 		        		  ],  
 		            	fontNames: fontList,
@@ -185,6 +202,7 @@
 				}
 	
 				console.log(boardImg);
+				console.log(memKey);
 
 				
 				if(confirm("작성하시겠습니까?")) {
