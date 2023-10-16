@@ -192,6 +192,7 @@
         		        <th>Subject</th>
         		        <th>Date</th>
         		        <th>Hits</th>
+        		        <th>Detail</th>        		        
         		        <th>Delete</th>    		          		                		        
         		       </tr>
         		      </thead>
@@ -204,6 +205,7 @@
         		        <td>${board.boardTitle}</td>
         		        <td>${board.boardRegDate}</td>
         		        <td>${board.boardView}</td>
+        		        <td><button><a href="<c:url value="/admin_member_info?id=${Member.memId}" />">View</a></button></td>        		        
         		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
         		       </tr>
 						</c:if>

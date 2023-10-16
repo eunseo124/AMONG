@@ -121,6 +121,79 @@
 			background: initial;
 		}
 		
+		
+		.wrap {
+		    width: 700px;
+		    height: 600px;
+		    margin: 0 auto;
+		    padding: 50px;
+		    box-sizing: border-box;
+		    background: #fff;
+		}
+		
+		.wrap h1 {
+		    padding-bottom: 12px;
+		    border-bottom: 3px solid #000;
+		    font-size: 32px;
+		    letter-spacing: -2px;
+		}
+		
+		.wrap form {
+		    margin-top: 30px;
+		}
+		
+		.wrap dl {
+		    margin-top: 10px;
+		    font-size: 0;
+		}
+		
+		.wrap dl:first-child {
+		    margin-top: 0;
+		}
+		
+		.wrap dt,
+		.wrap dd {
+		    display: inline-block;
+		    vertical-align: middle;
+		    font-size: 14px;
+		    margin: 10px auto 0 auto;
+		}
+		
+		.wrap dt {
+		    width: 30%;
+		}
+		
+		.wrap dd {
+		    width: 70%;
+		}
+		
+		.wrap input[type="text"],
+		.wrap input[type="password"],
+		.wrap input[type="tel"],
+		.wrap input[type="email"],
+		.wrap select {
+		    padding: 10px;
+		    border: 1px solid #ccc;
+		    border-radius: 2px;
+		}
+			
+		.wrap input[type="submit"], input[type="button"] {
+		    display: inline-block;
+		    margin: 30px auto 0 auto;
+		    padding: 16px 50px;
+		    border: 0;
+		    border-radius: 100px;
+		    background: #325cb2;
+		    font-weight: 600;
+		    color: #fff;
+		    cursor: pointer;
+
+		}
+		
+		.wrap #box {
+			text-align: center;
+		}
+		
     </style>
     <title>AMONG</title>
 </head>
@@ -180,19 +253,46 @@
         <!-- 본문내용 -->
         <article id = "postList">
         	<section id = "postList">
-        		<div id = "title"><h1>게시판관리</h1></div>
+        		<div id = "title"><h1>게시판 관리</h1></div>
         		 <div id ="info">
-        		   <section>
-        		    <section class="board_article">
-        		    <div class="board_info">
-        		      <div class="board_title"><h1>${board.boardTitle}</h1></div>
-        		      <div class="etc">
-        		      	<div class="left"></div>
-        		      	<div id="nickName"></div>
-        		      </div>
-        		    </div>
-				   </section>        		    
-        		  </section>
+			        <div class="wrap">
+			            <h1>게시판 상세정보</h1>		             
+			            <form action="./update" method="post">
+			                <dl>
+			                    <dt>아이디</dt>
+			                    <dd><input type="text" id="memId" name="memId" placeholder="아이디 입력" readonly="readonly" value="${member.memId}"></dd>
+			                </dl>
+			                <dl>
+			                    <dt>상세내용</dt>
+			                    <dd><textarea id="memPw" name="memPw" value="${member.memPw}"></textarea></dd>
+			                </dl>
+			                <dl>
+			                    <dt>닉네임</dt>
+			                    <dd><input type="text" id="nName" name="nName" placeholder="이름 입력" value="${member.nName}"></dd>
+			                </dl>                  
+               
+			                <dl>
+			                    <dt>이름</dt>
+			                    <dd><input type="text" id="memName" name="memName" placeholder="이름 입력" readonly="readonly" value="${member.memName}"></dd>
+			                </dl>
+			                <dl>
+			                    <dt>주민번호</dt>
+			                    <dd><input type="text" id="memResident1" name="memResident1" placeholder="이름 입력" readonly="readonly" value="${member.memResident1}">-
+			             	        <input type="text" id="memResident2" name="memResident2" placeholder="이름 입력" readonly="readonly" value="${member.memResident2}">
+			                    </dd>
+			                </dl>
+			                <dl>
+			                    <dt>가입일시</dt>
+			                    <dd><input type="text" id="memJoinDate" name="memJoinDate" placeholder="이름 입력" readonly="readonly" value="${member.memJoinDate}"></dd>
+			                </dl>		
+			                <br>
+			                <div id="box">
+			                <input type="hidden" id="memGrade" name="memGrade" value="${member.memGrade}">
+			                <input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
+			                <input type="button" value="뒤로" onclick="history.go(-1)">
+			                </div>
+			            </form>
+			        </div>
         		 </div>
         	</section>
         </article>
