@@ -90,25 +90,36 @@ aside .joinAndFindPassword a {
                   <br> <br> <a href="home"> &lt; 홈으로 </a>
                </section>
          
-          <c:forEach items="${boardList}" var="board">
+         
                <section class="article">
                   <div class="info">
                      <div class="title">
                         <span>일반</span>
                       
-                        <h1>${board.boardTitle}</h1>
+                        <h1>${list.boardTitle}</h1>
                      </div>
                      <div class="etc">
                         <div class="left">
                            <div id="nickName">
                               <div id="gradeBadge1" class="color admin"
-                                 style="background-color: red">M</div>
-                              <div>${board.nName}</div>
+                                 style="background-color: red">
+                                 
+                                 <c:choose>
+                                           <c:when  test = "${list.memGrade eq '1'}">
+                                           <%out.print("일반"); %>
+                                           </c:when>
+                                           <c:when test = "${list.memGrade eq '2'}">
+                                           <%out.print("관리자"); %>
+                                           </c:when>
+                                  </c:choose>
+                         
+                                 </div>
+                              <div>${list.nName}</div>
                            </div>
-                           <div>${boardRegDate}</div>
-                           <div>추천 ${board.boardRecommend}</div>
-                           <div>조회수 ${board.boardView}</div>
-                           <div>댓글 ${board.repleCount}</div>
+                           <div>${list.boardRegDate}</div>
+                           <div>추천 ${list.boardRecommend}</div>
+                           <div>조회수 ${list.boardView}</div>
+                           <div>댓글 ${list.repleCount}</div>
                         </div>
 
                      </div>
@@ -118,11 +129,11 @@ aside .joinAndFindPassword a {
                         <img
                            src="https://dzvpypcfjkr44.cloudfront.net/5df8dc651983470793cde08bf668302f.webp">
                      </figure>  
-                     <p>내용${board.boardContent}</p>
+                     <p>내용${list.boardContent}</p>
                     
                      
                   </div>
-  </c:forEach>
+
 
                   <br>   <br>   <br>   <br>    <br>   <br>   <br>   <br>   <br>
 
@@ -153,7 +164,7 @@ aside .joinAndFindPassword a {
                
 
    <!-- 댓 글 리스트 -->   
-               <c:forEach items="${repleList}" var="reple">
+               <c:forEach items="${list}" var="list">
                   
                   
                   <div class="items">
@@ -169,15 +180,15 @@ aside .joinAndFindPassword a {
                               <div id="gradeBadge" class="color admin"
                                  style="background-color: black">
                               <c:choose>
-                                           <c:when  test = "${sessionc.memGrade eq '1'}">
+                                           <c:when  test = "${reple.memGrade eq '1'}">
                                            <%out.print("일반"); %>
                                            </c:when>
-                                           <c:when test = "${sessionc.memGrade eq '2'}">
+                                           <c:when test = "${reple.memGrade eq '2'}">
                                            <%out.print("관리자"); %>
                                            </c:when>
                                       </c:choose>
                                       </div>
-                                 <div>${sessionc.nName}</div>
+                                 <div>${reple.nName}</div>
                            </div>
                            <div class="content">${reple.repleContent}</div>
                            <div id="date">   ${reple.repleRegDate}</div>
@@ -322,7 +333,7 @@ aside .joinAndFindPassword a {
 
 
 
-
+z
 
 <script>
 function saveReple() {
@@ -335,7 +346,7 @@ function saveReple() {
    $.post("http://localhost:8080/get/repl/save", {
       repleContent : repl,
       repleRegDate : new Date(),
-      memKey : joinForm, // 수정해야됨
+      memKey : joinForm, 
       boardKey : 1 // 수정해야됨
        
    }, function(responseData) {

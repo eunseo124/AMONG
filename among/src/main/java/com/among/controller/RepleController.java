@@ -36,14 +36,14 @@ import com.among.domain.Reple;
 @Controller
 public class RepleController {
 
-//	//Autowired 를 정의하여 BookService 클래스의 getAllBookList() 메서드를 호출합니다.
+//	//Autowired 瑜� �젙�쓽�븯�뿬 BookService �겢�옒�뒪�쓽 getAllBookList() 硫붿꽌�뱶瑜� �샇異쒗빀�땲�떎.
 	@Autowired
 	private RepleService repleService;
 
 		@Autowired
 	private BoardService boardService;
 //
-//	// HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.
+//	// HTTP �슂泥� 諛⑹떇�씠 GET�씤 寃쎌슦, @GetMapping �쓣 �궗�슜�븷 �닔 �엳�뒿�땲�떎.
 //	@GetMapping
 //	public String requestRepleList(Model model) { 
 //	    List<Reple> list = repleService.getAllRepleList();
@@ -62,7 +62,7 @@ public class RepleController {
 	}
 
 	/**
-	 * 댓글 등록
+	 * �뙎湲� �벑濡�
 	 * @param reple
 	 */
 	@RequestMapping(value = "/repl/save", method = RequestMethod.POST)
@@ -76,23 +76,27 @@ public class RepleController {
 	
 	
 	@RequestMapping(value = "/boardlist", method = RequestMethod.GET)
-	   public String boardlist(HttpServletResponse res, HttpServletRequest req, Model model) {
+	   public String boardlist(@RequestParam("boardKey")int boardKey,HttpServletResponse res, HttpServletRequest req, Model model) {
 	      
 	      // getBoardKey
-	      Integer boardKey = 1;
+	     
 	      
-	      List<Reple> repleList = repleService.getRepleList(boardKey);
-	  	  List<Board> list = boardService.getAllBoardList();
 		
-	      model.addAttribute("boardList", list);  
-	      req.setAttribute("repleList", repleList);
+		  List<Board> list = null;
+	      list = repleService.setboardlist(boardKey); //게시판 상세페이지
+	      System.out.println("replecontroller list.getboardTitle = "+list.get(boardKey));
 	      
+	      model.addAttribute("list",list);
+	      /*req.setAttribute("repleList", repleList);*/
+	    
 	      return "board/boardlist";
 
 	   }
 	
 	
-		/* 게시판 리스트 조회 */
+	
+	
+		/* 寃뚯떆�뙋 由ъ뒪�듃 議고쉶 */
 	/*	@GetMapping("/boardlist")
 		public String requestBoardList(Model model) {
 			

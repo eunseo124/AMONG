@@ -52,5 +52,13 @@ public class RepleServiceImpl implements RepleService{
         // TODO Auto-generated method stub
 	 return boardRepository.getAllBoardList();
  } 	
+		
+		//boardlist Äõ¸®¹®
+		@Override
+		 public List<Board> setboardlist(int boardKey) {
+			List<Board> board = null;
+			 board = repleRepository.setboardlist(boardKey);
+			 return board;
+		 }
 
 }

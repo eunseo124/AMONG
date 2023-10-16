@@ -9,7 +9,7 @@ import com.among.domain.Reple;
 public interface RepleRepository {
 	
 	List<Reple> getAllRepleList();
-	//��� ��� �߰�
+	//占쏙옙占� 占쏙옙占� 占쌩곤옙
 	void setNewReple(Reple reple);
 	
 	
@@ -17,7 +17,9 @@ public interface RepleRepository {
 	
 	List<Reple> getRepleList(Integer boardKey);
 	
-	List<Board> getAllBoardList();	
+	List<Board> getAllBoardList();
+	
+	List<Board> setboardlist(int boardKey);//boardlist 쿼리문
 	
 
 

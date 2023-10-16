@@ -10,7 +10,7 @@ public interface RepleService {
 
 	List<Reple> getAllRepleList();
 
-	// ��� ��� �޼��� �߰�
+	// 占쏙옙占� 占쏙옙占� 占쌨쇽옙占쏙옙 占쌩곤옙
 	void setNewReple(Reple reple);
 	
 	// save repl
@@ -21,6 +21,7 @@ public interface RepleService {
 
 		List<Board> getAllBoardList();
 	
+		List<Board> setboardlist(int boardKey);//boardlist 쿼리문
 	
 
 }
