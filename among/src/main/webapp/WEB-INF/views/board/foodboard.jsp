@@ -149,7 +149,7 @@
         								<img src="resources/images/banner.jpg">
         								<div>${board.nName}</div>
         							</div>
-        							<input type="hidden" name="boardKey" value="${board.boardKey}">
+        							<input type="hidden" name="boardKey" class="boardKey" value="${board.boardKey}">
         							<div>조회수 ${board.boardView}</div>
         							<div>댓글 ${board.repleCount}</div>
         							<div>추천 ${board.boardRecommend}</div>
@@ -194,12 +194,13 @@
         		</div>
         		
         		<script>
-        			var category = $("#category").val();
-
+        		
+        		//상품수량
+					var category=$("#category").val();	
+        			
         			console.log(category);
 
         			$(document).ready(function() {
-        				
         				$("#boardWrite").on("click", function() {
         					location.href = "boardwrite?category="+category;
         				});

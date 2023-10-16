@@ -120,7 +120,7 @@ article {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 #generalList .item .title .text {
     font-weight: bold;
@@ -159,6 +159,15 @@ article {
     height: 1px;
     margin: 0 15px;
     border-bottom: 2px solid #ede9e9;
+}
+.textBanner {
+	border: 1px solid white;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 15px;
+    font-weight: 900;
+    color: red;
+    margin-top: -3px;
 }
 /*정렬*/
 #sort {

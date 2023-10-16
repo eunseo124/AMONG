@@ -201,7 +201,7 @@
 					formData.append("uploadFile",files[i]);
 				}
 	
-				console.log(boardImg);
+				console.log(boardContent);
 				console.log(memKey);
 
 				
@@ -212,9 +212,19 @@
 					enctype: 'multipart/form-data',
 					processData: false,
 				    contentType: false,
-					dataType: "json",
-					data: formData, 
-					success: location.href="boardlist"
+					dataType: "text",
+					data: formData,
+					success: function(Data) {
+						if(boardCategory==1) {
+							location.href="freeboard";
+						} else if(boardCategory==2) {
+							location.href="gameboard";
+						} else if(boardCategory==3) {
+							location.href="foodboard";
+						} else if(boardCategory==4) {
+							location.href="travleboard";
+						}						
+					}
 				});
 				}	
 			}

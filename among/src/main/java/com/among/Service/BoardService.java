@@ -14,6 +14,9 @@ public interface BoardService {
 	//게시판 조회
 	List<Board> getAllBoardList();
 	
+	//인기게시판 조회
+	List<Board> getHotBoardList();
+	
 	//게시판 글쓰기
 	void getboardWrite(Board board);
 	

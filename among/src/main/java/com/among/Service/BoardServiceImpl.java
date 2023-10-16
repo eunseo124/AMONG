@@ -20,6 +20,11 @@ public class BoardServiceImpl implements BoardService {
 		 return boardRepository.getAllBoardList();
 	 } 
 	 
+	 public List<Board> getHotBoardList() { 
+	        // TODO Auto-generated method stub
+		 return boardRepository.getHotBoardList();
+	 } 
+	 
 	 public void getboardWrite(Board board) {
 		  
 		   boardRepository.getboardWrite(board);

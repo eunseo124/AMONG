@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,38 +30,45 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;  
 
-	//°Ô½ÃÆÇ Á¶È¸
-	/* HTTP ¿äÃ» ¹æ½ÄÀÌ GETÀÎ °æ¿ì, @GetMapping À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.*/
-	//ÀÚÀ¯°Ô½ÃÆÇ
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
+	/* HTTP ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ GETï¿½ï¿½ ï¿½ï¿½ï¿½, @GetMapping ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.*/
+	//ììœ ê²Œì‹œíŒ
 	@GetMapping("/freeboard")
 	public String requestBoardList(Model model) { 
 		List<Board> list = boardService.getAllBoardList();
 		model.addAttribute("boardList", list);  
 		return "board/freeboard"; 
 	}
-	//°ÔÀÓ°Ô½ÃÆÇ
+	//ê²Œì„ê²Œì‹œíŒ
 	@GetMapping("/gameboard")
 	public String gameBoardList(Model model) { 
 		List<Board> list = boardService.getAllBoardList();
 		model.addAttribute("boardList", list);  
 		return "board/gameboard"; 
 	}
-	//¿©Çà°Ô½ÃÆÇ
+	//ì—¬í–‰ê²Œì‹œíŒ
 	@GetMapping("/travleboard")
 	public String travleBoardList(Model model) { 
 		List<Board> list = boardService.getAllBoardList();
 		model.addAttribute("boardList", list);  
 		return "board/travleboard"; 
 	}
-	//¸ÀÁı°Ô½ÃÆÇ
+	//ë§›ì§‘ê²Œì‹œíŒ
 	@GetMapping("/foodboard")
 	public String foodBoardList(Model model) { 
 		List<Board> list = boardService.getAllBoardList();
 		model.addAttribute("boardList", list);  
 		return "board/foodboard"; 
 	}
+	//ì¸ê¸°ê²Œì‹œíŒ
+	@GetMapping("/hotboard")
+	public String hotBoardList(Model model) { 
+		List<Board> list = boardService.getHotBoardList();
+		model.addAttribute("boardList", list);  
+		return "board/hotboard"; 
+	}
 	
-	//°Ô½ÃÆÇ ±Û¾²±â
+	//ê¸€ì“°ê¸°
 	@PostMapping(value = "/board/boardwr")
 	@ResponseBody
 	public String boardWrite(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
@@ -76,15 +84,14 @@ public class BoardController {
 					}
 				}
 			}
-				System.out.println("Á¢±Ù¿Ï·á");
 		    	boardService.getboardWrite(board);
 	      
 		    	return "redirect:/home";
 	}
 	
-	//°Ô½ÃÆÇ Á¶È¸¼ö Áõ°¡
-	@RequestMapping(value = "/upView") 
-    public String setbodView(Model model, @RequestParam("id") int boardKey) {
+	//ì¡°íšŒìˆ˜ì¦ê°€
+	@RequestMapping(value = "/upView", method = RequestMethod.POST) 
+    public String setbodView(Model model, @RequestParam("boardKey") int boardKey) {
         
     	boardService.setbodView(boardKey);
         
