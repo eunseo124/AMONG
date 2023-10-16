@@ -29,14 +29,14 @@ public class RepleRepositoryImpl implements RepleRepository {
 
 	public RepleRepositoryImpl() {
 
-		// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼓�뇡�빘�굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
-		// ex) memKey占쎈쐻占쎈짗占쎌굲 1占쎈쐻占쎈짗占쎌굲 admin(占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼓占쎈쿈占쎌굲) / admin1234(占쎈쐻占쎈짗占쎌굲�뎲�꼪�쐻占쎈뼍�뜝占�) / 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲(占쎈쐻占쎈뼓筌뤿슣�굲) /
-		// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�:2(占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲d占쎈쐻占쎈짗占쎌굲) 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
-		// 占쎈쐻占쎈쑆癰귣ŀ�쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 memKey/memId/memPw/memName/memGrade占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
-		// 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 -> Member member1 = new Member("id1234", "pwd1234" , "占쎈쐻占쎈뼓筌뤿슣�굲占쎌냹占쎈쐻占쎈쑞占쎈짗", "1")
+		// �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉볩옙�눀占쎈튂占쎄뎡 �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占�
+		// ex) memKey�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� 1�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� admin(�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉볟뜝�럥荑덂뜝�럩援�) / admin1234(�뜝�럥�맶�뜝�럥吏쀥뜝�럩援뀐옙�렡占쎄섈占쎌맶�뜝�럥堉랃옙�쐻�뜝占�) / �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�(�뜝�럥�맶�뜝�럥堉볡춯琉우뒩占쎄뎡) /
+		// �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占�:2(�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援쾑�뜝�럥�맶�뜝�럥吏쀥뜝�럩援�) �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占�
+		// �뜝�럥�맶�뜝�럥�몘�솻洹Ｅ�占쎌맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� memKey/memId/memPw/memName/memGrade�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+		// �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� -> Member member1 = new Member("id1234", "pwd1234" , "�뜝�럥�맶�뜝�럥堉볡춯琉우뒩占쎄뎡�뜝�럩�꺓�뜝�럥�맶�뜝�럥�몶�뜝�럥吏�", "1")
 	}
 
-	// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎌돳
+	// �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�뤂
 	@Override
 	public List<Reple> getAllRepleList() {
 		// TODO Auto-generated method stub
@@ -46,7 +46,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 		return listOfReple;
 	}
 
-	// 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占�
+	// �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占�
 	public void setNewReple(Reple reple) {
 
 		String SQL = "INSERT INTO reple (repleKey, repleContent, repleRegDate, memKey, boardKey) "
@@ -86,7 +86,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 	 @Override
 	    public List<Board> getAllBoardList() { 
 	    	
-	    	//�뜝�뙃�룞�삕�뜝�룞�삕 �뜝�룞�삕�쉶 �뜝�룞�삕�뜝�룞�삕 �뜝�뙗�눦�삕
+	    	//占쎈쐻占쎈셾占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎌돳 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈솙占쎈닰占쎌굲
 		   String SQL = "SELECT boardKey, boardTitle, member.nName, boardView,"
 	    			+ " (SELECT COUNT(*) FROM reple WHERE board.boardKey) AS repleCount, "
 	    			+ "boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
@@ -97,10 +97,10 @@ public class RepleRepositoryImpl implements RepleRepository {
 	    	return listOfBoards;
 	    }
 
-	 //boardlist 출력
+	 //boardlist 異쒕젰
 	 public List<Board> setboardlist(int boardKey) {
 		 List<Board> board = null;
-		 System.out.println("setboardlist 넘어옴 = "+boardKey);
+		 System.out.println("setboardlist �꽆�뼱�샂 = "+boardKey);
 	      String SQL = "select * from board b inner join member m on b.memKey = m.memKey "
 	            + "inner join reple r on b.repleKey = r.repleKey order by b.boardKey = " + boardKey;
 	      board = template.query(SQL, new RowMapper<Board>() {
@@ -133,5 +133,13 @@ public class RepleRepositoryImpl implements RepleRepository {
 	         });
 	      return board;
 	   }
+
+	    //setDeleteReple() 메서드는 repleKey에 대한 해당 도서를 데이터베이스 에서 삭제합니다.
+	    public void setDeleteReple(int repleKey) {  
+	    	
+	        String SQL = "DELETE from reple where repleKey = " +repleKey;
+	        
+	        this.template.update(SQL);
+	    }	 
 	
 }

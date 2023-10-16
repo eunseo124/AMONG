@@ -60,5 +60,10 @@ public class RepleServiceImpl implements RepleService{
 			 board = repleRepository.setboardlist(boardKey);
 			 return board;
 		 }
+		
+		//** 댓글 삭제메서드 오버라이드 **
+		 public void setDeleteReple(int repleKey) { 
+		       repleRepository.setDeleteReple(repleKey);
+		 }		
 
 }

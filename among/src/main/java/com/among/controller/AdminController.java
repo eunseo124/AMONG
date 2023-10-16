@@ -64,15 +64,15 @@ public class AdminController {
         return "redirect:/admin_member";
     }
     
-    //** getDeleteBookForm() 메서드는 요청 url이 /delete 일때 처리하는 메서드 입니다.
-    //도서ID 에 대한 해당 도서를 데이터베이스 에서 삭제 합니다.
+    //member ID 에 대한 해당 회원정보를 데이터베이스 에서 삭제 합니다.
     @RequestMapping(value = "/delete") 
     public String getDeleteMemberForm(Model model, @RequestParam("id") String memId) {
         
     	memberService.setDeleteMember(memId);
         
     	return "redirect:/admin_member";
-    }     
+    }
+          
     
 	//게시판 조회
 	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
@@ -128,6 +128,23 @@ public class AdminController {
 	      return "admin/admin_comment";
 
 	   }
+	
+    // replyKey 에 대한 해당 댓글을 데이터베이스 에서 삭제 합니다.
+    @PostMapping("/delete2" ) 
+    public String getDeleteRepleForm(Model model, @RequestParam("repleKey") int repleKey) {
+        
+    	repleService.setDeleteReple(repleKey);    	
+        
+    	return "redirect:/admin_comment";
+    } 	
+	
+	//게시판 조회
+	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
+	@RequestMapping("/admin_board_view")
+	public String admin_board_view() {
+		
+		return "admin/admin_board_view"; 
+	}	
 	
 }
 	

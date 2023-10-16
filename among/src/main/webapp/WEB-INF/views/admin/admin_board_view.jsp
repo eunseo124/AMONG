@@ -10,10 +10,8 @@
     <meta charset="UTF-8">
     <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/admin.css"/>" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-	<script src="${pageContext.request.contextPath}/resources/js/admin.js"></script>
     <style>
     	@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-    	
 
 
 /* 사이드바  css*/
@@ -177,50 +175,24 @@
 						<li><a href="<c:url value="/admin_comment" />">댓글</a></li>
 					</ul>
 				</li>
-			</ul>			
-        </aside>
+			</ul> 			
+        </aside>       
         <!-- 본문내용 -->
         <article id = "postList">
         	<section id = "postList">
-        		<div id = "title"><h1>댓글관리</h1></div>
+        		<div id = "title"><h1>게시판관리</h1></div>
         		 <div id ="info">
         		   <section>
-        		    <div>
-        		     <h1>댓글 리스트</h1>
-        		     <table>
-        		      <thead>
-        		       <tr>
-        		        <th>No.</th>   
-        		        <th>ID</th>
-        		        <th>Content</th>
-        		        <th>Date</th>
-        		        <th>Delete</th>  		          		                		        
-        		       </tr>
-        		      </thead>
-        		      <tbody>
-           			  <c:forEach items="${repleList}" var="reple">           		      
-        		       <tr>
-        		        <td>${reple.repleKey}</td>
-        		        <td>${reple.memId}</td>     		        
-        		        <td>${reple.repleContent}</td>
-        		        <td>${reple.repleRegDate}</td>
-        		        <form method="post" action="delete2">
-        		        <input type="hidden" value="${reple.repleKey}"id = "repleKey" name = "repleKey">
-        		        <td><button type = "submit" class="material-symbols-outlined">Delete</button></td>
-        		        </form>	                		        
-        		       </tr>
-      		           </c:forEach>	 
-        		      </tbody>  
-        		     </table>
-        		<section class="search">
-        			<input type="text" placeholder="검색어" name="search">
-        			<button>
-        				<span class="material-symbols-outlined">search</span>
-        			</button>
-        		</section>
-       		     
+        		    <section class="board_article">
+        		    <div class="board_info">
+        		      <div class="board_title"><h1>${board.boardTitle}</h1></div>
+        		      <div class="etc">
+        		      	<div class="left"></div>
+        		      	<div id="nickName"></div>
+        		      </div>
         		    </div>
-        		   </section>
+				   </section>        		    
+        		  </section>
         		 </div>
         	</section>
         </article>

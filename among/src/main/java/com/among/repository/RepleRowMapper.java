@@ -22,11 +22,10 @@ public class RepleRowMapper implements RowMapper<Reple> {
 		Reple.setRepleKey(rs.getInt("repleKey"));
 		Reple.setRepleContent(rs.getString("repleContent"));
 		Reple.setRepleRegDate(rs.getDate("repleRegDate"));
-		Reple.setMemKey(rs.getInt("replememKey"));
-		Reple.setBoardKey(rs.getInt("boarKey"));
+		Reple.setMemKey(rs.getInt("memKey"));
+		Reple.setBoardKey(rs.getInt("boardKey"));
 		Reple.setnName(rs.getString("nName"));
 		Reple.setMemId(rs.getString("memId"));
-		Reple.setBoardCategory(rs.getInt("boardCategory"));
 		
 		
 //		System.out.println(Reple.toString());
