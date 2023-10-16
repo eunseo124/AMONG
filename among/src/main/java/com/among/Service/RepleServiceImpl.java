@@ -16,7 +16,7 @@ import com.among.repository.RepleRepository;
 @Service
 public class RepleServiceImpl implements RepleService{
 
-	@Autowired //@Autowired �� �����Ͽ� �޼��尡 ���ǵ� BookRepository Ŭ������ getAllBookList() �޼��带 ȣ���մϴ�.
+	@Autowired 
 	 private RepleRepository repleRepository;
 
 	 	private BoardRepository boardRepository;
@@ -28,7 +28,7 @@ public class RepleServiceImpl implements RepleService{
 	 } 
 	 
 	
-	 //repleRepository Ŭ���� setNewReple() �޼��� ȣ��
+	
 	 public void setNewReple(Reple reple) {  
 		 repleRepository.setNewReple(reple);  
 	 }
@@ -40,19 +40,19 @@ public class RepleServiceImpl implements RepleService{
 		return repleRepository.saveReple(reple);
 	}
 
-
+/*
 	@Override
 	public List<Reple> getRepleList(Integer boardKey) {
 		// TODO Auto-generated method stub
 		return repleRepository.getRepleList(boardKey);
 	}   
-	 
-	
+*/	 
+/*	
 		public List<Board> getAllBoardList() { 
         // TODO Auto-generated method stub
 	 return boardRepository.getAllBoardList();
  } 	
-		
+*/		
 		//boardlist ������
 		@Override
 		 public List<Board> setboardlist(int boardKey) {

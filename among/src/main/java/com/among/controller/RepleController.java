@@ -42,22 +42,9 @@ public class RepleController {
 
 		@Autowired
 	private BoardService boardService;
-//
-//	// HTTP �슂泥� 諛⑹떇�씠 GET�씤 寃쎌슦, @GetMapping �쓣 �궗�슜�븷 �닔 �엳�뒿�땲�떎.
-//	@GetMapping
-//	public String requestRepleList(Model model) { 
-//	    List<Reple> list = repleService.getAllRepleList();
-//	    model.addAttribute("repleList", list);  
-//	    return "board/boardlist"; 
-//	}
-	
-	/**
-	 * 
-	 * @param boardKey
-	 */
+
 	public void getRepleList(Integer boardKey) {
 		
-		// List<Reple> repleList = repleService.getBoardRepleList(boardKey);
 		
 	}
 
@@ -96,21 +83,7 @@ public class RepleController {
 	
 	
 	
-		/* 寃뚯떆�뙋 由ъ뒪�듃 議고쉶 */
-	/*	@GetMapping("/boardlist")
-		public String requestBoardList(Model model) {
-			
-			
-			
-			
-			List<Board> list = boardService.getAllBoardList();
-			
-			
-			
-			model.addAttribute("boardList", list);  
-			return "board/boardlist"; 
-		}
-*/
+	
 	
 
 }
