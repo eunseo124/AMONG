@@ -13,7 +13,7 @@
    href="<c:url value="${PageContext.requestcontextpath}/resources/css/base.css"/>"
    rel="stylesheet">
 <link
-   href="<c:url value="${PageContext.requestcontextpath}/resources/css/boardlist.css"/>"
+   href="<c:url value="${PageContext.requestcontextpath}/resources/css/list.css"/>"
    rel="stylesheet">
 <link rel="stylesheet"
    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -95,8 +95,6 @@ aside .joinAndFindPassword a {
                   <div class="info">
                      <div class="title">
                         <span>일반</span>
-                      
-                        <h1>${list.boardTitle}</h1>
                      </div>
                      <div class="etc">
                         <div class="left">
@@ -164,7 +162,7 @@ aside .joinAndFindPassword a {
                
 
    <!-- 댓 글 리스트 -->   
-               <c:forEach items="${list}" var="list">
+               
                   
                   
                   <div class="items">
@@ -180,25 +178,25 @@ aside .joinAndFindPassword a {
                               <div id="gradeBadge" class="color admin"
                                  style="background-color: black">
                               <c:choose>
-                                           <c:when  test = "${reple.memGrade eq '1'}">
+                                           <c:when  test = "${list.memGrade eq '1'}">
                                            <%out.print("일반"); %>
                                            </c:when>
-                                           <c:when test = "${reple.memGrade eq '2'}">
+                                           <c:when test = "${list.memGrade eq '2'}">
                                            <%out.print("관리자"); %>
                                            </c:when>
                                       </c:choose>
                                       </div>
-                                 <div>${reple.nName}</div>
+                                 <div>${list.nName}</div>
                            </div>
-                           <div class="content">${reple.repleContent}</div>
-                           <div id="date">   ${reple.repleRegDate}</div>
+                           <div class="content">${list.repleContent}</div>
+                           <div id="date">   ${list.repleRegDate}</div>
                      </div>      
                         
                      
 
                   </div>
 
-         </c:forEach> 
+         
 
 
                   <br>
@@ -228,23 +226,22 @@ aside .joinAndFindPassword a {
                  <div class = "items">
                  
                  <!-- 공지&관리자용 게시판 -->
-                 <c:forEach items="${boardList}" var="board">
-                 <c:set var = "memGrade" value="${board.memGrade}"/>
+                 <c:set var = "memGrade" value="${list.memGrade}"/>
                  <c:choose>
                  <c:when test="${memGrade == 2}">
-                 <a href="boardlist" class="notice">
-                       <input type="hidden" id="category" value="${board.boardCategory}">
+                 <a href="list" class="notice">
+                       <input type="hidden" id="category" value="${list.boardCategory}">
                        <span class="subject">공지</span>
                        <div class="info">
                           <div class="title">
-                             <span class="text">${board.boardTitle}</span>
+                             <span class="text">${list.boardTitle}</span>
                              <div class="etc">
                              <div id="nickName">
                                 <img src="resources/images/banner.jpg">
-                                <div>${board.nName}</div>
+                                <div>${list.nName}</div>
                              </div>
-                             <c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
-                             <c:set var = "boardRegDate" value = "${board.boardRegDate}"/>
+                             <c:set var = "boardModifyDate" value = "${list.boardModifyDate}"/>
+                             <c:set var = "boardRegDate" value = "${list.boardRegDate}"/>
                              <c:choose>
                              <c:when test = "${boardModifyDate != boardRegDate}">
                                 <div>${boardModifyDate}(수정됨)</div>
@@ -260,11 +257,9 @@ aside .joinAndFindPassword a {
                     <div class="line"></div>
                     </c:when>
                     </c:choose>
-                    </c:forEach>
                     
                     <!-- 유저용 게시판 -->
-                    <c:forEach items="${boardList}" var="board">
-                    <c:set var = "memGrade" value="${board.memGrade}"/>
+                    <c:set var = "memGrade" value="${list.memGrade}"/>
                     <c:choose>
                     <c:when test="${memGrade == 1}">
                     <a href="#" class="item">
@@ -273,19 +268,19 @@ aside .joinAndFindPassword a {
                        </div>   
                        <div class="info">
                           <div class="title">
-                             <span class="text">${board.boardTitle}</span>
+                             <span class="text">${list.boardTitle}</span>
                           </div>
                           <div class="etc">
                              <div id="nickName">
                                 <img src="resources/images/banner.jpg">
-                                <div>${board.nName}</div>
+                                <div>${list.nName}</div>
                              </div>
-                             <div>조회수 ${board.boardView}</div>
-                             <div>댓글 ${board.repleCount}</div>
-                             <div>추천 ${board.boardRecommend}</div>
+                             <div>조회수 ${list.boardView}</div>
+                             <div>댓글 ${list.repleCount}</div>
+                             <div>추천 ${list.boardRecommend}</div>
                              <!-- if문  -->
-                             <c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
-                             <c:set var = "boardRegDate" value = "${board.boardRegDate}"/>
+                             <c:set var = "boardModifyDate" value = "${list.boardModifyDate}"/>
+                             <c:set var = "boardRegDate" value = "${list.boardRegDate}"/>
                              <c:choose>
                              <c:when test = "${boardModifyDate != boardRegDate}">
                                 <div>${boardModifyDate}(수정됨)</div>
@@ -300,7 +295,6 @@ aside .joinAndFindPassword a {
                     <div class="line"></div>
                     </c:when>
                     </c:choose>
-                    </c:forEach>
                  </div>
               </section>
               
@@ -313,13 +307,12 @@ aside .joinAndFindPassword a {
 
 
 
-
             <div style="display: none;"></div>
 
 
-
+</section>
          </article>
-
+</article>
       </main>
       <!-- 푸터 -->
       <footer id="footer">
@@ -333,7 +326,6 @@ aside .joinAndFindPassword a {
 
 
 
-z
 
 <script>
 function saveReple() {
