@@ -96,7 +96,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 	
 	 public List<Board> setboardlist(int boardKey) {
 		 List<Board> board = null;
-		 System.out.println("setboardlist ï¿½ê½†ï¿½ë¼±ï¿½ìƒ‚ = "+boardKey);
+		 System.out.println("setboardlist Á¢±Ù = "+boardKey);
 	      String SQL = "select * from board b inner join member m on b.memKey = m.memKey "
 	            + "inner join reple r on b.repleKey = r.repleKey order by b.boardKey = " + boardKey;
 	      board = template.query(SQL, new RowMapper<Board>() {
