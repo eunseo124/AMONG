@@ -36,7 +36,7 @@ import com.among.domain.Reple;
 @Controller
 public class RepleController {
 
-//	//Autowired 瑜� �젙�쓽�븯�뿬 BookService �겢�옒�뒪�쓽 getAllBookList() 硫붿꽌�뱶瑜� �샇異쒗빀�땲�떎.
+//	
 	@Autowired
 	private RepleService repleService;
 
@@ -49,7 +49,7 @@ public class RepleController {
 	}
 
 	/**
-	 * �뙎湲� �벑濡�
+	
 	 * @param reple
 	 */
 	@RequestMapping(value = "/repl/save", method = RequestMethod.POST)
