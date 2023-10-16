@@ -96,11 +96,11 @@
             				<div class = "pmypage2" style="width:1000px;">
                                     <div class="merge">
 	                                <div class = "pheader2" role="tablist">
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply"/>" id="loinid" class="menu_id" role="tab" aria-selected="false">자유 게시판</a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply2"/>" class="menu_ones" role="tab" aria-selected="false">인기 게시판</a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply3"/>" class="menu_id2" role="tab" aria-selected="false"> 게임 </a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply4"/>" class="menu_id3" role="tab" aria-selected="false"> 맛집 </a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply5"/>" class="menu_id4 on" role="tab" aria-selected="true"> 여행 </a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply?memKey=${sessionc.memKey}" id="loinid" class="menu_id" role="tab" aria-selected="false">자유 게시판</a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply2?memKey=${sessionc.memKey}" class="menu_ones" role="tab" aria-selected="false">인기 게시판</a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply3?memKey=${sessionc.memKey}" class="menu_id2" role="tab" aria-selected="false"> 게임 </a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply4?memKey=${sessionc.memKey}" class="menu_id3" role="tab" aria-selected="false"> 맛집 </a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply5?memKey=${sessionc.memKey}" class="menu_id4 on" role="tab" aria-selected="true"> 여행 </a></h4></div>
 			            			</div>
                                 	<div class="Htable" aria-controls="loinid">
 	                                    <div class="Htext">

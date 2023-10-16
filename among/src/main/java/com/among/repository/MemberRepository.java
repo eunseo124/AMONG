@@ -1,7 +1,11 @@
 package com.among.repository;
 
 import java.util.List;
+
+import com.among.domain.Board;
 import com.among.domain.Member;
+import com.among.domain.Reple;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -35,4 +39,10 @@ public interface MemberRepository {
 	
 	//** 회원정보 삭제 메서드 추가 **
 	void setDeleteMember(String memId);		
+	
+	Board setboardlist(int memKey);//boardlist 쿼리문
+
+	Reple setreplelist(int memKey);//replelist 쿼리문
+	
+	
 }

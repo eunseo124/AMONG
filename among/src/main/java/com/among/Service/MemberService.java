@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import com.among.domain.Board;
 import com.among.domain.Member;
+import com.among.domain.Reple;
 import com.among.repository.MemberRepository;
 import com.among.repository.MemberRowMapper;
 
@@ -57,4 +58,8 @@ public interface MemberService {
    
 	//** 회원정보 삭제 메서드 추가 **
 	void setDeleteMember(String memId);	   
+	
+	Board setboardlist(int memKey);//boardlist 쿼리문
+
+	Reple setreplelist(int memKey);//replelist 쿼리문
 }

@@ -2,7 +2,11 @@ package com.among.Service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.among.domain.Board;
 import com.among.domain.Member;
+import com.among.domain.Reple;
+
 import org.springframework.stereotype.Service;
 import com.among.repository.MemberRepository;
 
@@ -99,5 +103,16 @@ public class MemberServiceImpl implements MemberService {
 	  public void setDeleteMember(String memId) { 
 	        memberRepository.setDeleteMember(memId);
 	 }	 
-	 		
+	
+	//boardlist Äõ¸®¹® 	
+	 public Board setboardlist(int memKey) {
+		 Board board = new Board();
+		 board = memberRepository.setboardlist(memKey);
+		 return board;
+	 }
+	 public Reple setreplelist(int memKey) {
+		 Reple rep = null;
+		 rep = memberRepository.setreplelist(memKey);
+		 return rep;
+	 }
 }

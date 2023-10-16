@@ -96,41 +96,17 @@
             				<div class = "pmypage2" style="width:1000px;">
                                     <div class="merge">
 	                                <div class = "pheader2" role="tablist">
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply"/>" id="loinid" class="menu_id on" role="tab" aria-selected="true">자유 게시판</a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply2"/>" class="menu_ones" role="tab" aria-selected="false">인기 게시판</a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply3"/>" class="menu_id2" role="tab" aria-selected="false"> 게임 </a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply4"/>" class="menu_id3" role="tab" aria-selected="false"> 맛집 </a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/myreply5"/>" class="menu_id4" role="tab" aria-selected="false"> 여행 </a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply?memKey=${sessionc.memKey}" id="loinid" class="menu_id on" role="tab" aria-selected="true">자유 게시판</a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply2?memKey=${sessionc.memKey}" class="menu_ones" role="tab" aria-selected="false">인기 게시판</a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply3?memKey=${sessionc.memKey}" class="menu_id2" role="tab" aria-selected="false"> 게임 </a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply4?memKey=${sessionc.memKey}" class="menu_id3" role="tab" aria-selected="false"> 맛집 </a></h4></div>
+					            		<div role="presentation"><h4><a href="myreply5?memKey=${sessionc.memKey}" class="menu_id4" role="tab" aria-selected="false"> 여행 </a></h4></div>
 			            			</div>
                                 	<div class="Htable" aria-controls="loinid">
 	                                    <div class="Htext">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
-	                                    <div class="Htext">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
-										<div class="Htext">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
-	                                    <div class="Htext">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
-	                                    <div class="Htext">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext3">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
+	                                        <div id = "Btext">${rep.nName}</div>
+	                                        <div id = "Btext3">${rep.repleContent}</div>
+	                                        <div id = "Hday">${rep.repleRegDate}</div>
 	                                        <div><input type="submit" value="삭제"></div>
 	                                    </div>
                                 </div>

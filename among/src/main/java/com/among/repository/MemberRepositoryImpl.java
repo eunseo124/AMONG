@@ -63,7 +63,9 @@ public class MemberRepositoryImpl implements MemberRepository {
    
    //member db 수정문
    public void setupmem(Member member) {
-      String SQL = "UPDATE member SET memId = ?, memPw = ?, memEmail1 = ?, memEmail2 = ?,"
+	   System.out.println("setupmem 호출 완료");
+       System.out.println("memKey = " + member.getMemKey());
+	   String SQL = "UPDATE member SET memId = ?, memPw = ?, memEmail1 = ?, memEmail2 = ?,"
                +"memName = ?, memResident1 = ?, memResident2 = ?, "
                + "memGrade = ?, nName = ? where memKey = ?";
       template.update(SQL, 
@@ -218,4 +220,58 @@ public class MemberRepositoryImpl implements MemberRepository {
        this.template.update(SQL, memId);
    }  	   
    
+   //boardlist 출력
+   public Board setboardlist(int memKey) {
+	   Board board = new Board();
+	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey order by b.memKey = " + memKey;
+	   board = template.queryForObject(SQL, new RowMapper<Board>() {
+	         @Override
+	         public Board mapRow(ResultSet rs, int rowNum) {
+	            Board bo = new Board();
+	            try {
+	            	bo.setBoardTitle(rs.getString("boardTitle"));
+	            	bo.setnName(rs.getString("nName"));
+	            	bo.setMemGrade(rs.getInt("memGrade"));
+	            	bo.setBoardCategory(rs.getInt("boardCategory"));
+	            	bo.setBoardRegDate(rs.getDate("boardRegDate"));
+	            	bo.setBoardModifyDate(rs.getDate("boardModifyDate"));
+	            	bo.setMemKey(rs.getInt("memKey"));
+	            	bo.setBoardKey(rs.getInt("boardKey"));
+	            	
+	         } catch (SQLException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         }
+	            return bo;
+	         }
+	      });
+	   return board;
+   }
+ //replelist 출력
+   public Reple setreplelist(int memKey) {
+	   Reple rep = new Reple();
+	   String SQL = "select * from reple r inner join member m on r.memKey = m.memKey "
+	   		+ "inner join board b on r.boardKey = b.boardKey order by r.memKey = "+memKey;
+	   rep = template.queryForObject(SQL, new RowMapper<Reple>() {
+	         @Override
+	         public Reple mapRow(ResultSet rs, int rowNum) {
+	            Reple re = new Reple();
+	            try {
+	            	re.setRepleKey(rs.getInt("repleKey"));
+	            	re.setnName(rs.getString("nName"));
+	            	re.setRepleContent(rs.getString("repleContent"));
+	            	re.setBoardCategory(rs.getInt("boardCategory"));
+	            	re.setRepleRegDate(rs.getDate("repleRegDate"));
+	            	re.setMemKey(rs.getInt("memKey"));
+	            	re.setBoardKey(rs.getInt("boardKey"));
+	            	
+	         } catch (SQLException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         }
+	            return re;
+	         }
+	      });
+	   return rep;
+   }
 }

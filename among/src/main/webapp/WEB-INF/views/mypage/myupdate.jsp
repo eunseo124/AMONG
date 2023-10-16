@@ -105,43 +105,47 @@
                                     <div class = "pro1">
                                     <p>아이디</p>
                                     <div class = "pro2">
-                                    <input type="text" value="${memu.memId}" name="memId" placeholder="아이디를 입력하시오" id = "memId" style="width: 441px;">
-                                    <input type="button" value="아이디 중복검사" class="pro3">
-                                    <a href="<c:url value="/checkid" />"></a>
-                                    </input>
+                                    <p>${memu.memId}</p>
                                     </div>
                                     </div>
                                     <div class = "pro1">
                                     <p>비밀번호</p>
                                     <div class = "pro2">
-                                        <input type="password" value="${memu.memPw}" name="memPw" id = "memPw" placeholder="비밀번호 입력하시오">
+                                        <input type="password" value="${memu.memPw}" name="memPw" id = "memPw" placeholder="비밀번호 입력하시오" oninput="handleOnInput(this)">
                                     </div>
                                     </div>
                                     <div class = "pro1">
                                     <p>비밀번호 확인</p>
                                     <div class = "pro2">
-                                        <input type="password" value="${memu.memPw}" name="memPw2" placeholder="비밀번호 입력하시오"id = "memPw2">
+                                        <input type="password" value="${memu.memPw}" name="memPw2" placeholder="비밀번호 입력하시오"id = "memPw2" oninput="handleOnInput(this)">
                                     </div>
                                     </div>
                                     <div class = "pro1">
                                     <p>닉네임</p>
                                     <div class = "pro2">
                                         <input type="text" value="${memu.nName}" name="nName" id = "nName" placeholder="닉네임을 입력하시오" style="width: 441px;">
-                                        <input type="button" value="닉네임 중복검사" class="pro3"><a href="<c:url value="/checknik" />"></a></input>
+                                        <input type="button" value="닉네임 중복검사" class="pro3"id ="checknName">
+                                        
                                     </div>
                                     </div>
                                     <div class = "pro1">
+                                    <p></p>
+                                    	<div class = "pro2">
+                                    		<span id="result_checknName" style="font-size:12px;"></span>
+                                    		</div>
+                                    	</div>
+                                    <div class = "pro1">
                                     <p>이메일</p>
                                     	<div class = "pro2">
-                                        <input type="text" value="${memu.memEmail1}" name="memEmail1" style="width: 142px;" id = "memEmail1"> @ 
-                                            <input id = "memEmail2" type="text" value="${memu.memEmail2}" name="memEmail2" style="width: 142px;">
-                                            <select id = "email3" name = "email2" style="width: 140px;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
+                                        <input type="text" value="${memu.memEmail1}" name="memEmail1" style="width: 142px;" id = "memEmail1"oninput="handleOnInput(this)"> @ 
+                                            <input id = "memEmail2" type="text" value="${memu.memEmail2}" name="memEmail2" style="width: 142px;"oninput="handleOnInput(this)">
+                                            <select id = "email3" name = "email3" style="width: 140px;margin-left: 1px; height: 50px;margin-top: 7px;border-radius: 7px;border: 1px solid gray;">
+											  <option value="">직접입력</option>
 											  <option value="naver.com">naver.com</option>
 											  <option value="google.com">google.com</option>
 											  <option value="hanmail.net">hanmail.net</option>
 											  <option value="nate.com">nate.com</option>
 											  <option value="kakao.com">kakao.com</option>
-											  <option value="">직접입력</option>
 										 	</select>
                                             <input type="button" value="이메일 인증" class="pro3">
                                     	</div>
@@ -155,18 +159,18 @@
                                     <div class = "pro1">
                                     <p>이름</p>
                                     	<div class = "pro2">
-                                        <input type="text" value="${memu.memName}" name="memName" id="memName" placeholder="이름을 입력하시오">
+                                        <p>${memu.memName}</p>
                                      	</div>
                                      </div>
                                     <div class = "pro1">
                                     <p>주민번호</p>
                                     	<div class = "pro2">
-                                        <input type="text" value="${memu.memResident1}" name="memResident1" id = "memResident1" style="width: 280px;">-<input
-                                            type="password" value="${memu.memResident2}" name="memResident2" id = "memResident2" style="width: 280px;margin-left: 1px;">
+                                        <input type="text" value="${memu.memResident1}" name="memResident1" id = "memResident1" style="width: 280px;"oninput="handleInput(this)"maxlength='6'>-<input
+                                            type="password" value="${memu.memResident2}" name="memResident2" id = "memResident2" style="width: 280px;margin-left: 1px;"oninput="handleInput(this)"maxlength='7'>
                                     	</div>
                                     </div>
                                     <div class="pro2">
-                                    <input type="submit" value="수정완료" class="pro3" style = "margin-left:348px;margin-top:24px;">
+                                    <input type="submit" onclick="sub()" value="수정완료" class="pro3" style = "margin-left:348px;margin-top:24px;">
                                     </div>
                                     </form>
                                   </div>
@@ -187,5 +191,103 @@
 		$( "#email3" ).change(function(){
 		    $("#memEmail2").val( $("#email3").val() );
 		});
+		//영어,숫자,특수문자(~!./)
+		function handleOnInput(e)  {
+	  		e.value = e.value.replace(/[^A-Za-z0-9~!./]/ig, '')
+		}
+		
+		//숫자
+		function handleInput(e)  {
+	  		e.value = e.value.replace(/[^0-9]/ig, '')
+		}
+		
+  		function pwdch(){
+  		var memPw = document.getElementById("memPw");
+  		var memPw2 = document.getElementById("memPw2");
+  		var msg = document.getElementById("msg");
+  		if(memPw.value == memPw2.value && memPw.value != '' && memPw2.value != ''){
+  			msg.style.color = "green";
+  			msg.innerHTML = "비밀번호 일치";
+  		}else {
+  			msg.style.color = "red";
+  			msg.innerHTML = "비밀번호 불일치";
+  		}
+  		}
+  		
+		$( "#email3" ).change(function(){
+		    $("#memEmail2").val( $("#email3").val() );
+		});
+		
+		//id 중복체크
+		$(function(){
+		    $("#checkId").click(function(){
+		    
+		        let memId = $("#memId").val();
+		        //id 빈값입력 방지
+		        if(memId != ''){
+		        $.ajax({
+		            type:'post', //post 형식으로 controller 에 보내기위함!!
+		            url:"<c:url value='/member/checkId'/>" , // 컨트롤러로 가는 mapping 입력
+		            data: {"memId":memId}, // 원하는 값을 중복확인하기위해서  JSON 형태로 DATA 전송
+		            success: function(data){ 
+		                if(data == 0){ // 만약 성공할시
+		                	console.log(data);
+		                    result = "사용 가능한 아이디입니다.";
+		                    $("#result_checkId").html(result).css("color", "green");
+		                    $("#memPw").trigger("focus");
+		                 
+		             }else if(data == 1){ // 만약 실패할시
+		                 result="이미 사용중인 아이디입니다.";
+		                     $("#result_checkId").html(result).css("color","red");
+		                     $("#memId").val("").trigger("focus");
+		             }
+		                 console.log(result);
+		         },
+		            error : function(error){alert("false");}
+		        });
+		        
+		    }else if(memId == ''){
+			alert("아이디를 입력해주세요!");
+		}; 
+		});
+		});
+		
+		//nName 중복체크
+		$(function(){
+		    $("#checknName").click(function(){
+		    
+		        let nName = $("#nName").val();
+		        //nName 빈값입력 방지
+		        if(nName != ''){
+		        $.ajax({
+		            type:'post', //post 형식으로 controller 에 보내기위함!!
+		            url:"<c:url value='/member/checknName'/>" , // 컨트롤러로 가는 mapping 입력
+		            data: {"nName":nName}, // 원하는 값을 중복확인하기위해서  JSON 형태로 DATA 전송
+		            success: function(data){ 
+		                if(data == 0){ // 만약 성공할시
+		                	console.log(data);
+		                    result = "사용 가능한 닉네임입니다.";
+		                    $("#result_checknName").html(result).css("color", "green");
+		                    $("#memEmail1").trigger("focus");
+		                 
+		             }else if(data == 1){ // 만약 실패할시
+		                 result="이미 사용중인 닉네임입니다.";
+		                	 $("#result_checknName").html(result).css("color","red");
+		                     $("#nName").val("").trigger("focus");
+		             }
+		                 console.log(result);
+		         },
+		            error : function(error){alert("false");}
+		        });
+		        
+		    }else if(nName == ''){
+			alert("닉네임을 입력해주세요!");
+		}; 
+		});
+		});
+		function as() {
+			window.location.href="<c:url value='/member/memjoin_false'/>" 
+			alert("공백없이 입력해주세요");
+		}
 </script>
 </html>

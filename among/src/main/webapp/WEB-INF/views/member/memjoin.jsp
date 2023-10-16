@@ -120,8 +120,8 @@
                                     </label>
                                     <legend>주민번호</legend>
                                     <label style="display: flex;align-items: center;">
-                                        <input type="text" value="" name="memResident1" id="memResident1"  style="width: 280px;" maxlength='6'>-
-                                        <input type="password" value="" name="memResident2" id="memResident2" style="width: 280px;margin-left: 1px;" maxlength='7'>
+                                        <input type="text" value="" name="memResident1" id="memResident1"  style="width: 280px;" maxlength='6'oninput="handleInput(this)">-
+                                        <input type="password" value="" name="memResident2" id="memResident2" style="width: 280px;margin-left: 1px;" maxlength='7'oninput="handleInput(this)">
                                     </label>
                                     <div class="cidbtn">
                                     <input type="submit" value="회원가입" class="cid" id = "joinCheck" onclick="sub()">
@@ -145,7 +145,10 @@
 	  		e.value = e.value.replace(/[^A-Za-z0-9~!./]/ig, '')
 		}
 		
-		
+		//숫자
+		function handleInput(e)  {
+	  		e.value = e.value.replace(/[^0-9]/ig, '')
+		}
 		
   		function pwdch(){
   		var memPw = document.getElementById("memPw");

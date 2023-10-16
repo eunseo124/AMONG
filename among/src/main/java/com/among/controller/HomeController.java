@@ -92,12 +92,6 @@ public class HomeController {
    }
 
 
-   @RequestMapping(value = "/mypost", method = RequestMethod.GET)
-   public String mypost() {
-
-      return "mypage/mypost";
-
-   }
 
    @RequestMapping(value = "/mypost2", method = RequestMethod.GET)
    public String mypost2() {
@@ -124,13 +118,6 @@ public class HomeController {
    public String mypost5() {
 
       return "mypage/mypost5";
-
-   }
-
-   @RequestMapping(value = "/myreply", method = RequestMethod.GET)
-   public String myreply() {
-
-      return "mypage/myreply";
 
    }
 

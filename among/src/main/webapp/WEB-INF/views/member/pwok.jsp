@@ -76,13 +76,27 @@
         <!-- 본문내용 -->
             <article>
             	<section>
+            	<form method = "post" action = "member/memupdate_proc">
             		<div class = "login5">
-            			<h1>비밀번호</h1>
+            			<h1>비밀번호 변경</h1>
+            			<input type = "hidden" name="memId" id = "memId" value = "${memberp.memId}">
+            			<input type = "hidden" name="memEmail1" id = "memEmail1" value = "${memberp.memEmail1}">
+            			<input type = "hidden" name="memEmail2" id = "memEmail2" value = "${memberp.memEmail2}">
+            			<input type = "hidden" name="memName" id = "memName" value = "${memberp.memName}">
+            			<input type = "hidden" name="memResident1" id = "memResident1" value = "${memberp.memResident1}">
+            			<input type = "hidden" name="memResident2" id = "memResident2" value = "${memberp.memResident2}">
+            			<input type = "hidden" name="memGrade" id = "memGrade" value = "${memberp.memGrade}">
+            			<input type = "hidden" name = "nName" id = "nName" value = "${memberp.nName}">
+            			<input type = "hidden" name = "memKey"  id = "memKey" value = "${memberp.memKey}">
             				<label>비밀번호</label>
-            				<p id = "memPw">${memberp.memPw}</p>
-            				<a href = "<c:url value="/login"/>"><button type = "submit" id = "su">로그인 페이지로 이동</button></a>
+            				<input type = "password" oninput="handleOnInput(this)" placeholder="영어,숫자,특수문자(~,!,.,/)를 조합해서 쓰시오" name = "memPw" id = "memPw">
+            				<label>비밀번호 확인</label>
+            				<input type = "password" onkeyup ="pwdch()" name = "memPw2" id = "memPw2">
+            				<div><span id="msg" style="font-size:12px;"></span></div>
+            				<button>수정완료</button>
             				
             		</div>
+            		</form>
             	</section>
             </article> 
     </main>
@@ -92,5 +106,26 @@
   </footer>
     </div>
 </body>
-
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+		//영어,숫자,특수문자(~!./)
+		function handleOnInput(e)  {
+	  		e.value = e.value.replace(/[^A-Za-z0-9~!./]/ig, '')
+		}
+		
+		
+		
+  		function pwdch(){
+  		var memPw = document.getElementById("memPw");
+  		var memPw2 = document.getElementById("memPw2");
+  		var msg = document.getElementById("msg");
+  		if(memPw.value == memPw2.value && memPw.value != '' && memPw2.value != ''){
+  			msg.style.color = "green";
+  			msg.innerHTML = "비밀번호 일치";
+  		}else {
+  			msg.style.color = "red";
+  			msg.innerHTML = "비밀번호 불일치";
+  		}
+  		}
+</script>
 </html>

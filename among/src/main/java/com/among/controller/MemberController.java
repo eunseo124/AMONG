@@ -27,7 +27,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.among.domain.Board;
 import com.among.domain.Member;
+import com.among.domain.Reple;
 import com.among.repository.MemberRowMapper;
 import com.among.Service.MemberService;
 
@@ -174,6 +176,7 @@ public class MemberController {
    	memberp.setMemKey(memp.getMemKey());
    	session = req.getSession();
    	session.setAttribute("memberp", memberp);
+   	System.out.println("memberp session 값 memKey = "+memberp.getMemKey());
 
    	return "redirect:/pwok";
    }
@@ -181,21 +184,23 @@ public class MemberController {
    @GetMapping("/pwok")
    public String getpwok() {
 	   System.out.println("접근완료");
+	   
 	   return "member/pwok";
    }
+   
    //pw 찾기 결과 후 비번 업데이트
    @PostMapping("/member/memupdate_proc")
-   public String PwupdateProc(@ModelAttribute("mem") Member mem){
+   public String PwupdateProc(@ModelAttribute("memberset") Member memberset){
 	  
-	  System.out.println("membercontroller 접근완료");
-      memberService.setupmem(mem);
+      memberService.setupmem(memberset);
+      System.out.println("memberupdate memPw = "+ memberset.getMemPw());
       return "redirect:/login";
    }
+   
    //member update method
    @PostMapping("/mypage/memupdate_proc")
    public String updateProc(@ModelAttribute("mem") Member mem){
 	  
-	  System.out.println("membercontroller 접근완료");
       memberService.setupmem(mem);
       return "redirect:/mypage?memKey="+mem.getMemKey();
    }
@@ -209,6 +214,29 @@ public class MemberController {
       return "mypage/myupdate";
 
    }
-   
-   
+   @RequestMapping(value = "/mypost", method = RequestMethod.GET)
+   public String mypost(@RequestParam("memKey")int memKey, Model model) {
+
+	  Board boardl = new Board();
+	  boardl = memberService.setboardlist(memKey);
+	  System.out.println("접근완료 boardlist = "+boardl.getnName());
+	  model.addAttribute("boardl",boardl);
+      return "mypage/mypost";
+
+   }
+   /*
+   @GetMapping("/freeboard")
+   public String freeboard() {
+	   return"board/freeboard";
+   }  */
+   @RequestMapping(value = "/myreply", method = RequestMethod.GET) 
+   public String myboardlist(@RequestParam("memKey")int memKey,Model model) {
+	  
+	   Reple rep = null;
+	   rep = memberService.setreplelist(memKey);
+	   model.addAttribute("rep",rep);
+	   System.out.println("membercontroller nName= "+rep.getnName());
+	   return "mypage/myreply";
+   }
+ 
 }

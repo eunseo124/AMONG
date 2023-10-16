@@ -96,11 +96,11 @@
             				<div class = "pmypage2" style="width:1000px;">
                                     <div class="merge">
 	                                <div class = "pheader2" role="tablist">
-					            		<div role="presentation"><h4><a href="<c:url value="/mypost"/>" id="loinid" class="menu_id" role="tab" aria-selected="false">자유 게시판</a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/mypost2"/>" id="ones" class="menu_ones" role="tab" aria-selected="false">인기 게시판</a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/mypost3"/>" id="loinid" class="menu_id2" role="tab" aria-selected="false"> 게임 </a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/mypost4"/>" id="loinid" class="menu_id3" role="tab" aria-selected="false"> 맛집 </a></h4></div>
-					            		<div role="presentation"><h4><a href="<c:url value="/mypost5"/>" id="loinid" class="menu_id4 on" role="tab" aria-selected="true"> 여행 </a></h4></div>
+					            		<div role="presentation"><h4><a href="mypost?memKey=${sessionc.memKey}" id="loinid" class="menu_id" role="tab" aria-selected="false">자유 게시판</a></h4></div>
+					            		<div role="presentation"><h4><a href="mypost2?memKey=${sessionc.memKey}" id="ones" class="menu_ones" role="tab" aria-selected="false">인기 게시판</a></h4></div>
+					            		<div role="presentation"><h4><a href="mypost3?memKey=${sessionc.memKey}" id="loinid" class="menu_id2" role="tab" aria-selected="false"> 게임 </a></h4></div>
+					            		<div role="presentation"><h4><a href="mypost4?memKey=${sessionc.memKey}" id="loinid" class="menu_id3" role="tab" aria-selected="false"> 맛집 </a></h4></div>
+					            		<div role="presentation"><h4><a href="mypost5?memKey=${sessionc.memKey}" id="loinid" class="menu_id4 on" role="tab" aria-selected="true"> 여행 </a></h4></div>
 			            			</div>                                	<div class="Htable" aria-controls="loinid">
 	                                    <div class="Htext">
 	                                        <img src="resources/images/banner.jpg" id="Himg">
