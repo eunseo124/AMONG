@@ -239,6 +239,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 	            	bo.setBoardModifyDate(rs.getDate("boardModifyDate"));
 	            	bo.setMemKey(rs.getInt("memKey"));
 	            	bo.setBoardKey(rs.getInt("boardKey"));
+	            	bo.setDelYn(rs.getString("delYn"));
 	            	
 	         } catch (SQLException e) {
 	            // TODO Auto-generated catch block
@@ -253,7 +254,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    public List<Board> gethotboardlist(int memKey) { 
    	
    	//인기게시판 조회 쿼리 작성
-   	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey WHERE board.memKey= " +memKey+ " and boardRecommend >= 50 ORDER BY boardRecommend desc;";
+   	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory, board.delYn FROM board INNER JOIN member ON board.memKey = member.memKey WHERE board.memKey= "+ memKey +" and boardRecommend >= 50 ORDER BY boardRecommend desc";
 
    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
        
@@ -275,6 +276,7 @@ public class MemberRepositoryImpl implements MemberRepository {
 			   re.setBoardCategory(rs.getInt("boardCategory"));
 			   re.setBoardKey(rs.getInt("boardKey"));
 			   re.setMemKey(rs.getInt("memKey"));
+			   re.setDelYn(rs.getString("delYn"));
 			   return re;
 		   }
 	   };
@@ -287,5 +289,14 @@ public class MemberRepositoryImpl implements MemberRepository {
        String SQL = "DELETE from reple where repleKey = " +repleKey;
        
        this.template.update(SQL);
-   }	 
+   }
+   
+   //board 삭제 메소드
+   public void setdelboard(Board delboard) {
+	  
+	   String SQL = "update board set delYn = ? where boardKey = ?";
+	   template.update(SQL, delboard.getDelYn(), delboard.getBoardKey());
+   }
+   
+   
 }

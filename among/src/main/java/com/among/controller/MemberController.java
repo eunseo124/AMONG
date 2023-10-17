@@ -321,11 +321,20 @@ public class MemberController {
 	   model.addAttribute("replelist",rep);
 	   
 	   return "mypage/myreply5";
-   } 
+   }
+   //댓글삭제
    @PostMapping("/repledelete")
    public String replede(@ModelAttribute("memKey")int repleKey,int memKey) {
 	   memberService.setdeleteReple(repleKey);
 	   return "redirect:/mypage?memKey = "+ memKey;
 	   
+   }
+   //게시글 삭제
+   @PostMapping("/delboard")
+   public String dleboad(@ModelAttribute("memKey")int memKey,Board delboard) {
+	   
+	   memberService.setdelboard(delboard);
+	   System.out.println(memKey);
+	   return "redirect:/mypage?memKey = "+ memKey;
    }
 }

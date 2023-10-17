@@ -104,7 +104,7 @@
 			            			</div>                                	<div class="Htable" aria-controls="loinid">
 	                                    <c:forEach items="${boardl}" var="boardl">
                                 	<c:choose>
-                                		<c:when test = "${boardl.boardCategory eq 4}">
+                                		<c:when test = "${boardl.boardCategory eq 4 && boardl.delYn eq 'N' }">
 	                                    <div class="Htext">
 	                                    <c:choose>
 	                                    	<c:when test = "${boardl.boardImg eq null}">
@@ -125,7 +125,12 @@
 	                                        </c:when>
 	                                        </c:choose>
 	                                        <div><a href = "boardmodify?boardKey=${boardl.boardKey}"><input type="button" value="수정"></a></div>
+	                                        <form method = "post" action = "delboard">
+	                                        <input type = "hidden" value = "Y" id = "delYn" name = "delYn">
+	                                        <input type = "hidden" value = "${boardl.boardKey}" id = "boardKey" name = "boardKey">
+	                                        <input type = "hidden" value = "${boardl.memKey}" id = "memKey" name = "memKey">
 	                                        <div><input type="submit" value="삭제"></div>
+	                                        </form>
 	                                    </div>
 	                                    </c:when>
 	                                    </c:choose>

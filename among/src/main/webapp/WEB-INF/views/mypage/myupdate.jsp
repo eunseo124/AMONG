@@ -102,6 +102,8 @@
             						<input type = "hidden" value = "${memu.memGrade}" name = "memGrade" id = "memGrade">
             						<input type = "hidden" value = "${memu.memJoinDate}" name = "memJoinDate" id = "memJoinDate">
             						<input type = "hidden" value = "${memu.delYn}" name = "delYn" id = "delYn">
+            						<input type = "hidden" value = "${memu.memId}" name = "memId" id = "memId">
+            						<input type = "hidden" value = "${memu.memName}" name = "memName" id = "memName">
                                     <div class = "pro1">
                                     <p>아이디</p>
                                     <div class = "pro2">
@@ -117,8 +119,12 @@
                                     <div class = "pro1">
                                     <p>비밀번호 확인</p>
                                     <div class = "pro2">
-                                        <input type="password" value="${memu.memPw}" name="memPw2" placeholder="비밀번호 입력하시오"id = "memPw2" oninput="handleOnInput(this)">
+                                        <input type="password" value="${memu.memPw}" name="memPw2" onkeyup ="pwdch()" placeholder="비밀번호 입력하시오"id = "memPw2" oninput="handleOnInput(this)">
+                                        
                                     </div>
+                                    </div>
+                                    <div class = "pro1">
+                                    <span id="msg" style="font-size:12px;"></span>
                                     </div>
                                     <div class = "pro1">
                                     <p>닉네임</p>

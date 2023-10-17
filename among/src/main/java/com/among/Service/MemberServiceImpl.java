@@ -131,4 +131,12 @@ public class MemberServiceImpl implements MemberService {
 	 hboard = memberRepository.gethotboardlist(memKey);
 		return hboard;
 	}
+	
+	//게시글 삭제
+	@Override
+	public void setdelboard(Board delboard) {
+		// TODO Auto-generated method stub
+		memberRepository.setdelboard(delboard);
+		
+	}
 }

@@ -66,4 +66,6 @@ public interface MemberService {
 	void setdeleteReple(int repleKey); //reple 삭제 쿼리문
 	
 	List<Board> gethotboardlist(int memKey);//인기게시판 조회
+
+	void setdelboard(Board delboard); //게시글 삭제
 }

@@ -14,19 +14,19 @@ import java.util.Date;
 public class Reple extends HttpServlet {
 	
 
-	private int repleKey; // �뜝�룞�삕�뜝占� �뜝�뙓�벝�삕
-	private String repleContent; // �뜝�룞�삕�뜝�룞�삕
-	private Date repleRegDate; // �뜝�뙗�눦�삕 �뜝�룞�삕吏�
+	private int repleKey; // 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� 占쎈쐻占쎈솓占쎈쿈占쎌굲
+	private String repleContent; // 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+	private Date repleRegDate; // 占쎈쐻占쎈솙占쎈닰占쎌굲 占쎈쐻占쎈짗占쎌굲筌욑옙
 	private int memKey;
-	private int boardKey;// �뜝�뙃�룞�삕�뜝�룞�삕
-
+	private int boardKey;// 占쎈쐻占쎈셾占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+	private String delYn;
 	
 	public Reple() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	/* �뜝�떦諭꾩삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 */
+	/* 占쎈쐻占쎈뼣獄�袁⑹굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 */
 	
 
 	public int getRepleKey() {
@@ -74,8 +74,8 @@ public class Reple extends HttpServlet {
 	
 	
 	
-	private int memGrade;	//�쉶�썝 �벑湲� (�씪諛�/愿�由ъ옄)
-	private String nName; 	//�땳�꽕�엫eredfad
+	private int memGrade;	//占쎌돳占쎌뜚 占쎈쾻疫뀐옙 (占쎌뵬獄쏉옙/�꽴占썹뵳�딆쁽)
+	private String nName; 	//占쎈빏占쎄퐬占쎌뿫eredfad
 
 	public int getMemGrade() {
 		return memGrade;
@@ -116,6 +116,14 @@ public class Reple extends HttpServlet {
 
 	public void setBoardCategory(int boardCategory) {
 		this.boardCategory = boardCategory;
+	}
+
+	public String getDelYn() {
+		return delYn;
+	}
+
+	public void setDelYn(String delYn) {
+		this.delYn = delYn;
 	}
 	
 

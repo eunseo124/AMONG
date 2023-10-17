@@ -105,7 +105,7 @@
                                 	<div class="Htable" aria-controls="loinid">
 	                                    <c:forEach items="${replelist}" var="rep" varStatus="i">
                                 		<c:choose>
-                                		<c:when test = "${rep.boardCategory eq 2}">
+                                		<c:when test = "${rep.boardCategory eq 2 && rep.delYn eq 'N'}">
 	                                    <div class="Htext">
 	                                    	<div id = "Btext">${i.count}</div>
 	                                    	<input type="hidden" value = "${rep.repleKey}">
