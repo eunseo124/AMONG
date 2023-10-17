@@ -20,4 +20,8 @@ public interface BoardRepository {
 	void setbodView(int boardKey);
 	
 	Board getBoardmodi(int boardKey);
+	
+	void setBoardmodi(Board board);
+	
+	
 }

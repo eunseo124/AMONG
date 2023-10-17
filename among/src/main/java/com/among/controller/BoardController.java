@@ -29,7 +29,13 @@ public class BoardController {
 
 	@Autowired
 	private BoardService boardService;  
-
+	/*
+	@GetMapping("/board/boardmodify")
+	public String modi1(Model model) { 
+		
+		return "board/boardmodify"; 
+	}*/
+	
 	//�Խ��� ��ȸ
 	/* HTTP ��û ����� GET�� ���, @GetMapping �� ����� �� �ֽ��ϴ�.*/
 	//자유게시판
@@ -100,16 +106,43 @@ public class BoardController {
 	
 	//게시판 수정(조회)
 	@RequestMapping(value= "/boardmodify", method = RequestMethod.GET) 
-	@ResponseBody
-	public String modiboard(@RequestParam("boardKey")int boardKey,Model model)	{
+	public String modiBoard(@RequestParam("boardKey") int boardKey,Model model)	{
+		System.out.println("boardmodify 컨트롤러 진입");
+		System.out.println("boardKey = "+boardKey);
+		Board bod = new Board();
+		bod = boardService.getBoardmodi(boardKey);
+		model.addAttribute("board",bod);
 		
-		Board board = new Board();
-		board = boardService.getBoardmodi(boardKey);
-		model.addAttribute("board",board);
-		return "redirect:/home";
+		System.out.println("boardmodify 메서드 호출 완료");
+		
+		return "board/boardmodify";
 	}
 	
-
+	//게시판 수정
+	//글쓰기
+	@PostMapping(value = "/board/boardmodi")
+	@ResponseBody
+	public String Updatebd(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
+			ModelMap modelMap, @ModelAttribute("board") Board board, Model model, MultipartFile[] uploadFile){
+						
+			if (uploadFile != null) {
+				for(MultipartFile multipartFile : uploadFile) {	
+					File savefile = new File("C:\\Users\\Administrator\\git\\AMONG\\among\\src\\main\\webapp\\resources\\images", multipartFile.getOriginalFilename());
+					try {
+						multipartFile.transferTo(savefile);
+					} catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			    boardService.setBoardmodi(board);
+			    System.out.println("setBoardmodi 메서드 호출 완료");
+			    System.out.println(board.getBoardContent());
+			    System.out.println(board.getBoardImg());
+			    System.out.println(board.getBoardKey());
+			    System.out.println(board.getBoardTitle());
+			    return "redirect:/home";
+		}
 	
 		
 }

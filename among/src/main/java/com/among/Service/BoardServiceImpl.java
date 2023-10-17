@@ -38,8 +38,12 @@ public class BoardServiceImpl implements BoardService {
 	 
 	 public Board getBoardmodi(int boardKey) {
 		 
-		 Board board = new Board();
-		 boardRepository.getBoardmodi(boardKey);
-		 return board;
+		 Board bod = boardRepository.getBoardmodi(boardKey);
+		 return bod;
+	 }
+	 
+	 public void setBoardmodi(Board board) {
+		 
+		boardRepository.setBoardmodi(board);
 	 }
 }

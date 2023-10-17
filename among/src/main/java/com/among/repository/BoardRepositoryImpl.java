@@ -32,7 +32,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     public List<Board> getAllBoardList() { 
     	
     	//�Խ��� ��ȸ ���� �ۼ�
-    	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         
@@ -43,7 +43,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     public List<Board> getHotBoardList() { 
     	
     	//�α�Խ��� ��ȸ ���� �ۼ�
-    	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey WHERE boardRecommend >= 50 ORDER BY boardRecommend desc;";
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey WHERE boardRecommend >= 50 ORDER BY boardRecommend desc;";
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         
@@ -78,31 +78,31 @@ public class BoardRepositoryImpl implements BoardRepository {
     	board = template.queryForObject(SQL, new RowMapper<Board>() {
     		@Override
     		public Board mapRow(ResultSet rs, int rowNum) {
-    			Board bd = new Board();
+    			Board bod = new Board();
     			try {
-    				bd.setBoardTitle(rs.getString("boardTitle"));
-    				bd.setBoardKey(rs.getInt("boardKey"));
-    				bd.setBoardCategory(rs.getInt("boardCategory"));
-    				bd.setBoardContent(rs.getString("boardContent"));
-    				bd.setBoardImg(rs.getString("boardImg"));
+    				bod.setBoardTitle(rs.getString("boardTitle"));
+    				bod.setBoardKey(rs.getInt("boardKey"));
+    				bod.setBoardCategory(rs.getInt("boardCategory"));
+    				bod.setBoardContent(rs.getString("boardContent"));
+    				bod.setBoardImg(rs.getString("boardImg"));
     			} catch (SQLException e) {
     				e.printStackTrace();
     			}
-    			return bd;
+    			return bod;
     		}
     	});
     	return board;
     }
     
     //게시판 수정
-    public void setUpdateBoard(Board board) {
+    public void setBoardmodi(Board board) {
     	
     	String SQL = "UPDATE board SET boardTitle=?, boardContent=?, boardImg=? where boardKey=?";
     	
     	template.update(SQL,
     			board.getBoardKey(),
-    			board.getBoardTitle(),
     			board.getBoardContent(),
+    			board.getBoardTitle(),
     			board.getBoardImg());
     }
 }

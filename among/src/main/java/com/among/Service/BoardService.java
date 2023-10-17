@@ -25,4 +25,7 @@ public interface BoardService {
 	
 	//board 수정 페이지(조회)
 	Board getBoardmodi(int boardKey);
+	
+	//board 수정
+	void setBoardmodi(Board board);
 }
