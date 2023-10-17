@@ -286,7 +286,7 @@
 									  <option value="hanmail.net">hanmail.net</option>
 									  <option value="nate.com">nate.com</option>
 									  <option value="kakao.com">kakao.com</option>
-									  <option value="">직접입력</option>									  
+									  <option value="">직접입력</option>
 			                        </select>
 			                    </dd>
 			                </dl>                
@@ -306,8 +306,8 @@
 			                </dl>
 			                <dl>
 			                    <dt>삭제여부</dt>
-			                    <dd><input name="delYn" type="radio" value="Y"></input>Y</dd>
-			                    <dd><input name="delYn" type="radio" value="N"></input>N</dd>		                    		                    
+			                    <dd><input name="delYn" type="radio" value="Y" <c:if test="${member.delYn eq 'Y'}">checked</c:if>></input> Y &nbsp;&nbsp;  
+			                    	<input name="delYn" type="radio" value="N" <c:if test="${member.delYn eq 'N'}">checked</c:if>></input> N</dd>                    		                    
 			                </dl>				                		
 			                <br>
 			                <div id="box">

@@ -189,11 +189,11 @@
         		      <thead>
         		       <tr>
         		        <th>No.</th>   
-        		        <th>Subject</th>
-        		        <th>Date</th>
-        		        <th>Hits</th>
-        		        <th>Detail</th>        		        
-        		        <th>Delete</th>    		          		                		        
+        		        <th width="30%">Subject</th>
+        		        <th width="20%">Date</th>
+        		        <th width="10%">Hits</th>
+        		        <th width="10%">Detail</th>        		        
+        		        <th width="20%">삭제여부</th>    		          		                		        
         		       </tr>
         		      </thead>
         		      <tbody>
@@ -205,8 +205,11 @@
         		        <td>${board.boardTitle}</td>
         		        <td>${board.boardRegDate}</td>
         		        <td>${board.boardView}</td>
+        		      <form action="admin_delBoard">
         		        <td><button><a href="<c:url value="/admin_member_info?id=${Member.memId}" />">View</a></button></td>        		        
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
+        		        <td><button><input name="delYn" type="radio" value="Y" <c:if test="${member.delYn eq 'Y'}">checked</c:if>></input> Y 
+			                    	<input name="delYn" type="radio" value="N" <c:if test="${member.delYn eq 'N'}">checked</c:if>></input> N</button></td>
+			          </form>        	
         		       </tr>
 						</c:if>
       		           </c:forEach>
