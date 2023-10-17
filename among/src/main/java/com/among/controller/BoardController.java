@@ -100,12 +100,13 @@ public class BoardController {
 	
 	//게시판 수정(조회)
 	@RequestMapping(value= "/boardmodify", method = RequestMethod.GET) 
+	@ResponseBody
 	public String modiboard(@RequestParam("boardKey")int boardKey,Model model)	{
 		
 		Board board = new Board();
 		board = boardService.getBoardmodi(boardKey);
 		model.addAttribute("board",board);
-		return "redirect:/boardmodify";
+		return "redirect:/home";
 	}
 	
 
