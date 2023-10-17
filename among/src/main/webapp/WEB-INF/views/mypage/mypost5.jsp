@@ -111,7 +111,7 @@
 	                                        <img src="resources/images/profile.png" id="Himg">
 	                                        </c:when>
 	                                        <c:when test = "${boardl.boardImg ne null}">
-	                                        <img src="resources/images/${board.boardImg}" id = "Himg">
+	                                        <img src="resources/images/${boardl.boardImg}" id = "Himg">
 	                                        </c:when>
 	                                        </c:choose>
 	                                        <div id = "Btext">${boardl.nName}</div>
