@@ -11,15 +11,18 @@ import com.among.domain.Board;
 @Controller
 public interface BoardService {
 	
-	//°Ô½ÃÆÇ Á¶È¸
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	List<Board> getAllBoardList();
 	
-	//ÀÎ±â°Ô½ÃÆÇ Á¶È¸
+	//ï¿½Î±ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	List<Board> getHotBoardList();
 	
-	//°Ô½ÃÆÇ ±Û¾²±â
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½
 	void getboardWrite(Board board);
 	
-	//°Ô½ÃÆÇ Á¶È¸¼ö Áõ°¡
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void setbodView(int boardKey);
+	
+	//board ìˆ˜ì • í˜ì´ì§€(ì¡°íšŒ)
+	Board getBoardmodi(int boardKey);
 }

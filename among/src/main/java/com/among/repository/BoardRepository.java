@@ -7,15 +7,17 @@ import com.among.domain.Board;
 
 public interface BoardRepository {
 
-	//°Ô½ÃÆÇ Á¶È¸
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	List<Board> getAllBoardList();
 	
-	//ÀÎ±â°Ô½ÃÆÇ Á¶È¸
+	//ï¿½Î±ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 	List<Board> getHotBoardList();
 	
-	//°Ô½ÃÆÇ ±Û¾²±â
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½
 	void getboardWrite(Board board);
 	
-	//°Ô½ÃÆÇ Á¶È¸¼ö Ä«¿îÆÃ
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½
 	void setbodView(int boardKey);
+	
+	Board getBoardmodi(int boardKey);
 }

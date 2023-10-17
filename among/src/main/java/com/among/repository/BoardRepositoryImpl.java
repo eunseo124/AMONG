@@ -1,5 +1,7 @@
 package com.among.repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +9,18 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.among.domain.Board;
-import com.among.domain.Member;
 
 @Repository
 public class BoardRepositoryImpl implements BoardRepository {
 	
-	//** JDBCÅÛÇÃ¸´ »ç¿ëÇÏ±â À§ÇÑ ¼³Á¤
+	//** JDBCï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private JdbcTemplate template;
 		
-	//setJdbctemplate() ¸Ş¼­µå´Â µ¥ÀÌÅÍº£ÀÌ½º ¿¬µ¿À» À§ÇØ ÀÛ¼ºÇÕ´Ï´Ù.
+	//setJdbctemplate() ï¿½Ş¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Õ´Ï´ï¿½.
 	@Autowired  
 	public void setJdbctemplate(DataSource dataSource) {
 		this.template = new JdbcTemplate(dataSource);
@@ -29,7 +31,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     @Override
     public List<Board> getAllBoardList() { 
     	
-    	//°Ô½ÃÆÇ Á¶È¸ Äõ¸® ÀÛ¼º
+    	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
     	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
@@ -37,10 +39,10 @@ public class BoardRepositoryImpl implements BoardRepository {
     	return listOfBoards;
     }
     
-    //ÀÎ±â°Ô½ÃÆÇ Á¶È¸ 
+    //ï¿½Î±ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ 
     public List<Board> getHotBoardList() { 
     	
-    	//ÀÎ±â°Ô½ÃÆÇ Á¶È¸ Äõ¸® ÀÛ¼º
+    	//ï¿½Î±ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
     	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey WHERE boardRecommend >= 50 ORDER BY boardRecommend desc;";
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
@@ -48,7 +50,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     	return listOfBoards;
     }
     
-    //member È¸¿ø°¡ÀÔ ¸Ş¼Òµå
+    //member È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼Òµï¿½
     public void getboardWrite(Board board) {
  	   
  	   String SQL = "INSERT INTO board(memKey, boardContent, boardCategory, boardTitle, boardImg)"
@@ -61,11 +63,46 @@ public class BoardRepositoryImpl implements BoardRepository {
  	            board.getBoardImg());
     }
     
-    //Á¶È¸¼ö Áõ°¡ ¸Ş¼Òµå
+    //ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼Òµï¿½
     public void setbodView(int boardKey) {
     	
     	String SQL = "UPDATE board SET boardView = boardView + 1 WHERE boardKey = ?";
     	
     	this.template.update(SQL, boardKey);
+    }
+    
+    //ê²Œì‹œíŒ ìˆ˜ì •(ì¡°íšŒ)
+    public Board getBoardmodi(int boardKey) {
+    	Board board = new Board();
+    	String SQL = "select * from board where boardKey = '"+boardKey+"'";
+    	board = template.queryForObject(SQL, new RowMapper<Board>() {
+    		@Override
+    		public Board mapRow(ResultSet rs, int rowNum) {
+    			Board bd = new Board();
+    			try {
+    				bd.setBoardTitle(rs.getString("boardTitle"));
+    				bd.setBoardKey(rs.getInt("boardKey"));
+    				bd.setBoardCategory(rs.getInt("boardCategory"));
+    				bd.setBoardContent(rs.getString("boardContent"));
+    				bd.setBoardImg(rs.getString("boardImg"));
+    			} catch (SQLException e) {
+    				e.printStackTrace();
+    			}
+    			return bd;
+    		}
+    	});
+    	return board;
+    }
+    
+    //ê²Œì‹œíŒ ìˆ˜ì •
+    public void setUpdateBoard(Board board) {
+    	
+    	String SQL = "UPDATE board SET boardTitle=?, boardContent=?, boardImg=? where boardKey=?";
+    	
+    	template.update(SQL,
+    			board.getBoardKey(),
+    			board.getBoardTitle(),
+    			board.getBoardContent(),
+    			board.getBoardImg());
     }
 }

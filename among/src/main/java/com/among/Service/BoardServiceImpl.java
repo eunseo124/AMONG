@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.among.domain.Board;
-import com.among.domain.Member;
 import com.among.repository.BoardRepository;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 
-	@Autowired //@Autowired ¸¦ Á¤ÀÇÇÏ¿© ¸Þ¼­µå°¡ Á¤ÀÇµÈ BookRepository Å¬·¡½ºÀÇ getAllBookList() ¸Þ¼­µå¸¦ È£ÃâÇÕ´Ï´Ù.
+	@Autowired //@Autowired ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Þ¼ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½Çµï¿½ BookRepository Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ getAllBookList() ï¿½Þ¼ï¿½ï¿½å¸¦ È£ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 	 private BoardRepository boardRepository;
 	 
 	 public List<Board> getAllBoardList() { 
@@ -35,5 +34,12 @@ public class BoardServiceImpl implements BoardService {
 		  
 		   boardRepository.setbodView(boardKey);
 		   
+	 }
+	 
+	 public Board getBoardmodi(int boardKey) {
+		 
+		 Board board = new Board();
+		 boardRepository.getBoardmodi(boardKey);
+		 return board;
 	 }
 }
