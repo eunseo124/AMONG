@@ -189,10 +189,11 @@
         		      <thead>
         		       <tr>
         		        <th>No.</th>   
-        		        <th>Subject</th>
-        		        <th>Date</th>
-        		        <th>Hits</th>
-        		        <th>Delete</th>  		          		                		        
+        		        <th width="30%">Subject</th>
+        		        <th width="20%">Date</th>
+        		        <th width="10%">Hits</th>
+        		        <th width="10%">Detail</th>        		        
+        		        <th width="10%">삭제여부</th>    		          		                		        
         		       </tr>
         		      </thead>
         		      <tbody>     		      
@@ -203,8 +204,9 @@
         		        <td>${board.boardKey}</td>
         		        <td>${board.boardTitle}</td>
         		        <td>${board.boardRegDate}</td>
-        		        <td>${board.boardView}</td>
-        		        <td><button><span class="material-symbols-outlined">delete</span></button></td>
+        		        <td>${board.boardView}</td>   		        
+        		        <td><button><a href="#">View</a></button></td>        		        
+        		        <td style="text-align:center;">${board.delYn}</td> 
         		       </tr>
 						</c:if>
       		           </c:forEach>	               		               		               		               		               		               		               		               		       
