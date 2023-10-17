@@ -303,7 +303,12 @@
 			                <dl>
 			                    <dt>가입일시</dt>
 			                    <dd><input type="text" id="memJoinDate" name="memJoinDate" placeholder="이름 입력" readonly="readonly" value="${member.memJoinDate}"></dd>
-			                </dl>		
+			                </dl>
+			                <dl>
+			                    <dt>삭제여부</dt>
+			                    <dd><input name="delYn" type="radio" value="Y"></input>Y</dd>
+			                    <dd><input name="delYn" type="radio" value="N"></input>N</dd>		                    		                    
+			                </dl>				                		
 			                <br>
 			                <div id="box">
 			                <input type="hidden" id="memGrade" name="memGrade" value="${member.memGrade}">

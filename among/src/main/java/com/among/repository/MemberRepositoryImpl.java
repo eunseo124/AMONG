@@ -195,7 +195,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    	
        	String SQL = "UPDATE member SET memPw = ?, memEmail1 = ?, memEmail2 = ?,"
                 +"memName = ?, memResident1 = ?, memResident2 = ?,"
-                + "memGrade = ?, nName = ? where memId = ?";
+                + "memGrade = ?, nName = ?, delYn = ?, where memId = ?";
            
         template.update(SQL, 
 
@@ -207,6 +207,7 @@ public class MemberRepositoryImpl implements MemberRepository {
                 member.getMemResident2(),
                 member.getMemGrade(),
                 member.getnName(),
+                member.getDelYn(),
         		member.getMemId());
        
    }
