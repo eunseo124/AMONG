@@ -18,6 +18,7 @@ public class Board {
 	private Date boardModifyDate;
 	private int memKey;
 	private int boardKey;
+	private String delYn;
 	
 
 	
@@ -132,6 +133,14 @@ public class Board {
 	}
 	public void setBoardModifyDate(Date boardModifyDate) {
 		this.boardModifyDate = boardModifyDate;
+	}
+
+	public String getDelYn() {
+		return delYn;
+	}
+
+	public void setDelYn(String delYn) {
+		this.delYn = delYn;
 	}
 	
 }
