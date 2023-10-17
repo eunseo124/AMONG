@@ -40,20 +40,20 @@ public class RepleServiceImpl implements RepleService{
 		return repleRepository.saveReple(reple);
 	}
 
-/*
+
 	@Override
 	public List<Reple> getRepleList(Integer boardKey) {
 		// TODO Auto-generated method stub
 		return repleRepository.getRepleList(boardKey);
 	}   
-*/	 
-/*	
+	 
+
 		public List<Board> getAllBoardList() { 
         // TODO Auto-generated method stub
 	 return boardRepository.getAllBoardList();
  } 	
-*/		
-		//boardlist Äõ¸®¹®
+		
+		//boardlist ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		@Override
 		 public List<Board> setboardlist(int boardKey) {
 			List<Board> board = null;
@@ -61,7 +61,7 @@ public class RepleServiceImpl implements RepleService{
 			 return board;
 		 }
 		
-		//** ´ñ±Û »èÁ¦¸Þ¼­µå ¿À¹ö¶óÀÌµå **
+		//** ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ **
 		 public void setDeleteReple(int repleKey) { 
 		       repleRepository.setDeleteReple(repleKey);
 		 }		

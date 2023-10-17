@@ -26,6 +26,8 @@ public class RepleRowMapper implements RowMapper<Reple> {
 		Reple.setBoardKey(rs.getInt("boardKey"));
 		Reple.setnName(rs.getString("nName"));
 		Reple.setMemId(rs.getString("memId"));
+		Reple.setMemGrade(rs.getInt("memGrade"));
+		
 		
 		
 //		System.out.println(Reple.toString());

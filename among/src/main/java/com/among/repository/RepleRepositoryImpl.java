@@ -63,7 +63,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 		
 		return 1;
 	}
-/*
+
 	@Override
 	public List<Reple> getRepleList(Integer boardKey) {
 //	String SQL0	"SELECT * FROM reple a inner join member b on a.memkey = b.memkey where boardKey = " + boardKey;
@@ -78,7 +78,7 @@ public class RepleRepositoryImpl implements RepleRepository {
 		return template.query(SQL, new RepleRowMapper());
 	}
 
-/*	
+	
 	 @Override
 	    public List<Board> getAllBoardList() { 
 	    	
@@ -92,13 +92,12 @@ public class RepleRepositoryImpl implements RepleRepository {
 	        
 	    	return listOfBoards;
 	    }
-*/
+
 	
 	 public List<Board> setboardlist(int boardKey) {
 		 List<Board> board = null;
-		 System.out.println("setboardlist Á¢±Ù = "+boardKey);
-	      String SQL = "select * from board b inner join member m on b.memKey = m.memKey "
-	            + "inner join reple r on b.repleKey = r.repleKey order by b.boardKey = " + boardKey;
+		 System.out.println("setboardlist ï¿½ï¿½ï¿½ï¿½ = "+boardKey);
+	      String SQL = "SELECT * FROM board a 	inner join member b ON a.memKey=b.memKey LIMIT 1";
 	      board = template.query(SQL, new RowMapper<Board>() {
 	            @Override
 	            public Board mapRow(ResultSet rs, int rowNum) {

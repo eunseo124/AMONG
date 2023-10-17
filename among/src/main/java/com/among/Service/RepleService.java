@@ -17,9 +17,9 @@ public interface RepleService {
 	Integer saveReple(Reple reple);
 
 	// get repl list
-//	List<Reple> getRepleList(Integer boardKey);
+	List<Reple> getRepleList(Integer boardKey);
 
-//		List<Board> getAllBoardList();
+		List<Board> getAllBoardList();
 	
 		List<Board> setboardlist(int boardKey);//boardlist �뜎�눖�봺�눧占�
 		
