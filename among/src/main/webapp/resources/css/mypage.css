@@ -420,7 +420,9 @@ article {
 .flex .merge .Htable #Btext {
     line-height: 65px;
     margin-left: 10px;
-
+	overflow : hidden; 
+    text-overflow : ellipsis; 
+    height:50px;
 }
 
 .flex .merge .Htable #Btext2 {
@@ -435,7 +437,7 @@ article {
     line-height: 65px;
     margin-left: 30px;
     white-space : nowrap; 
-    width : 650px;
+    width : 550px;
     overflow : hidden; 
     text-overflow : ellipsis; 
 }
