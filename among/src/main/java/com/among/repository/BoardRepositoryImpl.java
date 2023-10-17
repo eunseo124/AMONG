@@ -95,15 +95,15 @@ public class BoardRepositoryImpl implements BoardRepository {
     }
     
     //寃뚯떆�뙋 �닔�젙
-    public void setBoardmodi(Board board) {
+    public void setBoardmodify(Board board) {
     	
-    	String SQL = "UPDATE board SET boardTitle=?, boardContent=?, boardImg=? where boardKey=?";
+    	String SQL = "UPDATE board SET boardTitle = ?, boardContent=?, boardImg=? where boardKey=?";
     	
     	template.update(SQL,
-    			board.getBoardKey(),
-    			board.getBoardContent(),
     			board.getBoardTitle(),
-    			board.getBoardImg());
+    			board.getBoardContent(),
+    			board.getBoardImg(),
+    			board.getBoardKey());
     }
     
     

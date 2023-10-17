@@ -42,8 +42,8 @@ public class BoardServiceImpl implements BoardService {
 		 return bod;
 	 }
 	 
-	 public void setBoardmodi(Board board) {
+	 public void setBoardmodify(Board board) {
 		 
-		boardRepository.setBoardmodi(board);
+		boardRepository.setBoardmodify(board);
 	 }
 }

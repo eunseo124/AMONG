@@ -135,7 +135,7 @@ public class BoardController {
 					}
 				}
 			}
-			    boardService.setBoardmodi(board);
+			    boardService.setBoardmodify(board);
 			    System.out.println("setBoardmodi 메서드 호출 완료");
 			    System.out.println(board.getBoardContent());
 			    System.out.println(board.getBoardImg());

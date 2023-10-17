@@ -151,7 +151,7 @@
                         <div id= "note">
                                 <textarea id="summernote" name="editordata">${board.boardContent}</textarea>
                                 <input type="hidden" name="boardCategory" id="boardCategory" value="${board.boardCategory}">
-                                <input style="margin-left: -15px;" type="file" name="boardImg" id="boardImg">
+                                <input style="margin-left: -15px;" type="file" name="boardImg" id="boardImg" value="${board.boardImg}">
                                 <section class="writeButton">
 				                        <input type="button" onclick="test()" class="confirm" value="등록">
 				                        <input type ="reset" class="cancel" value="취소">
@@ -186,11 +186,11 @@
 				var boardContent=$('#summernote').val();				
 				var boardCategory=$('#boardCategory').val();
 				var boardTitle=$('#subject').val();
-				var boardImg=$("#boardImg").val().split('/').pop().split('\\').pop();
 				var formData = new FormData();
 				var inputFile = $("input[name='boardImg']");
 				var files = inputFile[0].files;
 				var formData = new FormData();
+				console.log(boardTitle);
 				formData.append("boardKey",$('#boardKey').val());
 				formData.append("boardContent",$('#summernote').val());
 				formData.append("boardCategory",$('#boardCategory').val());
@@ -205,10 +205,10 @@
 				$.ajax ({
 					url: "<c:url value='/board/boardmodi'/>",
 					type: "post",
+					dataType: "text",
 					enctype: 'multipart/form-data',
 					processData: false,
 				    contentType: false,
-					dataType: "text",
 					data: formData,
 					success: function(Data) {
 						if(boardCategory==1) {

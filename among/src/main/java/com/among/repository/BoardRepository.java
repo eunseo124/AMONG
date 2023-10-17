@@ -21,7 +21,7 @@ public interface BoardRepository {
 	
 	Board getBoardmodi(int boardKey);
 	
-	void setBoardmodi(Board board);
+	void setBoardmodify(Board board);
 	
 	
 }
