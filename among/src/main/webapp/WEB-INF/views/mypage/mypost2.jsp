@@ -103,46 +103,31 @@
 					            		<div role="presentation"><h4><a href="mypost5?memKey=${sessionc.memKey}" class="menu_id4" role="tab" aria-selected="false"> 여행 </a></h4></div>
 			            			</div>
                                 	<div class="Htable" aria-controls="loinid">
+	                                    <c:forEach items="${hboard}" var="hboard">
 	                                    <div class="Htext">
-	                                        <img src="resources/images/banner.jpg" id="Himg">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="수정"></div>
+	                                    <c:choose>
+	                                    	<c:when test = "${hboard.boardImg eq null}">
+	                                        <img src="resources/images/profile.png" id="Himg">
+	                                        </c:when>
+	                                        <c:when test = "${hboard.boardImg ne null}">
+	                                        <img src="resources/images/${hboard.boardImg}" id = "Himg">
+	                                        </c:when>
+	                                        </c:choose>
+	                                        <div id = "Btext">${hboard.nName}</div>
+	                                        <div id = "Btext2"><a href = "boardlist?boardKey=${hboard.boardKey}&category=${hboard.boardCategory}">${hboard.boardTitle}</a></div>
+	                                        <c:choose>
+	                                        <c:when test = "${hboard.boardRegDate eq hboard.boardModifyDate}">
+	                                        <div id = "Hday">${hboard.boardRegDate}</div>
+	                                        </c:when>
+	                                        <c:when test = "${hboard.boardRegDate ne hboard.boardModifyDate}">
+	                                        <div id = "Hday">${hboard.boardModifyDate}</div>
+	                                        </c:when>
+	                                        </c:choose>
+	                                        <div><a href = "boardmodify?boardKey=${hboard.boardKey}"><input type="button" value="수정"></a></div>
 	                                        <div><input type="submit" value="삭제"></div>
 	                                    </div>
-	                                    <div class="Htext">
-	                                        <img src="resources/images/banner.jpg" id="Himg">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="수정"></div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
-	                                    <div class="Htext">
-	                                        <img src="resources/images/banner.jpg" id="Himg">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="수정"></div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
-	                                    <div class="Htext">
-	                                        <img src="resources/images/banner.jpg" id="Himg">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="수정"></div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
-	                                    <div class="Htext">
-	                                        <img src="resources/images/banner.jpg" id="Himg">
-	                                        <div id = "Btext">김철수</div>
-	                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-	                                        <div id = "Hday">2023.09.14</div>
-	                                        <div><input type="submit" value="수정"></div>
-	                                        <div><input type="submit" value="삭제"></div>
-	                                    </div>
+	                                    </c:forEach>
+	                                   
                                 </div>
                             </div>
                                   </div>

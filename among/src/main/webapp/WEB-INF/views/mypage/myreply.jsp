@@ -102,14 +102,31 @@
 					            		<div role="presentation"><h4><a href="myreply4?memKey=${sessionc.memKey}" class="menu_id3" role="tab" aria-selected="false"> 맛집 </a></h4></div>
 					            		<div role="presentation"><h4><a href="myreply5?memKey=${sessionc.memKey}" class="menu_id4" role="tab" aria-selected="false"> 여행 </a></h4></div>
 			            			</div>
+			            			
                                 	<div class="Htable" aria-controls="loinid">
+                                	<c:forEach items="${replelist}" var="rep" varStatus="i">
+                                		<c:choose>
+                                		<c:when test = "${rep.boardCategory eq 1}">
 	                                    <div class="Htext">
+	                                    	<div id = "Btext">${i.count}</div>
+	                                    	<input type="hidden" value = "${rep.repleKey}">
 	                                        <div id = "Btext">${rep.nName}</div>
 	                                        <div id = "Btext3">${rep.repleContent}</div>
 	                                        <div id = "Hday">${rep.repleRegDate}</div>
+	                                        <input type="hidden" value = "${rep.boardCategory}">
+	                                        <input type="hidden" value = "${rep.boardKey}">
+	                                        <input type="hidden" value = "${rep.memKey}">
+	                                        <form method = "post" action = "repledelete">
+	                                        <input type="hidden" value = "${rep.memKey}" id = "memKey" name = "memKey">
+	                                        <input type="hidden" value = "${rep.repleKey}" id = "repleKey" name = "repleKey">
 	                                        <div><input type="submit" value="삭제"></div>
+	                                   		</form>
 	                                    </div>
+	                                    </c:when>
+	                                    </c:choose>
+	                                    </c:forEach>
                                 </div>
+                                
                             </div>
                                   </div>
             		</div>

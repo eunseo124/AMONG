@@ -105,14 +105,30 @@ public class MemberServiceImpl implements MemberService {
 	 }	 
 	
 	//boardlist 쿼리문 	
-	 public Board setboardlist(int memKey) {
-		 Board board = new Board();
+	 public List<Board> setboardlist(int memKey) {
+		 List<Board> board = null;
 		 board = memberRepository.setboardlist(memKey);
 		 return board;
 	 }
-	 public Reple setreplelist(int memKey) {
-		 Reple rep = null;
+	
+	 //replelist 쿼리문
+	 public List<Reple> setreplelist(int memKey) {
+		 List<Reple> rep = null;
 		 rep = memberRepository.setreplelist(memKey);
 		 return rep;
 	 }
+	 
+	 //reple 삭제 쿼리문
+	@Override
+	public void setdeleteReple(int repleKey) {
+		memberRepository.setdeleteReple(repleKey);
+		
+	}
+	
+	//인기게시판 조회
+	public List<Board> gethotboardlist(int memKey){
+	 List<Board> hboard = null;
+	 hboard = memberRepository.gethotboardlist(memKey);
+		return hboard;
+	}
 }

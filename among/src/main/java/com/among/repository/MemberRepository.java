@@ -40,9 +40,13 @@ public interface MemberRepository {
 	//** 회원정보 삭제 메서드 추가 **
 	void setDeleteMember(String memId);		
 	
-	Board setboardlist(int memKey);//boardlist 쿼리문
+	List<Board> setboardlist(int memKey);//boardlist 쿼리문
 
-	Reple setreplelist(int memKey);//replelist 쿼리문
+	List<Reple> setreplelist(int memKey);//replelist 쿼리문
+
+	void setdeleteReple(int repleKey); //reple 삭제 쿼리문
+	
+	List<Board> gethotboardlist(int memKey);//인기게시판 조회
 	
 	
 }

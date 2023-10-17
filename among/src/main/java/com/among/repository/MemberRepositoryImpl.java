@@ -221,15 +221,16 @@ public class MemberRepositoryImpl implements MemberRepository {
    }  	   
    
    //boardlist 출력
-   public Board setboardlist(int memKey) {
-	   Board board = new Board();
+   public List<Board> setboardlist(int memKey) {
+	   List<Board> board = null;
 	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey order by b.memKey = " + memKey;
-	   board = template.queryForObject(SQL, new RowMapper<Board>() {
+	   board = template.query(SQL, new RowMapper<Board>() {
 	         @Override
 	         public Board mapRow(ResultSet rs, int rowNum) {
 	            Board bo = new Board();
 	            try {
 	            	bo.setBoardTitle(rs.getString("boardTitle"));
+	            	bo.setBoardImg(rs.getString("boardImg"));
 	            	bo.setnName(rs.getString("nName"));
 	            	bo.setMemGrade(rs.getInt("memGrade"));
 	            	bo.setBoardCategory(rs.getInt("boardCategory"));
@@ -247,31 +248,43 @@ public class MemberRepositoryImpl implements MemberRepository {
 	      });
 	   return board;
    }
+   //인기게시판 조회 
+   public List<Board> gethotboardlist(int memKey) { 
+   	
+   	//인기게시판 조회 쿼리 작성
+   	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey WHERE board.memKey= " +memKey+ " and boardRecommend >= 50 ORDER BY boardRecommend desc;";
+
+   	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+       
+   	return listOfBoards;
+   }
  //replelist 출력
-   public Reple setreplelist(int memKey) {
-	   Reple rep = new Reple();
+   public List<Reple> setreplelist(int memKey) {
+	   List<Reple> rep = new ArrayList();
 	   String SQL = "select * from reple r inner join member m on r.memKey = m.memKey "
 	   		+ "inner join board b on r.boardKey = b.boardKey order by r.memKey = "+memKey;
-	   rep = template.queryForObject(SQL, new RowMapper<Reple>() {
-	         @Override
-	         public Reple mapRow(ResultSet rs, int rowNum) {
-	            Reple re = new Reple();
-	            try {
-	            	re.setRepleKey(rs.getInt("repleKey"));
-	            	re.setnName(rs.getString("nName"));
-	            	re.setRepleContent(rs.getString("repleContent"));
-	            	re.setBoardCategory(rs.getInt("boardCategory"));
-	            	re.setRepleRegDate(rs.getDate("repleRegDate"));
-	            	re.setMemKey(rs.getInt("memKey"));
-	            	re.setBoardKey(rs.getInt("boardKey"));
-	            	
-	         } catch (SQLException e) {
-	            // TODO Auto-generated catch block
-	            e.printStackTrace();
-	         }
-	            return re;
-	         }
-	      });
+	   RowMapper<Reple> rowMapper = new RowMapper<Reple>() {
+		   @Override
+			public Reple mapRow(ResultSet rs, int rowNum) throws SQLException {
+			   Reple re = new Reple();
+			   re.setRepleKey(rs.getInt("repleKey"));
+			   re.setnName(rs.getString("nName"));
+			   re.setRepleContent(rs.getString("repleContent"));
+			   re.setRepleRegDate(rs.getDate("repleRegDate"));
+			   re.setBoardCategory(rs.getInt("boardCategory"));
+			   re.setBoardKey(rs.getInt("boardKey"));
+			   re.setMemKey(rs.getInt("memKey"));
+			   return re;
+		   }
+	   };
+	   rep = template.query(SQL, rowMapper);
 	   return rep;
    }
+   //reple delete method
+   public void setdeleteReple(int repleKey) {  
+   	
+       String SQL = "DELETE from reple where repleKey = " +repleKey;
+       
+       this.template.update(SQL);
+   }	 
 }

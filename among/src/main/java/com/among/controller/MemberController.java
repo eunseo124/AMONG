@@ -31,6 +31,7 @@ import com.among.domain.Board;
 import com.among.domain.Member;
 import com.among.domain.Reple;
 import com.among.repository.MemberRowMapper;
+import com.among.Service.BoardService;
 import com.among.Service.MemberService;
 
 @Controller
@@ -39,6 +40,7 @@ public class MemberController {
    @Autowired
    private  MemberService memberService;
    private MemberRowMapper mrowmap;
+   private BoardService boardService;
    
   
    //회원가입 페이지 출력
@@ -214,29 +216,116 @@ public class MemberController {
       return "mypage/myupdate";
 
    }
+   
+   //게시글 출력1
    @RequestMapping(value = "/mypost", method = RequestMethod.GET)
    public String mypost(@RequestParam("memKey")int memKey, Model model) {
 
-	  Board boardl = new Board();
+	  List<Board> boardl = null;
 	  boardl = memberService.setboardlist(memKey);
-	  System.out.println("접근완료 boardlist = "+boardl.getnName());
 	  model.addAttribute("boardl",boardl);
       return "mypage/mypost";
 
    }
-   /*
-   @GetMapping("/freeboard")
-   public String freeboard() {
-	   return"board/freeboard";
-   }  */
+   
+   //게시글 출력2//인기게시판
+   @RequestMapping(value = "/mypost2", method = RequestMethod.GET)
+   public String mypost2(@RequestParam("memKey")int memKey, Model model) {
+
+	  List<Board> hboard = null;
+	  hboard = memberService.gethotboardlist(memKey);
+	  model.addAttribute("hboard",hboard);
+      return "mypage/mypost2";
+
+   }
+
+   //게시글 출력3
+   @RequestMapping(value = "/mypost3", method = RequestMethod.GET)
+   public String mypost3(@RequestParam("memKey")int memKey, Model model) {
+
+	  List<Board> boardl = null;
+	  boardl = memberService.setboardlist(memKey);
+	  model.addAttribute("boardl",boardl);
+      return "mypage/mypost3";
+
+   }
+
+   //게시글 출력4
+   @RequestMapping(value = "/mypost4", method = RequestMethod.GET)
+   public String mypost4(@RequestParam("memKey")int memKey, Model model) {
+
+	  List<Board> boardl = null;
+	  boardl = memberService.setboardlist(memKey);
+	  model.addAttribute("boardl",boardl);
+      return "mypage/mypost4";
+
+   }
+
+   //게시글 출력5
+   @RequestMapping(value = "/mypost5", method = RequestMethod.GET)
+   public String mypost5(@RequestParam("memKey")int memKey, Model model) {
+
+	  List<Board> boardl = null;
+	  boardl = memberService.setboardlist(memKey);
+	  model.addAttribute("boardl",boardl);
+      return "mypage/mypost5";
+
+   }
+   
+   //댓글 출력1
    @RequestMapping(value = "/myreply", method = RequestMethod.GET) 
    public String myboardlist(@RequestParam("memKey")int memKey,Model model) {
-	  
-	   Reple rep = null;
+	   
+	   List<Reple> rep = null;
 	   rep = memberService.setreplelist(memKey);
-	   model.addAttribute("rep",rep);
-	   System.out.println("membercontroller nName= "+rep.getnName());
+	   model.addAttribute("replelist",rep);
+	   
 	   return "mypage/myreply";
    }
- 
+   //댓글 출력2
+   @RequestMapping(value = "/myreply2", method = RequestMethod.GET) 
+   public String myboardlist2(@RequestParam("memKey")int memKey,Model model) {
+	   
+	   List<Reple> rep = null;
+	   rep = memberService.setreplelist(memKey);
+	   model.addAttribute("replelist",rep);
+	   
+	   return "mypage/myreply2";
+   }
+   //댓글 출력3
+   @RequestMapping(value = "/myreply3", method = RequestMethod.GET) 
+   public String myboardlist3(@RequestParam("memKey")int memKey,Model model) {
+	   
+	   List<Reple> rep = null;
+	   rep = memberService.setreplelist(memKey);
+	   model.addAttribute("replelist",rep);
+	   
+	   return "mypage/myreply3";
+   }
+   //댓글 출력4
+   @RequestMapping(value = "/myreply4", method = RequestMethod.GET) 
+   public String myboardlist4(@RequestParam("memKey")int memKey,Model model) {
+	   
+	   List<Reple> rep = null;
+	   rep = memberService.setreplelist(memKey);
+	   model.addAttribute("replelist",rep);
+	   
+	   return "mypage/myreply4";
+   }
+   //댓글 출력5
+   @RequestMapping(value = "/myreply5", method = RequestMethod.GET) 
+   public String myboardlist5(@RequestParam("memKey")int memKey,Model model) {
+	   
+	   List<Reple> rep = null;
+	   rep = memberService.setreplelist(memKey);
+	   model.addAttribute("replelist",rep);
+	   
+	   return "mypage/myreply5";
+   } 
+   @PostMapping("/repledelete")
+   public String replede(@ModelAttribute("memKey")int repleKey,int memKey) {
+	   memberService.setdeleteReple(repleKey);
+	   return "redirect:/mypage?memKey = "+ memKey;
+	   
+   }
 }
