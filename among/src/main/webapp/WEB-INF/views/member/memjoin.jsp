@@ -112,8 +112,8 @@
 											  <option value="kakao.com">kakao.com</option>
 											  <option value="">직접입력</option>
 										 	</select>
-                            			<input type="button" value="인증번호 받기" class="idbtn">	
                                     </label>
+                                   
                                     <legend>이름</legend>
                                     <label>
                                         <input type="text" value="" id = "memName" name = "memName" placeholder="이름을 입력하시오">
@@ -238,7 +238,7 @@
 			window.location.href="<c:url value='/member/memjoin_false'/>" 
 			alert("공백없이 입력해주세요");
 		}
-		
+
 		
 </script>
 

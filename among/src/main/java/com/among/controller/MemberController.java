@@ -41,7 +41,6 @@ public class MemberController {
    private  MemberService memberService;
    private MemberRowMapper mrowmap;
    private BoardService boardService;
-   
   
    //회원가입 페이지 출력
    @RequestMapping(value = "/memjoin", method = RequestMethod.GET)
@@ -286,9 +285,9 @@ public class MemberController {
    @RequestMapping(value = "/myreply2", method = RequestMethod.GET) 
    public String myboardlist2(@RequestParam("memKey")int memKey,Model model) {
 	   
-	   List<Reple> rep = null;
-	   rep = memberService.setreplelist(memKey);
-	   model.addAttribute("replelist",rep);
+	   List<Reple> hrep = null;
+	   hrep = memberService.getreplelist(memKey);
+	   model.addAttribute("hotreplelist",hrep);
 	   
 	   return "mypage/myreply2";
    }
@@ -337,4 +336,7 @@ public class MemberController {
 	   System.out.println(memKey);
 	   return "redirect:/mypage?memKey = "+ memKey;
    }
+   
+   //
+   
 }

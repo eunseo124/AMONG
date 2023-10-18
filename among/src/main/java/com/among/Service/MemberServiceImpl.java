@@ -139,4 +139,12 @@ public class MemberServiceImpl implements MemberService {
 		memberRepository.setdelboard(delboard);
 		
 	}
+
+	//인기댓글조회
+	public List<Reple> getreplelist(int memKey){
+		List<Reple> hreple = null;
+		hreple = memberRepository.getreplelist(memKey);
+		return hreple;
+	}
+	
 }

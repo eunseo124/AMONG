@@ -429,7 +429,7 @@ article {
     line-height: 65px;
     margin-left: 30px;
     white-space : nowrap; 
-    width : 500px;
+    width : 400px;
     overflow : hidden; 
     text-overflow : ellipsis; 
 }

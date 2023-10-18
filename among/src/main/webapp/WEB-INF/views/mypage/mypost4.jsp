@@ -106,16 +106,16 @@
 	                                   <c:forEach items="${boardl}" var="boardl">
 	                                   <input type="hidden" id="modifyDate" value="${boardl.boardModifyDate}">
                                 		<c:choose>
-                                		<c:when test = "${boardl.boardCategory eq 3 && boardl.delYn eq 'N'}">
+                                		<c:when test = "${boardl.boardCategory eq 1 && boardl.delYn eq 'N'}">
 	                                    <div class="Htext">
 	                                    <c:choose>
-	                                    	<c:when test = "${boardl.boardImg eq null}">
-	                                        <img src="resources/images/profile.png" id="Himg">
-	                                        </c:when>
-	                                        <c:when test = "${boardl.boardImg ne null}">
-	                                        <img src="resources/images/${boardl.boardImg}" id = "Himg">
-	                                        </c:when>
-	                                        </c:choose>
+                                		<c:when test = "${boardl.boardImg.isEmpty()}">
+                                           <img src="resources/images/profile.png" id="Himg">
+                                           </c:when>
+                                           <c:when test = "${!boardl.boardImg.isEmpty()}">
+                                           <img src="resources/images/${boardl.boardImg}" id = "Himg">
+                                           </c:when>
+                                           </c:choose>
 	                                        <div id = "Btext">${boardl.nName}</div>
 	                                        <div id = "Btext2"><a href = "boardlist?boardKey=${boardl.boardKey}&category=${boardl.boardCategory}">${boardl.boardTitle}</a></div>
 	                                        <c:choose>

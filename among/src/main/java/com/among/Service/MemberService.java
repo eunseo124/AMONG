@@ -68,4 +68,8 @@ public interface MemberService {
 	List<Board> gethotboardlist(int memKey);//인기게시판 조회
 
 	void setdelboard(Board delboard); //게시글 삭제
+	
+	List<Reple> getreplelist(int memKey);//인기댓글조회
 }
+	
+	

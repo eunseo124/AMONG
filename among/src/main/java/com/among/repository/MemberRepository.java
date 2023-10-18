@@ -50,5 +50,6 @@ public interface MemberRepository {
 
 	void setdelboard(Board delboard); //게시글 삭제
 	
+	List<Reple> getreplelist(int memKey);//인기댓글조회
 	
 }

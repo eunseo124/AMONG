@@ -2,15 +2,21 @@ package com.among.repository;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 import com.among.domain.*;
 import com.among.repository.*;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository
@@ -224,7 +230,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    //boardlist 출력
    public List<Board> setboardlist(int memKey) {
 	   List<Board> board = null;
-	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey order by b.memKey = " + memKey;
+	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey where b.memKey = " + memKey;
 	   board = template.query(SQL, new RowMapper<Board>() {
 	         @Override
 	         public Board mapRow(ResultSet rs, int rowNum) {
@@ -264,7 +270,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    public List<Reple> setreplelist(int memKey) {
 	   List<Reple> rep = new ArrayList();
 	   String SQL = "select * from reple r inner join member m on r.memKey = m.memKey "
-	   		+ "inner join board b on r.boardKey = b.boardKey order by r.memKey = "+memKey;
+	   		+ "inner join board b on r.boardKey = b.boardKey where r.memKey = "+memKey;
 	   RowMapper<Reple> rowMapper = new RowMapper<Reple>() {
 		   @Override
 			public Reple mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -276,12 +282,43 @@ public class MemberRepositoryImpl implements MemberRepository {
 			   re.setBoardCategory(rs.getInt("boardCategory"));
 			   re.setBoardKey(rs.getInt("boardKey"));
 			   re.setMemKey(rs.getInt("memKey"));
-			   re.setDelYn(rs.getString("delYn"));
+			   re.setDelYn(rs.getString("b.delYn"));
 			   return re;
 		   }
 	   };
 	   rep = template.query(SQL, rowMapper);
 	   return rep;
+   }
+   //인기게시판 조회 
+   public List<Reple> getreplelist(int memKey) { 
+   	
+   	//인기게시판 댓글 조회 쿼리 작성
+   	String SQL = "SELECT * from reple r INNER JOIN board b ON r.boardKey = b.boardKey "
+   				+ "INNER JOIN member m ON r.memKey = m.memKey WHERE r.memKey = "+ memKey + " and b.boardRecommend >= 50 ORDER BY b.boardRecommend DESC";
+
+   	List<Reple> hlistOfBoards = template.query(SQL, new RowMapper<Reple>() {
+
+		@Override
+		public Reple mapRow(ResultSet rs, int rowNum) throws SQLException {
+			// TODO Auto-generated method stub
+			Reple re = new Reple();
+			   re.setRepleKey(rs.getInt("repleKey"));
+			   re.setnName(rs.getString("nName"));
+			   System.out.println("nName = " + rs.getString("nName"));
+			   re.setRepleContent(rs.getString("repleContent"));
+			   re.setRepleRegDate(rs.getDate("repleRegDate"));
+			   re.setBoardCategory(rs.getInt("boardCategory"));
+			   re.setBoardKey(rs.getInt("boardKey"));
+			   re.setMemKey(rs.getInt("memKey"));
+			   re.setDelYn(rs.getString("b.delYn"));
+			   System.out.println("delYn = " + rs.getString("b.delYn"));
+			   re.setBoardRecommend(rs.getInt("boardRecommend"));
+			return re;
+		}
+   		
+   	});  
+       
+   	return hlistOfBoards;
    }
    //reple delete method
    public void setdeleteReple(int repleKey) {  
@@ -298,5 +335,6 @@ public class MemberRepositoryImpl implements MemberRepository {
 	   template.update(SQL, delboard.getDelYn(), delboard.getBoardKey());
    }
    
-   
+
+		
 }

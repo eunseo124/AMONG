@@ -20,6 +20,7 @@ public class Reple extends HttpServlet {
 	private int memKey;
 	private int boardKey;// 占쎈쐻占쎈셾占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 	private String delYn;
+	private int boardRecommend;
 	
 	public Reple() {
 		super();
@@ -124,6 +125,14 @@ public class Reple extends HttpServlet {
 
 	public void setDelYn(String delYn) {
 		this.delYn = delYn;
+	}
+
+	public int getBoardRecommend() {
+		return boardRecommend;
+	}
+
+	public void setBoardRecommend(int boardRecommend) {
+		this.boardRecommend = boardRecommend;
 	}
 	
 

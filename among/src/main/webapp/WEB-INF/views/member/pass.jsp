@@ -95,8 +95,7 @@
 											  <option value="nate.com">nate.com</option>
 											  <option value="kakao.com">kakao.com</option>
 										 	</select>
-										 	<input type="button" value="인증번호 받기" class="idbtn">	
-                            <input type = "text" value = "" name="idnumber" placeholder = "인증번호를 입력해주세요"> 
+										 	
                             </label>
             				<br>
             				<button type = "submit" id = "su">완료</button>

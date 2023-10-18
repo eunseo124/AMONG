@@ -103,19 +103,26 @@
 					            		<div role="presentation"><h4><a href="myreply5?memKey=${sessionc.memKey}" class="menu_id4" role="tab" aria-selected="false"> 여행 </a></h4></div>
 			            			</div>
                                 	<div class="Htable" aria-controls="loinid">
-	                                    <c:forEach items="${replelist}" var="rep" varStatus="i">
+	                                    <c:forEach items="${hotreplelist}" var="hrep" varStatus="i">
+	                                    <c:choose>
+	                                    <c:when test="${hrep.delYn eq 'N'}">
 	                                    <div class="Htext">
 	                                    	<div id = "Btext">${i.count}</div>
-	                                    	<input type="hidden" value = "${rep.repleKey}">
-	                                        <div id = "Btext">${rep.nName}</div>
-	                                        <div id = "Btext3">${rep.repleContent}</div>
-	                                        <div id = "Hday">${rep.repleRegDate}</div>
-	                                        <input type="hidden" value = "${rep.boardCategory}">
-	                                        <input type="hidden" value = "${rep.boardKey}">
-	                                        <input type="hidden" value = "${rep.memKey}">
+	                                    	<input type="hidden" value = "${hrep.repleKey}">
+	                                        <div id = "Btext">${hrep.nName}</div>
+	                                        <div id = "Btext3">${hrep.repleContent}</div>
+	                                        <div id = "Hday">${hrep.repleRegDate}</div>
+	                                        <input type="hidden" value = "${hrep.boardCategory}">
+	                                        <input type="hidden" value = "${hrep.boardKey}">
+	                                        <input type="hidden" value = "${hrep.memKey}">
+	                                        <form method = "post" action = "repledelete">
+	                                        <input type="hidden" value = "${hrep.repleKey}" id = "repleKey" name = "repleKey">
+	                                        <input type="hidden" value = "${hrep.memKey}" id = "memKey" name = "memKey">
 	                                        <div><input type="submit" value="삭제"></div>
-	                                   
+	                                   		</form>
 	                                    </div>
+	                                    </c:when>
+	                                    </c:choose>
 	                                    </c:forEach>
                                 </div>
                             </div>

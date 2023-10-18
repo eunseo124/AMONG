@@ -14,6 +14,7 @@ public class Member{
 	private String delYn;	//정보 삭제 여부
 	private int memGrade;	//회원 등급 (일반/관리자)
 	private String nName; 	//닉네임eredfad
+	private String Emailok; //이메일 인증번호
 	
 	/* 기본 생성자 */
 	public Member() {
@@ -93,6 +94,16 @@ public class Member{
 	}
 	public void setnName(String nName) {
 		this.nName = nName;
+	}
+
+
+	public String getEmailok() {
+		return Emailok;
+	}
+
+
+	public void setEmailok(String emailok) {
+		Emailok = emailok;
 	}
 	
 }

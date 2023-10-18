@@ -109,10 +109,10 @@
 	                                    <c:when test = "${hboard.delYn eq 'N' }">
 	                                    <div class="Htext">
 	                                    <c:choose>
-	                                    	<c:when test = "${hboard.boardImg eq null}">
+	                                    	<c:when test = "${hboard.boardImg.isEmpty()}">
 	                                        <img src="resources/images/profile.png" id="Himg">
 	                                        </c:when>
-	                                        <c:when test = "${hboard.boardImg ne null}">
+	                                        <c:when test = "${!hboard.boardImg.isEmpty()}">
 	                                        <img src="resources/images/${hboard.boardImg}" id = "Himg">
 	                                        </c:when>
 	                                        </c:choose>
