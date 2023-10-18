@@ -4,6 +4,7 @@ package com.among.Service;
 import java.util.List;
 
 import com.among.domain.Board;
+import com.among.domain.Member;
 import com.among.domain.Reple;
 
 public interface RepleService {
@@ -24,7 +25,11 @@ public interface RepleService {
 		List<Board> setboardlist(int boardKey);//boardlist �뜎�눖�봺�눧占�
 		
 		
-		void setDeleteReple(int repleKey);			
+		void setDeleteReple(int repleKey);		
+		
+		
+		
 	
+
 
 }

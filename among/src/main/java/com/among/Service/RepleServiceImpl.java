@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.among.domain.Board;
+import com.among.domain.Member;
 import com.among.domain.Reple;
 import com.among.repository.BoardRepository;
 import com.among.repository.RepleRepository;
@@ -65,5 +66,12 @@ public class RepleServiceImpl implements RepleService{
 		 public void setDeleteReple(int repleKey) { 
 		       repleRepository.setDeleteReple(repleKey);
 		 }		
+		 
+		 
+		 
+		 
+
+		 
+		 
 
 }

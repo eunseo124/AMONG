@@ -30,6 +30,7 @@ import com.among.Service.AdminService;
 import com.among.Service.RepleService;
 import com.among.Service.BoardService;
 import com.among.domain.Board;
+import com.among.domain.Member;
 import com.among.domain.Reple;
 
 
@@ -68,20 +69,21 @@ public class RepleController {
 	      // getBoardKey
 	     
 	      
-		
-		  List<Board> list = null;
-	      list = repleService.setboardlist(boardKey); //게시판 상세페이지
-	      System.out.println("replecontroller list.getboardTitle = "+list.get(boardKey));
+		  List<Board> list2 = null;
+	      list2 = repleService.setboardlist(boardKey);
 	      
-	      model.addAttribute("list",list);
-	      /*req.setAttribute("repleList", repleList);*/
-	    
+	      List<Reple> repleList = repleService.getRepleList(boardKey);
+	  	  List<Board> list = boardService.getAllBoardList();
+		
+	      model.addAttribute("boardList", list);  
+	      req.setAttribute("repleList", repleList);
+	      model.addAttribute("list",list2);
+	      
 	      return "board/boardlist";
 
 	   }
 	
-	
-	
+
 	
 	
 	

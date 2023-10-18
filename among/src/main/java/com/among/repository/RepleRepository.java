@@ -3,6 +3,7 @@ package com.among.repository;
 import java.util.List;
 
 import com.among.domain.Board;
+import com.among.domain.Member;
 import com.among.domain.Reple;
 
 
@@ -22,6 +23,9 @@ public interface RepleRepository {
 	List<Board> setboardlist(int boardKey);
 	
 	void setDeleteReple(int repleKey);		
-
+		
+	
+	
+	
 
 }

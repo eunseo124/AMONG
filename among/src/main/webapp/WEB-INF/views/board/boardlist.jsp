@@ -95,6 +95,7 @@ aside .joinAndFindPassword a {
                   <div class="info">
                      <div class="title">
                         <span>일반</span>
+                            <h1>${list2.boardTitle}</h1>
                      </div>
                      <div class="etc">
                         <div class="left">
@@ -112,10 +113,16 @@ aside .joinAndFindPassword a {
                   </div>
                   <div class="content ">
                      <figure class="image">
-                        <img
-                           src="https://dzvpypcfjkr44.cloudfront.net/5df8dc651983470793cde08bf668302f.webp">
+                       
+                       <c:choose>
+                        <c:when test = "${list2.boardImg ne null}">
+	                           <img src="resources/images/${list2.boardImg}" id = "boardimage">
+	                   </c:when>
+                      </c:choose>
                      </figure>  
-                     <p>내용${list2.boardContent}</p>
+                     
+                     
+                     <p>${list2.boardContent}</p>
                     
                      
                   </div>
@@ -330,7 +337,18 @@ aside .joinAndFindPassword a {
 
 
 
+	<script>
+        			var category = $("#category").val();
 
+        			console.log(category);
+
+        			$(document).ready(function() {
+        				
+        				$("#boardWrite").on("click", function() {
+        					location.href = "boardwrite?category="+category;
+        				});
+        			});  			
+       </script>
 
 
 
