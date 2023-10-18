@@ -1,16 +1,24 @@
 package com.among.controller;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.among.Service.BoardService;
 import com.among.Service.MemberService;
@@ -43,11 +51,11 @@ public class AdminController {
     }
 	
 
-    //** getUpdateBookForm() ¸Ş¼­µå´Â ¿äÃ» urlÀÌ /update ÀÌ°í Get¹æ½Ä ÀÏ¶§ Ã³¸®ÇÏ´Â ¸Ş¼­µå ÀÔ´Ï´Ù.
+    //** getUpdateBookForm() ë©”ì„œë“œëŠ” ìš”ì²­ urlì´ /update ì´ê³  Getë°©ì‹ ì¼ë•Œ ì²˜ë¦¬í•˜ëŠ” ë©”ì„œë“œ ì…ë‹ˆë‹¤.
     @GetMapping("/admin_member_info")  
     public String getUpdateInfoForm(@ModelAttribute("updateInfo") Member member, @RequestParam("id") String memId, Model model) {
         
-    	//bookService Å¬·¡½ºÀÇ getBookById() ¸Ş¼­µå¸¦ È£ÃâÇÏ¿© ¼öÁ¤ÇÏ·Á´Â µµ¼­ Á¤º¸¸¦ model¿¡ ´ã¾Æ updateForm.jsp ·Î Àü´Ş ÇÕ´Ï´Ù.
+    	//bookService í´ë˜ìŠ¤ì˜ getBookById() ë©”ì„œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ ìˆ˜ì •í•˜ë ¤ëŠ” ë„ì„œ ì •ë³´ë¥¼ modelì— ë‹´ì•„ updateForm.jsp ë¡œ ì „ë‹¬ í•©ë‹ˆë‹¤.
     	Member memberById = memberService.getMemberById(memId);
     	model.addAttribute("member", memberById);
     	      
@@ -55,7 +63,7 @@ public class AdminController {
 
     }  
     
-    //** submitUpdateBookForm() ¸Ş¼­µå´Â ¿äÃ» urlÀÌ /update ÀÌ°í Post¹æ½Ä ÀÏ¶§ Ã³¸®ÇÏ´Â ¸Ş¼­µå ÀÔ´Ï´Ù.
+    //** submitUpdateBookForm() ë©”ì„œë“œëŠ” ìš”ì²­ urlì´ /update ì´ê³  Postë°©ì‹ ì¼ë•Œ ì²˜ë¦¬í•˜ëŠ” ë©”ì„œë“œ ì…ë‹ˆë‹¤.
     @PostMapping("/update") 
     public String submitUpdateInfoForm(@ModelAttribute("updateInfo") Member member) {
 
@@ -64,7 +72,7 @@ public class AdminController {
         return "redirect:/admin_member";
     }
     
-    //member ID ¿¡ ´ëÇÑ ÇØ´ç È¸¿øÁ¤º¸¸¦ µ¥ÀÌÅÍº£ÀÌ½º ¿¡¼­ »èÁ¦ ÇÕ´Ï´Ù.
+    //member ID ì— ëŒ€í•œ í•´ë‹¹ íšŒì›ì •ë³´ë¥¼ ë°ì´í„°ë² ì´ìŠ¤ ì—ì„œ ì‚­ì œ í•©ë‹ˆë‹¤.
     @RequestMapping(value = "/delete") 
     public String getDeleteMemberForm(Model model, @RequestParam("id") String memId) {
         
@@ -74,8 +82,8 @@ public class AdminController {
     }
           
     
-	//°Ô½ÃÆÇ Á¶È¸
-	/* HTTP ¿äÃ» ¹æ½ÄÀÌ GETÀÎ °æ¿ì, @GetMapping À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.*/
+	//ê²Œì‹œíŒ ì¡°íšŒ
+	/* HTTP ìš”ì²­ ë°©ì‹ì´ GETì¸ ê²½ìš°, @GetMapping ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.*/
 	@GetMapping("/adminfreeboard")
 	public String requestAfreeBoardList(Model model) {
 		
@@ -85,8 +93,8 @@ public class AdminController {
 		return "admin/adminfreeboard"; 
 	}
 	
-	//°Ô½ÃÆÇ Á¶È¸
-	/* HTTP ¿äÃ» ¹æ½ÄÀÌ GETÀÎ °æ¿ì, @GetMapping À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.*/
+	//ê²Œì‹œíŒ ì¡°íšŒ
+	/* HTTP ìš”ì²­ ë°©ì‹ì´ GETì¸ ê²½ìš°, @GetMapping ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.*/
 	@GetMapping("/adminfoodboard")
 	public String requestAfoodBoardList(Model model) {
 		
@@ -96,8 +104,8 @@ public class AdminController {
 		return "admin/adminfoodboard"; 
 	}	
 	
-	//°Ô½ÃÆÇ Á¶È¸
-	/* HTTP ¿äÃ» ¹æ½ÄÀÌ GETÀÎ °æ¿ì, @GetMapping À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.*/
+	//ê²Œì‹œíŒ ì¡°íšŒ
+	/* HTTP ìš”ì²­ ë°©ì‹ì´ GETì¸ ê²½ìš°, @GetMapping ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.*/
 	@GetMapping("/admingameboard")
 	public String requestAgameBoardList(Model model) {
 		
@@ -107,8 +115,8 @@ public class AdminController {
 		return "admin/admingameboard"; 
 	}
 
-	//°Ô½ÃÆÇ Á¶È¸
-	/* HTTP ¿äÃ» ¹æ½ÄÀÌ GETÀÎ °æ¿ì, @GetMapping À» »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.*/
+	//ê²Œì‹œíŒ ì¡°íšŒ
+	/* HTTP ìš”ì²­ ë°©ì‹ì´ GETì¸ ê²½ìš°, @GetMapping ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.*/
 	@GetMapping("/admintravelboard")
 	public String requestAtravelBoardList(Model model) {
 		
@@ -129,7 +137,7 @@ public class AdminController {
 
 	   }
 	
-    // replyKey ¿¡ ´ëÇÑ ÇØ´ç ´ñ±ÛÀ» µ¥ÀÌÅÍº£ÀÌ½º ¿¡¼­ »èÁ¦ ÇÕ´Ï´Ù.
+    // replyKey ì— ëŒ€í•œ í•´ë‹¹ ëŒ“ê¸€ì„ ë°ì´í„°ë² ì´ìŠ¤ ì—ì„œ ì‚­ì œ í•©ë‹ˆë‹¤.
     @PostMapping("/delete2" ) 
     public String getDeleteRepleForm(Model model, @RequestParam("repleKey") int repleKey) {
         
@@ -139,17 +147,40 @@ public class AdminController {
     } 	
 	
 	
-    //** getUpdateBookForm() ¸Ş¼­µå´Â ¿äÃ» urlÀÌ /update ÀÌ°í Get¹æ½Ä ÀÏ¶§ Ã³¸®ÇÏ´Â ¸Ş¼­µå ÀÔ´Ï´Ù.
+    //** getUpdateBookForm() ë©”ì„œë“œëŠ” ìš”ì²­ urlì´ /update ì´ê³  Getë°©ì‹ ì¼ë•Œ ì²˜ë¦¬í•˜ëŠ” ë©”ì„œë“œ ì…ë‹ˆë‹¤.
     @GetMapping("/admin_board_view")  
     public String getboardInfoForm(@ModelAttribute("boardUpdateInfo") Board board, @RequestParam("key") int boardKey, Model model) {
         
-    	//bookService Å¬·¡½ºÀÇ getBookById() ¸Ş¼­µå¸¦ È£ÃâÇÏ¿© ¼öÁ¤ÇÏ·Á´Â µµ¼­ Á¤º¸¸¦ model¿¡ ´ã¾Æ updateForm.jsp ·Î Àü´Ş ÇÕ´Ï´Ù.
+    	//bookService í´ë˜ìŠ¤ì˜ getBookById() ë©”ì„œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ ìˆ˜ì •í•˜ë ¤ëŠ” ë„ì„œ ì •ë³´ë¥¼ modelì— ë‹´ì•„ updateForm.jsp ë¡œ ì „ë‹¬ í•©ë‹ˆë‹¤.
     	Board boardByBoardKey = boardService.getBoardByBoardKey(boardKey);
     	model.addAttribute("board", boardByBoardKey);
     	      
         return "admin/admin_board_view";
 
-    }	
+    }
+    
+	@PostMapping(value = "/admin/admin_board_view")
+	@ResponseBody
+	public String Updatebd(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
+			ModelMap modelMap, @ModelAttribute("board") Board board, Model model, MultipartFile[] uploadFile){
+						
+			if (uploadFile != null) {
+				for(MultipartFile multipartFile : uploadFile) {	
+					File savefile = new File("C:\\Users\\Administrator\\git\\AMONG\\among\\src\\main\\webapp\\resources\\images", multipartFile.getOriginalFilename());
+					try {
+						multipartFile.transferTo(savefile);
+					} catch(Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			    boardService.setBoardmodify(board);
+			    System.out.println(board.getBoardContent());
+			    System.out.println(board.getBoardImg());
+			    System.out.println(board.getBoardKey());
+			    System.out.println(board.getBoardTitle());
+			    return "redirect:/admin_member";
+		}  
 	
 }
 	

@@ -106,7 +106,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     public Board getBoardByBoardKey(int boardKey) {
 
     	Board boardInfo = new Board();
-    	String SQL = "select * from board where boardKey = '"+boardKey+"'";
+    	String SQL = "select * from board b inner join member m on b.memKey = m.memKey where b.boardKey = '"+boardKey+"'";
     	boardInfo = template.queryForObject(SQL, new RowMapper<Board>() {
     		@Override
     		public Board mapRow(ResultSet rs, int rowNum) {
@@ -117,6 +117,10 @@ public class BoardRepositoryImpl implements BoardRepository {
     				bod.setBoardCategory(rs.getInt("boardCategory"));
     				bod.setBoardContent(rs.getString("boardContent"));
     				bod.setBoardImg(rs.getString("boardImg"));
+    				bod.setBoardRecommend(rs.getInt("boardRecommend"));
+    				bod.setnName(rs.getString("nName"));
+    				bod.setDelYn(rs.getString("b.delYn"));
+    				
     			} catch (SQLException e) {
     				e.printStackTrace();
     			}
@@ -125,7 +129,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     	});
     	return boardInfo;
 
-    }     
+    }        
     
     public void setbodRecommend(int boardKey) {
     	

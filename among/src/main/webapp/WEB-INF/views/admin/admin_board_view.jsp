@@ -311,12 +311,12 @@
 	        		   </dd>
         		   </dl>
         		   <dl>
-	        		   <dt>아이디</dt>
-	        		   <dd>admin</dd>
+	        		   <dt>작성자</dt>
+	        		   <dd>${board.nName}</dd>
         		   </dl>
         		   <dl>
 	        		   <dt>추천수</dt>
-	        		   <dd>221</dd>
+	        		   <dd>${board.boardRecommend}</dd>
         		   </dl>
 			       <dl>
 			           <dt>삭제여부</dt>
@@ -325,11 +325,7 @@
 			       </dl>	        		          		           		           		           		           		   
         		   </div>
         		   <div class="board_cont">
-        		   글 내용이 들어갑니다.<br>
-        		   글 내용이 들어갑니다.<br>
-        		   글 내용이 들어갑니다.<br>
-        		   글 내용이 들어갑니다.<br>
-        		   글 내용이 들어갑니다.<br>
+					${board.boardContent}
         		   </div>
         		  </div>	        		  
 			      
