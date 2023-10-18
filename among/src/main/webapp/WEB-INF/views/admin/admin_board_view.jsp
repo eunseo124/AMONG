@@ -123,8 +123,8 @@
 		
 		
 		.wrap {
-		    width: 700px;
-		    height: 600px;
+		    width: 1000px;
+		    height: 800px;
 		    margin: 0 auto;
 		    padding: 50px;
 		    box-sizing: border-box;
@@ -142,30 +142,7 @@
 		    margin-top: 30px;
 		}
 		
-		.wrap dl {
-		    margin-top: 10px;
-		    font-size: 0;
-		}
-		
-		.wrap dl:first-child {
-		    margin-top: 0;
-		}
-		
-		.wrap dt,
-		.wrap dd {
-		    display: inline-block;
-		    vertical-align: middle;
-		    font-size: 14px;
-		    margin: 10px auto 0 auto;
-		}
-		
-		.wrap dt {
-		    width: 30%;
-		}
-		
-		.wrap dd {
-		    width: 70%;
-		}
+
 		
 		.wrap input[type="text"],
 		.wrap input[type="password"],
@@ -192,6 +169,66 @@
 		
 		.wrap #box {
 			text-align: center;
+		}
+		
+		.board_view {
+		border-top: 2px solid #000;
+		}
+		
+		.board_view .board_title {
+		padding: 20px 15px;
+		border-bottom: 1px dashed #ddd;
+		font-size: 2rem;
+		}
+		
+		.board_view .board_info {
+		padding: 15px;
+		border-bottom: 1px solid #999;
+		}
+		
+		.board_view .board_info dl{
+		display: inline-block;
+		padding: 5px 20px;
+		position: relative;
+		}
+		
+		.board_view .board_info dl:first-child{
+		padding-left: 0;
+		}		
+
+		.board_view .board_info dl::before{
+		content: "";
+		position: absolute;
+		top: 1px;
+		left: 0;
+		display: block;
+		width: 1px;
+		height: 13px;
+		background: #ddd;
+		}
+			
+		.board_view .board_info dl:first-child::before{	
+		display: none;
+		}	
+		
+		.board_view .board_info dl dt,
+		.board_view .board_info dl dd {
+		display: inline-block;		
+		}
+		
+		.board_view .board_info dl dt {
+			
+		}
+		
+		.board_view .board_info dl dd {
+		margin-left: 10px;
+		color: #777;	
+		}
+		
+		.board_view .board_cont{
+		padding: 15px;
+		border-bottom: 1px solid #ddd;
+		line-height: 160%;
 		}
 		
     </style>
@@ -254,45 +291,55 @@
         <article id = "postList">
         	<section id = "postList">
         		<div id = "title"><h1>게시판 관리</h1></div>
-        		 <div id ="info">
-			        <div class="wrap">
-			            <h1>게시판 상세정보</h1>		             
-			            <form action="./update" method="post">
-			                <dl>
-			                    <dt>아이디</dt>
-			                    <dd><input type="text" id="memId" name="memId" placeholder="아이디 입력" readonly="readonly" value="${member.memId}"></dd>
-			                </dl>
-			                <dl>
-			                    <dt>상세내용</dt>
-			                    <dd><textarea id="memPw" name="memPw" value="${member.memPw}"></textarea></dd>
-			                </dl>
-			                <dl>
-			                    <dt>닉네임</dt>
-			                    <dd><input type="text" id="nName" name="nName" placeholder="이름 입력" value="${member.nName}"></dd>
-			                </dl>                  
-               
-			                <dl>
-			                    <dt>이름</dt>
-			                    <dd><input type="text" id="memName" name="memName" placeholder="이름 입력" readonly="readonly" value="${member.memName}"></dd>
-			                </dl>
-			                <dl>
-			                    <dt>주민번호</dt>
-			                    <dd><input type="text" id="memResident1" name="memResident1" placeholder="이름 입력" readonly="readonly" value="${member.memResident1}">-
-			             	        <input type="text" id="memResident2" name="memResident2" placeholder="이름 입력" readonly="readonly" value="${member.memResident2}">
-			                    </dd>
-			                </dl>
-			                <dl>
-			                    <dt>가입일시</dt>
-			                    <dd><input type="text" id="memJoinDate" name="memJoinDate" placeholder="이름 입력" readonly="readonly" value="${member.memJoinDate}"></dd>
-			                </dl>		
-			                <br>
-			                <div id="box">
-			                <input type="hidden" id="memGrade" name="memGrade" value="${member.memGrade}">
-			                <input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
-			                <input type="button" value="뒤로" onclick="history.go(-1)">
-			                </div>
-			            </form>
-			        </div>
+        		 <div class ="wrap">
+        		  <h1>게시판 상세 정보</h1>		   
+        		  <div class = "board_view">
+        		   <div class = "board_title">
+					${board.boardTitle}
+        		   </div>
+        		   <div class="board_info">
+        		   <c:set var = "boardCategory" value = "${board.boardCategory}"/>
+        		   <dl>
+	        		   <dt>카테고리</dt>
+	        		   <dd>
+	        		   <c:choose>
+		              	<c:when test = "${boardCategory eq '1'}"><%out.print("자유게시판"); %></c:when>
+						<c:when test = "${boardCategory eq '2'}"><%out.print("게임게시판"); %></c:when>
+						<c:when test = "${boardCategory eq '3'}"><%out.print("맛집게시판"); %></c:when>
+						<c:when test = "${boardCategory eq '4'}"><%out.print("여행게시판"); %></c:when>
+                       </c:choose>
+	        		   </dd>
+        		   </dl>
+        		   <dl>
+	        		   <dt>아이디</dt>
+	        		   <dd>admin</dd>
+        		   </dl>
+        		   <dl>
+	        		   <dt>추천수</dt>
+	        		   <dd>221</dd>
+        		   </dl>
+			       <dl>
+			           <dt>삭제여부</dt>
+			           <dd><input name="delYn" type="radio" value="Y" <c:if test="${board.delYn eq 'Y'}">checked</c:if>></input> Y &nbsp;&nbsp;  
+			           <input name="delYn" type="radio" value="N" <c:if test="${board.delYn eq 'N'}">checked</c:if>></input> N</dd>                    		                    
+			       </dl>	        		          		           		           		           		           		   
+        		   </div>
+        		   <div class="board_cont">
+        		   글 내용이 들어갑니다.<br>
+        		   글 내용이 들어갑니다.<br>
+        		   글 내용이 들어갑니다.<br>
+        		   글 내용이 들어갑니다.<br>
+        		   글 내용이 들어갑니다.<br>
+        		   </div>
+        		  </div>	        		  
+			      
+			      <br>
+			                
+			      <div id="box">
+			      <input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
+			      <input type="button" value="뒤로" onclick="history.go(-1)">
+			      </div>        		  
+        		
         		 </div>
         	</section>
         </article>

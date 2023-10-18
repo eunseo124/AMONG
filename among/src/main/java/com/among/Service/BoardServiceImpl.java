@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.among.domain.Board;
+import com.among.domain.Member;
 import com.among.repository.BoardRepository;
 
 @Service
@@ -46,4 +47,10 @@ public class BoardServiceImpl implements BoardService {
 		 
 		boardRepository.setBoardmodify(board);
 	 }
+	 
+	 //BookRepository 클래스 getBookById() 메서드 호출
+	 public Board getBoardByBoardKey(int boardKey) {
+		 	Board boardByBoardKey = boardRepository.getBoardByBoardKey(boardKey);
+	        return boardByBoardKey;
+	 }	 
 }

@@ -205,7 +205,7 @@
         		        <td>${board.boardTitle}</td>
         		        <td>${board.boardRegDate}</td>
         		        <td>${board.boardView}</td>   		        
-        		        <td><button><a href="#">View</a></button></td>        		        
+        		        <td><button><a href="<c:url value="/admin_board_view?key=${board.boardKey}" />">View</a></button></td>  		                		        
         		        <td style="text-align:center;">${board.delYn}</td> 
         		       </tr>
 						</c:if>

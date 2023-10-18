@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.among.domain.Board;
+import com.among.domain.Member;
 
 @Repository
 public class BoardRepositoryImpl implements BoardRepository {
@@ -105,6 +106,31 @@ public class BoardRepositoryImpl implements BoardRepository {
     			board.getBoardImg(),
     			board.getBoardKey());
     }
+    
+
+    public Board getBoardByBoardKey(int boardKey) {
+
+    	Board boardInfo = new Board();
+    	String SQL = "select * from board where boardKey = '"+boardKey+"'";
+    	boardInfo = template.queryForObject(SQL, new RowMapper<Board>() {
+    		@Override
+    		public Board mapRow(ResultSet rs, int rowNum) {
+    			Board bod = new Board();
+    			try {
+    				bod.setBoardTitle(rs.getString("boardTitle"));
+    				bod.setBoardKey(rs.getInt("boardKey"));
+    				bod.setBoardCategory(rs.getInt("boardCategory"));
+    				bod.setBoardContent(rs.getString("boardContent"));
+    				bod.setBoardImg(rs.getString("boardImg"));
+    			} catch (SQLException e) {
+    				e.printStackTrace();
+    			}
+    			return bod;
+    		}
+    	});
+    	return boardInfo;
+
+    }     
     
     
 }

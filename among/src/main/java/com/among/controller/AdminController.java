@@ -138,13 +138,18 @@ public class AdminController {
     	return "redirect:/admin_comment";
     } 	
 	
-	//게시판 조회
-	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
-	@RequestMapping("/admin_board_view")
-	public String admin_board_view() {
-		
-		return "admin/admin_board_view"; 
-	}	
+	
+    //** getUpdateBookForm() 메서드는 요청 url이 /update 이고 Get방식 일때 처리하는 메서드 입니다.
+    @GetMapping("/admin_board_view")  
+    public String getboardInfoForm(@ModelAttribute("boardUpdateInfo") Board board, @RequestParam("key") int boardKey, Model model) {
+        
+    	//bookService 클래스의 getBookById() 메서드를 호출하여 수정하려는 도서 정보를 model에 담아 updateForm.jsp 로 전달 합니다.
+    	Board boardByBoardKey = boardService.getBoardByBoardKey(boardKey);
+    	model.addAttribute("board", boardByBoardKey);
+    	      
+        return "admin/admin_board_view";
+
+    }	
 	
 }
 	
