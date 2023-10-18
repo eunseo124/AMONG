@@ -12,7 +12,7 @@ import com.among.repository.BoardRepository;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-	@Autowired //@Autowired ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Þ¼ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½Çµï¿½ BookRepository Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ getAllBookList() ï¿½Þ¼ï¿½ï¿½å¸¦ È£ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+	@Autowired 
 	 private BoardRepository boardRepository;
 	 
 	 public List<Board> getAllBoardList() { 
@@ -48,9 +48,14 @@ public class BoardServiceImpl implements BoardService {
 		boardRepository.setBoardmodify(board);
 	 }
 	 
-	 //BookRepository Å¬·¡½º getBookById() ¸Þ¼­µå È£Ãâ
 	 public Board getBoardByBoardKey(int boardKey) {
 		 	Board boardByBoardKey = boardRepository.getBoardByBoardKey(boardKey);
 	        return boardByBoardKey;
 	 }	 
+	 
+	 public void setbodRecommend(int boardKey) {
+		  
+		   boardRepository.setbodRecommend(boardKey);
+		   
+	 }
 }

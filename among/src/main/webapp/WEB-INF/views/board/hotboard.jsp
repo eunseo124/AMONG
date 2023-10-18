@@ -86,40 +86,6 @@
         		</section>
         		<section id = "generalList">
         			<div class = "items">
-        			
-        			<!-- 공지&관리자용 게시판 -->
-        			<c:forEach items="${boardList}" var="board">
-        			<c:set var = "memGrade" value="${board.memGrade}"/>
-        			<c:choose>
-        			<c:when test="${memGrade == 2}">
-        			<a href="boardlist?boardKey=${board.boardKey}&category=${board.boardCategory}" class="notice">
-        					<span class="subject">공지</span>
-        					<div class="info">
-        						<div class="title">
-        							<span class="text">${board.boardTitle}</span>
-        							<div class="etc">
-        							<div id="nickName">
-        								<img src="resources/images/banner.jpg">
-        								<div>${board.nName}</div>
-        							</div>
-        							<c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
-        							<c:set var = "boardRegDate" value = "${board.boardRegDate}"/>
-        							<c:choose>
-        							<c:when test = "${boardModifyDate != boardRegDate}">
-        								<div>${boardModifyDate}(수정됨)</div>
-        							</c:when>
-        							<c:otherwise>
-        								<div>${boardRegDate}</div>
-        							</c:otherwise>
-        							</c:choose>
-        						</div>
-        						</div>
-        					</div>
-        				</a>
-        				<div class="line"></div>
-        				</c:when>
-        				</c:choose>
-        				</c:forEach>
         				
         				<!-- 유저용 게시판 -->
         				<c:forEach items="${boardList}" var="board">

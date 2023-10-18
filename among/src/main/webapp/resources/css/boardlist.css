@@ -997,8 +997,8 @@ main .search input {
 
 
 @charset "UTF-8";
-°Ô½ÃÆÇ css
-/*°Ô½ÃÆÇÆäÀÌÁö*/
+ï¿½Ô½ï¿½ï¿½ï¿½ css
+/*ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 article {
    	flex: 1;
     width: 100%;
@@ -1018,7 +1018,7 @@ article {
 
 
 
-/*°Ô½ÃÆÇ ÀÌ¸§*/
+/*ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½*/
 #title {
     background-color: #fff;
     padding: 10px 20px;
@@ -1032,7 +1032,7 @@ article {
     margin-top: 3px;
 }
 
-/*°Ô½ÃÆÇ*/
+/*ï¿½Ô½ï¿½ï¿½ï¿½*/
 #generalList .items {
     display: flex;
     flex-direction: column;
@@ -1047,7 +1047,7 @@ article {
     gap: 20px;
     padding: 15px;
 }
-/*°øÁö±Û*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 #generalList .notice .subject {
     color: black;
     background-color: #cacfd8;
@@ -1097,7 +1097,7 @@ article {
     flex-direction: row;
     align-content: center;
 }
-/*°Ô½Ã±Û*/
+/*ï¿½Ô½Ã±ï¿½*/
 #generalList .item .image {
     position: relative;
     width: 70px;
@@ -1161,7 +1161,7 @@ article {
     margin: 0 15px;
     border-bottom: 2px solid #ede9e9;
 }
-/*Á¤·Ä*/
+/*ï¿½ï¿½ï¿½ï¿½*/
 #sort {
     background-color: gainsboro;
     height: 40px;
@@ -1170,12 +1170,11 @@ article {
     display: block;
 }
 #sort .subject {
-    padding: 8px;
     color: black;
 }
 
-/*¹Ù´Ú*/
-/*±ÛÀÛ¼º, ±Û¼öÁ¤*/
+/*ï¿½Ù´ï¿½*/
+/*ï¿½ï¿½ï¿½Û¼ï¿½, ï¿½Û¼ï¿½ï¿½ï¿½*/
 #postList .write {
     display: flex;
     justify-content: flex-end;
@@ -1194,7 +1193,7 @@ article {
     border-radius: 8px;
 }
 }
-/*°Ë»öÃ¢*/
+/*ï¿½Ë»ï¿½Ã¢*/
 .search {
     display: flex;
     justify-content: center;
@@ -1216,7 +1215,7 @@ article {
     border-radius: 8px;
     border: unset;
 }
-/*Â÷·Ê*/
+/*ï¿½ï¿½ï¿½ï¿½*/
 #table {
 	display: flex;
 	justify-content: center;

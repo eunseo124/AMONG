@@ -201,7 +201,7 @@
 				}
 
 				
-				if(confirm("작성하시겠습니까?")) {
+				if(confirm("수정하시겠습니까?")) {
 				$.ajax ({
 					url: "<c:url value='/board/boardmodi'/>",
 					type: "post",

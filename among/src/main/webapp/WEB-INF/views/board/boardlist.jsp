@@ -61,6 +61,38 @@ aside .joinAndFindPassword a {
 .material-symbols-outlined {
    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
 }
+
+		/*글꼴*/
+		@font-face {
+		    font-family: 'Pretendard-Regular';
+		    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+		    font-weight: 400;
+		    font-style: normal;
+		}
+		@font-face {
+		    font-family: 'HakgyoansimWoojuR';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		@font-face {
+		    font-family: 'GangwonState';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		@font-face {
+		    font-family: 'SBAggroB';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		@font-face {
+		    font-family: 'iceSotong-Rg';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceSotong-Rg.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		}
 </style>
 <title>AMONG</title>
 </head>
@@ -79,7 +111,7 @@ aside .joinAndFindPassword a {
          <!-- 본문내용 -->
          <article id="index ">
 	 <input type="hidden" name="boardKey" id="boardKey" value="${param.boardKey}">
-
+	 <input type = "hidden" value = "<c:out value = '${sessionc.memKey}'/>" id = "memKey">	
 
 
  <c:forEach items="${list}" var="list2">
@@ -115,7 +147,7 @@ aside .joinAndFindPassword a {
                      <figure class="image">
                        
                        <c:choose>
-                        <c:when test = "${list2.boardImg ne null}">
+                        <c:when test = "${!list2.boardImg.isEmpty()}">
 	                           <img src="resources/images/${list2.boardImg}" id = "boardimage">
 	                   </c:when>
                       </c:choose>
@@ -133,13 +165,16 @@ aside .joinAndFindPassword a {
                   <div class="buttons">
                      <div class="left">
                         <a href="home">
-                           <button >홈으로</button>
+                           <button>홈으로</button>
                         </a>
                      </div>
+                     <c:choose>
+        			 <c:when test = "${memKey!=null}">
                      <div class="right">
-                        <button onclick="share()">공유</button>
-                        <button form="like">추천</button>
+                        <button form="like" onClick="rec()">추천</button>
                      </div>
+                     </c:when>
+                     </c:choose>
                   </div>
 
 
@@ -354,6 +389,8 @@ aside .joinAndFindPassword a {
 
 <script>
 var boardKey = $("#boardKey").val();
+var memKey = $("#memKey").val();
+console.log(memKey);
 console.log(boardKey);
 function saveReple() {
 
@@ -362,7 +399,6 @@ function saveReple() {
    const repl = document.getElementById("repleContent").value;
     let joinForm = document.getElementById("memKey").value;
     
-
    $.post("http://localhost:8080/get/repl/save", {
       repleContent : repl,
       repleRegDate : new Date(),
@@ -372,11 +408,39 @@ function saveReple() {
    }, function(responseData) {
       // 성공적으로 응답을 받았을 때 처리할 코드
       console.log("success");
+      location.reload();
       // console.log(responseData);
    }).fail(function(xhr, status, error) {
       // 에러 발생 시 처리할 코드
       console.error('AJAX 요청 에러:', error);
+      alert("로그인이 필요한 서비스입니다.");
    });
+
+}
+
+$(document).ready(function () {
+	
+	$.ajax ({
+		url: "<c:url value='/board/upView'/>",
+		type: "post",
+		dataType: "text",
+		data: {"boardKey":boardKey}
+	});
+});
+
+function rec() {
+	if(confirm("이 게시물을 추천하시겠습니까?")) {
+		$.ajax ({
+			url: "<c:url value='/board/recommend'/>",
+			type: "post",
+			dataType: "text",
+			data: {"boardKey":boardKey},
+			success: function(Data) {
+				alert("추천하였습니다.");
+				location.reload();
+			}
+		});
+	}
 }
    
    

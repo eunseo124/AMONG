@@ -36,8 +36,6 @@ public class BoardController {
 		return "board/boardmodify"; 
 	}*/
 	
-	//�Խ��� ��ȸ
-	/* HTTP ��û ����� GET�� ���, @GetMapping �� ����� �� �ֽ��ϴ�.*/
 	//자유게시판
 	@GetMapping("/freeboard")
 	public String requestBoardList(Model model) { 
@@ -96,7 +94,7 @@ public class BoardController {
 	}
 	
 	//조회수증가
-	@RequestMapping(value = "/upView", method = RequestMethod.POST) 
+	@RequestMapping(value = "/board/upView", method = RequestMethod.POST) 
     public String setbodView(Model model, @RequestParam("boardKey") int boardKey) {
         
     	boardService.setbodView(boardKey);
@@ -142,7 +140,15 @@ public class BoardController {
 			    System.out.println(board.getBoardKey());
 			    System.out.println(board.getBoardTitle());
 			    return "redirect:/home";
-		}
+	}
 	
+	//게시판 추천기능
+	@RequestMapping(value = "/board/recommend", method = RequestMethod.POST) 
+    public String setbodRec(Model model, @RequestParam("boardKey") int boardKey) {
+        
+    	boardService.setbodRecommend(boardKey);
+        
+    	return "redirect:/home";
+    }
 		
 }
