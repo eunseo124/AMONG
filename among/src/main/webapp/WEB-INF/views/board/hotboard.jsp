@@ -55,13 +55,20 @@
             color: black;
         }
 
-	.material-symbols-outlined {
+		.material-symbols-outlined {
             font-variation-settings:
                 'FILL' 0,
                 'wght' 400,
                 'GRAD' 0,
                 'opsz' 24
         }
+        .title .subject {
+		    color: black;
+		    background-color: #cacfd8;
+		    padding: 0 6px;
+		    margin-right: 4px;
+		    border-radius: 4px;
+		    height: 20px;
     </style>
     <title>AMONG</title>
 </head>
@@ -106,10 +113,36 @@
         					</c:otherwise>
         					</c:choose>	
         					<div class="info">
-        						<div class="title">
-        							<span class="textBanner">Hot</span>
-        							<span class="text">${board.boardTitle}</span>
-        						</div>
+        						<c:choose>
+        							<c:when test = "${board.boardCategory == 1}">
+		        						<div class="title">
+		        							<span class="textBanner">BEST</span>
+		        							<span class="subject">자유게시판</span>
+		        							<span class="text">${board.boardTitle}</span>
+		        						</div>
+	        						</c:when>
+	        						<c:when test = "${board.boardCategory == 2}">
+		        						<div class="title">
+		        							<span class="textBanner">BEST</span>
+		        							<span class="subject">게임게시판</span>
+		        							<span class="text">${board.boardTitle}</span>
+		        						</div>
+	        						</c:when>
+	        						<c:when test = "${board.boardCategory == 3}">
+		        						<div class="title">
+		        							<span class="textBanner">BEST</span>
+		        							<span class="subject">맛집게시판</span>
+		        							<span class="text">${board.boardTitle}</span>
+		        						</div>
+	        						</c:when>
+	        						<c:when test = "${board.boardCategory == 4}">
+		        						<div class="title">
+		        							<span class="textBanner">BEST</span>
+		        							<span class="subject">여행게시판</span>
+		        							<span class="text">${board.boardTitle}</span>
+		        						</div>
+	        						</c:when>
+        						</c:choose>
         						<div class="etc">
         							<c:choose>
         								<c:when test = "${board.boardCategory == 1}">

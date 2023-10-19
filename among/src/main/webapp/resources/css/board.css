@@ -120,7 +120,7 @@ article {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 5px;
+    gap: 3px;
 }
 #generalList .item .title .text {
     font-weight: bold;
