@@ -96,12 +96,12 @@
         					<c:choose>
         					<c:when test="${!board.boardImg.isEmpty()}">
         						<div class="image">
-        							<img src="resources/images/${board.boardImg}">
+        							<img style="border: 0px;" src="resources/images/${board.boardImg}">
         						</div>
         					</c:when>
         					<c:otherwise>
         						<div class="image">
-        							<img src="resources/images/profile.png">
+        							<img style="border: 0px;" src="resources/images/profile.png">
         						</div>
         					</c:otherwise>
         					</c:choose>	
@@ -111,10 +111,32 @@
         							<span class="text">${board.boardTitle}</span>
         						</div>
         						<div class="etc">
-        							<div id="nickName">
-        								<img src="resources/images/banner.jpg">
-        								<div>${board.nName}</div>
-        							</div>
+        							<c:choose>
+        								<c:when test = "${board.boardCategory == 1}">
+		        							<div id="nickName">
+		        								<img src="resources/images/profile.png">
+		        								<div>${board.nName}</div>
+		        							</div>
+	        							</c:when>
+	        							<c:when test = "${board.boardCategory == 2}">
+		        							<div id="nickName">
+		        								<img src="resources/images/gameUserIcon.png">
+		        								<div>${board.nName}</div>
+		        							</div>
+	        							</c:when>
+	        							<c:when test = "${board.boardCategory == 3}">
+		        							<div id="nickName">
+		        								<img src="resources/images/foodUserIcon.png">
+		        								<div>${board.nName}</div>
+		        							</div>
+	        							</c:when>
+	        							<c:when test = "${board.boardCategory == 4}">
+		        							<div id="nickName">
+		        								<img src="resources/images/travelUserIcon.png">
+		        								<div>${board.nName}</div>
+		        							</div>
+	        							</c:when>
+        							</c:choose>	
         							<input type="hidden" name="boardKey" value="${board.boardKey}">
         							<div>조회수 ${board.boardView}</div>
         							<div>댓글 ${board.repleCount}</div>

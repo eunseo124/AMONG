@@ -100,7 +100,7 @@
         							<span class="text">${board.boardTitle}</span>
         							<div class="etc">
         							<div id="nickName">
-        								<img src="resources/images/banner.jpg">
+        								<img src="resources/images/profileAdminIcon.png">
         								<div>${board.nName}</div>
         							</div>
         							<c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
@@ -131,12 +131,12 @@
         					<c:choose>
         					<c:when test="${!board.boardImg.isEmpty()}">
         						<div class="image">
-        							<img src="resources/images/${board.boardImg}">
+        							<img style="border: 0px;" src="resources/images/${board.boardImg}">
         						</div>
         					</c:when>
         					<c:otherwise>
         						<div class="image">
-        							<img src="resources/images/profile.png">
+        							<img style="border: 0px;" src="resources/images/profile.png">
         						</div>
         					</c:otherwise>
         					</c:choose>	
@@ -146,7 +146,7 @@
         						</div>
         						<div class="etc">
         							<div id="nickName">
-        								<img src="resources/images/banner.jpg">
+        								<img src="resources/images/profile.png">
         								<div>${board.nName}</div>
         							</div>
         							<input type="hidden" name="boardKey" value="${board.boardKey}">
