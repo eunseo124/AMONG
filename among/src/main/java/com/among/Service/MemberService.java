@@ -70,6 +70,10 @@ public interface MemberService {
 	void setdelboard(Board delboard); //게시글 삭제
 	
 	List<Reple> getreplelist(int memKey);//인기댓글조회
+	
+	Board boardcount(int memKey); //index페이지 회원이 쓴 게시물, 댓글 개수 method
+	
+	Reple replecount(int memKey); //index페이지 회원이 쓴 게시물, 댓글 개수 method
 }
 	
 	

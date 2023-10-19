@@ -44,8 +44,8 @@
                             </p>
                         </div>
                         <div id="Aboard">
-                            <p>게시글 : 1개 <br>
-                                <br> 댓글 : 1개
+                            <p>게시글 : ${sessionb.boardKey}개 <br>
+                                <br> 댓글 : ${sessionb.repleKey}개
                             </p>
                             <form name = "logout" method = "post" action = "logout/logout_proc">
                             <button id="Alogout">로그아웃<span class="material-symbols-outlined">

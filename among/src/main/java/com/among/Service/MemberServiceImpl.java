@@ -147,4 +147,18 @@ public class MemberServiceImpl implements MemberService {
 		return hreple;
 	}
 	
+	//index페이지 회원이 쓴 게시물, 댓글 개수 method
+	public Board boardcount(int memKey) {
+		Board countbo = new Board();
+		countbo = memberRepository.boardcount(memKey);
+		return countbo;
+	}
+	
+	//index페이지 회원이 쓴 게시물, 댓글 개수 method
+	public Reple replecount(int memKey) {
+		Reple countre = new Reple();
+		countre = memberRepository.replecount(memKey);
+		return countre;
+	}
+	
 }

@@ -335,6 +335,42 @@ public class MemberRepositoryImpl implements MemberRepository {
 	   template.update(SQL, delboard.getDelYn(), delboard.getBoardKey());
    }
    
+   //index페이지 회원이 쓴 게시물, 댓글 개수 method
+   //board
+   public Board boardcount(int memKey) {
+	   Board countbo = new Board();
+	   String SQL = "SELECT COUNT(*) from board b INNER JOIN member m ON b.memKey = m.memKey "
+	   		+ "WHERE b.memKey = " + memKey;
+	   countbo = template.queryForObject(SQL, new RowMapper<Board>() {
+		@Override
+		public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
+			// TODO Auto-generated method stub
+			Board bod = new Board();
+			bod.setBoardKey(rs.getInt(1));
+			System.out.println("boardKey =" +rs.getInt(1));
+			return bod;
+		}
+	   });
+	   return countbo;	   
+   }
+   
+   //reple
+   public Reple replecount(int memKey) {
+	   Reple countre = new Reple();
+	   String SQL = "SELECT COUNT(*) from reple r INNER JOIN member m ON r.memKey = m.memKey "
+	   		+ "WHERE r.memKey = " + memKey;
+	   countre = template.queryForObject(SQL, new RowMapper<Reple>() {
 
+		@Override
+		public Reple mapRow(ResultSet rs, int rowNum) throws SQLException {
+			// TODO Auto-generated method stub
+			Reple rep = new Reple();
+			rep.setRepleKey(rs.getInt(1));
+			System.out.println("repleKey =" +rs.getInt(1));
+			return rep;
+		}
+	   });
+	   return countre;	   
+   }
 		
 }

@@ -82,26 +82,31 @@ public class MemberController {
       
           Member mem = memberService.getlogin(member.getMemId(), member.getMemPw());
           
-          model.addAttribute("memberList", mem);
-          
           Member sessionc  = new Member();
           
-         sessionc.setMemKey(mem.getMemKey());
-         sessionc.setMemId(mem.getMemId());
-         sessionc.setMemPw(mem.getMemPw());
-         sessionc.setMemEmail1(mem.getMemEmail1());
-         sessionc.setMemEmail2(mem.getMemEmail2());
-         sessionc.setMemName(mem.getMemName());
-         sessionc.setMemResident1(mem.getMemResident1());
-         sessionc.setMemResident2(mem.getMemResident2());
-         sessionc.setMemJoinDate(mem.getMemJoinDate());
-         sessionc.setDelYn(mem.getDelYn());
-         sessionc.setMemGrade(mem.getMemGrade());
-         sessionc.setnName(mem.getnName());
-         session.setAttribute("sessionc", sessionc);
-         session.setAttribute("nName", mem.getnName());
-         session.setAttribute("memKey", mem.getMemKey());
-         session.setAttribute("memGrade", mem.getMemGrade());
+          sessionc.setMemKey(mem.getMemKey());
+          sessionc.setMemId(mem.getMemId());
+          sessionc.setMemPw(mem.getMemPw());
+          sessionc.setMemEmail1(mem.getMemEmail1());
+          sessionc.setMemEmail2(mem.getMemEmail2());
+          sessionc.setMemName(mem.getMemName());
+          sessionc.setMemResident1(mem.getMemResident1());
+          sessionc.setMemResident2(mem.getMemResident2());
+          sessionc.setMemJoinDate(mem.getMemJoinDate());
+          sessionc.setDelYn(mem.getDelYn());
+          sessionc.setMemGrade(mem.getMemGrade());
+          sessionc.setnName(mem.getnName());
+          session.setAttribute("sessionc", sessionc);
+          session.setAttribute("nName", mem.getnName());
+          session.setAttribute("memKey", mem.getMemKey());
+          session.setAttribute("memGrade", mem.getMemGrade());
+          Board countbo = memberService.boardcount(mem.getMemKey());
+          Reple countre = memberService.replecount(mem.getMemKey());
+          Board sessionb = new Board();
+          sessionb.setBoardKey(countbo.getBoardKey());
+          sessionb.setRepleKey(countre.getRepleKey());
+          session.setAttribute("sessionb", sessionb);
+          
           
       return "redirect:/home";
    }
@@ -177,14 +182,13 @@ public class MemberController {
    	memberp.setMemKey(memp.getMemKey());
    	session = req.getSession();
    	session.setAttribute("memberp", memberp);
-   	System.out.println("memberp session 값 memKey = "+memberp.getMemKey());
 
    	return "redirect:/pwok";
    }
    //pw 찾기 결과 페이지
    @GetMapping("/pwok")
    public String getpwok() {
-	   System.out.println("접근완료");
+	  
 	   
 	   return "member/pwok";
    }

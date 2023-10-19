@@ -69,7 +69,7 @@
         <!-- 본문내용 -->
             <article id="index ">
                 <section id = "Mbanner">
-        		<img src = "resources/images/Mbanner1.png">
+        		<img src = "resources/images/travle2.png">
         		<img src = "resources/images/Mbanner2.png">
         	</section>
                 <section id="widget">
@@ -254,7 +254,7 @@
                             <!-- 광고 -->
                             <section id="Mbanner2">
 		              			<div>
-		            				<img src="resources/images/banner.jpg">
+		            				<a href = "https://youtu.be/wan1bno9c1A" ><img src="resources/images/formypet.jpg"></a>
 		            			</div>
               				</section>
               				
@@ -323,7 +323,7 @@
                             <!-- 광고 -->
                             <section id="Mbanner3">
 		              			<div >
-		            				<img src="resources/images/banner.jpg">
+		            				<img src="resources/images/travle.png">
 		            			</div>
               				</section>
                         </div>
