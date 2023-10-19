@@ -619,9 +619,20 @@ article {
     color: #34383f;
    padding-right: 14px;
 }
+.flex .Itable .btable {
+	padding-top:10px;
+}
+.flex .Itable .btr {
+	display: flex;
+    position: relative;
+    font-size: 13px;
+    width:345px;
+    margin-bottom: 10px;
+}
 .flex .Itable {
     min-width: 400px;
     min-height: 200px;
+    width:400px;
     display:block;
     padding: 20px;  
 }
@@ -633,19 +644,26 @@ article {
     font-size: 13px;
 }
 
-.flex .Itable td {
-    padding: 5px;
+.flex .Itable .btd1 {
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 18px;
+
     
 }
 .flex .Itable #Ttext {
     margin: 0 auto;
-    width: 200px;
-    
+    width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 16px;
+    padding-top: 3px;
 }
     
 .flex .Itable #Tday {
     max-width: max-content;
-    
+    margin-top:3px;
     font-size: 0.9em;
     color: gray;
     margin-left: 10px;
@@ -675,25 +693,30 @@ article {
 }
 
 .flex .merge .Htable .Htext {
-    min-width: 800px;
+    min-width: 740px;
     display: flex;
     font-size: 20px;
+    width: 740px;
+    margin-top:10px;
 }
 
 
 .flex .merge .Htable #Btext {
     line-height: 65px;
     margin-left: 10px;
-
+    width: 100px;
+    height: 45px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .flex .merge .Htable #Btext2 {
-    line-height: 65px;
+   line-height: 65px;
     margin-left: 30px;
-    white-space : nowrap; 
-    width : 492px; 
-    overflow : hidden; 
-    text-overflow : ellipsis; 
+    white-space: nowrap;
+    width: 442px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .flex .merge .Htable #Hday {
@@ -701,7 +724,7 @@ article {
     word-break: keep-all;
     line-height: 65px;
     display: inline;
-    
+    width:100px;
     font-size: 15px;
     color: gray;
 }
