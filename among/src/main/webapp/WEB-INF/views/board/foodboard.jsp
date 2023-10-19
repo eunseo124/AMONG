@@ -92,7 +92,7 @@
         			<c:forEach items="${boardList}" var="board">
         			<c:set var = "memGrade" value="${board.memGrade}"/>
         			<c:choose>
-        			<c:when test="${memGrade == 2 && board.boardCategory==3}">
+        			<c:when test="${memGrade == 2 && board.boardCategory==3 && board.delYn==N}">
         			<a href="boardlist?boardKey=${board.boardKey}&category=${3}" class="notice">
         					<span class="subject">공지</span>
         					<div class="info">
@@ -126,7 +126,7 @@
         				<c:forEach items="${boardList}" var="board">
         				<c:set var = "memGrade" value="${board.memGrade}"/>
         				<c:choose>
-        				<c:when test="${memGrade == 1 && board.boardCategory==3}">
+        				<c:when test="${memGrade == 1 && board.boardCategory==3 && board.delYn==N}">
         				<a href="boardlist?boardKey=${board.boardKey}&category=${3}" class="item" id="item">
         					<c:choose>
         					<c:when test="${!board.boardImg.isEmpty()}">

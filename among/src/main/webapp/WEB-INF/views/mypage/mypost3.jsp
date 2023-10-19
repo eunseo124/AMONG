@@ -7,6 +7,7 @@
 <html lang="kor">
 <head>
     <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="<c:url value="${PageContext.requestcontextpath}/resources/css/mypage.css"/>" rel="stylesheet">
 <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -126,7 +127,14 @@
 	                                        <div id = "Hday">${boardl.boardModifyDate}</div>
 	                                        </c:when>
 	                                        </c:choose>
-	                                        <div><a href = "boardmodify?boardKey=${boardl.boardKey}" onClick="modify()"><input type="button" value="수정"></a></div>
+	                                        <c:choose>
+	                                        	<c:when test = "${boardl.boardRegDate != boardl.boardModifyDate}">
+	                                        		<div><a href = "boardmodify?boardKey=${boardl.boardKey}"><input type="button" value="수정"></a></div>
+	                                        	</c:when>
+	                                        	<c:otherwise>
+	                                        		<div><a href = "boardmodify?boardKey=${boardl.boardKey}" onClick="disable()"><input type="button" value="수정"></a></div>
+	                                        	</c:otherwise>
+	                                        </c:choose>
 	                                        <form method = "post" action = "delboard">
 	                                        <input type = "hidden" value = "Y" id = "delYn" name = "delYn">
 	                                        <input type = "hidden" value = "${boardl.boardKey}" id = "boardKey" name = "boardKey">
@@ -151,22 +159,10 @@
     </div>
 </body>
 <script>
-var modifyDate = $("#modifyDate").val()
-var nowDate = new Date();
-var year = nowDate.getFullYear(); // 년도
-var month = nowDate.getMonth() + 1;  // 월
-var date = nowDate.getDate();  // 날짜
-var today = year+'-'+month+'-'+date;
-
-console.log(modifyDate);
-console.log(today);
-
-function modify(e) {
-	if(modifyDate == today) {
-		alert("게시물 수정은 당일날 할 수 없습니다.");
-		var e = window.event;
-		e.preventDefault();
-	}
+function disable(e) {
+	alert("당일 작성한 게시물은 수정하실 수 없습니다.");
+	var e = window.event;
+	e.preventDefault();
 }
 </script>
 

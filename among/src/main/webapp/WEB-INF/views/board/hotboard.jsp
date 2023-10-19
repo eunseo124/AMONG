@@ -91,7 +91,7 @@
         				<c:forEach items="${boardList}" var="board">
         				<c:set var = "memGrade" value="${board.memGrade}"/>
         				<c:choose>
-        				<c:when test="${memGrade == 1}">
+        				<c:when test="${memGrade == 1 && board.delYn==N}">
         				<a href="boardlist?boardKey=${board.boardKey}&category=${board.boardCategory}" class="item" id="item">
         					<c:choose>
         					<c:when test="${!board.boardImg.isEmpty()}">
