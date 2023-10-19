@@ -22,6 +22,7 @@ public interface BoardRepository {
 
 	Board getBoardByBoardKey(int boardKey);
 	
+	//추천수증가
 	void setbodRecommend(int boardKey);
 	
 }

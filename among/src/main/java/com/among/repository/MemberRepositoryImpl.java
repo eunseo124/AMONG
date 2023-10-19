@@ -10,13 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.among.domain.*;
 import com.among.repository.*;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository
@@ -29,19 +25,19 @@ public class MemberRepositoryImpl implements MemberRepository {
       this.template = new JdbcTemplate(dataSource);
    }
    
-   private List<Member> listOfMember = new ArrayList<Member>(); //Member Á¶È¸ Äõ¸®¹®
+   private List<Member> listOfMember = new ArrayList<Member>(); //Member ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
    
    public MemberRepositoryImpl() {
       
-      //¸â¹ö Å×ÀÌºí µ¥ÀÌÅÍ ÀúÀå¼Ò
-      //ex) memKey°¡ 1ÀÎ  admin(¾ÆÀÌµð) / admin1234(ºñ¹Ð¹øÈ£) / °ü¸®ÀÚ(ÀÌ¸§) / µî±Þ:2(°ü¸®dÀÚ) µîµî
-      //±âº»»ý¼ºÀÚ memKey/memId/memPw/memName/memGrade¼³Á¤½Ã 
-      //¿¹½Ã -> Member member1 = new Member("id1234", "pwd1234" , "ÀÌ¸§È«±æµ¿", "1")
+      //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+      //ex) memKeyï¿½ï¿½ 1ï¿½ï¿½  admin(ï¿½ï¿½ï¿½Ìµï¿½) / admin1234(ï¿½ï¿½Ð¹ï¿½È£) / ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Ì¸ï¿½) / ï¿½ï¿½ï¿½:2(ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½) ï¿½ï¿½ï¿½
+      //ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ memKey/memId/memPw/memName/memGradeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+      //ï¿½ï¿½ï¿½ï¿½ -> Member member1 = new Member("id1234", "pwd1234" , "ï¿½Ì¸ï¿½È«ï¿½æµ¿", "1")
    }
    
    
    @Override
-   //member db Á¶È¸¹®
+   //member db ï¿½ï¿½È¸ï¿½ï¿½
    public List<Member> getAllMemberList() {
       // TODO Auto-generated method stub
       String SQL = "SELECT * FROM member";
@@ -49,7 +45,7 @@ public class MemberRepositoryImpl implements MemberRepository {
       return listOfMember;
    }
    
-   //member db ·Î±×ÀÎ½Ã memKey·Î Á¶È¸ method
+   //member db ï¿½Î±ï¿½ï¿½Î½ï¿½ memKeyï¿½ï¿½ ï¿½ï¿½È¸ method
    public Member getmemlist(int memKey) {
       
       String SQL  = "SELECT * FROM member where memKey = "+ memKey;
@@ -57,7 +53,7 @@ public class MemberRepositoryImpl implements MemberRepository {
       return memlist;
    }
    
-   //member °Ë»ö¹® db
+   //member ï¿½Ë»ï¿½ï¿½ï¿½ db
    public List<Member> getmflist(String keyField) {
       
       List<Member> mflist = new ArrayList<Member>();
@@ -67,9 +63,9 @@ public class MemberRepositoryImpl implements MemberRepository {
       
    }
    
-   //member db ¼öÁ¤¹®
+   //member db ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
    public void setupmem(Member member) {
-	   System.out.println("setupmem È£Ãâ ¿Ï·á");
+	   System.out.println("setupmem È£ï¿½ï¿½ ï¿½Ï·ï¿½");
        System.out.println("memKey = " + member.getMemKey());
 	   String SQL = "UPDATE member SET memId = ?, memPw = ?, memEmail1 = ?, memEmail2 = ?,"
                +"memName = ?, memResident1 = ?, memResident2 = ?, "
@@ -87,7 +83,7 @@ public class MemberRepositoryImpl implements MemberRepository {
             member.getMemKey());
    }
    
-   //member db login ¸Þ¼Òµå
+   //member db login ï¿½Þ¼Òµï¿½
    public Member getlogin(String memId, String memPw) {
      
    
@@ -99,7 +95,7 @@ public class MemberRepositoryImpl implements MemberRepository {
       
    }
    
-   //member È¸¿ø°¡ÀÔ ¸Þ¼Òµå
+   //member È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½
    public void getjoin(Member mem) {
       
       String SQL = "INSERT INTO member (memId,memPw,memEmail1,memEmail2,memName,memResident1,memResident2,nName)"
@@ -121,29 +117,29 @@ public class MemberRepositoryImpl implements MemberRepository {
    
    public Member getMemberById(String memId) {
 
-       System.out.println("Á¢±Ù¿©ºÎ È®ÀÎ");
+       System.out.println("ï¿½ï¿½ï¿½Ù¿ï¿½ï¿½ï¿½ È®ï¿½ï¿½");
        String SQL = "SELECT * FROM member where memId= '"+memId+"'";
        
        System.out.println("repository memId =" +memId);
        
        Member memberInfo = template.queryForObject(SQL, new MemberRowMapper());  
        
-       System.out.println("µ¥ÀÌÅÍº£ÀÌ½º Á¢±Ù ¼º°ø");
+       System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
        return memberInfo;
 
    }
    
- //member db id Ã£±â method
+ //member db id Ã£ï¿½ï¿½ method
    public Member getfindId(String memName, String memEmail1,String memEmail2) {
-      System.out.println("memrepository getfindId Á¢±Ù¿Ï·á = "+memName +memEmail1+memEmail2);
+      System.out.println("memrepository getfindId ï¿½ï¿½ï¿½Ù¿Ï·ï¿½ = "+memName +memEmail1+memEmail2);
       Member memi = null;
       String SQL = "select * from member where memName = '" + memName + "' and memEmail1 = '"+memEmail1+"' and memEmail2 = '"+ memEmail2+"'";
       memi = template.queryForObject(SQL, new MemberRowMapper());
       System.out.println("memberRepository memId = "+memi.getMemId());   
       return memi;
    }
-   //member db Pw Ã£±â method
+   //member db Pw Ã£ï¿½ï¿½ method
    public Member getfindPw(String memId,String memName, String memEmail1,String memEmail2) {
          
          Member memp = null;
@@ -152,7 +148,7 @@ public class MemberRepositoryImpl implements MemberRepository {
          return memp;
       }
    
-   //member id Áßº¹Ã¼Å©
+   //member id ï¿½ßºï¿½Ã¼Å©
    public Member getcheckId(String memId) throws Exception {
       Member result = null;
       String SQL = "select count(*) from member where memId = '"+memId+"'";
@@ -173,7 +169,7 @@ public class MemberRepositoryImpl implements MemberRepository {
          return result;
       }
    
-   //member nName Áßº¹Ã¼Å©
+   //member nName ï¿½ßºï¿½Ã¼Å©
    public Member getchecknName(String nName) {
       Member result = null;
       String SQL = "select count(*) from member where nName = '"+nName+"'";
@@ -196,7 +192,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    
 
    
-   //** µµ¼­Á¤º¸ ¼öÁ¤ ¸Þ¼­µå ¿À¹ö¶óÀÌµå **
+   //** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ **
    public void setUpdateInfo(Member member) {  
    	
        	String SQL = "UPDATE member SET memPw = ?, memEmail1 = ?, memEmail2 = ?,"
@@ -218,8 +214,8 @@ public class MemberRepositoryImpl implements MemberRepository {
        
    }
    
-   //** È¸¿øÁ¤º¸ »èÁ¦ ¸Þ¼­µå ¿À¹ö¶óÀÌµå **
-   //setDeleteMember() ¸Þ¼­µå´Â memId¿¡ ´ëÇÑ ÇØ´ç È¸¿ø¸¦ µ¥ÀÌÅÍº£ÀÌ½º ¿¡¼­ »èÁ¦ÇÕ´Ï´Ù.
+   //** È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ **
+   //setDeleteMember() ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ memIdï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
    public void setDeleteMember(String memId) {  
    	
        String SQL = "DELETE from member where memId = ? ";
@@ -227,7 +223,7 @@ public class MemberRepositoryImpl implements MemberRepository {
        this.template.update(SQL, memId);
    }  	   
    
-   //boardlist Ãâ·Â
+   //boardlist ï¿½ï¿½ï¿½
    public List<Board> setboardlist(int memKey) {
 	   List<Board> board = null;
 	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey where b.memKey = " + memKey;
@@ -256,17 +252,17 @@ public class MemberRepositoryImpl implements MemberRepository {
 	      });
 	   return board;
    }
-   //ÀÎ±â°Ô½ÃÆÇ Á¶È¸ 
+   //ï¿½Î±ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ 
    public List<Board> gethotboardlist(int memKey) { 
    	
-   	//ÀÎ±â°Ô½ÃÆÇ Á¶È¸ Äõ¸® ÀÛ¼º
+   	//ï¿½Î±ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
    	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory, board.delYn FROM board INNER JOIN member ON board.memKey = member.memKey WHERE board.memKey= "+ memKey +" and boardRecommend >= 50 ORDER BY boardRecommend desc";
 
    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
        
    	return listOfBoards;
    }
- //replelist Ãâ·Â
+ //replelist ï¿½ï¿½ï¿½
    public List<Reple> setreplelist(int memKey) {
 	   List<Reple> rep = new ArrayList();
 	   String SQL = "select * from reple r inner join member m on r.memKey = m.memKey "
@@ -289,10 +285,10 @@ public class MemberRepositoryImpl implements MemberRepository {
 	   rep = template.query(SQL, rowMapper);
 	   return rep;
    }
-   //ÀÎ±â°Ô½ÃÆÇ Á¶È¸ 
+   //ï¿½Î±ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ 
    public List<Reple> getreplelist(int memKey) { 
    	
-   	//ÀÎ±â°Ô½ÃÆÇ ´ñ±Û Á¶È¸ Äõ¸® ÀÛ¼º
+   	//ï¿½Î±ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
    	String SQL = "SELECT * from reple r INNER JOIN board b ON r.boardKey = b.boardKey "
    				+ "INNER JOIN member m ON r.memKey = m.memKey WHERE r.memKey = "+ memKey + " and b.boardRecommend >= 50 ORDER BY b.boardRecommend DESC";
 
@@ -328,14 +324,14 @@ public class MemberRepositoryImpl implements MemberRepository {
        this.template.update(SQL);
    }
    
-   //board »èÁ¦ ¸Þ¼Òµå
+   //board ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½
    public void setdelboard(Board delboard) {
 	  
 	   String SQL = "update board set delYn = ? where boardKey = ?";
 	   template.update(SQL, delboard.getDelYn(), delboard.getBoardKey());
    }
    
-   //indexÆäÀÌÁö È¸¿øÀÌ ¾´ °Ô½Ã¹°, ´ñ±Û °³¼ö method
+   //indexï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ method
    //board
    public Board boardcount(int memKey) {
 	   Board countbo = new Board();

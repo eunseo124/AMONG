@@ -131,6 +131,7 @@ public class BoardRepositoryImpl implements BoardRepository {
 
     }        
     
+    //조회수증가 메서드
     public void setbodRecommend(int boardKey) {
     	
     	String SQL = "UPDATE board SET boardRecommend = boardRecommend + 1 WHERE boardKey = ?";
