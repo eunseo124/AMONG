@@ -162,11 +162,46 @@
                                 </div>
                             </div>
                             <!-- 광고 -->
+                            <section id="Mbanner2">
+                             <div>
+                              <a href = "https://youtu.be/wan1bno9c1A" ><img src="resources/images/formypet.jpg"></a>
+                           </div>
+                          </section>
+                          
+                            <div class="merge">
+                                <div class="Hboard">
+                                    <h2>인기게시판</h2>
+                                    <p><a href = "<c:url value="/hotboard"/>">더보기</a></p>
+                                </div>
+                                <div class="Htable">
+                                
+                                <c:forEach items="${boardList2}" var="board">
+                                    <div class="Htext">
+                                       <c:choose>  
+                                        <c:when test = "${board.boardImg.isEmpty()}">
+                                           <img src="resources/images/profile.png" id="Himg">
+                                      </c:when>           
+                                                                              
+                                      <c:when test = "${!board.boardImg.isEmpty()}">
+                                   <img src="resources/images/${board.boardImg}" id = "Himg">
+                       
+                                       </c:when>
+                                  </c:choose>
+                              
+                               <div id = "Btext">${board.nName}</div>
+                                <div id = "Btext2">${board.boardTitle}</div>
+                                 <div id = "Hday">${board.boardRegDate}</div>
+                                </div>
+                         </c:forEach> 
+                                   
+                                </div>
+                            </div>
+                            <!-- 광고 -->
                             <section id="Mbanner3">
-		              			<div >
-		            				<img src="resources/images/travle.png">
-		            			</div>
-              				</section>
+                             <div >
+                              <img src="resources/images/travle.png">
+                           </div>
+                          </section>
                         </div>
                     </div>
                 </section>
@@ -174,7 +209,7 @@
             </article> 
     </main>
     <footer id = "footer">
-    	<%@include file="base/footer.jsp" %>
+       <%@include file="base/footer.jsp" %>
   </footer>
     </div>
 </body>
