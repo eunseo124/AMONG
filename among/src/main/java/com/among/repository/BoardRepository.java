@@ -14,6 +14,8 @@ public interface BoardRepository {
 	
 	List<Board> getHomeBoardList();
 	
+	List<Board> getHomeHotBoardList();
+	
 	void getboardWrite(Board board);
 	
 	void setbodView(int boardKey);

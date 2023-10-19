@@ -256,7 +256,7 @@ aside .joinAndFindPassword a {
         			<c:forEach items="${boardList}" var="board">
         			<c:set var = "memGrade" value="${board.memGrade}"/>
         			<c:choose>
-        			<c:when test="${memGrade == 2 && board.boardCategory==1}">
+        			<c:when test="${memGrade == 2 && board.boardCategory==1 && board.delYn eq 'N'}">
         			<a href="boardlist?boardKey=${board.boardKey}&category=${1}" class="notice">
         					<span class="subject">공지</span>
         					<div class="info">
@@ -264,7 +264,7 @@ aside .joinAndFindPassword a {
         							<span class="text">${board.boardTitle}</span>
         							<div class="etc">
         							<div id="nickName">
-        								<img src="resources/images/banner.jpg">
+        								<img src="resources/images/profileAdminIcon.png">
         								<div>${board.nName}</div>
         							</div>
         							<c:set var = "boardModifyDate" value = "${board.boardModifyDate}"/>
@@ -290,17 +290,17 @@ aside .joinAndFindPassword a {
         				<c:forEach items="${boardList}" var="board">
         				<c:set var = "memGrade" value="${board.memGrade}"/>
         				<c:choose>
-        				<c:when test="${memGrade == 1 && board.boardCategory==1}">
+        				<c:when test="${memGrade eq 1 && board.boardCategory eq 1 && board.delYn eq 'N'}">
         				<a href="boardlist?boardKey=${board.boardKey}&category=${1}" class="item" id="item">
         					<c:choose>
         					<c:when test="${!board.boardImg.isEmpty()}">
         						<div class="image">
-        							<img src="resources/images/${board.boardImg}">
+        							<img style="border: 0px;" src="resources/images/${board.boardImg}">
         						</div>
         					</c:when>
         					<c:otherwise>
         						<div class="image">
-        							<img src="resources/images/profile.png">
+        							<img style="border: 0px;" src="resources/images/profile.png">
         						</div>
         					</c:otherwise>
         					</c:choose>	
@@ -310,7 +310,7 @@ aside .joinAndFindPassword a {
         						</div>
         						<div class="etc">
         							<div id="nickName">
-        								<img src="resources/images/banner.jpg">
+        								<img src="resources/images/profile.png">
         								<div>${board.nName}</div>
         							</div>
         							<input type="hidden" name="boardKey" value="${board.boardKey}">

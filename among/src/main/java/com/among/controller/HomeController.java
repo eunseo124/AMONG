@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.among.domain.Board;
 import com.among.domain.Member;
 import com.among.domain.Reple;
 import com.among.Service.MemberService;
 import com.among.Service.RepleService;
+import com.among.Service.BoardService;
 
 
 /**
@@ -35,6 +37,9 @@ public class HomeController {
    
    @Autowired
    private RepleService repleService;
+   
+   @Autowired
+   private BoardService boardService;
 
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -45,23 +50,19 @@ public class HomeController {
    public String home(Locale locale, Model model) {
       logger.info("Welcome home! The client locale is {}.", locale);
 
+      List<Board> list = boardService.getHomeBoardList();
       Date date = new Date();
       DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
       String formattedDate = dateFormat.format(date);
-
+      
+      model.addAttribute("boardList", list);  
       model.addAttribute("serverTime", formattedDate);
 
       return "home";
    }
 
-   @RequestMapping(value = "/home", method = RequestMethod.GET)
-   public String home(Model model) {
-      
-	   
-      return "home";
-
-   }
+  
 
    @RequestMapping(value = "/login", method = RequestMethod.GET)
    public String login() {

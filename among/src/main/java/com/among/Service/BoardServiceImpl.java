@@ -28,6 +28,10 @@ public class BoardServiceImpl implements BoardService {
          // TODO Auto-generated method stub
      return boardRepository.getHomeBoardList();
   } 
+	 public List<Board> getHomeHotBoardList() { 
+         // TODO Auto-generated method stub
+     return boardRepository.getHomeHotBoardList();
+  } 
   
 	 public void getboardWrite(Board board) {
 		  

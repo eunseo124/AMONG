@@ -74,7 +74,9 @@ public class BoardController {
 	@GetMapping("/home")
 	   public String homeBoardList(Model model) { 
 	      List<Board> list = boardService.getHomeBoardList();
-	      model.addAttribute("boardList", list);  
+	      List<Board> list2 = boardService.getHomeHotBoardList();
+	      model.addAttribute("boardList", list);
+	      model.addAttribute("boardList2", list2);  
 	      return "/home"; 
 	   }
 	//게시판글쓰기

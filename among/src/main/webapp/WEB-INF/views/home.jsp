@@ -80,154 +80,85 @@
                                     <h2>자유게시판</h2>
                                     <p><a href = "<c:url value="/freeboard"/>">더보기</a></p>
                                 </div>
-                                <table>
+                                <div class = "btable">
                                 
                                <c:forEach items="${boardList}" var="board">
-	        							<c:set var = "boardCategory" value="${board.boardCategory}"/>
-	        				         <c:if test = "${boardCategory eq 1}">
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">${board.nName}</td>
-                                        <td id="Ttext">${board.boardTitle}</td>
-                                        <td id="Tday">${board.boardRegDate}</td>
-                                    </tr>
+                                <c:set var = "boardCategory" value="${board.boardCategory}"/>
+                                <c:if test = "${boardCategory eq 1}">
+                                    <div class = "btr">
+                                        <div class = "btd1"><img src="resources/images/profile.png" id="Mark">${board.nName}</div>
+                                        <div id="Ttext">${board.boardTitle}</div>
+                                        <div id="Tday">${board.boardRegDate}</div>
+                                    </div>
                                     
                                 </c:if>
-      		           </c:forEach>    
-                                </table>
+                       </c:forEach>    
+                                </div>
                             </div>
                             <div class="Itable">
                                 <div class="Iboard">
                                     <h2>게임</h2>
                                     <p><a href = "<c:url value="/gameboard"/>">더보기</a></p>
                                 </div>
-                                <table>
+                                <div class = "btable">
                                 <c:forEach items="${boardList}" var="board">
-	        							<c:set var = "boardCategory" value="${board.boardCategory}"/>
-	        				         <c:if test = "${boardCategory eq 2}">
+                                <c:set var = "boardCategory" value="${board.boardCategory}"/>
+                                <c:if test = "${boardCategory eq 2}">
                                 
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">${board.nName}</td>
-                                        <td id="Ttext">${board.boardTitle}</td>
-                                        <td id="Tday">${board.boardRegDate}</td>
-                                    </tr>
+                                    <div class = "btr">
+                                        <div class = "btd1"><img src="resources/images/gameAdminIcon.png" id="Mark">${board.nName}</div>
+                                        <div id="Ttext">${board.boardTitle}</div>
+                                        <div id="Tday">${board.boardRegDate}</div>
+                                    </div>
                                     
                                    </c:if>
-      		           </c:forEach>  
+                       </c:forEach>  
                                    
                                     
-                                </table>
+                                </div>
                             </div>
                             <div class="Itable">
                                 <div class="Iboard">
                                     <h2>맛집</h2>
                                     <p><a href = "<c:url value="/foodboard"/>">더보기</a></p>
                                 </div>
-                                <table>
+                                <div class = "btable">
                                 <c:forEach items="${boardList}" var="board">
-	        							<c:set var = "boardCategory" value="${board.boardCategory}"/>
-	        				         <c:if test = "${boardCategory eq 3}">
+                                <c:set var = "boardCategory" value="${board.boardCategory}"/>
+                                <c:if test = "${boardCategory eq 3}">
                                 
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">${board.nName}</td>
-                                        <td id="Ttext">${board.boardTitle}</td>
-                                        <td id="Tday">${board.boardRegDate}</td>
-                                    </tr>
+                                    <div class = "btr">
+                                        <div class = "btd1"><img src="resources/images/foodAdminIcon.png" id="Mark">${board.nName}</div>
+                                        <div id="Ttext">${board.boardTitle}</div>
+                                        <div id="Tday">${board.boardRegDate}</div>
+                                    </div>
                                     
                                    </c:if>
-      		           </c:forEach>  
+                       </c:forEach>  
                                    
                                     
-                                </table>
+                                </div>
                             </div>
                             <div class="Itable">
                                 <div class="Iboard">
                                     <h2>여행</h2>
                                     <p><a href = "<c:url value="/travleboard"/>">더보기</a></p>
                                 </div>
-                                <table>
+                                <div class = "btable">
                                 <c:forEach items="${boardList}" var="board">
-	        							<c:set var = "boardCategory" value="${board.boardCategory}"/>
-	        				         <c:if test = "${boardCategory eq 4}">
+                                <c:set var = "boardCategory" value="${board.boardCategory}"/>
+                                <c:if test = "${boardCategory eq 4}">
                                 
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">${board.nName}</td>
-                                        <td id="Ttext">${board.boardTitle}</td>
-                                        <td id="Tday">${board.boardRegDate}</td>
-                                    </tr>
+                                    <div class = "btr">
+                                        <div class = "btd1"><img src="resources/images/travelAdminIcon.png" id="Mark">${board.nName}</div>
+                                        <div id="Ttext">${board.boardTitle}</div>
+                                        <div id="Tday">${board.boardRegDate}</div>
+                                    </div>
                                     
                                    </c:if>
-      		           </c:forEach>  
+                       </c:forEach>  
                                    
                                     
-                                </table>
-                            </div>
-                            <!-- 광고 -->
-                            <section id="Mbanner2">
-		              			<div>
-		            				<a href = "https://youtu.be/wan1bno9c1A" ><img src="resources/images/formypet.jpg"></a>
-		            			</div>
-              				</section>
-              				
-                            <div class="merge">
-                                <div class="Hboard">
-                                    <h2>인기게시판</h2>
-                                    <p><a href = "<c:url value="/hotboard"/>">더보기</a></p>
-                                </div>
-                                <div class="Htable">
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">제목의 길이가 잘 넘어가나 실험중입니다 가나다라마바사아자차카타파하</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
-                                    <div class="Htext">
-                                        <img src="resources/images/banner.jpg" id="Himg">
-                                        <div id = "Btext">김철수</div>
-                                        <div id = "Btext2">올해의 인기상은 내것!</div>
-                                        <div id = "Hday">2023.09.14</div>
-                                    </div>
                                 </div>
                             </div>
                             <!-- 광고 -->
