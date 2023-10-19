@@ -42,7 +42,7 @@ public class MemberController {
    private MemberRowMapper mrowmap;
    private BoardService boardService;
   
-   //회원가입 페이지 출력
+
    @RequestMapping(value = "/memjoin", method = RequestMethod.GET)
    public String memjoin() {
       
@@ -57,13 +57,12 @@ public class MemberController {
       
       return "redirect:/home";
    }
-   //회원가입 실패시
+ 
    @GetMapping("/member/memjoin_false")
    public String memjoin_false() {
 	   return "member/memjoin";
    }
-   
-   //로그인 시 memKey로 회원정보 출력 method
+
    @RequestMapping(value = "/mypage", method = RequestMethod.GET)
    public String requestmypage(@RequestParam("memKey") int memKey, Model model) {
       
@@ -74,7 +73,7 @@ public class MemberController {
       return "mypage/mypage";
       
    }
-   //로그인
+
    @RequestMapping(value = "/login/login_proc",method = RequestMethod.POST) 
    public String logingProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
          ModelMap modelMap, @ModelAttribute("mem") Member member, Model model){
@@ -111,8 +110,7 @@ public class MemberController {
       return "redirect:/home";
    }
    
-   
-   //로그아웃 
+
    @RequestMapping(value = "/logout/logout_proc", method = RequestMethod.POST)
    public String logoutProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
    
@@ -122,7 +120,7 @@ public class MemberController {
       
    }
    
-   //id 중복체크
+
    @RequestMapping(value = "/member/checkId", method = RequestMethod.POST)
    @ResponseBody
    public String checkid(@RequestParam("memId")String memId) {
@@ -133,7 +131,7 @@ public class MemberController {
       return result.getMemId();
    }
    
-   //nName 중복체크
+
    @RequestMapping(value = "/member/checknName", method = RequestMethod.POST)
    @ResponseBody
    public String checknName(@RequestParam("nName")String nName) {
@@ -143,7 +141,7 @@ public class MemberController {
       return result.getnName();
    }
    
-   //id 찾기
+
    @RequestMapping(value = "/member/idfind", method = RequestMethod.POST)
    public String getfindId(HttpSession session,HttpServletRequest req,HttpServletResponse resp,String memName, String memEmail1, String memEmail2,Model model) {
    	
@@ -157,12 +155,12 @@ public class MemberController {
    	
    	return "redirect:/idok";
    }
-   //id 찾기 결과 페이지
+
    @GetMapping("/idok")
    public String getidok() {
 	   return "member/idok";
    }
-   //Pw 찾기
+
    @RequestMapping(value = "/member/pwfind", method = RequestMethod.POST)
    public String getfindPw(HttpSession session,HttpServletRequest req,HttpServletResponse resp,String memId,String memName, String memEmail1, String memEmail2, Model model) {
    	
@@ -185,7 +183,7 @@ public class MemberController {
 
    	return "redirect:/pwok";
    }
-   //pw 찾기 결과 페이지
+
    @GetMapping("/pwok")
    public String getpwok() {
 	  
@@ -193,7 +191,7 @@ public class MemberController {
 	   return "member/pwok";
    }
    
-   //pw 찾기 결과 후 비번 업데이트
+
    @PostMapping("/member/memupdate_proc")
    public String PwupdateProc(@ModelAttribute("memberset") Member memberset){
 	  
@@ -209,7 +207,7 @@ public class MemberController {
       memberService.setupmem(mem);
       return "redirect:/mypage?memKey="+mem.getMemKey();
    }
-   //정보 업데이트 페이지 member정보 출력
+
    @RequestMapping(value = "/myupdate", method = RequestMethod.GET)
    public String myudate(@RequestParam("memKey")int memKey,Model model) {
 	   
@@ -220,7 +218,7 @@ public class MemberController {
 
    }
    
-   //게시글 출력1
+
    @RequestMapping(value = "/mypost", method = RequestMethod.GET)
    public String mypost(@RequestParam("memKey")int memKey, Model model) {
 
@@ -231,7 +229,7 @@ public class MemberController {
 
    }
    
-   //게시글 출력2//인기게시판
+ 
    @RequestMapping(value = "/mypost2", method = RequestMethod.GET)
    public String mypost2(@RequestParam("memKey")int memKey, Model model) {
 
@@ -242,7 +240,6 @@ public class MemberController {
 
    }
 
-   //게시글 출력3
    @RequestMapping(value = "/mypost3", method = RequestMethod.GET)
    public String mypost3(@RequestParam("memKey")int memKey, Model model) {
 
@@ -253,7 +250,7 @@ public class MemberController {
 
    }
 
-   //게시글 출력4
+
    @RequestMapping(value = "/mypost4", method = RequestMethod.GET)
    public String mypost4(@RequestParam("memKey")int memKey, Model model) {
 
@@ -264,7 +261,7 @@ public class MemberController {
 
    }
 
-   //게시글 출력5
+
    @RequestMapping(value = "/mypost5", method = RequestMethod.GET)
    public String mypost5(@RequestParam("memKey")int memKey, Model model) {
 
@@ -275,7 +272,7 @@ public class MemberController {
 
    }
    
-   //댓글 출력1
+
    @RequestMapping(value = "/myreply", method = RequestMethod.GET) 
    public String myboardlist(@RequestParam("memKey")int memKey,Model model) {
 	   
@@ -285,7 +282,7 @@ public class MemberController {
 	   
 	   return "mypage/myreply";
    }
-   //댓글 출력2
+
    @RequestMapping(value = "/myreply2", method = RequestMethod.GET) 
    public String myboardlist2(@RequestParam("memKey")int memKey,Model model) {
 	   
@@ -295,7 +292,7 @@ public class MemberController {
 	   
 	   return "mypage/myreply2";
    }
-   //댓글 출력3
+
    @RequestMapping(value = "/myreply3", method = RequestMethod.GET) 
    public String myboardlist3(@RequestParam("memKey")int memKey,Model model) {
 	   
@@ -305,7 +302,7 @@ public class MemberController {
 	   
 	   return "mypage/myreply3";
    }
-   //댓글 출력4
+
    @RequestMapping(value = "/myreply4", method = RequestMethod.GET) 
    public String myboardlist4(@RequestParam("memKey")int memKey,Model model) {
 	   
@@ -315,7 +312,7 @@ public class MemberController {
 	   
 	   return "mypage/myreply4";
    }
-   //댓글 출력5
+
    @RequestMapping(value = "/myreply5", method = RequestMethod.GET) 
    public String myboardlist5(@RequestParam("memKey")int memKey,Model model) {
 	   
@@ -325,14 +322,14 @@ public class MemberController {
 	   
 	   return "mypage/myreply5";
    }
-   //댓글삭제
+
    @PostMapping("/repledelete")
    public String replede(@ModelAttribute("memKey")int repleKey,int memKey) {
 	   memberService.setdeleteReple(repleKey);
 	   return "redirect:/mypage?memKey = "+ memKey;
 	   
    }
-   //게시글 삭제
+
    @PostMapping("/delboard")
    public String dleboad(@ModelAttribute("memKey")int memKey,Board delboard) {
 	   

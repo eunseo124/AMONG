@@ -18,30 +18,30 @@ public class MemberServiceImpl implements MemberService {
    
    
    @Override
-   //member list method불러오기
+  
    public List<Member> getAllMemberList() {
       // TODO Auto-generated method stub
       List<Member> listOfMember = memberRepository.getAllMemberList();
       return listOfMember;
    }
    
-   //member 조회문 method불러오기
+
    public List<Member> getmflist(String keyField) {
       return memberRepository.getmflist(keyField);
    }
    
-   //member update method불러오기
+
    public void setupmem(Member member) {
       memberRepository.setupmem(member);
    }
    
-   //member 조회 method불러오기
+
    public Member getmemlist(int memKey){
       Member memlist = memberRepository.getmemlist(memKey);
       return memlist;
    }
    
-   //member db login 메소드 
+
    public Member getlogin(String memId, String memPw) {
       
     Member member = memberRepository.getlogin(memId, memPw);
@@ -49,13 +49,13 @@ public class MemberServiceImpl implements MemberService {
       return member;
    }
    
-   //member 회원가입 메소드
+
    public void getjoin(Member mem) {
      
       memberRepository.getjoin(mem);
       
    }
- //member id 중복체크
+
     public Member getcheckId(String memId) {
        Member result = null;
        try {
@@ -67,27 +67,26 @@ public class MemberServiceImpl implements MemberService {
        return result;
     } 
     
-    //member nName 중복체크
+
     public Member getchecknName(String nName) {
        Member result = null;
        result = memberRepository.getchecknName(nName);
        return result;
     }
     
-    
-    //member db id 찾기 method
+
     public Member getfindId(String memName, String memEmail1, String memEmail2) {
        Member memi = memberRepository.getfindId(memName,memEmail1,memEmail2);
        return memi;
     }
     
-	 //BookRepository 클래스 getBookById() 메서드 호출
+
 	 public Member getMemberById(String memId) {
 		 	Member memberById = memberRepository.getMemberById(memId);
 	        return memberById;
 	 }
 	 
-	 //** 도서 정보 수정메서드 오버라이드 **
+
 	 public void setUpdateInfo(Member member) {  
 	        memberRepository.setUpdateInfo(member);
 	 }
@@ -99,40 +98,40 @@ public class MemberServiceImpl implements MemberService {
 		return mem;
 	} 
 	
-	//** 회원정보 삭제메서드 오버라이드 **
+
 	  public void setDeleteMember(String memId) { 
 	        memberRepository.setDeleteMember(memId);
 	 }	 
 	
-	//boardlist 쿼리문 	
+
 	 public List<Board> setboardlist(int memKey) {
 		 List<Board> board = null;
 		 board = memberRepository.setboardlist(memKey);
 		 return board;
 	 }
 	
-	 //replelist 쿼리문
+
 	 public List<Reple> setreplelist(int memKey) {
 		 List<Reple> rep = null;
 		 rep = memberRepository.setreplelist(memKey);
 		 return rep;
 	 }
 	 
-	 //reple 삭제 쿼리문
+
 	@Override
 	public void setdeleteReple(int repleKey) {
 		memberRepository.setdeleteReple(repleKey);
 		
 	}
 	
-	//인기게시판 조회
+
 	public List<Board> gethotboardlist(int memKey){
 	 List<Board> hboard = null;
 	 hboard = memberRepository.gethotboardlist(memKey);
 		return hboard;
 	}
 	
-	//게시글 삭제
+
 	@Override
 	public void setdelboard(Board delboard) {
 		// TODO Auto-generated method stub
@@ -140,21 +139,21 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
-	//인기댓글조회
+
 	public List<Reple> getreplelist(int memKey){
 		List<Reple> hreple = null;
 		hreple = memberRepository.getreplelist(memKey);
 		return hreple;
 	}
 	
-	//index페이지 회원이 쓴 게시물, 댓글 개수 method
+
 	public Board boardcount(int memKey) {
 		Board countbo = new Board();
 		countbo = memberRepository.boardcount(memKey);
 		return countbo;
 	}
 	
-	//index페이지 회원이 쓴 게시물, 댓글 개수 method
+
 	public Reple replecount(int memKey) {
 		Reple countre = new Reple();
 		countre = memberRepository.replecount(memKey);

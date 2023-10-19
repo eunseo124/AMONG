@@ -2,21 +2,21 @@ package com.among.domain;
 
 
 public class Member{
-	private int memKey; //고유키
-	private String memId;	//아이디
-	private String memPw; 	//비밀번호
-	private String memEmail1;	//이메일
-	private String memEmail2;	//이메일
-	private String memName; 	//성함
-	private int memResident1;	//주민번호
-	private int memResident2;	//주민번호
-	private String memJoinDate;	//가입날짜
-	private String delYn;	//정보 삭제 여부
-	private int memGrade;	//회원 등급 (일반/관리자)
-	private String nName; 	//닉네임eredfad
-	private String Emailok; //이메일 인증번호
+	private int memKey;
+	private String memId;	
+	private String memPw; 	
+	private String memEmail1;	
+	private String memEmail2;	
+	private String memName; 	
+	private int memResident1;	
+	private int memResident2;	
+	private String memJoinDate;	
+	private String delYn;	
+	private int memGrade;	
+	private String nName; 	
+	private String Emailok; 
 	
-	/* 기본 생성자 */
+
 	public Member() {
 		super();
 		// TODO Auto-generated constructor stub

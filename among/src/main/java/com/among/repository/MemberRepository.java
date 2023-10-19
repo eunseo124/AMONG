@@ -13,47 +13,47 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberRepository {
    
-   List<Member> getAllMemberList(); //member db 조회문 //listOfMember
+   List<Member> getAllMemberList(); 
    
-   List<Member> getmflist(String keyField);//member db 검색문 //mflist
+   List<Member> getmflist(String keyField);
   
-   void setupmem(Member member); //member db 수정문  //upmem
+   void setupmem(Member member); 
    
-   Member getmemlist(int memKey);//member db memKey로 조회문 method //memlist
+   Member getmemlist(int memKey);
    
-   Member getlogin(String memId, String memPw); //member db login 메소드 //getlogin
+   Member getlogin(String memId, String memPw); 
 
-   void getjoin(Member mem); //member 회원가입 메소드
+   void getjoin(Member mem); 
 
-   Member getcheckId(String memId) throws Exception; //member id 중복체크
+   Member getcheckId(String memId) throws Exception;
    
-   Member getchecknName(String nName); //member nName 중복체크
+   Member getchecknName(String nName); 
    
-   Member getMemberById(String memId);//getBookById() 메서드 추가
+   Member getMemberById(String memId);
    
-   Member getfindId(String memName, String memEmail1, String memEmail2); //member db id 찾기 method
+   Member getfindId(String memName, String memEmail1, String memEmail2); 
 
-   void setUpdateInfo(Member member); //관리자 회원정보수정 메서드 추가
+   void setUpdateInfo(Member member); 
 
 	Member getfindPw(String memId, String memName, String memEmail1, String memEmail2);
 	
-	//** 회원정보 삭제 메서드 추가 **
+	
 	void setDeleteMember(String memId);		
 	
-	List<Board> setboardlist(int memKey);//boardlist 쿼리문
+	List<Board> setboardlist(int memKey);
 
-	List<Reple> setreplelist(int memKey);//replelist 쿼리문
+	List<Reple> setreplelist(int memKey);
 
-	void setdeleteReple(int repleKey); //reple 삭제 쿼리문
+	void setdeleteReple(int repleKey); 
 	
-	List<Board> gethotboardlist(int memKey);//인기게시판 조회
+	List<Board> gethotboardlist(int memKey);
 
-	void setdelboard(Board delboard); //게시글 삭제
+	void setdelboard(Board delboard); 
 	
-	List<Reple> getreplelist(int memKey);//인기댓글조회
+	List<Reple> getreplelist(int memKey);
 	
-	Board boardcount(int memKey); //index페이지 회원이 쓴 게시물, 댓글 개수 method
+	Board boardcount(int memKey); 
 	
-	Reple replecount(int memKey); //index페이지 회원이 쓴 게시물, 댓글 개수 method
+	Reple replecount(int memKey); 
 	
 }
