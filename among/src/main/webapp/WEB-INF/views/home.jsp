@@ -81,42 +81,18 @@
                                     <p><a href = "<c:url value="/freeboard"/>">더보기</a></p>
                                 </div>
                                 <table>
+                                
+                               <c:forEach items="${boardList}" var="board">
+	        							<c:set var = "boardCategory" value="${board.boardCategory}"/>
+	        				         <c:if test = "${boardCategory eq 1}">
                                     <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">${board.nName}</td>
+                                        <td id="Ttext">${board.boardTitle}</td>
+                                        <td id="Tday">${board.boardRegDate}</td>
                                     </tr>
                                     
+                                </c:if>
+      		           </c:forEach>    
                                 </table>
                             </div>
                             <div class="Itable">
@@ -125,41 +101,19 @@
                                     <p><a href = "<c:url value="/gameboard"/>">더보기</a></p>
                                 </div>
                                 <table>
+                                <c:forEach items="${boardList}" var="board">
+	        							<c:set var = "boardCategory" value="${board.boardCategory}"/>
+	        				         <c:if test = "${boardCategory eq 2}">
+                                
                                     <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">${board.nName}</td>
+                                        <td id="Ttext">${board.boardTitle}</td>
+                                        <td id="Tday">${board.boardRegDate}</td>
                                     </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
+                                    
+                                   </c:if>
+      		           </c:forEach>  
+                                   
                                     
                                 </table>
                             </div>
@@ -169,41 +123,19 @@
                                     <p><a href = "<c:url value="/foodboard"/>">더보기</a></p>
                                 </div>
                                 <table>
+                                <c:forEach items="${boardList}" var="board">
+	        							<c:set var = "boardCategory" value="${board.boardCategory}"/>
+	        				         <c:if test = "${boardCategory eq 3}">
+                                
                                     <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">${board.nName}</td>
+                                        <td id="Ttext">${board.boardTitle}</td>
+                                        <td id="Tday">${board.boardRegDate}</td>
                                     </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
+                                    
+                                   </c:if>
+      		           </c:forEach>  
+                                   
                                     
                                 </table>
                             </div>
@@ -213,41 +145,19 @@
                                     <p><a href = "<c:url value="/travleboard"/>">더보기</a></p>
                                 </div>
                                 <table>
+                                <c:forEach items="${boardList}" var="board">
+	        							<c:set var = "boardCategory" value="${board.boardCategory}"/>
+	        				         <c:if test = "${boardCategory eq 4}">
+                                
                                     <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
+                                        <td><img src="resources/images/banner.jpg" id="Mark">${board.nName}</td>
+                                        <td id="Ttext">${board.boardTitle}</td>
+                                        <td id="Tday">${board.boardRegDate}</td>
                                     </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="resources/images/banner.jpg" id="Mark">홍길동</td>
-                                        <td id="Ttext">오늘 날씨가 좋네요</td>
-                                        <td id="Tday">2023.09.14</td>
-                                    </tr>
+                                    
+                                   </c:if>
+      		           </c:forEach>  
+                                   
                                     
                                 </table>
                             </div>

@@ -46,6 +46,15 @@ public class BoardRepositoryImpl implements BoardRepository {
         
     	return listOfBoards;
     }
+    @Override
+    public List<Board> getHomeBoardList() { 
+    	
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate LIMIT 7";
+
+    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+        
+    	return listOfBoards;
+    }
     
 
     public void getboardWrite(Board board) {

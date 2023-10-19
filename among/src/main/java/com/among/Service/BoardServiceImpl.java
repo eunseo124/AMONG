@@ -24,7 +24,11 @@ public class BoardServiceImpl implements BoardService {
 	        // TODO Auto-generated method stub
 		 return boardRepository.getHotBoardList();
 	 } 
-	 
+	 public List<Board> getHomeBoardList() { 
+         // TODO Auto-generated method stub
+     return boardRepository.getHomeBoardList();
+  } 
+  
 	 public void getboardWrite(Board board) {
 		  
 		   boardRepository.getboardWrite(board);
@@ -53,7 +57,7 @@ public class BoardServiceImpl implements BoardService {
 	        return boardByBoardKey;
 	 }
 	 
-	 //** µµ¼­ Á¤º¸ ¼öÁ¤¸Þ¼­µå ¿À¹ö¶óÀÌµå **
+	 //** ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ **
 	 public void setBoardUpdateInfo(Board board) {  
 	        boardRepository.setBoardUpdateInfo(board);
 	 }	 

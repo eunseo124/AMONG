@@ -71,7 +71,12 @@ public class BoardController {
 		model.addAttribute("boardList", list);  
 		return "board/hotboard"; 
 	}
-	
+	@GetMapping("/home")
+	   public String homeBoardList(Model model) { 
+	      List<Board> list = boardService.getHomeBoardList();
+	      model.addAttribute("boardList", list);  
+	      return "/home"; 
+	   }
 	//게시판글쓰기
 	@PostMapping(value = "/board/boardwr")
 	@ResponseBody
