@@ -169,7 +169,7 @@ public class AdminController {
     	System.out.println("접근완료" + board.getDelYn());
     	System.out.println("접근완료");
 
-        return "redirect:/adminfreeboard";
+        return "redirect:/admin_member";
     }    
     
 	

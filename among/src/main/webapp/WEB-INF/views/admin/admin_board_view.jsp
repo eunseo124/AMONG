@@ -172,7 +172,7 @@
 		}
 		
 		.board_view {
-		border-top: 2px solid #000;
+		border-top: none;
 		}
 		
 		.board_view .board_title {
@@ -231,6 +231,12 @@
 		line-height: 160%;
 		}
 		
+		  textarea {
+    width: 100%;
+    height: 300px;
+    border: none;
+    resize: none;
+  }
     </style>
     <title>AMONG</title>
 </head>
@@ -296,7 +302,7 @@
         		  <form action="./update_board" method="post">		   
         		  <div class = "board_view">
         		   <div class = "board_title">
-					<input name="boardTitle" type="text" value="${board.boardTitle}">
+					제목: <input name="boardTitle" type="text" value="${board.boardTitle}">
         		   </div>
         		   <div class="board_info">
         		   <c:set var = "boardCategory" value = "${board.boardCategory}"/>
@@ -328,7 +334,7 @@
 			       </dl>
         		   </div>
         		   <div class="board_cont">
-					<input name="boardContent" type="text" value="${board.boardContent}">
+					<textarea name="boardContent" type="text" cols="">${board.boardContent}</textarea>
         		   </div>
         		  </div>	        		  
 			      

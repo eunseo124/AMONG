@@ -17,7 +17,7 @@ public class AdminRepositoryImpl implements AdminRepository {
 	
 	private JdbcTemplate template;
 	
-	//setJdbctemplate() 메서드는 데이터베이스 연동을 위해 작성합니다.
+	
 	@Autowired  
 	public void setJdbctemplate(DataSource dataSource) {
 		this.template = new JdbcTemplate(dataSource);
@@ -36,7 +36,7 @@ public class AdminRepositoryImpl implements AdminRepository {
 					
 	}
 
-	 //boardlist 출력
+	
 	   public Board setboard(int boardKey) {
 	      Board board = new Board();
 	      String SQL = "select * from board b inner join member m on b.memKey = m.memKey "

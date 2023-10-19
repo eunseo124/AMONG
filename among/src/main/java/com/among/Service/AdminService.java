@@ -8,8 +8,8 @@ import com.among.domain.Member;
 public interface AdminService {
 	
 
-	List<Member> getmflist(String keyField);//member db 검색문 //mflist
-	void setupmem(Member member); //member db 수정문  //upmem	
+	List<Member> getmflist(String keyField);
+	void setupmem(Member member); 
 	
 	Board setboard(int boardKey);
 }

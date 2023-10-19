@@ -18,11 +18,11 @@ public class AdminServiceImpl implements AdminService{
 	private AdminRepository adminRepository;
 	
 
-	//member 조회문 method불러오기
+
 	public List<Member> getmflist(String keyField) {
 		return AdminRepository.getmflist(keyField);
 	}
-	//member update method불러오기
+
 	public void setupmem(Member member) {
 		AdminRepository.setupmem(member);
 	}
