@@ -51,12 +51,14 @@ public class HomeController {
       logger.info("Welcome home! The client locale is {}.", locale);
 
       List<Board> list = boardService.getHomeBoardList();
+      List<Board> list2 = boardService.getHomeHotBoardList();
       Date date = new Date();
       DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
       String formattedDate = dateFormat.format(date);
       
-      model.addAttribute("boardList", list);  
+      model.addAttribute("boardList", list);
+      model.addAttribute("boardList2", list2);
       model.addAttribute("serverTime", formattedDate);
 
       return "home";
