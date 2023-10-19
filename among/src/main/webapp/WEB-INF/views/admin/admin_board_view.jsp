@@ -292,10 +292,11 @@
         	<section id = "postList">
         		<div id = "title"><h1>게시판 관리</h1></div>
         		 <div class ="wrap">
-        		  <h1>게시판 상세 정보</h1>		   
+        		  <h1>게시판 상세 정보</h1>
+        		  <form action="./update_board" method="post">		   
         		  <div class = "board_view">
         		   <div class = "board_title">
-					${board.boardTitle}
+					<input name="boardTitle" type="text" value="${board.boardTitle}">
         		   </div>
         		   <div class="board_info">
         		   <c:set var = "boardCategory" value = "${board.boardCategory}"/>
@@ -318,14 +319,16 @@
 	        		   <dt>추천수</dt>
 	        		   <dd>${board.boardRecommend}</dd>
         		   </dl>
+        		   
 			       <dl>
 			           <dt>삭제여부</dt>
-			           <dd><input name="delYn" type="radio" value="Y" <c:if test="${board.delYn eq 'Y'}">checked</c:if>></input> Y &nbsp;&nbsp;  
-			           <input name="delYn" type="radio" value="N" <c:if test="${board.delYn eq 'N'}">checked</c:if>></input> N</dd>                    		                    
-			       </dl>	        		          		           		           		           		           		   
+			           <dd><input id="delYn" name="delYn" type="radio" value="Y" <c:if test="${board.delYn eq 'Y'}">checked</c:if>></input> Y &nbsp;&nbsp;  
+			          	   <input id="delYn" name="delYn" type="radio" value="N" <c:if test="${board.delYn eq 'N'}">checked</c:if>></input> N</dd>                   
+			          	   <input name="boardKey" type="hidden" value="${board.boardKey}">
+			       </dl>
         		   </div>
         		   <div class="board_cont">
-					${board.boardContent}
+					<input name="boardContent" type="text" value="${board.boardContent}">
         		   </div>
         		  </div>	        		  
 			      
@@ -335,7 +338,7 @@
 			      <input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
 			      <input type="button" value="뒤로" onclick="history.go(-1)">
 			      </div>        		  
-        		
+        	</form>
         		 </div>
         	</section>
         </article>

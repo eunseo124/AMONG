@@ -159,28 +159,19 @@ public class AdminController {
 
     }
     
-	@PostMapping(value = "/admin/admin_board_view")
-	@ResponseBody
-	public String Updatebd(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
-			ModelMap modelMap, @ModelAttribute("board") Board board, Model model, MultipartFile[] uploadFile){
-						
-			if (uploadFile != null) {
-				for(MultipartFile multipartFile : uploadFile) {	
-					File savefile = new File("C:\\Users\\Administrator\\git\\AMONG\\among\\src\\main\\webapp\\resources\\images", multipartFile.getOriginalFilename());
-					try {
-						multipartFile.transferTo(savefile);
-					} catch(Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-			    boardService.setBoardmodify(board);
-			    System.out.println(board.getBoardContent());
-			    System.out.println(board.getBoardImg());
-			    System.out.println(board.getBoardKey());
-			    System.out.println(board.getBoardTitle());
-			    return "redirect:/admin_member";
-		}  
+    //** submitUpdateBookForm() 메서드는 요청 url이 /update 이고 Post방식 일때 처리하는 메서드 입니다.
+    @PostMapping("/update_board") 
+    public String submitBoardUpdateInfoForm(@ModelAttribute("boardUpdateInfo") Board board) {
+
+    	boardService.setBoardUpdateInfo(board);
+    	
+    	System.out.println("접근완료" + board.getBoardKey());
+    	System.out.println("접근완료" + board.getDelYn());
+    	System.out.println("접근완료");
+
+        return "redirect:/adminfreeboard";
+    }    
+    
 	
 }
 	

@@ -51,6 +51,11 @@ public class BoardServiceImpl implements BoardService {
 	 public Board getBoardByBoardKey(int boardKey) {
 		 	Board boardByBoardKey = boardRepository.getBoardByBoardKey(boardKey);
 	        return boardByBoardKey;
+	 }
+	 
+	 //** 도서 정보 수정메서드 오버라이드 **
+	 public void setBoardUpdateInfo(Board board) {  
+	        boardRepository.setBoardUpdateInfo(board);
 	 }	 
 	 
 	 public void setbodRecommend(int boardKey) {

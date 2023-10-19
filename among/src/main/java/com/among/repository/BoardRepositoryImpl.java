@@ -129,9 +129,26 @@ public class BoardRepositoryImpl implements BoardRepository {
     	});
     	return boardInfo;
 
-    }        
+    }
     
-    //조회수증가 메서드
+    
+    //** 도서정보 수정 메서드 오버라이드 **
+    public void setBoardUpdateInfo(Board board) {  
+    	
+        	String SQL = "UPDATE board SET boardContent = ?, boardTitle = ?,  delYn = ? where boardKey = ?";
+            
+         template.update(SQL, 
+        		 
+                 board.getBoardContent(),
+                 board.getBoardTitle(),
+                 board.getDelYn(),
+                 board.getBoardKey()
+                 );
+
+        
+    }    
+    
+    //議고쉶�닔利앷� 硫붿꽌�뱶
     public void setbodRecommend(int boardKey) {
     	
     	String SQL = "UPDATE board SET boardRecommend = boardRecommend + 1 WHERE boardKey = ?";

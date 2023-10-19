@@ -25,5 +25,8 @@ public interface BoardService {
 	
 	Board getBoardByBoardKey(int boardKey);	
 	
+	//관리자 페이지 게시판 수정
+	void setBoardUpdateInfo(Board board); //관리자 회원정보수정 메서드 추가		
+	
 	void setbodRecommend(int boardKey);
 }
