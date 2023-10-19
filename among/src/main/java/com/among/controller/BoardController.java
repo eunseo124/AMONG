@@ -72,7 +72,7 @@ public class BoardController {
 		return "board/hotboard"; 
 	}
 	
-	//글쓰기
+	//게시판글쓰기
 	@PostMapping(value = "/board/boardwr")
 	@ResponseBody
 	public String boardWrite(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
