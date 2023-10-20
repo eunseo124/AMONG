@@ -15,14 +15,14 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired 
 	 private BoardRepository boardRepository;
 	 
-	 public List<Board> getAllBoardList() { 
+	 public List<Board> getAllBoardList(int startPage, int perPageNum) { 
 	        // TODO Auto-generated method stub
-		 return boardRepository.getAllBoardList();
+		 return boardRepository.getAllBoardList(startPage, perPageNum);
 	 } 
 	 
-	 public List<Board> getHotBoardList() { 
+	 public List<Board> getHotBoardList(int startPage, int perPageNum) { 
 	        // TODO Auto-generated method stub
-		 return boardRepository.getHotBoardList();
+		 return boardRepository.getHotBoardList(startPage, perPageNum);
 	 } 
 	 public List<Board> getHomeBoardList() { 
          // TODO Auto-generated method stub
@@ -61,7 +61,7 @@ public class BoardServiceImpl implements BoardService {
 	        return boardByBoardKey;
 	 }
 	 
-	 //** ���� ���� �����޼��� �������̵� **
+	 
 	 public void setBoardUpdateInfo(Board board) {  
 	        boardRepository.setBoardUpdateInfo(board);
 	 }	 
@@ -71,4 +71,18 @@ public class BoardServiceImpl implements BoardService {
 		   boardRepository.setbodRecommend(boardKey);
 		   
 	 }
+
+	@Override
+	public int countBoardList() {
+		// TODO Auto-generated method stub
+		int boardcount = 0;
+		boardcount = boardRepository.countBoardList();
+		return boardcount;
+	}
+	
+	public List<Board> getAllboardlist() {
+		List<Board> board = null;
+		board = boardRepository.getAllboardlist();
+		return board;
+	}
 }

@@ -11,9 +11,9 @@ import com.among.domain.Board;
 @Controller
 public interface BoardService {
 	
-	List<Board> getAllBoardList();
+	List<Board> getAllBoardList(int startPage, int perPageNum);
 	
-	List<Board> getHotBoardList();
+	List<Board> getHotBoardList(int startPage, int perPageNum);
 	
 	List<Board> getHomeBoardList();
 	
@@ -33,4 +33,8 @@ public interface BoardService {
 	void setBoardUpdateInfo(Board board); //관리자 회원정보수정 메서드 추가		
 	
 	void setbodRecommend(int boardKey);
+	
+	List<Board> getAllboardlist();
+	
+	int countBoardList();
 }

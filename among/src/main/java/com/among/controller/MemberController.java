@@ -26,22 +26,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.among.domain.Board;
+import com.among.domain.Criteria;
 import com.among.domain.Member;
+import com.among.domain.PageMaker;
 import com.among.domain.Reple;
 import com.among.repository.MemberRowMapper;
 import com.among.Service.BoardService;
 import com.among.Service.MemberService;
+import com.among.Service.RepleService;
 
 @Controller
 public class MemberController {
    
    @Autowired
-   private  MemberService memberService;
+   private MemberService memberService;
    private MemberRowMapper mrowmap;
    private BoardService boardService;
-  
+   private RepleService repleService;
+   
 
    @RequestMapping(value = "/memjoin", method = RequestMethod.GET)
    public String memjoin() {
@@ -78,9 +83,10 @@ public class MemberController {
    public String logingProc(HttpSession session, HttpServletRequest req, HttpServletResponse resp,
          ModelMap modelMap, @ModelAttribute("mem") Member member, Model model){
           
-      
-          Member mem = memberService.getlogin(member.getMemId(), member.getMemPw());
-          
+      System.out.println("memberservice get long ="+ member.getMemId()+member.getMemPw() );
+      	Member mem = new Member();
+      	mem = memberService.getlogin(member.getMemId(), member.getMemPw());
+
           Member sessionc  = new Member();
           
           sessionc.setMemKey(mem.getMemKey());
@@ -220,107 +226,153 @@ public class MemberController {
    
 
    @RequestMapping(value = "/mypost", method = RequestMethod.GET)
-   public String mypost(@RequestParam("memKey")int memKey, Model model) {
-
+   public ModelAndView mypost(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/mypost");
 	  List<Board> boardl = null;
-	  boardl = memberService.setboardlist(memKey);
-	  model.addAttribute("boardl",boardl);
-      return "mypage/mypost";
+	  boardl = memberService.setboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
+	  int boardCount = memberService.Boardcount(memKey);
+		PageMaker pageMaker = new PageMaker();
+  		pageMaker.setCri(cri);
+  		pageMaker.setTotalCount(boardCount);
+  		mav.addObject("boardl", boardl);  
+  		mav.addObject("pageMaker", pageMaker); 
+	  
+      return mav;
 
    }
    
  
    @RequestMapping(value = "/mypost2", method = RequestMethod.GET)
-   public String mypost2(@RequestParam("memKey")int memKey, Model model) {
-
-	  List<Board> hboard = null;
-	  hboard = memberService.gethotboardlist(memKey);
-	  model.addAttribute("hboard",hboard);
-      return "mypage/mypost2";
+   public ModelAndView mypost2(@RequestParam("memKey")int memKey, Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/mypost2");
+		  List<Board> hboard = null;
+		  hboard = memberService.gethotboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
+		  int boardCount = memberService.Boardcount(memKey);
+			PageMaker pageMaker = new PageMaker();
+	  		pageMaker.setCri(cri);
+	  		pageMaker.setTotalCount(boardCount);
+	  		mav.addObject("hboard", hboard);  
+	  		mav.addObject("pageMaker", pageMaker); 
+	  
+      return mav;
 
    }
 
    @RequestMapping(value = "/mypost3", method = RequestMethod.GET)
-   public String mypost3(@RequestParam("memKey")int memKey, Model model) {
-
+   public ModelAndView mypost3(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/mypost3");
 	  List<Board> boardl = null;
-	  boardl = memberService.setboardlist(memKey);
-	  model.addAttribute("boardl",boardl);
-      return "mypage/mypost3";
-
+	  boardl = memberService.setboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
+	  int boardCount = memberService.Boardcount(memKey);
+		PageMaker pageMaker = new PageMaker();
+  		pageMaker.setCri(cri);
+  		pageMaker.setTotalCount(boardCount);
+  		mav.addObject("boardl", boardl);  
+  		mav.addObject("pageMaker", pageMaker); 
+	  
+      return mav;
    }
-
-
+   
    @RequestMapping(value = "/mypost4", method = RequestMethod.GET)
-   public String mypost4(@RequestParam("memKey")int memKey, Model model) {
-
+   public ModelAndView mypost4(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/mypost4");
 	  List<Board> boardl = null;
-	  boardl = memberService.setboardlist(memKey);
-	  model.addAttribute("boardl",boardl);
-      return "mypage/mypost4";
+	  boardl = memberService.setboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
+	  int boardCount = memberService.Boardcount(memKey);
+		PageMaker pageMaker = new PageMaker();
+  		pageMaker.setCri(cri);
+  		pageMaker.setTotalCount(boardCount);
+  		mav.addObject("boardl", boardl);  
+  		mav.addObject("pageMaker", pageMaker); 
+	  
+      return mav;
 
    }
-
-
    @RequestMapping(value = "/mypost5", method = RequestMethod.GET)
-   public String mypost5(@RequestParam("memKey")int memKey, Model model) {
-
+   public ModelAndView mypost5(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/mypost5");
 	  List<Board> boardl = null;
-	  boardl = memberService.setboardlist(memKey);
-	  model.addAttribute("boardl",boardl);
-      return "mypage/mypost5";
-
+	  boardl = memberService.setboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
+	  int boardCount = memberService.Boardcount(memKey);
+		PageMaker pageMaker = new PageMaker();
+  		pageMaker.setCri(cri);
+  		pageMaker.setTotalCount(boardCount);
+  		mav.addObject("boardl", boardl);  
+  		mav.addObject("pageMaker", pageMaker); 
+	  
+      return mav;
    }
    
 
    @RequestMapping(value = "/myreply", method = RequestMethod.GET) 
-   public String myboardlist(@RequestParam("memKey")int memKey,Model model) {
-	   
+   public ModelAndView myreplelist(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/myreply");
 	   List<Reple> rep = null;
-	   rep = memberService.setreplelist(memKey);
-	   model.addAttribute("replelist",rep);
-	   
-	   return "mypage/myreply";
+	   rep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
+		  int replecount = memberService.Replecount(memKey);
+			PageMaker pageMaker = new PageMaker();
+	  		pageMaker.setCri(cri);
+	  		pageMaker.setTotalCount(replecount);
+	   mav.addObject("replelist",rep);  
+ 		mav.addObject("pageMaker", pageMaker); 
+	   return mav;
    }
 
    @RequestMapping(value = "/myreply2", method = RequestMethod.GET) 
-   public String myboardlist2(@RequestParam("memKey")int memKey,Model model) {
-	   
+   public ModelAndView myreplelist2(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/myreply2");
 	   List<Reple> hrep = null;
-	   hrep = memberService.getreplelist(memKey);
-	   model.addAttribute("hotreplelist",hrep);
-	   
-	   return "mypage/myreply2";
+	   hrep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
+	   int replecount = memberService.Replecount(memKey);
+			PageMaker pageMaker = new PageMaker();
+	  		pageMaker.setCri(cri);
+	  		pageMaker.setTotalCount(replecount);
+	   mav.addObject("hotreplelist",hrep);  
+ 		mav.addObject("pageMaker", pageMaker); 
+	   return mav;
+
    }
 
    @RequestMapping(value = "/myreply3", method = RequestMethod.GET) 
-   public String myboardlist3(@RequestParam("memKey")int memKey,Model model) {
-	   
+   public ModelAndView myreplelist3(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/myreply3");
 	   List<Reple> rep = null;
-	   rep = memberService.setreplelist(memKey);
-	   model.addAttribute("replelist",rep);
-	   
-	   return "mypage/myreply3";
+	   rep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
+		  int replecount = memberService.Replecount(memKey);
+			PageMaker pageMaker = new PageMaker();
+	  		pageMaker.setCri(cri);
+	  		pageMaker.setTotalCount(replecount);
+	   mav.addObject("replelist",rep);  
+ 		mav.addObject("pageMaker", pageMaker); 
+	   return mav;
    }
 
    @RequestMapping(value = "/myreply4", method = RequestMethod.GET) 
-   public String myboardlist4(@RequestParam("memKey")int memKey,Model model) {
-	   
+   public ModelAndView myreplelist4(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/myreply4");
 	   List<Reple> rep = null;
-	   rep = memberService.setreplelist(memKey);
-	   model.addAttribute("replelist",rep);
-	   
-	   return "mypage/myreply4";
+	   rep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
+		  int replecount = memberService.Replecount(memKey);
+			PageMaker pageMaker = new PageMaker();
+	  		pageMaker.setCri(cri);
+	  		pageMaker.setTotalCount(replecount);
+	   mav.addObject("replelist",rep);  
+ 		mav.addObject("pageMaker", pageMaker); 
+	   return mav;
    }
 
    @RequestMapping(value = "/myreply5", method = RequestMethod.GET) 
-   public String myboardlist5(@RequestParam("memKey")int memKey,Model model) {
-	   
+   public ModelAndView myreplelist5(@RequestParam("memKey")int memKey,Criteria cri) {
+	   ModelAndView mav = new ModelAndView("/mypage/myreply5");
 	   List<Reple> rep = null;
-	   rep = memberService.setreplelist(memKey);
-	   model.addAttribute("replelist",rep);
-	   
-	   return "mypage/myreply5";
+	   rep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
+		  int replecount = memberService.Replecount(memKey);
+			PageMaker pageMaker = new PageMaker();
+	  		pageMaker.setCri(cri);
+	  		pageMaker.setTotalCount(replecount);
+	   mav.addObject("replelist",rep);  
+ 		mav.addObject("pageMaker", pageMaker); 
+	   return mav;
    }
 
    @PostMapping("/repledelete")

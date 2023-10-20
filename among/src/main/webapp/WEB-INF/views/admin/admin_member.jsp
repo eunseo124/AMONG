@@ -16,7 +16,8 @@
     	@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 /* 사이드바  css*/
-
+li {
+list-style :none;}
         aside {
             width: 340px;
             display: flex;
@@ -216,6 +217,21 @@
           		       </c:forEach>   		               		               		               		               		               		       
         		      </tbody>
         		     </table>
+        		     <c:if test="${pageMaker.prev }">
+                <li>
+                    <a href='<c:url value="/admin_member?page=${pageMaker.startPage-1}"/>'><i style = "list-decoration:none;">처음으로</i></a>
+                </li>
+                </c:if>
+                <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">
+                <li>
+                    <a href='<c:url value="/admin_member?page=${pageNum}"/>'><i class="fa">${pageNum }</i></a>
+                </li>
+                </c:forEach>
+                <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+                <li>
+                    <a href='<c:url value="/admin_member?page=${pageMaker.endPage+1}"/>'><i class="fa fa-chevron-right"></i></a>
+                </li>
+                </c:if>
         		<section class="search">
         			<input type="text" placeholder="검색어" name="search">
         			<button>

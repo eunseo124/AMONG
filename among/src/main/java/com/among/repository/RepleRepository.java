@@ -9,7 +9,9 @@ import com.among.domain.Reple;
 
 public interface RepleRepository {
 	
-	List<Reple> getAllRepleList();
+	List<Reple> getAllRepleList(int startPage, int perPageNum);
+	
+	List<Reple> getAllreplelist();
 	
 	void setNewReple(Reple reple);
 	
@@ -22,9 +24,9 @@ public interface RepleRepository {
 	
 	List<Board> setboardlist(int boardKey);
 	
-	void setDeleteReple(int repleKey);		
+	void setDeleteReple(int repleKey);
 		
-	
+	int countReplelist();
 	
 	
 

@@ -19,9 +19,9 @@ public class MemberServiceImpl implements MemberService {
    
    @Override
   
-   public List<Member> getAllMemberList() {
+   public List<Member> getAllMemberList(int startPage, int perPageNum) {
       // TODO Auto-generated method stub
-      List<Member> listOfMember = memberRepository.getAllMemberList();
+      List<Member> listOfMember = memberRepository.getAllMemberList(startPage,perPageNum);
       return listOfMember;
    }
    
@@ -104,16 +104,16 @@ public class MemberServiceImpl implements MemberService {
 	 }	 
 	
 
-	 public List<Board> setboardlist(int memKey) {
+	 public List<Board> setboardlist(int memKey,int startPage, int perPageNum) {
 		 List<Board> board = null;
-		 board = memberRepository.setboardlist(memKey);
+		 board = memberRepository.setboardlist(memKey,startPage,perPageNum);
 		 return board;
 	 }
 	
 
-	 public List<Reple> setreplelist(int memKey) {
+	 public List<Reple> setreplelist(int memKey,int startPage, int perPageNum) {
 		 List<Reple> rep = null;
-		 rep = memberRepository.setreplelist(memKey);
+		 rep = memberRepository.setreplelist(memKey,startPage,perPageNum);
 		 return rep;
 	 }
 	 
@@ -125,9 +125,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 
-	public List<Board> gethotboardlist(int memKey){
+	public List<Board> gethotboardlist(int memKey,int startPage, int perPageNum){
 	 List<Board> hboard = null;
-	 hboard = memberRepository.gethotboardlist(memKey);
+	 hboard = memberRepository.gethotboardlist(memKey,startPage,perPageNum);
 		return hboard;
 	}
 	
@@ -140,9 +140,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
-	public List<Reple> getreplelist(int memKey){
+	public List<Reple> getreplelist(int memKey,int startPage, int perPageNum){
 		List<Reple> hreple = null;
-		hreple = memberRepository.getreplelist(memKey);
+		hreple = memberRepository.getreplelist(memKey,startPage,perPageNum);
 		return hreple;
 	}
 	
@@ -160,4 +160,21 @@ public class MemberServiceImpl implements MemberService {
 		return countre;
 	}
 	
+	public int membercount() {
+		int membercount = memberRepository.membercount();
+		return membercount;
+	}
+	
+	public int Boardcount(int memKey) {
+		
+		 int countbo = memberRepository.Boardcount(memKey);
+		return countbo;
+	}
+	
+
+	public int Replecount(int memKey) {
+		
+		 int countre = memberRepository.Replecount(memKey);
+		return countre;
+	}
 }

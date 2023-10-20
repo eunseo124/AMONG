@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberRepository {
    
-   List<Member> getAllMemberList(); 
+   List<Member> getAllMemberList(int startPage, int perPageNum); 
    
    List<Member> getmflist(String keyField);
   
@@ -40,20 +40,26 @@ public interface MemberRepository {
 	
 	void setDeleteMember(String memId);		
 	
-	List<Board> setboardlist(int memKey);
+	List<Board> setboardlist(int memKey,int startPage, int perPageNum);
 
-	List<Reple> setreplelist(int memKey);
+	List<Reple> setreplelist(int memKey,int startPage, int perPageNum);
 
 	void setdeleteReple(int repleKey); 
 	
-	List<Board> gethotboardlist(int memKey);
+	List<Board> gethotboardlist(int memKey,int startPage, int perPageNum);
 
 	void setdelboard(Board delboard); 
 	
-	List<Reple> getreplelist(int memKey);
+	List<Reple> getreplelist(int memKey,int startPage, int perPageNum);
 	
 	Board boardcount(int memKey); 
 	
 	Reple replecount(int memKey); 
+	
+	int membercount( );
+	
+	int Boardcount(int memKey); 
+	
+	int Replecount(int memKey); 
 	
 }

@@ -35,14 +35,25 @@ public class RepleRepositoryImpl implements RepleRepository {
 
    
    @Override
-   public List<Reple> getAllRepleList() {
+   public List<Reple> getAllRepleList(int startPage, int perPageNum) {
       // TODO Auto-generated method stub
-      String SQL = "select * from reple a inner join member b on a.memkey = b.memkey";
-   
+      String SQL = "select * from reple a inner join member b on a.memkey = b.memkey limit "+ startPage+", " + perPageNum;
       List<Reple> listOfReple = template.query(SQL, new RepleRowMapper());
       return listOfReple;
    }
 
+   public int countReplelist() {
+	    
+   	String SQL = "select count(*) from reple";
+   	int countReplelist = template.queryForObject(SQL,Integer.class);
+   	return countReplelist;
+   }
+   
+   public List<Reple> getAllreplelist() {
+	   String SQL = "select * from reple r inner join member b on a.memKey = b.memKey";
+	   List<Reple> listOfReple = template.query(SQL, new RepleRowMapper());
+	      return listOfReple; 
+   }
    
    public void setNewReple(Reple reple) {
 

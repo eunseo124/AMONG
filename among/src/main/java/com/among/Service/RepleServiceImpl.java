@@ -23,12 +23,15 @@ public class RepleServiceImpl implements RepleService{
 	 	private BoardRepository boardRepository;
 	 
 	 
-	 public List<Reple> getAllRepleList() { 
+	 public List<Reple> getAllRepleList(int startPage, int perPageNum) { 
 	        // TODO Auto-generated method stub
-		 return repleRepository.getAllRepleList();
+		 return repleRepository.getAllRepleList(startPage,perPageNum);
 	 } 
 	 
-	
+	 public List<Reple> getAllreplelist() { 
+	        // TODO Auto-generated method stub
+		 return repleRepository.getAllreplelist();
+	 } 
 	
 	 public void setNewReple(Reple reple) {  
 		 repleRepository.setNewReple(reple);  
@@ -51,7 +54,7 @@ public class RepleServiceImpl implements RepleService{
 
 		public List<Board> getAllBoardList() { 
         // TODO Auto-generated method stub
-	 return boardRepository.getAllBoardList();
+	 return boardRepository.getAllboardlist();
  } 	
 		
 		//boardlist ������
@@ -68,7 +71,10 @@ public class RepleServiceImpl implements RepleService{
 		 }		
 		 
 		 
-		 
+	public int countReplelist() {
+		int countRepleList = repleRepository.countReplelist();
+		return countRepleList;
+	}
 		 
 
 		 

@@ -8,9 +8,9 @@ import com.among.domain.Member;
 
 public interface BoardRepository {
 
-	List<Board> getAllBoardList();
+	List<Board> getAllBoardList(int startPage, int perPageNum);
 	
-	List<Board> getHotBoardList();
+	List<Board> getHotBoardList(int startPage, int perPageNum);
 	
 	List<Board> getHomeBoardList();
 	
@@ -29,7 +29,9 @@ public interface BoardRepository {
 	//관리자 페이지 게시판 수정
 	void setBoardUpdateInfo(Board board); //관리자 회원정보수정 메서드 추가		
 	
-	//異붿쿇�닔利앷�
-	void setbodRecommend(int boardKey);
+	List<Board> getAllboardlist();
 	
+	void setbodRecommend(int boardKey);
+
+	int countBoardList();
 }

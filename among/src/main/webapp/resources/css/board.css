@@ -9,6 +9,9 @@ article {
     gap: 20px;
     box-sizing: border-box;
 }
+li {
+	list-style : none;
+}
 
 #postList {
     width: 100%;

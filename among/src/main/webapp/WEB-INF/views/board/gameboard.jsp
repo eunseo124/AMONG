@@ -14,6 +14,8 @@
 <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
+    li {
+    list-style : none;}
         aside {
             width: 340px;
             display: flex;
@@ -187,10 +189,21 @@
         	
         		
         		<div id="table">
-        			<a href="#">1</a>
-        			<a href="#">2</a>
-        			<a href="#">3</a>
-        			<a href="#">4</a>
+        			<c:if test="${pageMaker.prev }">
+				    <li>
+				        <a href='<c:url value="/gameboard?page=${pageMaker.startPage-1 }"/>'><i style = "list-decoration:none;">처음으로</i></a>
+				    </li>
+				    </c:if>
+				    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">
+				    <li>
+				        <a href='<c:url value="/gameboard?page=${pageNum }"/>'><i class="fa">${pageNum }</i></a>
+				    </li>
+				    </c:forEach>
+				    <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+				    <li>
+				        <a href='<c:url value="/gameboard?page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a>
+				    </li>
+				    </c:if>
         		</div>
         		
         		<script>

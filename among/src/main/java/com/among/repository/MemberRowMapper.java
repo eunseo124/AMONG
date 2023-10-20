@@ -11,18 +11,18 @@ public class MemberRowMapper implements RowMapper<Member> {
 	public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
 		// TODO Auto-generated method stub
 		Member member = new Member();
-		member.setMemKey(rs.getInt(1));
-		member.setMemId(rs.getString(2));
-		member.setMemPw(rs.getString(3));
-		member.setMemEmail1(rs.getString(4));
-		member.setMemEmail2(rs.getString(5));
-		member.setMemName(rs.getString(6));
-		member.setMemResident1(rs.getInt(7));
-		member.setMemResident2(rs.getInt(8));
-		member.setMemJoinDate(rs.getString(9));
-		member.setDelYn(rs.getString(10));
-		member.setMemGrade(rs.getInt(11));
-		member.setnName(rs.getString(12));
+		member.setMemKey(rs.getInt("memKey"));
+		member.setMemId(rs.getString("memId"));
+		member.setMemPw(rs.getString("memPw"));
+		member.setMemEmail1(rs.getString("memEmail1"));
+		member.setMemEmail2(rs.getString("memEmail2"));
+		member.setMemName(rs.getString("memName"));
+		member.setMemResident1(rs.getInt("memResident1"));
+		member.setMemResident2(rs.getInt("memResident2"));
+		member.setMemJoinDate(rs.getString("memJoinDate"));
+		member.setDelYn(rs.getString("delYn"));
+		member.setMemGrade(rs.getInt("memGrade"));
+		member.setnName(rs.getString("nName"));
 		
 		return member;
 	}

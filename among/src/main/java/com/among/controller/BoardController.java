@@ -19,9 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.among.Service.BoardService;
 import com.among.domain.Board;
+import com.among.domain.Criteria;
+import com.among.domain.PageMaker;
 
 @Controller
 
@@ -36,40 +39,81 @@ public class BoardController {
 		return "board/boardmodify"; 
 	}*/
 	
-	//자유게시판
-	@GetMapping("/freeboard")
-	public String requestBoardList(Model model) { 
-		List<Board> list = boardService.getAllBoardList();
-		model.addAttribute("boardList", list);  
-		return "board/freeboard"; 
-	}
-	//게임게시판
-	@GetMapping("/gameboard")
-	public String gameBoardList(Model model) { 
-		List<Board> list = boardService.getAllBoardList();
-		model.addAttribute("boardList", list);  
-		return "board/gameboard"; 
-	}
-	//여행게시판
-	@GetMapping("/travleboard")
-	public String travleBoardList(Model model) { 
-		List<Board> list = boardService.getAllBoardList();
-		model.addAttribute("boardList", list);  
-		return "board/travleboard"; 
-	}
-	//맛집게시판
-	@GetMapping("/foodboard")
-	public String foodBoardList(Model model) { 
-		List<Board> list = boardService.getAllBoardList();
-		model.addAttribute("boardList", list);  
-		return "board/foodboard"; 
-	}
+	//freeboard
+		@RequestMapping(value = "/freeboard")
+		public ModelAndView openBoardList(Criteria cri) throws Exception { 
+			
+			ModelAndView mav = new ModelAndView("/board/freeboard");		
+			int boardCount = boardService.countBoardList();
+			PageMaker pageMaker = new PageMaker();
+	    		pageMaker.setCri(cri);
+	    		pageMaker.setTotalCount(boardCount);
+			List<Board> list = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+			mav.addObject("boardList", list);  
+			mav.addObject("pageMaker", pageMaker);
+			return mav; 
+		}
+	///gameboard
+		@RequestMapping(value = "/gameboard")
+		public ModelAndView opengameBoardList(Criteria cri) throws Exception{
+			
+			ModelAndView mav = new ModelAndView("/board/gameboard");		
+			int boardCount = boardService.countBoardList();
+			PageMaker pageMaker = new PageMaker();
+	    		pageMaker.setCri(cri);
+	    		pageMaker.setTotalCount(boardCount);
+
+			List<Board> list = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+			mav.addObject("boardList", list);  
+			mav.addObject("pageMaker", pageMaker);
+			return mav; 
+		}
+
+		//travleboard
+		@RequestMapping(value = "/travleboard")
+		public ModelAndView opentravleBoardList(Criteria cri) throws Exception{
+			
+			ModelAndView mav = new ModelAndView("/board/travleboard");		
+			int boardCount = boardService.countBoardList();
+			PageMaker pageMaker = new PageMaker();
+	    		pageMaker.setCri(cri);
+	    		pageMaker.setTotalCount(boardCount);
+
+			List<Board> list = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+			mav.addObject("boardList", list);  
+			mav.addObject("pageMaker", pageMaker); 
+			return mav; 
+		}
+
+		//foodboard
+		@RequestMapping(value = "/foodboard")
+		public ModelAndView openfoodBoardList(Criteria cri) throws Exception{
+			
+			ModelAndView mav = new ModelAndView("/board/foodboard");		
+			int boardCount = boardService.countBoardList();
+			PageMaker pageMaker = new PageMaker();
+	    		pageMaker.setCri(cri);
+	    		pageMaker.setTotalCount(boardCount);
+
+			List<Board> list = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+			mav.addObject("boardList", list);  
+			mav.addObject("pageMaker", pageMaker);
+			return mav; 
+		}
+		
 	//인기게시판
 	@GetMapping("/hotboard")
-	public String hotBoardList(Model model) { 
-		List<Board> list = boardService.getHotBoardList();
-		model.addAttribute("boardList", list);  
-		return "board/hotboard"; 
+	public ModelAndView hotBoardList(Criteria cri) throws Exception { 
+		
+		ModelAndView mav = new ModelAndView("/board/hotboard");
+		int boardCount = boardService.countBoardList();
+		PageMaker pageMaker = new PageMaker();
+    		pageMaker.setCri(cri);
+    		pageMaker.setTotalCount(boardCount);
+		List<Board> list = boardService.getHotBoardList(cri.getPageStart(),cri.getPerPageNum());
+		mav.addObject("boardList", list);
+		mav.addObject("pageMaker", pageMaker);
+		return mav; 
 	}
 	@GetMapping("/home")
 	   public String homeBoardList(Model model) { 

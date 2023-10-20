@@ -19,12 +19,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.among.Service.BoardService;
 import com.among.Service.MemberService;
 import com.among.Service.RepleService;
 import com.among.domain.Board;
+import com.among.domain.Criteria;
 import com.among.domain.Member;
+import com.among.domain.PageMaker;
 import com.among.domain.Reple;
 
 @Controller
@@ -44,10 +47,17 @@ public class AdminController {
 	
 	
 	@GetMapping("/admin_member")
-	public String requestadmin_member(Model model) {
-        List<Member> Alist = memberService.getAllMemberList();
-        model.addAttribute("Alist", Alist);
-        return "admin/admin_member";
+	public ModelAndView requestadmin_member(Criteria cri) {
+		ModelAndView mav = new ModelAndView("/admin/admin_member");
+		List<Member> Alist = memberService.getAllMemberList(cri.getPageStart(),cri.getPerPageNum());
+        int memberCount = memberService.membercount();
+		PageMaker pageMaker = new PageMaker();
+    		pageMaker.setCri(cri);
+    		pageMaker.setTotalCount(memberCount);
+    		mav.addObject("Alist", Alist);  
+    		mav.addObject("pageMaker", pageMaker); 
+        
+        return mav;
     }
 	
 
@@ -85,55 +95,76 @@ public class AdminController {
 	//게시판 조회
 	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
 	@GetMapping("/adminfreeboard")
-	public String requestAfreeBoardList(Model model) {
-		
-		List<Board> Blist = boardService.getAllBoardList();
-		
-		model.addAttribute("Blist", Blist);  
-		return "admin/adminfreeboard"; 
+	public ModelAndView requestAfreeBoardList(Criteria cri) throws Exception{
+		ModelAndView mav = new ModelAndView("/admin/adminfreeboard");
+		int boardCount = boardService.countBoardList();
+		PageMaker pageMaker = new PageMaker();
+    		pageMaker.setCri(cri);
+    		pageMaker.setTotalCount(boardCount);
+		List<Board> Blist = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+		mav.addObject("Blist", Blist);  
+		mav.addObject("pageMaker", pageMaker);  
+		return mav; 
 	}
 	
 	//게시판 조회
 	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
 	@GetMapping("/adminfoodboard")
-	public String requestAfoodBoardList(Model model) {
-		
-		List<Board> Blist = boardService.getAllBoardList();
-		
-		model.addAttribute("Blist", Blist);  
-		return "admin/adminfoodboard"; 
+	public ModelAndView requestAfoodBoardList(Criteria cri) {
+		ModelAndView mav = new ModelAndView("/admin/adminfoodboard");
+		int boardCount = boardService.countBoardList();
+		PageMaker pageMaker = new PageMaker();
+    		pageMaker.setCri(cri);
+    		pageMaker.setTotalCount(boardCount);
+		List<Board> Blist = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+		mav.addObject("Blist", Blist);  
+		mav.addObject("pageMaker", pageMaker);  
+		return mav; 
 	}	
 	
 	//게시판 조회
 	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
 	@GetMapping("/admingameboard")
-	public String requestAgameBoardList(Model model) {
-		
-		List<Board> Blist = boardService.getAllBoardList();
-		
-		model.addAttribute("Blist", Blist);  
-		return "admin/admingameboard"; 
+	public ModelAndView requestAgameBoardList(Criteria cri) {
+		ModelAndView mav = new ModelAndView("/admin/admingameboard");
+		int boardCount = boardService.countBoardList();
+		PageMaker pageMaker = new PageMaker();
+    		pageMaker.setCri(cri);
+    		pageMaker.setTotalCount(boardCount);
+		List<Board> Blist = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+		mav.addObject("Blist", Blist);  
+		mav.addObject("pageMaker", pageMaker);  
+		return mav; 
 	}
 
 	//게시판 조회
 	/* HTTP 요청 방식이 GET인 경우, @GetMapping 을 사용할 수 있습니다.*/
 	@GetMapping("/admintravelboard")
-	public String requestAtravelBoardList(Model model) {
-		
-		List<Board> Blist = boardService.getAllBoardList();
-		
-		model.addAttribute("Blist", Blist);  
-		return "admin/admintravelboard"; 
+	public ModelAndView requestAtravelBoardList(Criteria cri) {
+		ModelAndView mav = new ModelAndView("/admin/admintravelboard");
+		int boardCount = boardService.countBoardList();
+		PageMaker pageMaker = new PageMaker();
+    		pageMaker.setCri(cri);
+    		pageMaker.setTotalCount(boardCount);
+		List<Board> Blist = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+		mav.addObject("Blist", Blist);  
+		mav.addObject("pageMaker", pageMaker);  
+		return mav; 
 	}		
 	
 	@GetMapping("/admin_comment")
-	   public String adminreplelist(Model model) {
+	   public ModelAndView adminreplelist(Criteria cri) {
+		ModelAndView mav = new ModelAndView("/admin/admin_comment");
+	    
+		List<Reple> repleList = repleService.getAllRepleList(cri.getPageStart(),cri.getPerPageNum());
+		int repleCount = repleService.countReplelist();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(repleCount);
+		mav.addObject("repleList", repleList);
+		mav.addObject("pageMaker", pageMaker);  
 	      
-	    List<Reple> repleList = repleService.getAllRepleList();
-
-	    model.addAttribute("repleList", repleList);
-	      
-	      return "admin/admin_comment";
+	      return mav;
 
 	   }
 	

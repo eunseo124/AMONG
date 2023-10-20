@@ -91,7 +91,7 @@
 	            	</div>
             </section>
     </header>
-    <main style="height:700px;">
+    <main style="height:800px;">
         <!-- 본문내용 -->
             <article id="widget">
             	<section class = "flex">
@@ -100,7 +100,7 @@
             		<div><h4><a href="mypost?memKey=${sessionc.memKey}">게시글 관리</a></h4></div>
             		<div><h4><a href="myreply?memKey=${sessionc.memKey}">댓글 관리</a></h4></div>
             		</div>
-            		<div class = "pmypage1" style="height:600px;">
+            		<div class = "pmypage1" style="height:800px;">
             				<div class = "pmypage2" style="width:1000px;">
                                     <div class="merge">
 	                                <div class = "pheader2" role="tablist">
@@ -153,7 +153,25 @@
 	                                    </c:when>
 	                                    </c:choose>
 	                                    </c:forEach>
+	                                    
                                 </div>
+                                <div style = "display:flex; list-style:none;">
+                                <c:if test="${pageMaker.prev }">
+							                <li>
+							                    <a href='<c:url value="/mypost?memKey=${param.memKey}&page=${pageMaker.startPage-1 }"/>'><i style = "list-decoration:none;">처음으로</i></a>
+							                </li>
+							                </c:if>
+							                <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">
+							                <li>
+							                    <a href='<c:url value="/mypost?memKey=${param.memKey}&page=${pageNum }"/>'><i class="fa">${pageNum }</i></a>
+							                </li>
+							                </c:forEach>
+							                <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+							                <li>
+							                    <a href='<c:url value="/mypost?memKey=${param.memKey}&page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a>
+							                </li>
+							           </c:if>
+							           </div>
                             </div>
                                   </div>
             		</div>

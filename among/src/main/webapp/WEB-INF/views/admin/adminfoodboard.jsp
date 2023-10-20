@@ -12,7 +12,8 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
     	@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-
+li {
+list-style :none;}
 
 /* 사이드바  css*/
 
@@ -212,6 +213,21 @@
       		           </c:forEach>	               		               		               		               		               		               		               		               		       
         		      </tbody>  
         		     </table>
+        		     <c:if test="${pageMaker.prev }">
+                <li>
+                    <a href='<c:url value="/adminfoodboard?page=${pageMaker.startPage-1 }"/>'><i style = "list-decoration:none;">처음으로</i></a>
+                </li>
+                </c:if>
+                <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="pageNum">
+                <li>
+                    <a href='<c:url value="/adminfoodboard?page=${pageNum }"/>'><i class="fa">${pageNum }</i></a>
+                </li>
+                </c:forEach>
+                <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+                <li>
+                    <a href='<c:url value="/adminfoodboard?page=${pageMaker.endPage+1 }"/>'><i class="fa fa-chevron-right"></i></a>
+                </li>
+                </c:if>
         		<section class="search">
         			<input type="text" placeholder="검색어" name="search">
         			<button>

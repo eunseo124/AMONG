@@ -73,7 +73,7 @@ public class RepleController {
 	      list2 = repleService.setboardlist(boardKey);
 	      
 	      List<Reple> repleList = repleService.getRepleList(boardKey);
-	  	  List<Board> list = boardService.getAllBoardList();
+	  	  List<Board> list = boardService.getAllboardlist();
 		
 	      model.addAttribute("boardList", list);  
 	      req.setAttribute("repleList", repleList);

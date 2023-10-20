@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -28,19 +29,40 @@ public class BoardRepositoryImpl implements BoardRepository {
 	
 	private List<Board> listOfBoards = new ArrayList<Board>();
 	
+	public List<Board> getAllboardlist() {
+	 List<Board> board = null;
+	 String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+ 			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey "
+ 			+ "where board.delYn = 'N' ORDER BY boardRegDate";
+	 board = template.query(SQL, new BoardRowMapper());
+		return board;	
+	}
+	
     @Override
-    public List<Board> getAllBoardList() { 
+    public List<Board> getAllBoardList(int startPage, int perPageNum) { 
     	
-    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate";
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey "
+    			+ "where board.delYn = 'N' ORDER BY boardRegDate limit "+ startPage+", " + perPageNum;
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         
     	return listOfBoards;
     }
     
-    public List<Board> getHotBoardList() { 
+    public int countBoardList() {
+    
+    	String SQL = "select count(*) from board where delYn = 'N' ";
+    	int countBoardList = template.queryForObject(SQL,Integer.class);
+    	return countBoardList;
+    }
+    public List<Board> getHotBoardList(int startPage, int perPageNum) { 
     	
-    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey WHERE boardRecommend >= 50 ORDER BY boardRecommend desc;";
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory "
+    			+ "FROM board INNER JOIN member ON board.memKey = member.memKey "
+    			+ "WHERE boardRecommend >= 50 and board.delYn = 'N' "
+    			+ "ORDER BY boardRecommend desc limit "+ startPage+", " + perPageNum;
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         
