@@ -305,6 +305,11 @@
 			                    <dd><input type="text" id="memJoinDate" name="memJoinDate" placeholder="이름 입력" readonly="readonly" value="${member.memJoinDate}"></dd>
 			                </dl>
 			                <dl>
+			                    <dt>회원등급</dt>
+			                    <dd><input name="memGrade" type="radio" value="1" <c:if test="${member.memGrade eq '1'}">checked</c:if>></input> 일반회원 &nbsp;&nbsp;  
+			                    	<input name="memGrade" type="radio" value="2" <c:if test="${member.memGrade eq '2'}">checked</c:if>></input> 관리자</dd>    
+			                </dl>			                
+			                <dl>
 			                    <dt>삭제여부</dt>
 			                    <dd><input name="delYn" type="radio" value="Y" <c:if test="${member.delYn eq 'Y'}">checked</c:if>></input> Y &nbsp;&nbsp;  
 			                    	<input name="delYn" type="radio" value="N" <c:if test="${member.delYn eq 'N'}">checked</c:if>></input> N</dd>                    		                    
