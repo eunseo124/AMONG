@@ -153,13 +153,6 @@
 											  <option value="nate.com">nate.com</option>
 											  <option value="kakao.com">kakao.com</option>
 										 	</select>
-                                            <input type="button" value="이메일 인증" class="pro3">
-                                    	</div>
-                                    </div>
-                                    <div class = "pro1">
-                                   		<p style="margin-top:44px;"></p>
-                                    	<div class = "pro2">
-                                    		<input type="text" value="" name="emailcheck" placeholder="인증번호를 입력하시오">
                                     	</div>
                                     </div>
                                     <div class = "pro1">
@@ -171,8 +164,7 @@
                                     <div class = "pro1">
                                     <p>주민번호</p>
                                     	<div class = "pro2">
-                                        <input type="text" value="${memu.memResident1}" name="memResident1" id = "memResident1" style="width: 280px;"oninput="handleInput(this)"maxlength='6'>-<input
-                                            type="password" value="${memu.memResident2}" name="memResident2" id = "memResident2" style="width: 280px;margin-left: 1px;"oninput="handleInput(this)"maxlength='7'>
+                                        <p>${memu.memResident1} - ${memu.memResident2}</p>
                                     	</div>
                                     </div>
                                     <div class="pro2">
