@@ -15,7 +15,11 @@ public interface BoardService {
 	
 	List<Board> getHotBoardList(int startPage, int perPageNum);
 	
-	List<Board> getHomeBoardList();
+	List<Board> getFreeBoardList();
+	
+	List<Board> getTravleBoardList();
+	List<Board> getGameBoardList();
+	List<Board> getfoodBoardList();
 	
 	List<Board> getHomeHotBoardList();
 	

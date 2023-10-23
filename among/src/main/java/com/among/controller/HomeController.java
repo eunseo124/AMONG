@@ -50,15 +50,21 @@ public class HomeController {
    public String home(Locale locale, Model model) {
       logger.info("Welcome home! The client locale is {}.", locale);
 
-      List<Board> list = boardService.getHomeBoardList();
-      List<Board> list2 = boardService.getHomeHotBoardList();
+      List<Board> list1 = boardService.getFreeBoardList();
+      List<Board> list2 = boardService.getGameBoardList();
+      List<Board> list3 = boardService.getfoodBoardList();
+      List<Board> list4 = boardService.getTravleBoardList();
+      List<Board> list5 = boardService.getHomeHotBoardList();
       Date date = new Date();
       DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
       String formattedDate = dateFormat.format(date);
       
-      model.addAttribute("boardList", list);
-      model.addAttribute("boardList2", list2);
+      model.addAttribute("FreeboardList", list1);
+      model.addAttribute("GameboardList", list2);
+      model.addAttribute("FoodboardList", list3);
+      model.addAttribute("TravleboardList", list4);
+      model.addAttribute("boardList2", list5);
       model.addAttribute("serverTime", formattedDate);
 
       return "home";

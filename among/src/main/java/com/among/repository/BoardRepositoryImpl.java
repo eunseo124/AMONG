@@ -69,10 +69,53 @@ public class BoardRepositoryImpl implements BoardRepository {
     	return listOfBoards;
     }
     @Override
-    public List<Board> getHomeBoardList() { 
+    public List<Board> getFreeBoardList() { 
     	
-    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey ORDER BY boardRegDate LIMIT 7";
 
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    	+"AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory "
+    		+"	FROM board INNER JOIN member ON board.memKey = member.memKey AND board.boardCategory = 1"
+    		+"	ORDER BY boardRegDate LIMIT 7";
+
+    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+        
+    	return listOfBoards;
+    }
+    
+    @Override					
+    public List<Board> getGameBoardList() { 
+    	
+
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    	+"AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory "
+    		+"	FROM board INNER JOIN member ON board.memKey = member.memKey AND board.boardCategory = 2"
+    		+"	ORDER BY boardRegDate LIMIT 7";
+    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+        
+    	return listOfBoards;
+    }
+    
+    @Override
+    public List<Board> getfoodBoardList() { 
+    	
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    	+"AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory "
+    		+"	FROM board INNER JOIN member ON board.memKey = member.memKey AND board.boardCategory = 3"
+    		+"	ORDER BY boardRegDate LIMIT 7";
+
+    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+        
+    	return listOfBoards;
+    }
+    
+    @Override
+    public List<Board> getTravleBoardList() { 
+    	
+
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    	+"AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory "
+    		+"	FROM board INNER JOIN member ON board.memKey = member.memKey AND board.boardCategory = 4"
+    		+"	ORDER BY boardRegDate LIMIT 7";
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         
     	return listOfBoards;
@@ -80,7 +123,9 @@ public class BoardRepositoryImpl implements BoardRepository {
     
 public List<Board> getHomeHotBoardList() { 
     	
-    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey WHERE boardRecommend >= 50 ORDER BY boardRecommend desc  LIMIT 7;";
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory "
+    			+ "FROM board INNER JOIN member ON board.memKey = member.memKey WHERE boardRecommend >= 50 ORDER BY boardRecommend desc  LIMIT 7;";
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         

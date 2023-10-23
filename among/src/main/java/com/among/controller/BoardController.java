@@ -117,10 +117,16 @@ public class BoardController {
 	}
 	@GetMapping("/home")
 	   public String homeBoardList(Model model) { 
-	      List<Board> list = boardService.getHomeBoardList();
-	      List<Board> list2 = boardService.getHomeHotBoardList();
-	      model.addAttribute("boardList", list);
-	      model.addAttribute("boardList2", list2);  
+		List<Board> list1 = boardService.getFreeBoardList();
+	      List<Board> list2 = boardService.getGameBoardList();
+	      List<Board> list3 = boardService.getfoodBoardList();
+	      List<Board> list4 = boardService.getTravleBoardList();
+	      List<Board> list5 = boardService.getHomeHotBoardList();
+	      model.addAttribute("FreeboardList", list1);
+	      model.addAttribute("GameboardList", list2);
+	      model.addAttribute("FoodboardList", list3);
+	      model.addAttribute("TravleboardList", list4);
+	      model.addAttribute("boardList2", list5);  
 	      return "/home"; 
 	   }
 	//게시판글쓰기

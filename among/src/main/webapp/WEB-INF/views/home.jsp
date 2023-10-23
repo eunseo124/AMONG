@@ -82,13 +82,13 @@
                                 </div>
                                 <div class = "btable">
                                 
-                               <c:forEach items="${boardList}" var="board">
-                                <c:set var = "boardCategory" value="${board.boardCategory}"/>
+                               <c:forEach items="${FreeboardList}" var="list1">
+                                <c:set var = "boardCategory" value="${list1.boardCategory}"/>
                                 <c:if test = "${boardCategory eq 1}">
                                     <div class = "btr">
-                                        <div class = "btd1"><img src="resources/images/profile.png" id="Mark">${board.nName}</div>
-                                        <div id="Ttext">${board.boardTitle}</div>
-                                        <div id="Tday">${board.boardRegDate}</div>
+                                        <div class = "btd1"><img src="resources/images/profile.png" id="Mark">${list1.nName}</div>
+                                        <div id="Ttext">${list1.boardTitle}</div>
+                                        <div id="Tday">${list1.boardRegDate}</div>
                                     </div>
                                     
                                 </c:if>
@@ -101,14 +101,14 @@
                                     <p><a href = "<c:url value="/gameboard"/>">더보기</a></p>
                                 </div>
                                 <div class = "btable">
-                                <c:forEach items="${boardList}" var="board">
-                                <c:set var = "boardCategory" value="${board.boardCategory}"/>
+                               <c:forEach items="${GameboardList}" var="list2">
+                                <c:set var = "boardCategory" value="${list2.boardCategory}"/>
                                 <c:if test = "${boardCategory eq 2}">
                                 
                                     <div class = "btr">
-                                        <div class = "btd1"><img src="resources/images/gameAdminIcon.png" id="Mark">${board.nName}</div>
-                                        <div id="Ttext">${board.boardTitle}</div>
-                                        <div id="Tday">${board.boardRegDate}</div>
+                                        <div class = "btd1"><img src="resources/images/gameAdminIcon.png" id="Mark">${list2.nName}</div>
+                                        <div id="Ttext">${list2.boardTitle}</div>
+                                        <div id="Tday">${list2.boardRegDate}</div>
                                     </div>
                                     
                                    </c:if>
@@ -123,14 +123,14 @@
                                     <p><a href = "<c:url value="/foodboard"/>">더보기</a></p>
                                 </div>
                                 <div class = "btable">
-                                <c:forEach items="${boardList}" var="board">
-                                <c:set var = "boardCategory" value="${board.boardCategory}"/>
+                                 <c:forEach items="${FoodboardList}" var="list3" >
+                                <c:set var = "boardCategory" value="${list3.boardCategory}"/>
                                 <c:if test = "${boardCategory eq 3}">
                                 
                                     <div class = "btr">
-                                        <div class = "btd1"><img src="resources/images/foodAdminIcon.png" id="Mark">${board.nName}</div>
-                                        <div id="Ttext">${board.boardTitle}</div>
-                                        <div id="Tday">${board.boardRegDate}</div>
+                                        <div class = "btd1"><img src="resources/images/foodAdminIcon.png" id="Mark">${list3.nName}</div>
+                                        <div id="Ttext">${list3.boardTitle}</div>
+                                        <div id="Tday">${list3.boardRegDate}</div>
                                     </div>
                                     
                                    </c:if>
@@ -145,14 +145,14 @@
                                     <p><a href = "<c:url value="/travleboard"/>">더보기</a></p>
                                 </div>
                                 <div class = "btable">
-                                <c:forEach items="${boardList}" var="board">
-                                <c:set var = "boardCategory" value="${board.boardCategory}"/>
+                                <c:forEach items="${TravleboardList}" var="list4" >
+                                <c:set var = "boardCategory" value="${list4.boardCategory}"/>
                                 <c:if test = "${boardCategory eq 4}">
                                 
                                     <div class = "btr">
-                                        <div class = "btd1"><img src="resources/images/travelAdminIcon.png" id="Mark">${board.nName}</div>
-                                        <div id="Ttext">${board.boardTitle}</div>
-                                        <div id="Tday">${board.boardRegDate}</div>
+                                        <div class = "btd1"><img src="resources/images/travelAdminIcon.png" id="Mark">${list4.nName}</div>
+                                        <div id="Ttext">${list4.boardTitle}</div>
+                                        <div id="Tday">${list4.boardRegDate}</div>
                                     </div>
                                     
                                    </c:if>

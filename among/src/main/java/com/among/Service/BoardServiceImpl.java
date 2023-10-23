@@ -24,9 +24,21 @@ public class BoardServiceImpl implements BoardService {
 	        // TODO Auto-generated method stub
 		 return boardRepository.getHotBoardList(startPage, perPageNum);
 	 } 
-	 public List<Board> getHomeBoardList() { 
+	 public List<Board> getFreeBoardList() { 
          // TODO Auto-generated method stub
-     return boardRepository.getHomeBoardList();
+     return boardRepository.getFreeBoardList();
+  } 
+	 public List<Board> getfoodBoardList() { 
+         // TODO Auto-generated method stub
+     return boardRepository.getfoodBoardList();
+  } 
+	 public List<Board> getGameBoardList() { 
+         // TODO Auto-generated method stub
+     return boardRepository.getGameBoardList();
+  } 
+	 public List<Board> getTravleBoardList() { 
+         // TODO Auto-generated method stub
+     return boardRepository.getTravleBoardList();
   } 
 	 public List<Board> getHomeHotBoardList() { 
          // TODO Auto-generated method stub
