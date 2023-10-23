@@ -168,7 +168,7 @@ public class AdminController {
 
 	   }
 	
-    // replyKey 에 대한 해당 댓글을 데이터베이스 에서 삭제 합니다.
+    // replyKey 에 대한 해당 댓글을 데이터베이스 에서 삭제 합니다
     @PostMapping("/delete2" ) 
     public String getDeleteRepleForm(Model model, @RequestParam("repleKey") int repleKey) {
         
