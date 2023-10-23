@@ -52,6 +52,39 @@ button {
     height: 50px;
     color: #fff;
 }
+/*차례*/
+.paging {
+   display: flex;
+   justify-content: center;
+   list-style :none;
+}
+
+li a {
+   display: inline-block;
+    margin-left: 0.5px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    border: 1px solid #00ADB5;
+    border-radius:5px;
+    background-color:white;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#34383f;
+}
+li a:hover {
+   color:white;
+   background-color:#00ADB5;
+}
+li a:focus{
+   color:white;
+   background-color:#00ADB5;
+}
+li i {
+   font-style : normal;
+   line-height:2;
+}
 
 a {
     text-decoration: none;

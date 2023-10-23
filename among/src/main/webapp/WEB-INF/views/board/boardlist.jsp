@@ -229,10 +229,6 @@ aside .joinAndFindPassword a {
          
 
 
-                  <br>
-                  <div id="table">
-                     <a href="#">1</a> <a href="#">2</a> <a href="#">3</a>
-                  </div>
 
 
 
@@ -350,12 +346,6 @@ aside .joinAndFindPassword a {
         		</c:choose>
         	
         		
-        		<div id="table">
-        			<a href="#">1</a>
-        			<a href="#">2</a>
-        			<a href="#">3</a>
-        			<a href="#">4</a>
-        		</div>
 
 </section>
          </article>

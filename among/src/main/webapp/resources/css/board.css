@@ -2,7 +2,7 @@
 게시판 css
 /*게시판페이지*/
 article {
-   	flex: 1;
+      flex: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@ article {
     box-sizing: border-box;
 }
 li {
-	list-style : none;
+   list-style : none;
 }
 
 #postList {
@@ -152,7 +152,7 @@ li {
     gap: 4px;
 }
 #nickName img {
-	width: 14px;
+   width: 14px;
     height: 14px;
     position: relative;
     border-radius: 3px;
@@ -164,7 +164,7 @@ li {
     border-bottom: 2px solid #ede9e9;
 }
 .textBanner {
-	border: 1px solid white;
+   border: 1px solid white;
     border-radius: 5px;
     padding: 3px;
     font-size: 15px;
@@ -194,7 +194,7 @@ li {
     gap: 5px;
 }
 #postList .write a {
-	font-size: 0.9em;
+   font-size: 0.9em;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -228,14 +228,33 @@ li {
 }
 /*차례*/
 #table {
-	display: flex;
-	justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 #table a {
-	display: inline-block;
-    margin-left: 9px;
+   display: inline-block;
+    margin-left: 0.5px;
     font-size: 14px;
     font-weight: bold;
     margin-top: 20px;
+    border: 1px solid #00ADB5;
+    border-radius:5px;
+    background-color:#eee;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#34383f;
+}
+#table a:hover {
+   color:white;
+   background-color:#00ADB5;
+}
+#table a:focus{
+   color:white;
+   background-color:#00ADB5;
+}
+#table i {
+   font-style : normal;
+   line-height:2;
 }

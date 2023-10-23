@@ -84,7 +84,7 @@
 	            	</div>
             </section>
     </header>
-    <main style="height:800px;">
+    <main style="height:900px;">
         <!-- 본문내용 -->
             <article id="widget">
             	<section class = "flex">
@@ -93,7 +93,7 @@
             		<div><h4><a href="mypost?memKey=${sessionc.memKey}">게시글 관리</a></h4></div>
             		<div><h4><a href="myreply?memKey=${sessionc.memKey}">댓글 관리</a></h4></div>
             		</div>
-            		<div class = "pmypage1" style="height:800px;">
+            		<div class = "pmypage1" style="height:900px;">
             				<div class = "pmypage2" style="width:1000px;">
                                     <div class="merge">
 	                                <div class = "pheader2" role="tablist">
@@ -150,7 +150,7 @@
 	                                    </c:forEach>
 	                                 
                                 </div>
-                                <div style = "display:flex; list-style:none;">
+                               <div class = "paging">
                                 <c:if test="${pageMaker.prev }">
 							                <li>
 							                    <a href='<c:url value="/mypost2?memKey=${param.memKey}&page=${pageMaker.startPage-1 }"/>'><i style = "list-decoration:none;">처음으로</i></a>
