@@ -126,6 +126,39 @@
 			background: initial;
 		}
 		
+#info section .paging {
+   display: flex;
+   justify-content: center;
+   list-style :none;
+}
+
+#info section .paging li a {
+   display: inline-block;
+    margin-left: 0.5px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+    border: 1px solid #00ADB5;
+    border-radius:5px;
+    background-color:white;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#34383f;
+}
+#info section .paging li a:hover {
+   color:white;
+   background-color:#00ADB5;
+}
+#info section .paging li a:focus{
+   color:white;
+   background-color:#00ADB5;
+}
+#info section .paging li i {
+   font-style : normal;
+   line-height:2;
+}		
+		
     </style>
     <title>AMONG</title>
 </head>
@@ -215,7 +248,7 @@
       		           </c:forEach>	 
         		      </tbody>  
         		     </table>
-        		     <section clas = "search">
+        		     <section class = "paging">
         		     <c:if test="${pageMaker.prev }">
 		                <li>
 		                    <a href='<c:url value="/admin_comment?page=${pageMaker.startPage-1 }"/>'><i style = "list-decoration:none;">처음으로</i></a>
@@ -232,12 +265,7 @@
 		                </li>
 	                </c:if>
         		     </section>
-        		<section class="search">
-        			<input type="text" placeholder="검색어" name="search">
-        			<button>
-        				<span class="material-symbols-outlined">search</span>
-        			</button>
-        		</section>
+
        		     
         		    </div>
         		   </section>
