@@ -20,6 +20,21 @@ public class BoardServiceImpl implements BoardService {
 		 return boardRepository.getAllBoardList(startPage, perPageNum);
 	 } 
 	 
+	 public List<Board> getAllBoardList2(int startPage, int perPageNum) { 
+	        // TODO Auto-generated method stub
+		 return boardRepository.getAllBoardList2(startPage, perPageNum);
+	 } 
+	 
+	 public List<Board> getAllBoardList3(int startPage, int perPageNum) { 
+	        // TODO Auto-generated method stub
+		 return boardRepository.getAllBoardList3(startPage, perPageNum);
+	 } 
+	 
+	 public List<Board> getAllBoardList4(int startPage, int perPageNum) { 
+	        // TODO Auto-generated method stub
+		 return boardRepository.getAllBoardList4(startPage, perPageNum);
+	 } 
+	 
 	 public List<Board> getHotBoardList(int startPage, int perPageNum) { 
 	        // TODO Auto-generated method stub
 		 return boardRepository.getHotBoardList(startPage, perPageNum);
@@ -89,6 +104,34 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		int boardcount = 0;
 		boardcount = boardRepository.countBoardList();
+		return boardcount;
+	}
+	
+	public int countBoardList2() {
+		// TODO Auto-generated method stub
+		int boardcount = 0;
+		boardcount = boardRepository.countBoardList2();
+		return boardcount;
+	}
+	
+	public int countBoardList3() {
+		// TODO Auto-generated method stub
+		int boardcount = 0;
+		boardcount = boardRepository.countBoardList3();
+		return boardcount;
+	}
+	
+	public int countBoardList4() {
+		// TODO Auto-generated method stub
+		int boardcount = 0;
+		boardcount = boardRepository.countBoardList4();
+		return boardcount;
+	}
+	
+	public int counthotBoardList() {
+		// TODO Auto-generated method stub
+		int boardcount = 0;
+		boardcount = boardRepository.counthotBoardList();
 		return boardcount;
 	}
 	

@@ -43,7 +43,7 @@ public class BoardRepositoryImpl implements BoardRepository {
     	
     	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
     			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey "
-    			+ "where board.delYn = 'N' ORDER BY boardRegDate limit "+ startPage+", " + perPageNum;
+    			+ "where board.delYn = 'N' and board.boardCategory = 1 ORDER BY boardRegDate limit "+ startPage+", " + perPageNum;
 
     	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
         
@@ -52,7 +52,61 @@ public class BoardRepositoryImpl implements BoardRepository {
     
     public int countBoardList() {
     
-    	String SQL = "select count(*) from board where delYn = 'N' ";
+    	String SQL = "select count(*) from board where delYn = 'N' AND boardCategory = 1 ";
+    	int countBoardList = template.queryForObject(SQL,Integer.class);
+    	return countBoardList;
+    }
+    @Override
+    public List<Board> getAllBoardList2(int startPage, int perPageNum) { 
+    	
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey "
+    			+ "where board.delYn = 'N' and board.boardCategory = 2 ORDER BY boardRegDate limit "+ startPage+", " + perPageNum;
+
+    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+        
+    	return listOfBoards;
+    }
+    
+    public int countBoardList2() {
+    
+    	String SQL = "select count(*) from board where delYn = 'N' AND boardCategory = 2 ";
+    	int countBoardList = template.queryForObject(SQL,Integer.class);
+    	return countBoardList;
+    }
+    @Override
+    public List<Board> getAllBoardList3(int startPage, int perPageNum) { 
+    	
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey "
+    			+ "where board.delYn = 'N' and board.boardCategory = 3 ORDER BY boardRegDate limit "+ startPage+", " + perPageNum;
+
+    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+        
+    	return listOfBoards;
+    }
+    
+    public int countBoardList3() {
+    
+    	String SQL = "select count(*) from board where delYn = 'N' AND boardCategory = 3 ";
+    	int countBoardList = template.queryForObject(SQL,Integer.class);
+    	return countBoardList;
+    }
+    @Override
+    public List<Board> getAllBoardList4(int startPage, int perPageNum) { 
+    	
+    	String SQL = "SELECT board.delYn, boardImg, boardKey, boardTitle, member.nName, boardView, board.delYn, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
+    			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory FROM board INNER JOIN member ON board.memKey = member.memKey "
+    			+ "where board.delYn = 'N' and board.boardCategory = 4 ORDER BY boardRegDate limit "+ startPage+", " + perPageNum;
+
+    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
+        
+    	return listOfBoards;
+    }
+    
+    public int countBoardList4() {
+    
+    	String SQL = "select count(*) from board where delYn = 'N' AND boardCategory = 4 ";
     	int countBoardList = template.queryForObject(SQL,Integer.class);
     	return countBoardList;
     }
@@ -68,6 +122,15 @@ public class BoardRepositoryImpl implements BoardRepository {
         
     	return listOfBoards;
     }
+    
+
+    public int counthotBoardList() {
+    
+    	String SQL = "select count(*) from board where delYn = 'N' AND boardRecommend >= 50 ";
+    	int countBoardList = template.queryForObject(SQL,Integer.class);
+    	return countBoardList;
+    }
+    
     @Override
     public List<Board> getFreeBoardList() { 
     	

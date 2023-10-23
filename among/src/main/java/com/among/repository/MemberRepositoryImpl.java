@@ -65,7 +65,6 @@ public class MemberRepositoryImpl implements MemberRepository {
    
 
    public void setupmem(Member member) {
-	   System.out.println("setupmem ȣ�� �Ϸ�");
        System.out.println("memKey = " + member.getMemKey());
 	   String SQL = "UPDATE member SET memId = ?, memPw = ?, memEmail1 = ?, memEmail2 = ?,"
                +"memName = ?, memResident1 = ?, memResident2 = ?, "
@@ -224,7 +223,8 @@ public class MemberRepositoryImpl implements MemberRepository {
    public List<Board> setboardlist(int memKey,int startPage, int perPageNum) {
 	   List<Board> board = null;
 	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey "
-	   		+ "where b.memKey = " + memKey + " limit "+ startPage + ", " + perPageNum;
+	   		+ "where b.memKey = " + memKey + " and b.boardCategory = 1 and b.delYn = 'N' "
+	   				+ "limit "+ startPage + ", " + perPageNum;
 	   board = template.query(SQL, new RowMapper<Board>() {
 	         @Override
 	         public Board mapRow(ResultSet rs, int rowNum) {
@@ -239,7 +239,100 @@ public class MemberRepositoryImpl implements MemberRepository {
 	            	bo.setBoardModifyDate(rs.getDate("boardModifyDate"));
 	            	bo.setMemKey(rs.getInt("memKey"));
 	            	bo.setBoardKey(rs.getInt("boardKey"));
-	            	bo.setDelYn(rs.getString("delYn"));
+	            	bo.setDelYn(rs.getString("b.delYn"));
+	            	
+	         } catch (SQLException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         }
+	            return bo;
+	         }
+	      });
+	   return board;
+   }
+   
+   public List<Board> setboardlist2(int memKey,int startPage, int perPageNum) {
+	   List<Board> board = null;
+	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey "
+	   		+ "where b.memKey = " + memKey + " and b.boardCategory = 2 and b.delYn = 'N' "
+	   				+ "limit "+ startPage + ", " + perPageNum;
+	   board = template.query(SQL, new RowMapper<Board>() {
+	         @Override
+	         public Board mapRow(ResultSet rs, int rowNum) {
+	            Board bo = new Board();
+	            try {
+	            	bo.setBoardTitle(rs.getString("boardTitle"));
+	            	bo.setBoardImg(rs.getString("boardImg"));
+	            	bo.setnName(rs.getString("nName"));
+	            	bo.setMemGrade(rs.getInt("memGrade"));
+	            	bo.setBoardCategory(rs.getInt("boardCategory"));
+	            	bo.setBoardRegDate(rs.getDate("boardRegDate"));
+	            	bo.setBoardModifyDate(rs.getDate("boardModifyDate"));
+	            	bo.setMemKey(rs.getInt("memKey"));
+	            	bo.setBoardKey(rs.getInt("boardKey"));
+	            	bo.setDelYn(rs.getString("b.delYn"));
+	            	
+	         } catch (SQLException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         }
+	            return bo;
+	         }
+	      });
+	   return board;
+   }
+   
+   public List<Board> setboardlist3(int memKey,int startPage, int perPageNum) {
+	   List<Board> board = null;
+	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey "
+	   		+ "where b.memKey = " + memKey + " and b.boardCategory = 3 and b.delYn = 'N' "
+	   				+ "limit "+ startPage + ", " + perPageNum;
+	   board = template.query(SQL, new RowMapper<Board>() {
+	         @Override
+	         public Board mapRow(ResultSet rs, int rowNum) {
+	            Board bo = new Board();
+	            try {
+	            	bo.setBoardTitle(rs.getString("boardTitle"));
+	            	bo.setBoardImg(rs.getString("boardImg"));
+	            	bo.setnName(rs.getString("nName"));
+	            	bo.setMemGrade(rs.getInt("memGrade"));
+	            	bo.setBoardCategory(rs.getInt("boardCategory"));
+	            	bo.setBoardRegDate(rs.getDate("boardRegDate"));
+	            	bo.setBoardModifyDate(rs.getDate("boardModifyDate"));
+	            	bo.setMemKey(rs.getInt("memKey"));
+	            	bo.setBoardKey(rs.getInt("boardKey"));
+	            	bo.setDelYn(rs.getString("b.delYn"));
+	            	
+	         } catch (SQLException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         }
+	            return bo;
+	         }
+	      });
+	   return board;
+   }
+   
+   public List<Board> setboardlist4(int memKey,int startPage, int perPageNum) {
+	   List<Board> board = null;
+	   String SQL = "select * from board b inner join member m on b.memKey = m.memKey "
+	   		+ "where b.memKey = " + memKey + " and b.boardCategory = 4 and b.delYn = 'N' "
+	   				+ "limit "+ startPage + ", " + perPageNum;
+	   board = template.query(SQL, new RowMapper<Board>() {
+	         @Override
+	         public Board mapRow(ResultSet rs, int rowNum) {
+	            Board bo = new Board();
+	            try {
+	            	bo.setBoardTitle(rs.getString("boardTitle"));
+	            	bo.setBoardImg(rs.getString("boardImg"));
+	            	bo.setnName(rs.getString("nName"));
+	            	bo.setMemGrade(rs.getInt("memGrade"));
+	            	bo.setBoardCategory(rs.getInt("boardCategory"));
+	            	bo.setBoardRegDate(rs.getDate("boardRegDate"));
+	            	bo.setBoardModifyDate(rs.getDate("boardModifyDate"));
+	            	bo.setMemKey(rs.getInt("memKey"));
+	            	bo.setBoardKey(rs.getInt("boardKey"));
+	            	bo.setDelYn(rs.getString("b.delYn"));
 	            	
 	         } catch (SQLException e) {
 	            // TODO Auto-generated catch block
@@ -256,7 +349,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    	String SQL = "SELECT boardImg, boardKey, boardTitle, member.nName, boardView, (SELECT COUNT(*) FROM reple WHERE boardKey=board.boardKey) "
    			+ "AS repleCount, boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory, board.delYn FROM board "
    			+ "INNER JOIN member ON board.memKey = member.memKey "
-   			+ "WHERE board.memKey= "+ memKey +" and boardRecommend >= 50 "
+   			+ "WHERE board.memKey= "+ memKey +" and boardRecommend >= 50 and board.delYn = 'N' "
    					+ "ORDER BY boardRecommend desc limit "+ startPage + ", " + perPageNum;
 
    	List<Board> listOfBoards = template.query(SQL, new BoardRowMapper());  
@@ -268,7 +361,83 @@ public class MemberRepositoryImpl implements MemberRepository {
 	   List<Reple> rep = new ArrayList();
 	   String SQL = "select * from reple r inner join member m on r.memKey = m.memKey "
 	   		+ "inner join board b on r.boardKey = b.boardKey "
-	   		+ "where r.memKey = "+memKey + " limit "+ startPage + ", " + perPageNum;
+	   		+ "where r.memKey = "+memKey + " and b.boardCategory = 1 and b.delYn = 'N' "
+	   				+ "limit "+ startPage + ", " + perPageNum;
+	   RowMapper<Reple> rowMapper = new RowMapper<Reple>() {
+		   @Override
+			public Reple mapRow(ResultSet rs, int rowNum) throws SQLException {
+			   Reple re = new Reple();
+			   re.setRepleKey(rs.getInt("repleKey"));
+			   re.setnName(rs.getString("nName"));
+			   re.setRepleContent(rs.getString("repleContent"));
+			   re.setRepleRegDate(rs.getDate("repleRegDate"));
+			   re.setBoardCategory(rs.getInt("boardCategory"));
+			   re.setBoardKey(rs.getInt("boardKey"));
+			   re.setMemKey(rs.getInt("memKey"));
+			   re.setDelYn(rs.getString("b.delYn"));
+			   return re;
+		   }
+	   };
+	   rep = template.query(SQL, rowMapper);
+	   return rep;
+   }
+   
+   public List<Reple> setreplelist2(int memKey,int startPage, int perPageNum) {
+	   List<Reple> rep = new ArrayList();
+	   String SQL = "select * from reple r inner join member m on r.memKey = m.memKey "
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "where r.memKey = "+memKey + " and b.boardCategory = 2 and b.delYn = 'N' "
+	   				+ "limit "+ startPage + ", " + perPageNum;
+	   RowMapper<Reple> rowMapper = new RowMapper<Reple>() {
+		   @Override
+			public Reple mapRow(ResultSet rs, int rowNum) throws SQLException {
+			   Reple re = new Reple();
+			   re.setRepleKey(rs.getInt("repleKey"));
+			   re.setnName(rs.getString("nName"));
+			   re.setRepleContent(rs.getString("repleContent"));
+			   re.setRepleRegDate(rs.getDate("repleRegDate"));
+			   re.setBoardCategory(rs.getInt("boardCategory"));
+			   re.setBoardKey(rs.getInt("boardKey"));
+			   re.setMemKey(rs.getInt("memKey"));
+			   re.setDelYn(rs.getString("b.delYn"));
+			   return re;
+		   }
+	   };
+	   rep = template.query(SQL, rowMapper);
+	   return rep;
+   }
+   
+   public List<Reple> setreplelist3(int memKey,int startPage, int perPageNum) {
+	   List<Reple> rep = new ArrayList();
+	   String SQL = "select * from reple r inner join member m on r.memKey = m.memKey "
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "where r.memKey = "+memKey + " and b.boardCategory = 3 and b.delYn = 'N' "
+	   				+ "limit "+ startPage + ", " + perPageNum;
+	   RowMapper<Reple> rowMapper = new RowMapper<Reple>() {
+		   @Override
+			public Reple mapRow(ResultSet rs, int rowNum) throws SQLException {
+			   Reple re = new Reple();
+			   re.setRepleKey(rs.getInt("repleKey"));
+			   re.setnName(rs.getString("nName"));
+			   re.setRepleContent(rs.getString("repleContent"));
+			   re.setRepleRegDate(rs.getDate("repleRegDate"));
+			   re.setBoardCategory(rs.getInt("boardCategory"));
+			   re.setBoardKey(rs.getInt("boardKey"));
+			   re.setMemKey(rs.getInt("memKey"));
+			   re.setDelYn(rs.getString("b.delYn"));
+			   return re;
+		   }
+	   };
+	   rep = template.query(SQL, rowMapper);
+	   return rep;
+   }
+   
+   public List<Reple> setreplelist4(int memKey,int startPage, int perPageNum) {
+	   List<Reple> rep = new ArrayList();
+	   String SQL = "select * from reple r inner join member m on r.memKey = m.memKey "
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "where r.memKey = "+memKey + " and b.boardCategory = 4 and b.delYn = 'N' "
+	   				+ "limit "+ startPage + ", " + perPageNum;
 	   RowMapper<Reple> rowMapper = new RowMapper<Reple>() {
 		   @Override
 			public Reple mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -288,13 +457,13 @@ public class MemberRepositoryImpl implements MemberRepository {
 	   return rep;
    }
 
-   public List<Reple> getreplelist(int memKey,int startPage, int perPageNum) { 
+   public List<Reple> gethotreplelist(int memKey,int startPage, int perPageNum) { 
    	
 
    	String SQL = "SELECT * from reple r INNER JOIN board b ON r.boardKey = b.boardKey "
    				+ "INNER JOIN member m ON r.memKey = m.memKey WHERE r.memKey = "+ memKey
-   				+ " and b.boardRecommend >= 50 ORDER BY "
-   				+ "b.boardRecommend DESC limit "+ startPage + ", " + perPageNum;
+   				+ " and b.boardRecommend >= 50  and b.delYn = 'N' "
+   				+ "ORDER BY b.boardRecommend DESC limit "+ startPage + ", " + perPageNum;
 
    	List<Reple> hlistOfBoards = template.query(SQL, new RowMapper<Reple>() {
 
@@ -311,7 +480,6 @@ public class MemberRepositoryImpl implements MemberRepository {
 			   re.setBoardKey(rs.getInt("boardKey"));
 			   re.setMemKey(rs.getInt("memKey"));
 			   re.setDelYn(rs.getString("b.delYn"));
-			   System.out.println("delYn = " + rs.getString("b.delYn"));
 			   re.setBoardRecommend(rs.getInt("boardRecommend"));
 			return re;
 		}
@@ -376,7 +544,43 @@ public class MemberRepositoryImpl implements MemberRepository {
    public int Boardcount(int memKey) {
 	   
 	   String SQL = "SELECT COUNT(*) from board b INNER JOIN member m ON b.memKey = m.memKey "
-	   		+ "WHERE b.memKey = " + memKey;
+	   		+ "WHERE b.memKey = " + memKey + " and b.boardCategory = 1 and b.delYn = 'N' ";
+	   int countbo = template.queryForObject(SQL, Integer.class);
+	   return countbo;	   
+   }
+   
+ //board
+   public int Boardcount2(int memKey) {
+	   
+	   String SQL = "SELECT COUNT(*) from board b INNER JOIN member m ON b.memKey = m.memKey "
+	   		+ "WHERE b.memKey = " + memKey + " and b.boardCategory = 2 and b.delYn = 'N' ";
+	   int countbo = template.queryForObject(SQL, Integer.class);
+	   return countbo;	   
+   }
+   
+ //board
+   public int Boardcount3(int memKey) {
+	   
+	   String SQL = "SELECT COUNT(*) from board b INNER JOIN member m ON b.memKey = m.memKey "
+	   		+ "WHERE b.memKey = " + memKey + " and b.boardCategory = 3 and b.delYn = 'N' ";
+	   int countbo = template.queryForObject(SQL, Integer.class);
+	   return countbo;	   
+   }
+   
+ //board
+   public int Boardcount4(int memKey) {
+	   
+	   String SQL = "SELECT COUNT(*) from board b INNER JOIN member m ON b.memKey = m.memKey "
+	   		+ "WHERE b.memKey = " + memKey + " and b.boardCategory = 4 and b.delYn = 'N' ";
+	   int countbo = template.queryForObject(SQL, Integer.class);
+	   return countbo;	   
+   }
+   
+ //board
+   public int hotBoardcount(int memKey) {
+	   
+	   String SQL = "SELECT COUNT(*) from board b INNER JOIN member m ON b.memKey = m.memKey "
+	   		+ "WHERE b.memKey = " + memKey +" and b.delYn = 'N' and b.boardRecommend >= 50";
 	   int countbo = template.queryForObject(SQL, Integer.class);
 	   return countbo;	   
    }
@@ -385,7 +589,52 @@ public class MemberRepositoryImpl implements MemberRepository {
    public int Replecount(int memKey) {
 	   
 	   String SQL = "SELECT COUNT(*) from reple r INNER JOIN member m ON r.memKey = m.memKey "
-	   		+ "WHERE r.memKey = " + memKey;
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "WHERE r.memKey = " + memKey + " and b.boardCategory = 1 "
+	   				+ "and b.delYn = 'N' ";
+	   int countre = template.queryForObject(SQL,Integer.class);
+	   return countre;	   
+   }
+   
+ //reple
+   public int Replecount2(int memKey) {
+	   
+	   String SQL = "SELECT COUNT(*) from reple r INNER JOIN member m ON r.memKey = m.memKey "
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "WHERE r.memKey = " + memKey + " and b.boardCategory = 2 "
+	   				+ "and b.delYn = 'N'";
+	   int countre = template.queryForObject(SQL,Integer.class);
+	   return countre;	   
+   }
+   
+ //reple
+   public int Replecount3(int memKey) {
+	   
+	   String SQL = "SELECT COUNT(*) from reple r INNER JOIN member m ON r.memKey = m.memKey "
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "WHERE r.memKey = " + memKey + " and b.boardCategory = 3 "
+	   				+ "and b.delYn = 'N'";
+	   int countre = template.queryForObject(SQL,Integer.class);
+	   return countre;	   
+   }
+   
+ //reple
+   public int Replecount4(int memKey) {
+	   
+	   String SQL = "SELECT COUNT(*) from reple r INNER JOIN member m ON r.memKey = m.memKey "
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "WHERE r.memKey = " + memKey + " and b.boardCategory = 4 "
+	   				+ "and b.delYn = 'N'";
+	   int countre = template.queryForObject(SQL,Integer.class);
+	   return countre;	   
+   }
+   
+ //reple
+   public int hotReplecount(int memKey) {
+	   
+	   String SQL = "SELECT COUNT(*) from reple r INNER JOIN member m ON r.memKey = m.memKey "
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "WHERE r.memKey = " + memKey + " and b.delYn = 'N' and b.boardRecommend >= 50";
 	   int countre = template.queryForObject(SQL,Integer.class);
 	   return countre;	   
    }

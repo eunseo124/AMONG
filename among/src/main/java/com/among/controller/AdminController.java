@@ -112,11 +112,11 @@ public class AdminController {
 	@GetMapping("/adminfoodboard")
 	public ModelAndView requestAfoodBoardList(Criteria cri) {
 		ModelAndView mav = new ModelAndView("/admin/adminfoodboard");
-		int boardCount = boardService.countBoardList();
+		int boardCount = boardService.countBoardList3();
 		PageMaker pageMaker = new PageMaker();
     		pageMaker.setCri(cri);
     		pageMaker.setTotalCount(boardCount);
-		List<Board> Blist = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+		List<Board> Blist = boardService.getAllBoardList3(cri.getPageStart(),cri.getPerPageNum());
 		mav.addObject("Blist", Blist);  
 		mav.addObject("pageMaker", pageMaker);  
 		return mav; 
@@ -127,11 +127,11 @@ public class AdminController {
 	@GetMapping("/admingameboard")
 	public ModelAndView requestAgameBoardList(Criteria cri) {
 		ModelAndView mav = new ModelAndView("/admin/admingameboard");
-		int boardCount = boardService.countBoardList();
+		int boardCount = boardService.countBoardList2();
 		PageMaker pageMaker = new PageMaker();
     		pageMaker.setCri(cri);
     		pageMaker.setTotalCount(boardCount);
-		List<Board> Blist = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+		List<Board> Blist = boardService.getAllBoardList2(cri.getPageStart(),cri.getPerPageNum());
 		mav.addObject("Blist", Blist);  
 		mav.addObject("pageMaker", pageMaker);  
 		return mav; 
@@ -142,11 +142,11 @@ public class AdminController {
 	@GetMapping("/admintravelboard")
 	public ModelAndView requestAtravelBoardList(Criteria cri) {
 		ModelAndView mav = new ModelAndView("/admin/admintravelboard");
-		int boardCount = boardService.countBoardList();
+		int boardCount = boardService.countBoardList4();
 		PageMaker pageMaker = new PageMaker();
     		pageMaker.setCri(cri);
     		pageMaker.setTotalCount(boardCount);
-		List<Board> Blist = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+		List<Board> Blist = boardService.getAllBoardList4(cri.getPageStart(),cri.getPerPageNum());
 		mav.addObject("Blist", Blist);  
 		mav.addObject("pageMaker", pageMaker);  
 		return mav; 

@@ -13,6 +13,12 @@ public interface BoardService {
 	
 	List<Board> getAllBoardList(int startPage, int perPageNum);
 	
+	List<Board> getAllBoardList2(int startPage, int perPageNum);
+	
+	List<Board> getAllBoardList3(int startPage, int perPageNum);
+	
+	List<Board> getAllBoardList4(int startPage, int perPageNum);
+	
 	List<Board> getHotBoardList(int startPage, int perPageNum);
 	
 	List<Board> getFreeBoardList();
@@ -41,4 +47,13 @@ public interface BoardService {
 	List<Board> getAllboardlist();
 	
 	int countBoardList();
+	
+	int countBoardList2();
+	
+	int countBoardList3();
+	
+	int countBoardList4();
+	
+	int counthotBoardList();
+	
 }

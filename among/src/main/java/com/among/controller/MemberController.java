@@ -224,7 +224,7 @@ public class MemberController {
 
    }
    
-
+   //자유 게시판
    @RequestMapping(value = "/mypost", method = RequestMethod.GET)
    public ModelAndView mypost(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/mypost");
@@ -241,13 +241,13 @@ public class MemberController {
 
    }
    
- 
+   //인기 게시판
    @RequestMapping(value = "/mypost2", method = RequestMethod.GET)
    public ModelAndView mypost2(@RequestParam("memKey")int memKey, Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/mypost2");
 		  List<Board> hboard = null;
 		  hboard = memberService.gethotboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
-		  int boardCount = memberService.Boardcount(memKey);
+		  int boardCount = memberService.hotBoardcount(memKey);
 			PageMaker pageMaker = new PageMaker();
 	  		pageMaker.setCri(cri);
 	  		pageMaker.setTotalCount(boardCount);
@@ -258,12 +258,13 @@ public class MemberController {
 
    }
 
+   //게임 게시판
    @RequestMapping(value = "/mypost3", method = RequestMethod.GET)
    public ModelAndView mypost3(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/mypost3");
 	  List<Board> boardl = null;
-	  boardl = memberService.setboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
-	  int boardCount = memberService.Boardcount(memKey);
+	  boardl = memberService.setboardlist2(memKey,cri.getPageStart(),cri.getPerPageNum());
+	  int boardCount = memberService.Boardcount2(memKey);
 		PageMaker pageMaker = new PageMaker();
   		pageMaker.setCri(cri);
   		pageMaker.setTotalCount(boardCount);
@@ -273,12 +274,13 @@ public class MemberController {
       return mav;
    }
    
+   //맛집 게시판
    @RequestMapping(value = "/mypost4", method = RequestMethod.GET)
    public ModelAndView mypost4(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/mypost4");
 	  List<Board> boardl = null;
-	  boardl = memberService.setboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
-	  int boardCount = memberService.Boardcount(memKey);
+	  boardl = memberService.setboardlist3(memKey,cri.getPageStart(),cri.getPerPageNum());
+	  int boardCount = memberService.Boardcount3(memKey);
 		PageMaker pageMaker = new PageMaker();
   		pageMaker.setCri(cri);
   		pageMaker.setTotalCount(boardCount);
@@ -288,12 +290,14 @@ public class MemberController {
       return mav;
 
    }
+   
+   //여행 게시판
    @RequestMapping(value = "/mypost5", method = RequestMethod.GET)
    public ModelAndView mypost5(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/mypost5");
 	  List<Board> boardl = null;
-	  boardl = memberService.setboardlist(memKey,cri.getPageStart(),cri.getPerPageNum());
-	  int boardCount = memberService.Boardcount(memKey);
+	  boardl = memberService.setboardlist4(memKey,cri.getPageStart(),cri.getPerPageNum());
+	  int boardCount = memberService.Boardcount4(memKey);
 		PageMaker pageMaker = new PageMaker();
   		pageMaker.setCri(cri);
   		pageMaker.setTotalCount(boardCount);
@@ -303,7 +307,7 @@ public class MemberController {
       return mav;
    }
    
-
+   //자유 게시판
    @RequestMapping(value = "/myreply", method = RequestMethod.GET) 
    public ModelAndView myreplelist(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/myreply");
@@ -317,13 +321,13 @@ public class MemberController {
  		mav.addObject("pageMaker", pageMaker); 
 	   return mav;
    }
-
+   //인기 게시판
    @RequestMapping(value = "/myreply2", method = RequestMethod.GET) 
    public ModelAndView myreplelist2(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/myreply2");
 	   List<Reple> hrep = null;
-	   hrep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
-	   int replecount = memberService.Replecount(memKey);
+	   hrep  = memberService.gethotreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
+	   int replecount = memberService.hotReplecount(memKey);
 			PageMaker pageMaker = new PageMaker();
 	  		pageMaker.setCri(cri);
 	  		pageMaker.setTotalCount(replecount);
@@ -332,13 +336,13 @@ public class MemberController {
 	   return mav;
 
    }
-
+   //게임 게시판
    @RequestMapping(value = "/myreply3", method = RequestMethod.GET) 
    public ModelAndView myreplelist3(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/myreply3");
 	   List<Reple> rep = null;
-	   rep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
-		  int replecount = memberService.Replecount(memKey);
+	   rep  = memberService.setreplelist2(memKey,cri.getPageStart(),cri.getPerPageNum());
+		  int replecount = memberService.Replecount2(memKey);
 			PageMaker pageMaker = new PageMaker();
 	  		pageMaker.setCri(cri);
 	  		pageMaker.setTotalCount(replecount);
@@ -346,13 +350,13 @@ public class MemberController {
  		mav.addObject("pageMaker", pageMaker); 
 	   return mav;
    }
-
+   //맛집 게시판
    @RequestMapping(value = "/myreply4", method = RequestMethod.GET) 
    public ModelAndView myreplelist4(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/myreply4");
 	   List<Reple> rep = null;
-	   rep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
-		  int replecount = memberService.Replecount(memKey);
+	   rep  = memberService.setreplelist3(memKey,cri.getPageStart(),cri.getPerPageNum());
+		  int replecount = memberService.Replecount3(memKey);
 			PageMaker pageMaker = new PageMaker();
 	  		pageMaker.setCri(cri);
 	  		pageMaker.setTotalCount(replecount);
@@ -360,13 +364,13 @@ public class MemberController {
  		mav.addObject("pageMaker", pageMaker); 
 	   return mav;
    }
-
+   //여행 게시판
    @RequestMapping(value = "/myreply5", method = RequestMethod.GET) 
    public ModelAndView myreplelist5(@RequestParam("memKey")int memKey,Criteria cri) {
 	   ModelAndView mav = new ModelAndView("/mypage/myreply5");
 	   List<Reple> rep = null;
-	   rep  = memberService.setreplelist(memKey,cri.getPageStart(),cri.getPerPageNum());
-		  int replecount = memberService.Replecount(memKey);
+	   rep  = memberService.setreplelist4(memKey,cri.getPageStart(),cri.getPerPageNum());
+		  int replecount = memberService.Replecount4(memKey);
 			PageMaker pageMaker = new PageMaker();
 	  		pageMaker.setCri(cri);
 	  		pageMaker.setTotalCount(replecount);

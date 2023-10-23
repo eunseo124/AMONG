@@ -109,11 +109,47 @@ public class MemberServiceImpl implements MemberService {
 		 board = memberRepository.setboardlist(memKey,startPage,perPageNum);
 		 return board;
 	 }
+	 
+	 public List<Board> setboardlist2(int memKey,int startPage, int perPageNum) {
+		 List<Board> board = null;
+		 board = memberRepository.setboardlist2(memKey,startPage,perPageNum);
+		 return board;
+	 }
+	 
+	 public List<Board> setboardlist3(int memKey,int startPage, int perPageNum) {
+		 List<Board> board = null;
+		 board = memberRepository.setboardlist3(memKey,startPage,perPageNum);
+		 return board;
+	 }
+	 
+	 public List<Board> setboardlist4(int memKey,int startPage, int perPageNum) {
+		 List<Board> board = null;
+		 board = memberRepository.setboardlist4(memKey,startPage,perPageNum);
+		 return board;
+	 }
 	
 
 	 public List<Reple> setreplelist(int memKey,int startPage, int perPageNum) {
 		 List<Reple> rep = null;
 		 rep = memberRepository.setreplelist(memKey,startPage,perPageNum);
+		 return rep;
+	 }
+	 
+	 public List<Reple> setreplelist2(int memKey,int startPage, int perPageNum) {
+		 List<Reple> rep = null;
+		 rep = memberRepository.setreplelist2(memKey,startPage,perPageNum);
+		 return rep;
+	 }
+	 
+	 public List<Reple> setreplelist3(int memKey,int startPage, int perPageNum) {
+		 List<Reple> rep = null;
+		 rep = memberRepository.setreplelist3(memKey,startPage,perPageNum);
+		 return rep;
+	 }
+	 
+	 public List<Reple> setreplelist4(int memKey,int startPage, int perPageNum) {
+		 List<Reple> rep = null;
+		 rep = memberRepository.setreplelist4(memKey,startPage,perPageNum);
 		 return rep;
 	 }
 	 
@@ -140,9 +176,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
-	public List<Reple> getreplelist(int memKey,int startPage, int perPageNum){
+	public List<Reple> gethotreplelist(int memKey,int startPage, int perPageNum){
 		List<Reple> hreple = null;
-		hreple = memberRepository.getreplelist(memKey,startPage,perPageNum);
+		hreple = memberRepository.gethotreplelist(memKey,startPage,perPageNum);
 		return hreple;
 	}
 	
@@ -171,10 +207,58 @@ public class MemberServiceImpl implements MemberService {
 		return countbo;
 	}
 	
+	public int Boardcount2(int memKey) {
+		
+		 int countbo = memberRepository.Boardcount2(memKey);
+		return countbo;
+	}
+	
+	public int Boardcount3(int memKey) {
+		
+		 int countbo = memberRepository.Boardcount3(memKey);
+		return countbo;
+	}
+	
+	public int Boardcount4(int memKey) {
+		
+		 int countbo = memberRepository.Boardcount4(memKey);
+		return countbo;
+	}
+	
+	public int hotBoardcount(int memKey) {
+		
+		 int countbo = memberRepository.hotBoardcount(memKey);
+		return countbo;
+	}
+	
 
 	public int Replecount(int memKey) {
 		
 		 int countre = memberRepository.Replecount(memKey);
+		return countre;
+	}
+	
+	public int Replecount2(int memKey) {
+		
+		 int countre = memberRepository.Replecount2(memKey);
+		return countre;
+	}
+	
+	public int Replecount3(int memKey) {
+		
+		 int countre = memberRepository.Replecount3(memKey);
+		return countre;
+	}
+	
+	public int Replecount4(int memKey) {
+		
+		 int countre = memberRepository.Replecount4(memKey);
+		return countre;
+	}
+	
+	public int hotReplecount(int memKey) {
+		
+		 int countre = memberRepository.hotReplecount(memKey);
 		return countre;
 	}
 }

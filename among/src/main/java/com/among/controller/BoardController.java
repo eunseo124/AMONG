@@ -58,30 +58,14 @@ public class BoardController {
 		public ModelAndView opengameBoardList(Criteria cri) throws Exception{
 			
 			ModelAndView mav = new ModelAndView("/board/gameboard");		
-			int boardCount = boardService.countBoardList();
+			int boardCount = boardService.countBoardList2();
 			PageMaker pageMaker = new PageMaker();
 	    		pageMaker.setCri(cri);
 	    		pageMaker.setTotalCount(boardCount);
 
-			List<Board> list = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+			List<Board> list = boardService.getAllBoardList2(cri.getPageStart(),cri.getPerPageNum());
 			mav.addObject("boardList", list);  
 			mav.addObject("pageMaker", pageMaker);
-			return mav; 
-		}
-
-		//travleboard
-		@RequestMapping(value = "/travleboard")
-		public ModelAndView opentravleBoardList(Criteria cri) throws Exception{
-			
-			ModelAndView mav = new ModelAndView("/board/travleboard");		
-			int boardCount = boardService.countBoardList();
-			PageMaker pageMaker = new PageMaker();
-	    		pageMaker.setCri(cri);
-	    		pageMaker.setTotalCount(boardCount);
-
-			List<Board> list = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
-			mav.addObject("boardList", list);  
-			mav.addObject("pageMaker", pageMaker); 
 			return mav; 
 		}
 
@@ -90,23 +74,38 @@ public class BoardController {
 		public ModelAndView openfoodBoardList(Criteria cri) throws Exception{
 			
 			ModelAndView mav = new ModelAndView("/board/foodboard");		
-			int boardCount = boardService.countBoardList();
+			int boardCount = boardService.countBoardList3();
 			PageMaker pageMaker = new PageMaker();
 	    		pageMaker.setCri(cri);
 	    		pageMaker.setTotalCount(boardCount);
 
-			List<Board> list = boardService.getAllBoardList(cri.getPageStart(),cri.getPerPageNum());
+			List<Board> list = boardService.getAllBoardList3(cri.getPageStart(),cri.getPerPageNum());
 			mav.addObject("boardList", list);  
 			mav.addObject("pageMaker", pageMaker);
 			return mav; 
 		}
 		
+		//travleboard
+		@RequestMapping(value = "/travleboard")
+		public ModelAndView opentravleBoardList(Criteria cri) throws Exception{
+			
+			ModelAndView mav = new ModelAndView("/board/travleboard");		
+			int boardCount = boardService.countBoardList4();
+			PageMaker pageMaker = new PageMaker();
+	    		pageMaker.setCri(cri);
+	    		pageMaker.setTotalCount(boardCount);
+
+			List<Board> list = boardService.getAllBoardList4(cri.getPageStart(),cri.getPerPageNum());
+			mav.addObject("boardList", list);  
+			mav.addObject("pageMaker", pageMaker); 
+			return mav; 
+		}
 	//인기게시판
 	@GetMapping("/hotboard")
 	public ModelAndView hotBoardList(Criteria cri) throws Exception { 
 		
 		ModelAndView mav = new ModelAndView("/board/hotboard");
-		int boardCount = boardService.countBoardList();
+		int boardCount = boardService.counthotBoardList();
 		PageMaker pageMaker = new PageMaker();
     		pageMaker.setCri(cri);
     		pageMaker.setTotalCount(boardCount);

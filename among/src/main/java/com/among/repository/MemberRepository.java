@@ -42,7 +42,19 @@ public interface MemberRepository {
 	
 	List<Board> setboardlist(int memKey,int startPage, int perPageNum);
 
+	List<Board> setboardlist2(int memKey,int startPage, int perPageNum);
+	
+	List<Board> setboardlist3(int memKey,int startPage, int perPageNum);
+
+	List<Board> setboardlist4(int memKey,int startPage, int perPageNum);
+	
 	List<Reple> setreplelist(int memKey,int startPage, int perPageNum);
+	
+	List<Reple> setreplelist2(int memKey,int startPage, int perPageNum);
+	
+	List<Reple> setreplelist3(int memKey,int startPage, int perPageNum);
+	
+	List<Reple> setreplelist4(int memKey,int startPage, int perPageNum);
 
 	void setdeleteReple(int repleKey); 
 	
@@ -50,7 +62,7 @@ public interface MemberRepository {
 
 	void setdelboard(Board delboard); 
 	
-	List<Reple> getreplelist(int memKey,int startPage, int perPageNum);
+	List<Reple> gethotreplelist(int memKey,int startPage, int perPageNum);
 	
 	Board boardcount(int memKey); 
 	
@@ -60,6 +72,22 @@ public interface MemberRepository {
 	
 	int Boardcount(int memKey); 
 	
+	int Boardcount2(int memKey); 
+	
+	int Boardcount3(int memKey); 
+	
+	int Boardcount4(int memKey); 
+
+	int hotBoardcount(int memKey); 
+	
 	int Replecount(int memKey); 
+	
+	int Replecount2(int memKey); 
+	
+	int Replecount3(int memKey); 
+	
+	int Replecount4(int memKey); 
+	
+	int hotReplecount(int memKey); 
 	
 }
