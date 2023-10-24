@@ -227,8 +227,7 @@ list-style :none;}
         		        <th>Name</th>		       
         		        <th>ID</th>
         		        <th>Grade</th>
-        		        <th>Detail</th>
-        		        <th>Delete</th>         		          		                		        
+        		        <th>Detail</th>    		          		                		        
         		       </tr>
         		      </thead>
         		      <tbody>
@@ -245,7 +244,6 @@ list-style :none;}
                        </c:choose>
 		                </td>
         		        <td><button><a href="<c:url value="/admin_member_info?id=${Member.memId}" />">View</a></button></td>
-        		        <td><button><a href="<c:url value="javascript:deleteConfirm('${Member.memId}')"/>" class="material-symbols-outlined">Delete</a></button></td>
         		       </tr> 
           		       </c:forEach>   		               		               		               		               		               		       
         		      </tbody>
