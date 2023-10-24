@@ -109,7 +109,7 @@ public class RepleRepositoryImpl implements RepleRepository {
     public List<Board> setboardlist(int boardKey) {
        List<Board> board = null;
       
-         String SQL = "SELECT boardKey, boardTitle, member.nName, boardView,(SELECT COUNT(*) FROM reple WHERE board.boardKey) AS repleCount, "
+         String SQL = "SELECT boardKey, boardTitle, member.nName, boardView,(SELECT COUNT(*) FROM reple WHERE reple.boardKey= "+boardKey+") AS repleCount, "
          		+ "boardContent,boardImg,board.repleKey,board.memKey,boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory "
          		+ "FROM board INNER JOIN member ON board.memKey = member.memKey where board.boardKey = "+boardKey+" ORDER BY boardRegDate";
          board = template.query(SQL, new RowMapper<Board>() {
