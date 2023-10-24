@@ -491,9 +491,8 @@ public class MemberRepositoryImpl implements MemberRepository {
    //reple delete method
    public void setdeleteReple(int repleKey) {  
    	
-       String SQL = "DELETE from reple where repleKey = " +repleKey;
-       
-       this.template.update(SQL);
+       String SQL = "DELETE from reple where repleKey = " + repleKey;
+       template.update(SQL);
    }
    
 
@@ -508,7 +507,7 @@ public class MemberRepositoryImpl implements MemberRepository {
    public Board boardcount(int memKey) {
 	   Board countbo = new Board();
 	   String SQL = "SELECT COUNT(*) from board b INNER JOIN member m ON b.memKey = m.memKey "
-	   		+ "WHERE b.memKey = " + memKey;
+	   		+ "WHERE b.delYn = 'N' and b.memKey = " + memKey;
 	   countbo = template.queryForObject(SQL, new RowMapper<Board>() {
 		@Override
 		public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -526,7 +525,8 @@ public class MemberRepositoryImpl implements MemberRepository {
    public Reple replecount(int memKey) {
 	   Reple countre = new Reple();
 	   String SQL = "SELECT COUNT(*) from reple r INNER JOIN member m ON r.memKey = m.memKey "
-	   		+ "WHERE r.memKey = " + memKey;
+	   		+ "inner join board b on r.boardKey = b.boardKey "
+	   		+ "WHERE b.delYn = 'N' and r.memKey = " + memKey;
 	   countre = template.queryForObject(SQL, new RowMapper<Reple>() {
 
 		@Override

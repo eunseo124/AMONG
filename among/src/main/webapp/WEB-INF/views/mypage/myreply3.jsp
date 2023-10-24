@@ -115,8 +115,11 @@
 	                                        <input type="hidden" value = "${rep.boardCategory}">
 	                                        <input type="hidden" value = "${rep.boardKey}">
 	                                        <input type="hidden" value = "${rep.memKey}">
+	                                        <form method = "post" action = "repledelete">
+	                                        <input type="hidden" value = "${rep.memKey}" id = "memKey" name = "memKey">
+	                                        <input type="hidden" value = "${rep.repleKey}" id = "repleKey" name = "repleKey">
 	                                        <div><input type="submit" value="삭제"></div>
-	                                   		
+	                                   		</form>
 	                                    </div>
 	                                    </c:when>
 	                                    </c:choose>

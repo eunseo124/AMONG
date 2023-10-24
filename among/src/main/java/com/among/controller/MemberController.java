@@ -380,7 +380,8 @@ public class MemberController {
    }
 
    @PostMapping("/repledelete")
-   public String replede(@ModelAttribute("memKey")int repleKey,int memKey) {
+   public String replede(@ModelAttribute("memKey")int memKey,int repleKey) {
+	   System.out.println("memKey = " + memKey + ", repleKey = "+repleKey);
 	   memberService.setdeleteReple(repleKey);
 	   return "redirect:/mypage?memKey = "+ memKey;
 	   

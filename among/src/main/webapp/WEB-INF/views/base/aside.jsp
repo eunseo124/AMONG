@@ -74,7 +74,7 @@
                    <img src="resources/images/banner.jpg" class = "img">
                </section>
                <section id = "banner2">
-                   <img src="resources/images/banner.jpg" class = "img">
+                   <img src="resources/images/banner3.jpg" class = "img">
                </section>
 
 

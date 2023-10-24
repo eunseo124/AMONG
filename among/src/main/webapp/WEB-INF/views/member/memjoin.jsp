@@ -234,11 +234,6 @@
 		}; 
 		});
 		});
-		function as() {
-			window.location.href="<c:url value='/member/memjoin_false'/>" 
-			alert("공백없이 입력해주세요");
-		}
-
 		
 </script>
 
