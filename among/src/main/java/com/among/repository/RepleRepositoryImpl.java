@@ -109,9 +109,11 @@ public class RepleRepositoryImpl implements RepleRepository {
     public List<Board> setboardlist(int boardKey) {
        List<Board> board = null;
       
-         String SQL = "SELECT * FROM board a inner join member b ON a.memKey = b.memKey where boardKey = "+ boardKey;
+         String SQL = "SELECT boardKey, boardTitle, member.nName, boardView,(SELECT COUNT(*) FROM reple WHERE board.boardKey) AS repleCount, "
+         		+ "boardContent,boardImg,board.repleKey,board.memKey,boardRecommend, boardRegDate, boardModifyDate, member.memGrade, boardCategory "
+         		+ "FROM board INNER JOIN member ON board.memKey = member.memKey where board.boardKey = "+boardKey+" ORDER BY boardRegDate";
          board = template.query(SQL, new RowMapper<Board>() {
-               @Override
+               
                public Board mapRow(ResultSet rs, int rowNum) {
                   Board bo = new Board();
                   try {
@@ -129,6 +131,7 @@ public class RepleRepositoryImpl implements RepleRepository {
                      bo.setBoardModifyDate(rs.getDate("boardModifyDate"));
                      bo.setMemKey(rs.getInt("memKey"));
                      bo.setBoardKey(rs.getInt("boardKey"));
+                     bo.setRepleCount(rs.getInt("repleCount"));
                      
                } catch (SQLException e) {
                   // TODO Auto-generated catch block
