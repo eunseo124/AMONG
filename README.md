@@ -3,24 +3,22 @@
 
 [Spring framework MVC 패턴 사용]
 
-이름: AMONG
+1.프로젝트 <AMONG>
+● 개발기간:2023.09.11~2023.10.24
+● 소개:다양한 주제의 관심사에 대해 다수와 소통 할 수 있는 커뮤니티 사이트
+● 시연 영상 URL(유튜브):https://youtu.be/4qtwUijaK6M
+● [프로젝트PPT.pptx](https://github.com/eunseo124/AMONG/files/13161620/PPT.pptx)
 
-기간: 2023.09.11~
+2.개발환경 
+● Front-End:JavaScript,HTML,JSP,CSS 
+● DataBase:MySQL,HeidiSQL
+● Back-End:Java
+● 협업툴:Slack,GitHub
+-GitHub URL:https://github.com/eunseo124/AMONG.git
 
-팀장:조은서
-
-팀원:김민규,최대한,한성웅
-
-소개: 다양한 주제의 관심사를 한 사이트에서 간편하게 즐길 수 있는 커뮤니티 사이트
-
-개발환경: Java,JavaScript,HTML,JSP,CSS,MySQL,HeidiSQL,Slack,GitHub
-
-GitHub URL : https://github.com/eunseo124/AMONG.git
-
-시연 영상 URL :
-
-프론트는 JavaScript,HTML,JSP,CSS 활용하였으며, 
-
-백엔드는 Java를 활용하였습니다.
-
-DB는 MySQL을 활용하였습니다.
+3.프로젝트 인원구성 및 담당역할
+● 조은서(팀장):마이페이지 - 회원정보 및 작성한 게시글&댓글 조회,삭제기능
+              회원가입&로그인 - 회원가입 및 로그인 기능, 비밀번호 찾기     
+● 최대한:관리자페이지 - 회원,게시글,댓글 수정 및 삭제 기능
+● 한선웅:상세페이지 - 댓글 기능 담당
+● 김민규:게시판 - 글작성 및 글수정 기능 담당
