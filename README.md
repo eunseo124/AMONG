@@ -16,11 +16,11 @@
 
 ### 2.개발환경 
 
-● Front-End : JavaScript,HTML,JSP,CSS 
+● Front-End : JavaScript,HTML,JSP,CSS,ajax,jQuery
 
 ● DataBase : MySQL,HeidiSQL
 
-● Back-End : Java
+● Back-End : Java,Spring framework
 
 ● 협업툴 : Slack,GitHub
 
